@@ -10,7 +10,7 @@
 | Meta description | Facebook Reels no longer stop at 90 seconds. Get the 2026 length limits, the specs to check before you post, and the run times that actually get watched. | 153 chars, in the 150-160 band |
 | URL slug | `facebook-reel-length` | Short, keyword-rich, no stop words |
 | H1 | How Long Can a Facebook Reel Be? 2026 Limits and Best Run Times | Mirrors the title tag |
-| Word count | 1,285 total / 1,017 prose (preflight count) | Brief: 800-1,000, +25% tolerance approved |
+| Word count | 1,304 total / 1,036 prose (preflight count) | Brief: 800-1,000, +25% tolerance approved |
 | Point of view | Second person | Per brief |
 | Structure | Subheads, APA title case | Per brief and checklist |
 

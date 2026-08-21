@@ -28,8 +28,14 @@ def scan(text):
     rules = D.load_rules()
     weights = state["weights"]
 
-    doc_hits = D.document_hits(text, rules)
+    all_doc_hits = D.document_hits(text, rules)
     sents = D.sentences(text)
+
+    # Parallelism is measured across the document but repaired one sentence at
+    # a time, so it is attributed to the sentences it matched rather than to the
+    # document penalty. Counting it in both would double-charge it.
+    doc_hits = [h for h in all_doc_hits if not h.signal.startswith("parallel_")]
+    parallel = [h for h in all_doc_hits if h.signal.startswith("parallel_")]
 
     per_sentence = []
     for s in sents:
@@ -40,6 +46,14 @@ def scan(text):
             "risk": round(min(100.0, score), 1),
             "hits": [h.to_dict() for h in hits],
         })
+
+    for h in parallel:
+        for idx in h.members:
+            if 0 <= idx < len(per_sentence):
+                per_sentence[idx]["risk"] = round(
+                    min(100.0, per_sentence[idx]["risk"]
+                        + weights.get(h.signal, 13.0) * max(h.magnitude, 0.6)), 1)
+                per_sentence[idx]["hits"].append(h.to_dict())
 
     # No floor on the magnitude. Document signals already emit a scaled 0-1
     # magnitude, so flooring them made a signal that barely crossed its

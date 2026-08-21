@@ -54,9 +54,11 @@ and owned by whoever publishes.
 - [x] **At least one external authoritative source cited** - two, TechCrunch and
   Social Media Today.
 - [x] **Avoid generic AI-sounding sentences, be specific and product-grounded** -
-  all 11 `zerogpt_preflight.py` gates pass and `scan.py` scores 0.1/100 with no
-  sentence-level hits. Grounded in the exact specs SocialBee's Reels publishing
-  enforces rather than generic advice. See `humanizer-pass.md`.
+  scored at 23.4% by ZeroGPT on the first run, then rewritten against every
+  highlighted sentence. All 11 `zerogpt_preflight.py` gates pass and `scan.py`
+  scores 0.6/100 with no sentence-level hits. Grounded in the exact specs
+  SocialBee's Reels publishing enforces rather than generic advice. Needs a
+  second detector run to confirm. See `humanizer-pass.md`.
 
 ## 6. Internal linking
 

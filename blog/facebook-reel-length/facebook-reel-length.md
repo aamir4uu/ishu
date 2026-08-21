@@ -1,16 +1,16 @@
 # How Long Can a Facebook Reel Be? 2026 Limits and Best Run Times
 
-**Short answer:** A Facebook Reel can now run past the old 90-second cap. Meta retired that limit in June 2025 when every Facebook video became a Reel, so uploaded Reels have no fixed maximum on updated accounts. Recording inside the Facebook app still stops at 90 seconds, and the minimum is 3 seconds.
+**Short answer:** There isn't a fixed maximum any more. Meta scrapped the 90-second cap in June 2025, when it turned every Facebook video into a Reel, so an uploaded Reel can run as long as you want it to on an updated account. Record inside the app, though, and 90 seconds is still your ceiling. Minimum is 3.
 
 ## Key Takeaways
 
-- Uploaded Facebook Reels have no hard length ceiling anymore. The 90-second cap went away in June 2025.
-- Recording in the app still stops at 90 seconds, so anything longer has to be uploaded as a finished file.
-- The minimum is 3 seconds. SocialBee's direct publishing needs 4.
-- Between 15 and 60 seconds still performs best for most business content.
-- Facebook rewards completion, not duration. Cut to the length your point actually needs.
+- No hard ceiling on uploaded Reels since June 2025, when the 90-second cap was scrapped.
+- Filming in the app is the exception. It still cuts you off at 90 seconds, so anything longer has to be uploaded as a finished file.
+- Minimum: 3 seconds. SocialBee's direct publishing wants 4.
+- Most business Reels still do best somewhere between 15 and 60 seconds.
+- What Facebook rewards is completion, not duration. Cut to the length your point actually needs.
 
-You cut a video and now you're checking whether it'll fit. That answer changed recently, and a lot of the advice still circulating was written before it did.
+You cut a video and now you're checking whether it'll fit. That answer moved in 2025, and plenty of the advice still floating around predates the change.
 
 ## What's the Maximum Length of a Facebook Reel in 2026?
 
@@ -22,11 +22,11 @@ Two separate limits exist. One governs the video you upload from your computer, 
 
 ### Uploaded Reels: No Fixed Cap
 
-Upload a finished video file and Facebook no longer enforces a maximum duration. Meta confirmed in June 2025 that everything you post to Facebook except Stories and Live would publish as a Reel, and the 90-second restriction was dropped at that point. Horizontal footage gets shown in a vertical frame rather than refused.
+Send Facebook a finished video file and it stops enforcing any maximum duration at all. Meta confirmed in June 2025 that everything you post to Facebook except Stories and Live would publish as a Reel, and the 90-second restriction was dropped at that point. Horizontal footage gets shown in a vertical frame rather than refused.
 
-Meta rolled this out gradually by region and account type, which is why two people on the same team can open the same composer on the same day and see different limits. If yours still rejects anything over 90 seconds, you haven't been switched yet.
+Rollout was gradual, by region and by account type. Two colleagues can open the same composer on the same morning and be shown different limits. Still getting rejected over 90 seconds? Your account hasn't been switched.
 
-[TechCrunch covered the earlier jump to 90 seconds](https://techcrunch.com/2023/03/03/meta-rolls-out-new-facebook-reels-features-expands-max-video-length-to-90-seconds/) back in March 2023, and [Social Media Today reported the 2025 consolidation](https://www.socialmediatoday.com/news/facebook-renames-all-videos-reels/750973/) that removed the ceiling.
+[TechCrunch covered the earlier jump to 90 seconds](https://techcrunch.com/2023/03/03/meta-rolls-out-new-facebook-reels-features-expands-max-video-length-to-90-seconds/) in March 2023. Two years later came the consolidation that took the ceiling away entirely, [reported by Social Media Today](https://www.socialmediatoday.com/news/facebook-renames-all-videos-reels/750973/).
 
 ### Reels Recorded in the App: 90 Seconds
 
@@ -44,15 +44,15 @@ Facebook needs 3 seconds. Below that, it won't publish. Scheduling tools set the
 
 ## How Long Should a Facebook Reel Be?
 
-Being allowed to post a six-minute Reel doesn't make it a good idea.
+You can post a six-minute Reel. Whether anyone watches it is a different question.
 
-For most business content, aim for 15 to 60 seconds. That's enough room to make one clear point without losing anyone before the end. Match the run time to the job instead of the maximum:
+For most business content, aim somewhere between 15 and 60 seconds. That's enough room for one clear point, and short enough that people stay to the end of it. Match the run time to the job rather than to the maximum:
 
-1. **Hooks and single tips:** 7 to 15 seconds, with no setup.
-2. **Product demos and how-tos:** 30 to 60 seconds, enough for a real workflow.
-3. **Explainers and interviews:** 60 to 180 seconds, worth it only when your audience already knows you.
+1. **Hooks and single tips** live at 7 to 15 seconds. One idea, no setup, out.
+2. **Product demos and how-tos** usually need 30 to 60, because showing a real workflow takes that long.
+3. **Explainers and interviews** can run to three minutes. Only worth it once an audience already knows who you are.
 
-Padding is the mistake. A 45-second Reel stretched to 90 doesn't gain you 45 seconds of attention, it just gives viewers a clearly marked place to leave, usually right at the point where the video stops moving.
+Padding is the mistake. Stretch a 45-second Reel to 90 and you don't win 45 more seconds of attention, you just hand viewers a clearly marked place to leave, right at the point the video stops moving.
 
 ## Does Reel Length Affect Reach on Facebook?
 
@@ -60,7 +60,7 @@ Not directly. Facebook doesn't rank Reels by how long they are.
 
 It watches completion.
 
-A 25-second Reel that most viewers watch to the end sends a far stronger signal than a 90-second one that sheds half its audience in five seconds. Shorter Reels win because short videos are easier to finish, which is a different thing from the algorithm preferring them. Our breakdown of the [Facebook algorithm](https://socialbee.com/blog/facebook-algorithm/) covers what else gets weighted.
+Twenty-five seconds that people finish beats ninety that lose half the room in the first five. Shorter Reels win because short videos are easier to finish, which is a different thing from the algorithm preferring them. Our breakdown of the [Facebook algorithm](https://socialbee.com/blog/facebook-algorithm/) covers what else gets weighted.
 
 Then check your own numbers, because none of this beats your own data: sort your Reels analytics by average watch time, find where the drop-offs cluster, and cut to just before that point.
 
@@ -86,9 +86,9 @@ Posting across several platforms? Every one of them wants something slightly dif
 
 ## How to Schedule Facebook Reels With SocialBee
 
-Length decisions get easier when you aren't posting in a rush.
+Rushing is what makes you settle for the wrong length.
 
-SocialBee publishes Reels straight to your Facebook Pages, so you can queue a 12-second hook for Tuesday and a 60-second demo for Thursday without opening the app twice. Preview each one before it goes out, then drop it into a content category so your posting mix stays balanced. Personal profiles get a mobile notification at post time, caption copied and file ready.
+SocialBee publishes Reels straight to your Facebook Pages. Queue Tuesday's 12-second hook and Thursday's demo, which needs a full minute, in the same sitting without switching apps once. Each one gets a preview before it goes out, and content categories keep the mix from turning into five demos in a row. On a personal profile you get a mobile notification at post time instead, caption copied and file ready.
 
 Here's the full walkthrough: [how to schedule Reels on Facebook](https://socialbee.com/blog/can-you-schedule-reels-on-facebook/).
 
@@ -101,7 +101,7 @@ Yes, if you upload it as a finished file and your account has the June 2025 upda
 3 seconds. Through SocialBee's direct Facebook Page publishing, 4 seconds.
 
 **Why does my Facebook Reel still cap at 90 seconds?**
-Your account probably hasn't received the change yet. Upload a finished file rather than recording in the app, and check whether you're posting to a Page or a personal profile.
+Your account probably hasn't received the change yet. Try uploading a finished file instead of recording in the app, and check whether you're posting to a Page or a personal profile.
 
 **Do longer Facebook Reels get less reach?**
 Not because of their length. Fewer people finish them, and completion is what Facebook rewards.

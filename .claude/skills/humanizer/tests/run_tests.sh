@@ -100,4 +100,43 @@ print(f"   ok: template format parsed, score {meta['score']}, {len(spans)} spans
 PY
 
 echo
+echo "== 6. cross-sentence parallelism must still be detected =="
+python3 - <<'PY'
+import sys
+sys.path.insert(0, "scripts")
+import detectors as D
+
+# Verbatim from the 2026-08-21 ZeroGPT report, rows 9-11: three list items on
+# one template, all three highlighted while the numerals between them came back
+# clean. This is the regression guard for the signal that report produced.
+triad = """1. **Hooks and single tips:** 7 to 15 seconds, with no setup.
+2. **Product demos and how-tos:** 30 to 60 seconds, enough for a real workflow.
+3. **Explainers and interviews:** 60 to 180 seconds, worth it only when your audience already knows you.
+"""
+hits = [h for h in D.parallel_hits(D.sentences(triad))
+        if h.signal == "parallel_structure"]
+assert hits, "parallel_structure no longer fires on the flagged triad"
+
+# Rows 12-13: two sentences three paragraphs apart sharing an opening template
+# that differs only in its numbers. repeated_openers cannot see this.
+pair = """A 45-second Reel stretched to 90 doesn't gain you 45 seconds of attention.
+
+Something entirely different goes here to separate them properly.
+
+A 25-second Reel that most viewers watch to the end sends a far stronger signal.
+"""
+opens = [h for h in D.parallel_hits(D.sentences(pair))
+         if h.signal == "parallel_opening"]
+assert opens, "parallel_opening no longer fires on the flagged pair"
+
+# And it must not fire on two unrelated sentences that merely share a shape.
+noise = """Our free social media resources include planning templates.
+
+Whether anyone watches it is a different question.
+"""
+assert not D.parallel_hits(D.sentences(noise)), "parallelism over-fires on noise"
+print("   ok: triad and pair both detected, noise rejected")
+PY
+
+echo
 echo "ALL TESTS PASSED"

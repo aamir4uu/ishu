@@ -161,6 +161,53 @@ def is_placeholder(text):
     return bool(PLACEHOLDER.search(text.strip()))
 
 
+def scan_score_of(text):
+    """The scanner's own score for this draft, recorded next to the detector's.
+
+    The gap between the two is the honest measure of how much the model still
+    cannot see.
+    """
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import scan
+        return scan.scan(text)["score"]
+    except Exception:
+        return None
+
+
+def resolve_draft(draft, report_path):
+    """Find the scored file.
+
+    Reports record a repo-relative path, but the scripts are usually run from
+    the skill directory, so a bare open() fails. Try the obvious places in
+    order rather than making the caller cd around.
+    """
+    report_dir = os.path.dirname(os.path.abspath(report_path))
+    candidates = [
+        draft,
+        os.path.join(report_dir, draft),
+        os.path.join(MEMORY, "..", draft),
+    ]
+    # Walk up looking for the repo root, then try from there.
+    here = os.path.abspath(HERE if (HERE := os.path.dirname(MEMORY)) else ".")
+    for _ in range(6):
+        candidates.append(os.path.join(here, draft))
+        if os.path.isdir(os.path.join(here, ".git")):
+            break
+        parent = os.path.dirname(here)
+        if parent == here:
+            break
+        here = parent
+    for c in candidates:
+        c = os.path.normpath(c)
+        if os.path.isfile(c):
+            return c
+    raise SystemExit(
+        f"Draft not found: {draft}\nLooked in:\n  "
+        + "\n  ".join(os.path.normpath(c) for c in candidates)
+    )
+
+
 def match_spans(draft_sentences, spans):
     """Map each reported span onto the draft sentences it covers.
 
@@ -234,14 +281,23 @@ def recalibrate(weights, flagged_feats, clean_feats, lr=LEARNING_RATE):
 # ------------------------------------------------------------- rule mining
 
 def ngrams(sentence, lo=2, hi=5):
-    toks = [t for t in re.findall(r"[a-z']+", sentence.lower())]
+    # Numbers become "#" rather than vanishing. Dropping them turned
+    # "15 to 60 seconds" into the gram "to seconds", which is meaningless and
+    # promoted straight into the rule set on the first real report.
+    text = re.sub(r"\b\d[\d,.:]*\b", " # ", sentence.lower())
+    toks = [t for t in re.findall(r"#|[a-z']+", text)]
     out = set()
     for n in range(lo, hi + 1):
         for i in range(len(toks) - n + 1):
             gram = toks[i:i + n]
-            if all(t in STOPWORDS for t in gram):
+            if all(t in STOPWORDS or t == "#" for t in gram):
                 continue
             if gram[0] in STOPWORDS and gram[-1] in STOPWORDS:
+                continue
+            # Needs at least two real content words. Without this, a report
+            # about video lengths mines "to #" and "a #", which describe the
+            # subject matter rather than the writing.
+            if sum(1 for t in gram if t not in STOPWORDS and t != "#") < 2:
                 continue
             out.add(" ".join(gram))
     return out
@@ -436,10 +492,13 @@ def status():
     if state["history"]:
         print("\nZeroGPT score history (lower is better):")
         for h in state["history"]:
-            print(f"  s{h['session']:>3}  {h['date']}  "
-                  f"zerogpt={h.get('zerogpt_score', '?'):>5}  "
-                  f"scan={h.get('scan_score', '?'):>5}  "
-                  f"recall={h.get('recall', '?')}  {h.get('draft', '')}")
+            def cell(key, width=6):
+                v = h.get(key)
+                return f"{'-' if v is None else v!s:>{width}}"
+            print(f"  s{h.get('session', '?'):>3}  {str(h.get('date', '?')):>10}  "
+                  f"zerogpt={cell('zerogpt_score')}  "
+                  f"scan={cell('scan_score')}  "
+                  f"recall={cell('recall', 4)}  {h.get('draft', '')}")
     return 0
 
 
@@ -466,9 +525,7 @@ def main():
         print(f"Warning: no numeric ZeroGPT score in the report "
               f"(found {meta.get('score', 'nothing')!r}). Ingesting anyway, "
               f"but the score history will have a gap.")
-    draft_path = meta["draft"]
-    if not os.path.exists(draft_path):
-        raise SystemExit(f"Draft not found: {draft_path}")
+    draft_path = resolve_draft(meta["draft"], args.report)
     with open(draft_path, encoding="utf-8") as fh:
         text = fh.read()
 
@@ -479,10 +536,20 @@ def main():
     rules = D.load_rules()
     session = state["sessions"] + 1
 
+    # Parallelism is a document-level measurement attributed back to the
+    # sentences it matched. scan.py does the same thing, and if learn.py did
+    # not, every cross-sentence signal would show zero lift forever and could
+    # never earn a weight.
+    parallel_by_sentence = {}
+    for h in D.document_hits(text, rules):
+        if h.signal.startswith("parallel_"):
+            for idx in h.members:
+                parallel_by_sentence.setdefault(idx, []).append(h)
+
     flagged_feats, clean_feats = [], []
     missed, caught = [], []
     for i, s in enumerate(draft_sents):
-        hits = D.sentence_hits(s, rules)
+        hits = D.sentence_hits(s, rules) + parallel_by_sentence.get(i, [])
         sigs = [h.signal for h in hits]
         risk = sum(state["weights"].get(h.signal, 5.0) * h.magnitude
                    for h in hits)
@@ -550,7 +617,7 @@ def main():
         "date": meta.get("date", str(dt.date.today())),
         "draft": draft_path,
         "zerogpt_score": meta.get("score"),
-        "scan_score": None,
+        "scan_score": scan_score_of(text),
         "recall": recall,
         "flagged_spans": len(flagged_idx),
         "promoted_rules": len(promoted),

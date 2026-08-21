@@ -9,6 +9,7 @@ Keeping the detectors in one module means the scanner and the learner can never
 drift apart.
 """
 
+import collections
 import json
 import os
 import re
@@ -25,6 +26,7 @@ class Hit:
     span: str
     magnitude: float
     note: str = ""
+    members: tuple = ()
 
     def to_dict(self):
         return asdict(self)
@@ -254,6 +256,149 @@ CHATBOT = re.compile(
 )
 
 
+# --------------------------------------------------------- parallel structure
+
+FUNCTION_WORDS = set("""a an the and or but if of to in on for with at by from as is are was
+were be been being it its this that these those you your we our they their he she her them us
+not no so than then there here what which who how when where why can could should would will
+may might must do does did have has had i me my more most much many very just also into over
+under about across per each other some any it's you're don't isn't aren't won't can't""".split())
+
+NUMERAL = re.compile(r"\b\d[\d,.:]*\b")
+
+
+def shape_signature(sent):
+    """A sentence's grammatical shape, with the content stripped out.
+
+    Numbers collapse to '#' and content words to '*', so
+    "A 45-second Reel stretched to 90 ..." and
+    "A 25-second Reel that most viewers watch ..." come out with the same
+    opening even though they share almost no vocabulary. That is the thing a
+    perplexity model notices and a word-level check never will.
+    """
+    text = NUMERAL.sub(" # ", sent.lower())
+    toks = re.findall(r"#|[a-z']+", text)
+    skeleton = []
+    for t in toks:
+        if t == "#":
+            skeleton.append("#")
+        elif t in FUNCTION_WORDS:
+            skeleton.append(t)
+        else:
+            skeleton.append("*")
+    # Hyphens are word-internal ("how-tos", "45-second") and must not make two
+    # otherwise identical templates look different.
+    punct = "".join(c for c in sent if c in ":;,()")
+    punct = re.sub(r"(.)\1+", r"\1", punct)
+    return skeleton, punct, toks
+
+
+def opening_key(sent, n=4):
+    skeleton, _, toks = shape_signature(sent)
+    if len(toks) < n:
+        return None
+    # Mix the skeleton with the actual first word, so "A # * *" only matches
+    # another sentence that also literally starts with "a".
+    return (toks[0], tuple(skeleton[:n]))
+
+
+def skeleton_similarity(a, b):
+    """How much of one sentence's template survives in the other's.
+
+    Longest common subsequence over the full skeleton, not a bag of function
+    words. Order is the whole point: "<phrase>: # to # seconds, <qualifier>"
+    repeated three times is a template, and a set-overlap measure cannot see
+    the difference between that and two sentences that merely share the word
+    "to".
+    """
+    if not a or not b:
+        return 0.0
+    la, lb = len(a), len(b)
+    prev = [0] * (lb + 1)
+    for i in range(1, la + 1):
+        cur = [0] * (lb + 1)
+        ai = a[i - 1]
+        for j in range(1, lb + 1):
+            if ai == b[j - 1]:
+                cur[j] = prev[j - 1] + 1
+            else:
+                cur[j] = cur[j - 1] if cur[j - 1] >= prev[j] else prev[j]
+        prev = cur
+    return prev[lb] / max(la, lb)
+
+
+def parallel_hits(sents, window=4):
+    """Find sentences built to the same template as a neighbour.
+
+    Two checks, both learned from the 2026-08-21 ZeroGPT report, where every
+    highlighted passage was one half of a matched pair or triad:
+
+    * Matching openings anywhere in the document. Catches "A 45-second Reel ..."
+      against "A 25-second Reel ..." three paragraphs later.
+    * Matching skeletons among near neighbours. Catches a run of list items all
+      shaped "<phrase>: # to # seconds, <qualifier>".
+    """
+    hits = []
+    if len(sents) < 3:
+        return hits
+
+    shapes = [shape_signature(s) for s in sents]
+
+    by_open = {}
+    for i, s in enumerate(sents):
+        k = opening_key(s)
+        if k and len([t for t in k[1] if t != "*"]) >= 1:
+            by_open.setdefault(k, []).append(i)
+    for k, idxs in by_open.items():
+        if len(idxs) >= 2:
+            hits.append(Hit(
+                "parallel_opening",
+                f"{k[0]} " + " ".join(k[1][1:]),
+                float(len(idxs) - 1),
+                f"{len(idxs)} sentences open to the same template: "
+                + " / ".join(sents[i][:52] for i in idxs[:3]),
+                tuple(idxs),
+            ))
+
+    seen = set()
+    for i in range(len(sents)):
+        for j in range(i + 1, min(i + 1 + window, len(sents))):
+            if (i, j) in seen:
+                continue
+            sk_a, pu_a, tk_a = shapes[i]
+            sk_b, pu_b, tk_b = shapes[j]
+            if len(tk_a) < 6 or len(tk_b) < 6:
+                continue
+            if pu_a != pu_b:
+                continue
+            if sk_a.count("#") != sk_b.count("#"):
+                continue
+            longer = max(len(tk_a), len(tk_b))
+            if abs(len(tk_a) - len(tk_b)) / longer > 0.45:
+                continue
+            # Shape alone over-fires: two unrelated sentences can share a
+            # skeleton by accident. A real template repeat also shares an
+            # anchor, either a number in the same slot or a content word.
+            content_a = {t for t in tk_a if t not in FUNCTION_WORDS and t != "#"}
+            content_b = {t for t in tk_b if t not in FUNCTION_WORDS and t != "#"}
+            anchored = bool(content_a & content_b) or sk_a.count("#") > 0
+            if not anchored:
+                continue
+
+            sim = skeleton_similarity(sk_a, sk_b)
+            if sim >= 0.62:
+                seen.add((i, j))
+                hits.append(Hit(
+                    "parallel_structure",
+                    f"{sents[i][:46]} ... / {sents[j][:46]} ...",
+                    round(sim, 2),
+                    f"same punctuation, same numeral count, {sim:.0%} skeleton "
+                    f"overlap",
+                    (i, j),
+                ))
+    return hits
+
+
 # ------------------------------------------------------------------ memory IO
 
 def load_rules():
@@ -335,6 +480,8 @@ def default_state():
             "long_sentence": 3.0,
             "challenges_trope": 9.0,
             "generic_closer": 9.0,
+            "parallel_opening": 13.0,
+            "parallel_structure": 13.0,
         },
     }
 
@@ -462,6 +609,8 @@ def document_hits(text, rules=None):
         hits.append(Hit("bold_header_item",
                         "bulleted list of **Bold header:** items",
                         float(len(BOLD_HEADER_ITEM.findall(text)) - 2)))
+
+    hits.extend(parallel_hits(sents))
 
     if len(sents) >= 12:
         n_contr = len(CONTRACTION.findall(strip_markdown(text)))
