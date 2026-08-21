@@ -12,6 +12,7 @@ Prepared 21 August 2026 — **79 days before Diwali (Sunday 8 November 2026)**.
 | `02-naming-seo.md` | 37 shop names containing "Goyal", each scored out of 25 on keyword value, distinctiveness, domain, sayability and trademark strength. Names to avoid, and the seven registration steps |
 | `03-marketing-plan.md` | Channel stack ranked for a sub-₹10,000/month budget, a dated 90-day sprint to Diwali, the one paid campaign worth running, KPI sheet, and ready-to-send Hindi WhatsApp scripts |
 | `04-product-range-and-content.md` | The nine product categories a general lights shop carries, stock strategy, keyword map per category, and twelve content pieces to shoot |
+| `05-website-and-connectors.md` | The Lovable site build, why the map needs no API key, and which connectors are worth turning on |
 | `site/index.html` | Single-file bilingual landing page. Self-contained, deployable on any free host |
 
 ## Working name
