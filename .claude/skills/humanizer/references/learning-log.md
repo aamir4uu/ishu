@@ -33,6 +33,9 @@ two independent sightings.
 | Pattern | First seen | Sightings | Status |
 | --- | --- | --- | --- |
 | Tailing rhetorical triple used as a section opener, e.g. "You cap them, you channel them, and you price the overflow." | 2026-08-21, Sitejet SOP draft | 1 | Caught by the existing rule-of-three regex during drafting, before any detector run. Not yet a new pattern. Watch whether ZeroGPT highlights this shape specifically. |
+| Anaphora across consecutive paragraphs, e.g. three paragraphs opening "It is not X." / "It does not Y." | 2026-08-21, SolusVM HA failover draft | 1 | Caught by hand in the adversarial pass, not by the script. The opener gate measures the whole document and passed this at 7.6%. A positional check (same opener in N consecutive paragraphs) would catch it. Not automated yet. |
+| Enumerated preamble, e.g. "Three things stay constant." immediately before exactly three items | 2026-08-21, SolusVM HA failover draft | 1 | Announcing a count before a list. Distinct from the rule-of-three regex, which looks at "X, Y and Z" inside one sentence. Watch for it. |
+| Two-beat aphorism closing every section, e.g. "Started, not resumed." | 2026-08-21, SolusVM HA failover draft | 1 | One is voice. Three in a five-section piece is a shape. Also seen as the paragraph-variance culprit on the SolusVM storage piece, though that was a drafting observation rather than a detector highlight, so it does not count as a second sighting yet. |
 
 ## Threshold calibration history
 
@@ -48,6 +51,7 @@ two independent sightings.
 | 2026-08-21 | Sitejet: agency delivery SOP | 1,072 (cut from 2,956) | 0 of 11 at final pass | pending client run |
 | 2026-08-21 | Sitejet: website launch handover | 1,233 | 0 of 11 at final pass | pending client run | Second piece under v3.0. Failed three gates on first draft: paragraph variance, rule of three, and opener repetition. All three came from the same cause, a seven-item listicle structure that pushes every paragraph toward the same shape. Fixed without changing the structure. | First piece under v3.0. Forced one gate recalibration (sentence opener repetition). Client requires APA title case, which conflicts with pattern 17; resolved by excluding headings from the prose scan and compensating with a 22.7 per 1k contraction rate and 37% short sentences. Full report in `reports/2026-08-21-sitejet-agency-delivery-sop.md`. |
 | 2026-08-21 | SolusVM: shared vs local storage for VPS | 1,033 | 0 of 11 at final pass | pending client run | Third piece under v3.0, first for a different client and a different voice. Brand guide mandates a formal, documentation-like register, which pushes the contraction rate down; landed at 12.58 per 1k against 22.67 on the Sitejet piece and still passed. The adversarial pass broke the paragraph-variance gate: removing parallel two-beat constructions is a sentence-level edit that flattens paragraph shapes as a side effect. Full report in `reports/2026-08-21-solusvm-shared-vs-local-storage.md`. |
+| 2026-08-21 | SolusVM: HA failover | 1,029 | 0 of 11 at final pass | pending client run | Fourth piece under v3.0, second for SolusVM. Failed one gate on first draft (opener repetition, "the" x6 = 9.2%). Lowest contraction rate recorded so far at 5.83 per 1k, and it dipped to 4.85 mid-edit, which is the closest anything has come to that floor. Full report in `reports/2026-08-21-solusvm-ha-failover.md`. |
 
 ## Standing findings
 
@@ -106,6 +110,21 @@ a 3-sentence paragraph into one 5-sentence paragraph and cut an FAQ answer to a
 single sentence, and the gate went from 0.330 to 0.400 in one edit. This gate is
 stdev over mean of paragraph sentence counts, so add a very long paragraph and a
 very short one. Do not redistribute the middle.
+
+**Document-wide gates cannot see local clusters.** Three consecutive paragraphs
+opened "It is not X." on the SolusVM HA draft. The opener gate passed it at 7.6%
+of sentences, comfortably under the 9% cap, because four other paragraphs
+started differently and the average absorbed the run. Adjacency is what a reader
+and a detector both notice. Until a positional check exists, the adversarial
+pass is the only thing that catches this, which is another reason step 4 is not
+optional.
+
+**Refusing to invent a number is a detector fix.** The obvious move in an FAQ
+asking "how long does failover take" is to give a range. No figure could be
+verified, so the answer says to test it on your own hardware instead. That
+sentence is less predictable than any plausible range would have been, and it is
+also the only honest version. The brand guide's rule against unspecific
+performance claims and the perplexity signal want the same thing here.
 
 **A formal brand voice costs you contractions, and that is survivable.** The
 SolusVM guide asks for a register close to technical documentation. That halved

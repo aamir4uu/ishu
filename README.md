@@ -8,11 +8,13 @@ humanizer skill before delivery.
 | --- | --- | --- | --- | --- |
 | Sitejet | The Delivery SOP That Lets a 3-Person Agency Run Like a 10-Person One | 1,072 | 11/11 | `blog/delivery-sop/` |
 | Sitejet | What to Send a Client on Launch Day so They Never Email You Again | 1,233 | 11/11 | `blog/launch-day-handover/` |
-| SolusVM | Choosing Between Shared Storage and Local Storage for VPS Infrastructure | 1,033 | 11/11 | `blog/vps-storage-choice/` |
+| SolusVM | Choosing Between Shared Storage and Local Storage for VPS Infrastructure | 1,047 | 11/11 | `blog/vps-storage-choice/` |
+| SolusVM | What Happens When a Node Fails? A Look Inside SolusVM HA Failover | 1,029 | 11/11 | `blog/ha-failover/` |
 
-The two Sitejet pieces cross-link: the handover article points back at the
-delivery SOP as its stage five. Publish the SOP piece first, or fix that URL.
-The SolusVM piece is standalone.
+Both pairs cross-link. The Sitejet handover article points back at the delivery
+SOP as its stage five, so publish the SOP piece first or fix that URL. The two
+SolusVM pieces reference each other, so whichever publishes second, fix the
+first one's URL.
 
 Each folder holds the same six things: the .docx deliverable, the markdown
 source of record, a publishing pack with the checklist worked item by item,
@@ -102,8 +104,10 @@ register is documentation-like rather than promotional, VPS and iSCSI and thin
 provisioning are used without definition, and every performance claim carries a
 figure. "SolusVM" appears in the correct casing throughout.
 
-**Length:** 1,033 body words against a 800-1000 target with 25% headroom
-accepted, or roughly 1,130 including headings.
+**Length:** 1,047 body words against a 800-1000 target with 25% headroom
+accepted, or roughly 1,145 including headings. It grew by 14 words when the
+cross-link to the HA failover article was added to its FAQ; re-gated after that
+edit and still 11/11.
 
 **The angle:** the piece is built on a real product constraint rather than a
 generic pros-and-cons list. High Availability in SolusVM requires Shared LVM
@@ -126,6 +130,52 @@ to sell failover or sell oversubscription.
    the linked source.
 6. After publishing, link older SolusVM posts to this one and test the target
    query in ChatGPT, Perplexity and Gemini.
+
+## Blog: What Happens When a Node Fails? A Look Inside SolusVM HA Failover
+
+`blog/ha-failover/`, client: **SolusVM**
+
+| File | What it is |
+| --- | --- |
+| `What Happens When a Node Fails - A Look Inside SolusVM HA Failover.docx` | **Word deliverable.** Heading 1/2/3 styles, eight live hyperlinks, two image slots with hyperlinked "Image Source" captions. The question mark is dropped from the filename only; the H1 inside the document is the headline verbatim |
+| `solusvm-ha-failover.md` | Markdown source of record |
+| `seo-publishing-pack.md` | Metadata, the checklist worked item by item, brand guide compliance table, a note on the contraction rate, open items flagged |
+| `schema-markup.json` | Article (with a `citation` node), FAQPage, a six-step HowTo and SoftwareApplication JSON-LD as one `@graph` |
+| `image-manifest.md` | Two images, alt text, source URLs, upload steps, plus a swap suggestion since both are shared with the storage article |
+| `zerogpt-preflight-result.txt` | Detector gate results, 11/11 |
+
+**Length:** 1,029 body words against a 800-1000 target with 25% headroom
+accepted, or roughly 1,120 including headings.
+
+**The angle:** the honest version. HA failover is a restart, not a
+continuation, so customers' virtual servers reboot and in-memory state is lost.
+The piece walks the actual mechanism (storage lock, watchdog, grace period,
+evacuation) and then spends a full section on what HA does not do, because the
+brand guide asks for clear, honest communication and because "no downtime" is a
+promise a provider cannot keep.
+
+**Worth knowing:** detection runs off the shared storage lock rather than
+network reachability, which is why a switch outage will not trigger a false
+failover. That mechanism is the most useful thing in the article and it is the
+thing competitors' posts on this topic tend to skip.
+
+### Open items before publishing
+
+1. Confirm the primary keyword (`SolusVM HA failover`) and check its volume.
+   Task Info was N/A.
+2. Drop the two images in. `pexels.com` was blocked by the network egress proxy.
+   Both images are shared with the storage article, so swap one if the two
+   publish together. See `image-manifest.md`.
+3. Replace the placeholder author with a named person, role and personal
+   LinkedIn URL, in the post and in `schema-markup.json`.
+4. Verify the three SolusVM documentation URLs resolve. `docs.solusvm.com` was
+   blocked here, so they came from search results. Every mechanism they support
+   was confirmed in more than one result.
+5. Fix the cross-links between the two SolusVM articles once both have real URLs.
+6. Confirm the grace period wording matches your configuration UI. The article
+   treats it as an administrator-set value rather than quoting a default,
+   because no default could be verified from here.
+7. After publishing, test the target query in ChatGPT, Perplexity and Gemini.
 
 ## Tooling
 
@@ -179,7 +229,7 @@ script so it is caught automatically from then on. A gate that passed on text
 ZeroGPT then flagged is too loose and gets tightened, with the old and new
 values recorded. Nothing changes without a report behind it.
 
-Three pieces have been through it so far, all filed open pending a client-side
+Four pieces have been through it so far, all filed open pending a client-side
 ZeroGPT run. Nothing is scored yet, so no threshold has moved on detector
 evidence.
 
@@ -192,6 +242,12 @@ first. Both are recorded in the learning log. The SolusVM piece added a third fi
 the adversarial pass itself breaks the paragraph-variance gate, because the
 symmetric two-beat constructions you remove are the ones carrying the short
 paragraphs. Run the script after that pass, not only before it.
+
+The HA failover piece added a fourth: document-wide gates cannot see local
+clusters. Three consecutive paragraphs opened "It is not X." and the opener gate
+passed them at 7.6%, under its 9% cap, because the rest of the document averaged
+the run away. Adjacency is what a reader notices. Only the adversarial pass
+caught it, which is the argument for never skipping step 4.
 
 ### Usage
 

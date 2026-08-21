@@ -33,8 +33,10 @@ document. These were inferred from the headline and the SolusVM brand guide:
 ## Length
 
 Target was 800-1000 words with up to 25% over accepted. The article is
-**1,033 words** of body copy, or roughly 1,130 including headings and excluding
-image credit lines. That sits inside the accepted range.
+**1,047 words** of body copy, or roughly 1,145 including headings and excluding
+image credit lines. That sits inside the accepted range. It grew by 14 words
+after delivery when the cross-link to the HA failover article was added to the
+FAQ; it was re-gated after that edit and still passes 11/11.
 
 ## Checklist status
 
@@ -92,9 +94,9 @@ All in `schema-markup.json` as a single `@graph`. Split into separate
 
 | Item | Status |
 | --- | --- |
-| Minimum 3 internal links | Done. Four: the High Availability doc, the Shared LVM storage doc, the migration doc, and the features page in the CTA. |
-| Anchor text uses exact or partial-match keywords | Done. "High Availability in SolusVM", "SolusVM's Shared LVM implementation", "move a server between storage types later", "See how SolusVM handles storage, migration and High Availability". No "click here". |
-| Update older posts to link to this one | **Open.** Post-publish task. |
+| Minimum 3 internal links | Done. Five: the High Availability doc, the Shared LVM storage doc, the migration doc, the companion HA failover article, and the features page in the CTA. |
+| Anchor text uses exact or partial-match keywords | Done. "High Availability in SolusVM", "SolusVM's Shared LVM implementation", "move a server between storage types later", "what happens during an HA failover", "See how SolusVM handles storage, migration and High Availability". No "click here". |
+| Update older posts to link to this one | **Open.** Post-publish task. Note the reverse direction is already done: this article now links forward to the HA failover piece from its FAQ. |
 
 ### 7. GEO
 
@@ -131,5 +133,8 @@ All in `schema-markup.json` as a single `@graph`. Split into separate
 5. Spot-check the SPDK iSCSI IOPS figures and the NVMe latency ranges against
    the linked source before publishing, since the pages themselves could not be
    opened from here.
-6. After publishing, link older SolusVM posts to this one and test the target
+6. Fix the cross-link to the HA failover article once that piece has a real URL.
+   The two SolusVM articles reference each other, so whichever publishes second,
+   fix the first one's URL.
+7. After publishing, link older SolusVM posts to this one and test the target
    query in ChatGPT, Perplexity and Gemini.

@@ -1,0 +1,168 @@
+{
+  "_comment": "Client reference only, per AEO/SEO checklist section 4. Replace author, dates, publisher logo and the article URL before deploying. Deploy as separate <script type=\"application/ld+json\"> blocks or as the @graph below.",
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://www.solusvm.com/blog/solusvm-ha-failover#article",
+      "headline": "What Happens When a Node Fails? A Look Inside SolusVM HA Failover",
+      "description": "Inside SolusVM HA failover: how the storage lock detects a dead node, what happens to your virtual servers, and what HA will not do for you. Updated 2026.",
+      "url": "https://www.solusvm.com/blog/solusvm-ha-failover",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.solusvm.com/blog/solusvm-ha-failover"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "REPLACE WITH NAMED AUTHOR",
+        "jobTitle": "REPLACE WITH ROLE",
+        "url": "REPLACE WITH PERSONAL LINKEDIN URL"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "SolusVM",
+        "url": "https://www.solusvm.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "REPLACE WITH PUBLISHER LOGO URL"
+        }
+      },
+      "datePublished": "REPLACE WITH PUBLISH DATE (ISO 8601)",
+      "dateModified": "REPLACE WITH LAST MODIFIED DATE (ISO 8601)",
+      "image": "REPLACE WITH UPLOADED HERO IMAGE URL",
+      "keywords": [
+        "SolusVM HA failover",
+        "failover domain",
+        "high availability VPS",
+        "compute resource failure",
+        "storage lock",
+        "watchdog",
+        "disaster recovery",
+        "Shared LVM"
+      ],
+      "articleSection": "VPS Infrastructure",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "Blog",
+        "@id": "https://www.solusvm.com/blog/"
+      },
+      "citation": {
+        "@type": "CreativeWork",
+        "name": "Backblaze Drive Stats for 2025",
+        "url": "https://www.backblaze.com/blog/backblaze-drive-stats-for-2025/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.solusvm.com/blog/solusvm-ha-failover#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How Long Does a SolusVM HA Failover Take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Detection is bounded by the watchdog and the grace period you configure, then each virtual server boots. Budget the grace period plus a normal cold boot per server, and test it on your own hardware rather than trusting an estimate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will Customers Notice a Failover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Their server reboots and any in-memory state is lost. What they will not have to do is change an IP address or restore a backup themselves."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a Network Outage Trigger a False Failover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not on its own. If the compute resource still holds its storage lock, SolusVM considers it active even when the management node cannot reach it. Evacuation waits on lock expiry, not on reachability."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do Virtual Servers Move Back Automatically After the Node Recovers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. They keep running where HA placed them. Moving them back to the original compute resource is a manual action."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How Many Compute Resources Can One Failover Domain Hold?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Up to 2,000. Capacity headroom becomes the real limit long before that number does."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.solusvm.com/blog/solusvm-ha-failover#howto",
+      "name": "How to Set Up a SolusVM High Availability Failover Domain",
+      "description": "The prerequisites a SolusVM failover domain needs before HA will evacuate virtual servers off a failed compute resource.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Enable High Availability protection globally",
+          "text": "HA protection has to be enabled globally before any failover domain configuration takes effect."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Put at least two compute resources in the domain",
+          "text": "A failover domain needs at least two compute resources. A domain of one has nowhere to evacuate to."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Standardise the domain on KVM and shared storage",
+          "text": "Every compute resource in the domain must run KVM virtual servers on Shared LVM over iSCSI or NFS. Virtuozzo compute resources are not supported, even when the servers on them are KVM."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Give the domain its own dedicated storage",
+          "text": "Use one shared storage backend per failover domain. Sharing a single storage backend across two domains is not a supported setup."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Leave capacity headroom on every node",
+          "text": "Each compute resource needs enough free CPU and memory to run the virtual servers evacuated from a failed peer. Four nodes at 90% utilisation have nowhere to place anything."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Configure Disaster Recovery alongside it",
+          "text": "If HA cannot place a virtual server and that server has a valid backup, Disaster Recovery recreates and restores it onto healthy compute resources one at a time. Test the restore path before you need it."
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.solusvm.com/#software",
+      "name": "SolusVM",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Virtualization and Infrastructure Management",
+      "operatingSystem": "Linux",
+      "url": "https://www.solusvm.com/",
+      "description": "SolusVM is a virtualization and infrastructure management platform for hosting providers and VPS resellers, covering provisioning, storage, migration, backups, High Availability and Disaster Recovery across KVM compute resources.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "WebPros"
+      },
+      "featureList": [
+        "High Availability failover domains",
+        "Storage-lock failure detection with watchdog",
+        "Automatic virtual server evacuation to healthy compute resources",
+        "Disaster Recovery from backups",
+        "Shared LVM over iSCSI and NFS storage",
+        "Migration between compute resources"
+      ]
+    }
+  ]
+}

@@ -64,7 +64,7 @@ At the device level, yes. In practice the gap depends on your fabric. A well-bui
 
 ### Can I Use Local Storage and Still Offer High Availability?
 
-Not through the platform's HA feature. SolusVM requires Shared LVM over iSCSI or NFS for a failover domain. You can offer application-level redundancy across two local-storage instances on separate hosts, but that's a customer-side design.
+Not through the platform's HA feature. SolusVM requires Shared LVM over iSCSI or NFS for a failover domain, and [what happens during an HA failover](https://www.solusvm.com/blog/solusvm-ha-failover) is worth understanding before you sell it. You can offer application-level redundancy across two local-storage instances on separate hosts, but that's a customer-side design.
 
 ### Does NFS Work for Production VPS Storage?
 
