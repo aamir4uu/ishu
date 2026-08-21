@@ -18,7 +18,7 @@ Two separate limits exist. One governs the video you upload from your computer, 
 
 ![Bar chart of the maximum Facebook Reel length from 2021 to 2026, rising from 30 seconds to 90 seconds and then to no fixed cap](images/facebook-reel-length-limits-2021-2026.png)
 
-*[Image source](https://socialbee.com/blog/facebook-reel-length/)*
+*[Image source](https://github.com/aamir4uu/ishu/blob/claude/facebook-reel-length-post-5fl797/blog/facebook-reel-length/images/facebook-reel-length-limits-2021-2026.png)*
 
 ### Uploaded Reels: No Fixed Cap
 
@@ -36,7 +36,7 @@ Want a four-minute Reel? Film and edit it elsewhere, then upload the file.
 
 ![The Facebook Reels composer with the 90-second recording timer visible above the record button](images/facebook-reels-composer-timer.png)
 
-*[Image source](https://www.facebook.com/)*
+*[Image source](https://www.facebook.com/help/2862139500770200)*
 
 ### The Minimum Length
 
@@ -70,7 +70,7 @@ A Reel of exactly the right duration will still get rejected, or publish looking
 
 ![A Facebook Reel scheduled inside the SocialBee post editor with the preview panel open](images/socialbee-facebook-reel-scheduled.png)
 
-*[Image source](https://socialbee.com/)*
+*[Image source](https://help.socialbee.com/hc/en-us/articles/29979081550487-How-to-schedule-and-post-Reels-on-Facebook)*
 
 | Spec | Requirement |
 | --- | --- |

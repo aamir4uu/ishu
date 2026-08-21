@@ -25,13 +25,18 @@ Three images. Full detail, sources and capture instructions are in
 
 | Slot | File | Alt text | Source | Status |
 | --- | --- | --- | --- | --- |
-| 1 | `images/facebook-reel-length-limits-2021-2026.png` | Bar chart of the maximum Facebook Reel length from 2021 to 2026, rising from 30 seconds to 90 seconds and then to no fixed cap | Original SocialBee chart; data from TechCrunch and Social Media Today | In the repo |
-| 2 | `images/facebook-reels-composer-timer.png` | The Facebook Reels composer with the 90-second recording timer visible above the record button | https://www.facebook.com/ | To capture |
-| 3 | `images/socialbee-facebook-reel-scheduled.png` | A Facebook Reel scheduled inside the SocialBee post editor with the preview panel open | https://socialbee.com/ | To capture |
+| 1 | `images/facebook-reel-length-limits-2021-2026.png` | Bar chart of the maximum Facebook Reel length from 2021 to 2026, rising from 30 seconds to 90 seconds and then to no fixed cap | The image file itself. Swap for the uploaded asset URL at publish | In the repo |
+| 2 | `images/facebook-reels-composer-timer.png` | The Facebook Reels composer with the 90-second recording timer visible above the record button | facebook.com/help/2862139500770200 | To capture |
+| 3 | `images/socialbee-facebook-reel-scheduled.png` | A Facebook Reel scheduled inside the SocialBee post editor with the preview panel open | help.socialbee.com/.../29979081550487 | To capture |
 
 Every image carries a hyperlinked `Image source` line directly beneath it, and
-text always sits between a heading and an image. No stock photography, per the
-brand guidelines.
+every one of those links is a deep link to the exact page or file, never a
+front page. Text always sits between a heading and an image. No stock
+photography, per the brand guidelines. Verified by:
+
+```bash
+python3 tools/check_image_sources.py blog/facebook-reel-length/facebook-reel-length.md
+```
 
 ## Deliverables
 
@@ -43,6 +48,7 @@ brand guidelines.
 | `images/` | The image assets and the script that generates the chart |
 | `schema.json` | Article and FAQPage JSON-LD |
 | `aeo-seo-checklist.md` | The checklist, marked up |
+| `tools/check_image_sources.py` | Fails the build if any image source is a bare domain, is missing, or sits under a heading |
 | `humanizer-pass.md` | Detector passes and scores |
 
 Regenerate the .docx after any edit to the markdown:

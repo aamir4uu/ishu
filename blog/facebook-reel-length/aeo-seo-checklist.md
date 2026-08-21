@@ -80,7 +80,9 @@ and owned by whoever publishes.
 
 ## Client checklist (task brief)
 
-- [x] Every image has a hyperlinked `Image source` line directly below it.
+- [x] Every image has a hyperlinked `Image source` line directly below it, and
+  every link is a deep link to the exact page or file rather than a front page.
+  Enforced by `tools/check_image_sources.py`.
 - [x] H1 for the title, H2 for subheadings, H3 below that.
 - [x] Title and subheadings in APA title case.
 - [x] No plagiarism, no fluff, no unedited AI phrasing. Every factual claim

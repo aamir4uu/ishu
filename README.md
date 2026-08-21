@@ -9,6 +9,7 @@ Content work for SocialBee, plus the tooling used to produce it.
 | `blog/facebook-reel-length/` | Blog post: "How Long Can a Facebook Reel Be? 2026 Limits and Best Run Times", with its .docx, images, metadata, schema, filled checklist and humanizer log |
 | `.claude/skills/humanizer/` | The humanizer skill, v4.0. Gates drafts before a detector run, ranks sentences by risk, and learns from every filed ZeroGPT report |
 | `tools/md_to_docx.py` | Converts an article markdown file to .docx |
+| `tools/check_image_sources.py` | Checks every image has alt text and an `Image source` deep link |
 
 ## The article
 
