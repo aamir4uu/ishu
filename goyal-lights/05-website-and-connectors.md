@@ -106,3 +106,44 @@ Then:
 - **No online cart.** Wholesale buyers negotiate; they will not check out. The enquiry builder that composes a WhatsApp message converts better than a checkout ever would at this stage.
 - **No prices.** Rates in this market move and get bargained. Publishing them fixes your ceiling and hands your card to 200 competitors in the same lane. "Rate list on WhatsApp" is both truer and a better lead capture.
 - **No stock photos.** The design is type, colour and light. Once you have real photographs of your own lit shelves, they will beat any stock image — and photographing your own stock is on the week-1 checklist in `03-marketing-plan.md`.
+
+---
+
+## 5. What was built
+
+Stack: TanStack Start + React + Tailwind v4 + shadcn/ui. One route, ten section
+components.
+
+| File | Section |
+| --- | --- |
+| `src/config/shop.ts` | **Every placeholder lives here.** Phone, WhatsApp, shop number, GSTIN, warranty window, both map URLs, Dhanteras date |
+| `src/styles.css` | The whole design system — colour tokens, fonts, bulb flicker, ticker, scroll reveal, map dark filter, reduced-motion guards |
+| `src/routes/index.tsx` | Page assembly, meta tags, LocalBusiness + FAQPage JSON-LD |
+| `src/components/site/Hero.tsx` | Dark hero, 7 hanging bulbs, colour-temperature switcher, Dhanteras countdown |
+| `src/components/site/Ticker.tsx` | Bilingual marquee |
+| `src/components/site/TrustRow.tsx` | GST billing / transport / replacement / reply speed |
+| `src/components/site/Stock.tsx` | Nine categories with filter pills |
+| `src/components/site/BuyWays.tsx` | Wholesale vs retail terms |
+| `src/components/site/Enquiry.tsx` | Form that composes a WhatsApp message — no backend |
+| `src/components/site/Visit.tsx` | Address, metro directions, hours, Google map |
+| `src/components/site/Faq.tsx` | Eight questions, feeds the FAQPage schema |
+| `src/components/site/data.ts` | Category and FAQ content |
+
+### Verified in the code
+
+- Colour tokens resolve in all three theme states, including the unstamped system-preference case — the bug that makes most generated sites render one theme's text on the other theme's background
+- Every animation is disabled under `prefers-reduced-motion: reduce`
+- Two JSON-LD blocks: `LightingStore` with address and Mon–Sat hours, and `FAQPage` generated from the live FAQ content. The FAQ schema is what gets the shop quoted in AI Overviews and ChatGPT search
+- Map uses the keyless embed with a dark-mode CSS filter
+
+### Fixed after review
+
+1. A circular `--bulb: var(--bulb)` declaration in `styles.css` — invalid CSS, now removed
+2. The countdown number was hidden from screen readers while animating — now carries a visually-hidden readable string
+3. `telephone` in the JSON-LD used the spaced display format — now uses a separate E.164 field
+
+### Not verified
+
+The preview domain is blocked by this environment's network policy, so the
+rendered page has not been viewed. Everything above was confirmed by reading the
+source. Open the preview and judge the visual result yourself.
