@@ -87,6 +87,15 @@ def sentences(text):
     text = strip_markdown(text)
 
     NEW_BLOCK = re.compile(r"^\s*(?:[-*+]\s+|\d+[.)]\s+|>\s?|\*\*)")
+    # An italicised bare link on its own line is an image credit line, not
+    # prose. This matches the standing finding in references/learning-log.md:
+    # credit lines are not sentences a detector weighs, and counting them
+    # produced a phantom repeated-opener hit on "Image source".
+    # strip_markdown() has already turned "[Image source](url)" into
+    # "Image source", so match the italic wrapper that survives rather than the
+    # link syntax that does not. A whole line in single italics is a caption.
+    # "**...**" does not match, so FAQ question lines are kept.
+    CREDIT = re.compile(r"^\s*\*[^*]+\*\s*$")
     blocks, current = [], []
     for line in text.splitlines():
         st = line.strip()
@@ -95,7 +104,8 @@ def sentences(text):
                 blocks.append(" ".join(current))
                 current = []
             continue
-        if st.startswith("#") or (st.startswith("|") and st.endswith("|")):
+        if (st.startswith("#") or (st.startswith("|") and st.endswith("|"))
+                or CREDIT.match(st)):
             if current:
                 blocks.append(" ".join(current))
                 current = []

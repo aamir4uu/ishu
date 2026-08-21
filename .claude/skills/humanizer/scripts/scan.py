@@ -41,7 +41,10 @@ def scan(text):
             "hits": [h.to_dict() for h in hits],
         })
 
-    doc_penalty = sum(weights.get(h.signal, 5.0) * max(h.magnitude, 0.35)
+    # No floor on the magnitude. Document signals already emit a scaled 0-1
+    # magnitude, so flooring them made a signal that barely crossed its
+    # threshold cost as much as one that blew past it.
+    doc_penalty = sum(weights.get(h.signal, 5.0) * h.magnitude
                       for h in doc_hits)
     if per_sentence:
         mean_risk = sum(p["risk"] for p in per_sentence) / len(per_sentence)

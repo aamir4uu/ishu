@@ -27,7 +27,7 @@ and owned by whoever publishes.
 - [x] Primary keyword in the first 100 words (third word of the short answer)
   and in the H2 "What's the Maximum Length of a Facebook Reel in 2026?".
 - [x] Slug `facebook-reel-length` - short, keyword-rich, no stop words.
-- [x] Descriptive alt text specified for both image slots.
+- [x] Descriptive alt text specified for all three image slots.
 
 ## 3. Content structure (AEO)
 
@@ -54,8 +54,9 @@ and owned by whoever publishes.
 - [x] **At least one external authoritative source cited** - two, TechCrunch and
   Social Media Today.
 - [x] **Avoid generic AI-sounding sentences, be specific and product-grounded** -
-  scored 0.0/100 by `humanizer-evolve`, with the exact specs SocialBee's Reels
-  publishing enforces rather than generic advice. See `humanizer-pass.md`.
+  all 11 `zerogpt_preflight.py` gates pass and `scan.py` scores 0.1/100 with no
+  sentence-level hits. Grounded in the exact specs SocialBee's Reels publishing
+  enforces rather than generic advice. See `humanizer-pass.md`.
 
 ## 6. Internal linking
 
@@ -82,6 +83,8 @@ and owned by whoever publishes.
 - [x] Title and subheadings in APA title case.
 - [x] No plagiarism, no fluff, no unedited AI phrasing. Every factual claim
   traces to a cited source or is marked for verification in `meta.md`.
-- [~] Images uploaded to their appropriate places - slots, alt text and source
-  lines are specified; the screenshot files themselves have to be captured from
-  a live account.
+- [~] Images uploaded to their appropriate places - all three slots have alt
+  text and a hyperlinked source line. Image 1, the length-limit chart, is an
+  original asset and is in `images/`. Images 2 and 3 are product screenshots
+  that have to be captured from live accounts; `image-manifest.md` says exactly
+  what each one shows and where it goes.

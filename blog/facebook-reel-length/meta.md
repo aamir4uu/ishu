@@ -10,7 +10,7 @@
 | Meta description | Facebook Reels no longer stop at 90 seconds. Get the 2026 length limits, the specs to check before you post, and the run times that actually get watched. | 153 chars, in the 150-160 band |
 | URL slug | `facebook-reel-length` | Short, keyword-rich, no stop words |
 | H1 | How Long Can a Facebook Reel Be? 2026 Limits and Best Run Times | Mirrors the title tag |
-| Word count | ~1,255 total / 1,050 prose | Brief: 800-1,000, +25% tolerance approved |
+| Word count | 1,285 total / 1,017 prose (preflight count) | Brief: 800-1,000, +25% tolerance approved |
 | Point of view | Second person | Per brief |
 | Structure | Subheads, APA title case | Per brief and checklist |
 
@@ -20,15 +20,37 @@ in 2026?", and in the FAQ heading.
 
 ## Images
 
-Neither image is included as a file. Both are marked in the draft with a
-placeholder filename, the required alt text, and the hyperlinked `Image source`
-line directly beneath, per the checklist. Replace the placeholders with real
-screenshots before publishing. No stock photography, per the brand guidelines.
+Three images. Full detail, sources and capture instructions are in
+`image-manifest.md`; the assets themselves are in `images/`.
 
-| Slot | Placeholder | Alt text | Source link | Placement rule |
+| Slot | File | Alt text | Source | Status |
 | --- | --- | --- | --- | --- |
-| 1 | `image-placeholder-1.jpg` | The Facebook Reels composer showing the upload and record options side by side | https://www.facebook.com/ | Text sits between the H2 and the image |
-| 2 | `image-placeholder-2.jpg` | A Facebook Reel scheduled inside the SocialBee post editor with the preview panel open | https://socialbee.com/ | Text sits between the H2 and the image |
+| 1 | `images/facebook-reel-length-limits-2021-2026.png` | Bar chart of the maximum Facebook Reel length from 2021 to 2026, rising from 30 seconds to 90 seconds and then to no fixed cap | Original SocialBee chart; data from TechCrunch and Social Media Today | In the repo |
+| 2 | `images/facebook-reels-composer-timer.png` | The Facebook Reels composer with the 90-second recording timer visible above the record button | https://www.facebook.com/ | To capture |
+| 3 | `images/socialbee-facebook-reel-scheduled.png` | A Facebook Reel scheduled inside the SocialBee post editor with the preview panel open | https://socialbee.com/ | To capture |
+
+Every image carries a hyperlinked `Image source` line directly beneath it, and
+text always sits between a heading and an image. No stock photography, per the
+brand guidelines.
+
+## Deliverables
+
+| File | What it is |
+| --- | --- |
+| `facebook-reel-length.md` | The draft, source of truth |
+| `How Long Can a Facebook Reel Be - 2026 Limits and Best Run Times.docx` | Word version, generated from the markdown by `tools/md_to_docx.py` |
+| `image-manifest.md` | Every image, its source, and what still needs capturing |
+| `images/` | The image assets and the script that generates the chart |
+| `schema.json` | Article and FAQPage JSON-LD |
+| `aeo-seo-checklist.md` | The checklist, marked up |
+| `humanizer-pass.md` | Detector passes and scores |
+
+Regenerate the .docx after any edit to the markdown:
+
+```bash
+python3 tools/md_to_docx.py blog/facebook-reel-length/facebook-reel-length.md \
+  "blog/facebook-reel-length/How Long Can a Facebook Reel Be - 2026 Limits and Best Run Times.docx"
+```
 
 ## Links
 

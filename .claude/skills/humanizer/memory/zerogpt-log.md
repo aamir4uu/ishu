@@ -13,6 +13,10 @@ that got past the model last time.
 
 ## Session 0 - 2026-08-21 (seed, no detector report)
 
+Note: this memory was built alongside the SocialBee Facebook Reel piece and then
+merged into the established `humanizer` skill as its v4.0 automation layer. The
+manual learning history that predates it is in `references/learning-log.md`.
+
 Baseline only. No ZeroGPT report has been ingested yet, so every weight in
 `state.json` is still the untrained prior and `learned_rules.json` contains only
 the SocialBee banned lists, marked `source: client:socialbee`.

@@ -65,38 +65,100 @@ more most much many very just also into over under about across per each other s
 # ------------------------------------------------------------------ parsing
 
 def parse_report(path):
+    """Read a filed ZeroGPT report.
+
+    Two formats are accepted, because the skill has used both:
+
+    * The table format in `reports/TEMPLATE.md`, where highlighted sentences sit
+      in the second column of the "Highlighted sentences" table.
+    * A plain list under a `## flagged` heading, one sentence per line.
+
+    Metadata is read from `key: value` lines wherever they appear, including the
+    template's bulleted front matter.
+    """
     with open(path, encoding="utf-8") as fh:
         raw = fh.read()
 
     meta = {}
-    for key in ("draft", "score", "date", "note", "tool"):
-        m = re.search(rf"^\s*{key}\s*[:=]\s*(.+)$", raw, re.M | re.I)
+    aliases = {
+        "file scored": "draft",
+        "zerogpt result": "score",
+        "date scored": "date",
+        "word count": "words",
+    }
+    for key in ("draft", "score", "date", "note", "tool", "file scored",
+                "zerogpt result", "date scored", "word count"):
+        m = re.search(rf"^[-*\s]*`?{key}`?\s*[:=]\s*(.+)$", raw, re.M | re.I)
         if m:
-            meta[key] = m.group(1).strip()
+            val = m.group(1).strip().strip("`").strip()
+            if val and not val.startswith("<"):
+                meta[aliases.get(key, key)] = val
 
-    m = re.search(r"^#+\s*flagged.*$", raw, re.M | re.I)
-    if not m:
-        raise SystemExit(
-            "Report needs a '## flagged' section listing the highlighted "
-            "sentences, one per line."
-        )
-    body = raw[m.end():]
-    body = re.split(r"^#+\s", body, flags=re.M)[0]
+    if "score" in meta:
+        m = re.search(r"(\d+(?:\.\d+)?)\s*%", meta["score"])
+        if m:
+            meta["score"] = m.group(1)
 
     spans = []
-    for line in body.splitlines():
-        line = line.strip()
-        line = re.sub(r"^[-*+]\s+", "", line)
-        line = re.sub(r"^\d+[.)]\s+", "", line)
-        line = line.strip('"').strip()
-        if len(line) > 15:
-            spans.append(line)
+
+    # Format 1: the template's highlighted-sentences table.
+    m = re.search(r"^#+\s*highlighted sentences.*$", raw, re.M | re.I)
+    if m:
+        body = re.split(r"^#+\s", raw[m.end():], flags=re.M)[0]
+        for line in body.splitlines():
+            line = line.strip()
+            if not line.startswith("|"):
+                continue
+            cells = [c.strip() for c in line.strip("|").split("|")]
+            if len(cells) < 2:
+                continue
+            if all(re.fullmatch(r":?-{2,}:?", c) for c in cells if c):
+                continue
+            if cells[1].lower() in ("", "highlighted sentence"):
+                continue
+            spans.append(cells[1])
+
+    # Format 2: a plain list under "## flagged".
     if not spans:
-        raise SystemExit("No flagged sentences found under '## flagged'.")
+        m = re.search(r"^#+\s*flagged.*$", raw, re.M | re.I)
+        if not m:
+            raise SystemExit(
+                "Report needs either a 'Highlighted sentences' table (see "
+                "reports/TEMPLATE.md) or a '## flagged' list of the "
+                "highlighted sentences."
+            )
+        body = re.split(r"^#+\s", raw[m.end():], flags=re.M)[0]
+        for line in body.splitlines():
+            line = re.sub(r"^[-*+]\s+", "", line.strip())
+            line = re.sub(r"^\d+[.)]\s+", "", line).strip('"').strip()
+            if len(line) > 15:
+                spans.append(line)
+
+    spans = [x for x in spans if len(x) > 15 and not is_placeholder(x)]
+    if not spans:
+        raise SystemExit(
+            "No highlighted sentences found in the report. If it is still a "
+            "stub awaiting the detector run, fill it in before ingesting: an "
+            "empty report teaches the skill nothing."
+        )
 
     if "draft" not in meta:
-        raise SystemExit("Report needs a 'draft:' line pointing at the file.")
+        raise SystemExit(
+            "Report needs a 'File scored:' or 'draft:' line pointing at the "
+            "markdown file that was scored."
+        )
     return meta, spans
+
+
+PLACEHOLDER = re.compile(
+    r"^\s*(?:_.*_|<.*>|n/?a|tbd|pending|none)\s*$|to be filled|paste (each|every)",
+    re.I
+)
+
+
+def is_placeholder(text):
+    """Template rows and stub reports must never enter the corpus."""
+    return bool(PLACEHOLDER.search(text.strip()))
 
 
 def match_spans(draft_sentences, spans):
@@ -400,6 +462,10 @@ def main():
         return status()
 
     meta, spans = parse_report(args.report)
+    if not re.fullmatch(r"\d+(?:\.\d+)?", str(meta.get("score", ""))):
+        print(f"Warning: no numeric ZeroGPT score in the report "
+              f"(found {meta.get('score', 'nothing')!r}). Ingesting anyway, "
+              f"but the score history will have a gap.")
     draft_path = meta["draft"]
     if not os.path.exists(draft_path):
         raise SystemExit(f"Draft not found: {draft_path}")

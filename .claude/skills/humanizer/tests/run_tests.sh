@@ -12,6 +12,7 @@ SANDBOX="$(mktemp -d)"
 trap 'rm -rf "$SANDBOX"' EXIT
 
 cp -r "$SKILL/scripts" "$SANDBOX/scripts"
+cp -r "$SKILL/references" "$SANDBOX/references" 2>/dev/null || true
 cp -r "$SKILL/tests" "$SANDBOX/tests"
 mkdir -p "$SANDBOX/memory"
 echo '{"phrases": {}, "words": {}, "structures": {}}' > "$SANDBOX/memory/learned_rules.json"
@@ -82,6 +83,20 @@ assert res["score"] > before, (
     f"score did not rise after learning: {before} -> {res['score']}")
 print(f"   ok: scanner loads {learned} learned rules, recall {recall}, "
       f"score {before} -> {res['score']}")
+PY
+
+echo
+echo
+echo "== 5. the template report format must parse too =="
+python3 - <<'PY'
+import sys
+sys.path.insert(0, "scripts")
+import learn
+meta, spans = learn.parse_report("tests/fixture_report_template.md")
+assert meta.get("draft") == "tests/fixture_draft.md", meta
+assert meta.get("score") == "97", meta
+assert len(spans) >= 3, spans
+print(f"   ok: template format parsed, score {meta['score']}, {len(spans)} spans")
 PY
 
 echo

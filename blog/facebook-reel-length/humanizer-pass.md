@@ -1,10 +1,11 @@
 # Humanizer pass log
 
-Tool: `.claude/skills/humanizer-evolve`, scanner version 1.0.0.
-Run from `.claude/skills/humanizer-evolve/scripts`:
+Tool: `.claude/skills/humanizer` v4.0.
+Run from `.claude/skills/humanizer`:
 
 ```bash
-python3 scan.py ../../../../content/facebook-reel-length/facebook-reel-length.md
+python3 scripts/zerogpt_preflight.py ../../../blog/facebook-reel-length/facebook-reel-length.md --verbose
+python3 scripts/scan.py ../../../blog/facebook-reel-length/facebook-reel-length.md
 ```
 
 ## Iterations
@@ -101,3 +102,43 @@ four defects in the scanner, all fixed and all re-verified against this article:
 
 Final scan of this article after all four fixes: **0.0/100, no sentence-level
 hits, no document-level rhythm signals.**
+
+
+---
+
+## Addendum 2: running the skill's own gate script
+
+The calibration engine above was built as a separate skill before I found that
+this repo already had a `humanizer` skill on the other branch, with a gate
+script and a manual learning protocol. The two are now merged into
+`.claude/skills/humanizer` v4.0.
+
+Running the established `zerogpt_preflight.py` against this draft immediately
+failed two gates that the new scanner had reported clean:
+
+| Gate | Result | Verdict |
+| --- | --- | --- |
+| paragraph size variance (CV) | 0.349, floor is 0.35 | Real. The FAQ format produces a run of identically sized two-sentence paragraphs, which flattens the distribution. |
+| sentence opener repetition | "the" opened 12.1% of sentences, cap is 9% | Real. Seven sentences began with "The". |
+
+Both were fixed in the draft rather than by moving the thresholds: four "The"
+openers rewritten, one paragraph merged into a longer one, one split into a
+single-sentence paragraph.
+
+That disagreement is the useful part. Pass/fail gates on the whole document
+catch distribution problems a per-sentence ranking averages away, and the
+ranking catches sentence-level problems the gates never see. The finding is
+recorded in `references/learning-log.md` under standing findings.
+
+Fixing the merge also caught one more scanner defect: image credit lines were
+being counted as prose sentences, producing a phantom "three sentences open with
+'image source'" hit. The older skill's own notes already said credit lines are
+not prose. The detector now excludes them.
+
+## Final state
+
+| Check | Result |
+| --- | --- |
+| `zerogpt_preflight.py` | **11 of 11 gates pass.** CV 0.555, paragraph CV 0.385, marker density 0.0/1k, contraction rate 21.6/1k |
+| `scan.py` | **0.1/100**, no sentence-level hits |
+| Real ZeroGPT run | **Not done.** Needs a human to paste the article in |
