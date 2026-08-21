@@ -1,0 +1,194 @@
+{
+  "_note": "Client reference only, per checklist section 4. FAQPage, Article and HowTo are generated from the live copy in agency-delivery-sop.md. Replace the three author placeholders in the Article block before shipping. Only ship SoftwareApplication on this blog URL if the client wants it there.",
+  "FAQPage": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What Should Be Included in an Agency Delivery SOP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Five stages with a gate condition between each, a named owner per stage, and three templates: a scope sheet, a build checklist and a launch checklist. Anything beyond that is documentation you'll stop maintaining by March."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How Long Does It Take to Document a Delivery SOP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Four weeks, at roughly two hours a week, provided you write it alongside live projects rather than in a vacuum. Working from a project in front of you beats working from memory, because memory quietly edits out every bit where you improvised."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should a Freelancer Use a Delivery SOP or Is It Only for Teams?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Freelancers benefit more, not less. You have no colleague to catch what you missed, so the checklist is your second pair of eyes. The scope sheet also does something a solo operator badly needs: it lets you say no to an out-of-scope request by pointing at a document rather than at yourself."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How Do I Get Clients to Respect the Review Rounds?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Put the number in the proposal, repeat it at kickoff, and repeat it in the email that shares the preview link. Clients almost never push back on a limit they were told about three times before it mattered. The ones who push back are usually pushing back on being surprised, not on the limit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What Happens When a Client Misses Their Content Deadline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The launch date moves by one working day for every working day the content is late, and this is written into the scope sheet before anyone signs. Then actually enforce it once. After the first time, content tends to arrive."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does an SOP Make the Work Feel Generic?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Only if you've standardised the wrong half. Sequence, checks and admin should be identical every time. Design, copy and strategy shouldn't be touched. Removing decisions about process is how you free up attention for decisions about the work."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How Do I Handle a Client Who Wants to Skip Straight to the Build?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Show them the scope sheet and tell them it takes twenty minutes to complete. Most enthusiasm to skip planning comes from assuming planning means weeks of discovery. When they see it's one page, the objection usually disappears. If it doesn't, that's useful information about how the rest of the project will go."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I Run This SOP Across Multiple Client Sites at Once?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "That's the point of it. Six to eight concurrent projects is manageable for three people once each project sits in a defined state you can see at a glance. Managing them from one platform, with shared team roles and a client portal per project, is what keeps the tenth site from costing more attention than the fifth."
+        }
+      }
+    ]
+  },
+  "Article": {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Delivery SOP That Lets a 3-Person Agency Run Like a 10-Person One",
+    "description": "An agency delivery SOP that lets three people ship like ten. Five stages, three documents and a 30-day rollout you can run without pausing client work.",
+    "author": {
+      "@type": "Person",
+      "name": "REPLACE WITH NAMED AUTHOR",
+      "jobTitle": "REPLACE WITH ROLE",
+      "url": "REPLACE WITH PERSONAL LINKEDIN URL"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sitejet",
+      "url": "https://www.sitejet.io"
+    },
+    "datePublished": "2026-08-21",
+    "dateModified": "2026-08-21",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.sitejet.io/blog/agency-delivery-sop"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Agency delivery SOP"
+      },
+      {
+        "@type": "Thing",
+        "name": "Web design agency workflow"
+      }
+    ],
+    "citation": {
+      "@type": "CreativeWork",
+      "name": "Pulse of the Profession 2018: Success in Disruptive Times",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Project Management Institute"
+      },
+      "url": "https://www.pmi.org/-/media/pmi/documents/public/pdf/learning/thought-leadership/pulse/pulse-of-the-profession-2018.pdf"
+    }
+  },
+  "HowTo": {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to build an agency delivery SOP",
+    "description": "A five-stage delivery SOP with a gate between each stage, designed so a three-person agency can run at the throughput of a much larger team.",
+    "totalTime": "P30D",
+    "supply": [
+      {
+        "@type": "HowToSupply",
+        "name": "Scope sheet template"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "Build QA checklist"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "Launch checklist and handover pack"
+      }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Lock the scope",
+        "text": "Produce a one-page scope sheet covering page count, who supplies copy and images, integrations in and out, number of review rounds, and what happens to the launch date when content arrives late. Gate: signed scope sheet.",
+        "url": "https://www.sitejet.io/blog/agency-delivery-sop#stage-1"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Run the build kickoff",
+        "text": "Select from four or five standardised templates, create the project, and collect client content into one place. Set a fixed build window, ten working days is a realistic default. Gate: all client-supplied content received.",
+        "url": "https://www.sitejet.io/blog/agency-delivery-sop#stage-2"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Run internal QA before the client sees anything",
+        "text": "Someone who did not build the site works the QA checklist cold: forms, internal links, metadata, image compression and alt text, mobile rendering, analytics, SSL and the 404 page. Gate: checklist signed off by a second person.",
+        "url": "https://www.sitejet.io/blog/agency-delivery-sop#stage-3"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Run one bounded review round",
+        "text": "Give the client one comprehensive round through a single feedback channel with a five working day deadline, then a corrections-only second round. Quote anything outside the signed scope. Gate: written sign-off.",
+        "url": "https://www.sitejet.io/blog/agency-delivery-sop#stage-4"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Launch and hand over",
+        "text": "Connect the domain, verify SSL, map redirects, submit the sitemap, confirm analytics and schedule backups. Send a one-page handover pack. Gate: handover delivered and the project closed.",
+        "url": "https://www.sitejet.io/blog/agency-delivery-sop#stage-5"
+      }
+    ]
+  },
+  "SoftwareApplication": {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Sitejet Studio",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "url": "https://www.sitejet.io/en/website-builder-for-agencies",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sitejet"
+    },
+    "featureList": [
+      "Project and client management",
+      "Team collaboration and multi-user roles",
+      "Client portal with feedback tools",
+      "Ticketing and workflows",
+      "White label options",
+      "API access",
+      "Agency billing and provisioning"
+    ]
+  }
+}

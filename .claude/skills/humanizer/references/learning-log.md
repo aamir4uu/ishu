@@ -1,0 +1,82 @@
+# Learning Log
+
+This is the part of the skill that changes. Every piece that gets scored in
+ZeroGPT produces a report, the report produces findings, and the findings edit
+this file, `zerogpt-signals.md`, or the thresholds in
+`scripts/zerogpt_preflight.py`. Nothing gets added here on a hunch. An entry
+needs a report behind it.
+
+## How to update the skill after a ZeroGPT run
+
+1. Score the published or final draft at zerogpt.com. Save the full report to
+   `reports/YYYY-MM-DD-slug.md` using `reports/TEMPLATE.md`.
+2. Copy every highlighted sentence into the report verbatim. The highlights are
+   the data. The percentage is just a headline.
+3. For each highlighted sentence, name the signal that caused it. If it maps to
+   an existing entry in `zerogpt-signals.md`, note the entry. If it does not,
+   you have found something new.
+4. New patterns go in the table below with the report that produced them. Once
+   a pattern appears in two separate reports, promote it: add it to the
+   relevant `MARKERS` family in `zerogpt_preflight.py` so it gets caught
+   automatically next time.
+5. If a gate in `zerogpt_preflight.py` passed but ZeroGPT still flagged the
+   piece, the threshold is too loose. Tighten it, record the old and new value
+   in the calibration table, and say which report forced the change.
+6. If a gate failed but ZeroGPT scored clean, the threshold may be too tight.
+   Do not loosen on a single sample. Wait for three.
+
+## Pattern candidates
+
+Patterns observed in ZeroGPT highlights that are not yet automated. Promote at
+two independent sightings.
+
+| Pattern | First seen | Sightings | Status |
+| --- | --- | --- | --- |
+| Tailing rhetorical triple used as a section opener, e.g. "You cap them, you channel them, and you price the overflow." | 2026-08-21, Sitejet SOP draft | 1 | Caught by the existing rule-of-three regex during drafting, before any detector run. Not yet a new pattern. Watch whether ZeroGPT highlights this shape specifically. |
+
+## Threshold calibration history
+
+| Date | Gate | Old | New | Report that forced it |
+| --- | --- | --- | --- | --- |
+| 2026-08-21 | all | n/a | initial values | Seeded from editorial prose baselines, not from a ZeroGPT report. Treat every number as provisional until the first three reports land. |
+| 2026-08-21 | sentence opener repetition | `opener_repeat_max: 3` (raw count) | `opener_repeat_pct_max: 9.0` with `opener_repeat_floor: 3` | `reports/2026-08-21-sitejet-agency-delivery-sop.md`. A fixed raw cap cannot scale. On a 219-sentence article, "the" opened 16 sentences, which is 7.3% and entirely normal, and the gate failed a clean draft. Now proportional, with the raw floor kept so a 20-sentence piece is still checked. |
+
+## Piece history
+
+| Date | Piece | Words | Pre-flight gates failed | ZeroGPT score | Notes |
+| --- | --- | --- | --- | --- | --- |
+| 2026-08-21 | Sitejet: agency delivery SOP | 2,956 | 0 of 11 at final pass | pending client run | First piece under v3.0. Forced one gate recalibration (sentence opener repetition). Client requires APA title case, which conflicts with pattern 17; resolved by excluding headings from the prose scan and compensating with a 22.7 per 1k contraction rate and 37% short sentences. Full report in `reports/2026-08-21-sitejet-agency-delivery-sop.md`. |
+
+## Standing findings
+
+Things learned that are already baked into the skill, kept here so the reason
+survives.
+
+**Headings are not prose.** ZeroGPT scores sentences. Markdown headings, table
+rows, and image credit lines are not sentences a detector weighs the same way,
+and including them in the burstiness calculation produced misleading CV numbers
+in early testing. `strip_markdown()` removes them before analysis.
+
+**Uniformity beats vocabulary.** A draft with three flagged AI vocabulary words
+and high sentence variance scores better than a draft with clean vocabulary and
+flat sentence lengths. When time is short, fix the rhythm first.
+
+**Intros flag hardest.** Across drafts, the first two paragraphs get highlighted
+more than any other part of the piece. They are the most formulaic thing a model
+produces. Write them last and write them by hand.
+
+**Specificity is a detector fix, not just an editorial one.** Named numbers,
+dates, tools, and dollar figures raise perplexity. Client checklists that ask
+for citable data points are asking for the same thing the detector rewards.
+
+**Fixing one pattern can break another gate.** Rewriting bold-header bullet
+lists (pattern 16) into flowing prose removed long sentences and dropped the
+long-sentence share below its floor, failing a gate that had been passing.
+Structural edits change the length distribution. Re-run the script after every
+structural edit, not only at the end.
+
+**Gates that use raw counts do not survive contact with a long piece.** Any
+threshold expressed as an absolute number needs checking against a 3,000-word
+draft before it is trusted. The opener gate failed this test on the first real
+article it saw. If you add a gate, express it per thousand words or as a
+percentage of sentences.
