@@ -27,7 +27,7 @@ and owned by whoever publishes.
 - [x] Primary keyword in the first 100 words (third word of the short answer)
   and in the H2 "What's the Maximum Length of a Facebook Reel in 2026?".
 - [x] Slug `facebook-reel-length` - short, keyword-rich, no stop words.
-- [x] Descriptive alt text specified for all three image slots.
+- [x] Descriptive alt text on all three images, keyword-carrying where natural.
 
 ## 3. Content structure (AEO)
 
@@ -81,14 +81,14 @@ and owned by whoever publishes.
 ## Client checklist (task brief)
 
 - [x] Every image has a hyperlinked `Image source` line directly below it, and
-  every link is a deep link to the exact page or file rather than a front page.
-  Enforced by `tools/check_image_sources.py`.
+  every link resolves to an image file rather than to a web page containing
+  one. Enforced by `tools/check_image_sources.py`.
 - [x] H1 for the title, H2 for subheadings, H3 below that.
 - [x] Title and subheadings in APA title case.
 - [x] No plagiarism, no fluff, no unedited AI phrasing. Every factual claim
   traces to a cited source or is marked for verification in `meta.md`.
-- [~] Images uploaded to their appropriate places - all three slots have alt
-  text and a hyperlinked source line. Image 1, the length-limit chart, is an
-  original asset and is in `images/`. Images 2 and 3 are product screenshots
-  that have to be captured from live accounts; `image-manifest.md` says exactly
-  what each one shows and where it goes.
+- [x] Images uploaded to their appropriate places - all three exist as files in
+  `images/`, each placed in the section it explains, each with alt text and a
+  hyperlinked `Image source` line that resolves to the image file itself. All
+  three are original charts, since the brand guidelines rule out stock photos
+  and product screenshots could not be captured here.

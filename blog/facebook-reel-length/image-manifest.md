@@ -1,104 +1,92 @@
 # Image Manifest
 
-Three images. Each sits in the draft with descriptive alt text and an "Image
-source" line directly beneath it, hyperlinked, as the checklist requires. Text
-always sits between a heading and an image, per the brand guidelines.
+Three images. All three are real files in `images/`, all three are original
+graphics, and every `Image source` link points straight at an image file.
 
-All assets and their sources live in one folder: `images/`.
+## Why all three are original
 
-## Why there is no stock photography here
-
-The other article in this repo sourced its images from Pexels. This one does
-not, deliberately. SocialBee's content guidelines say it plainly under Don't:
+SocialBee's content guidelines say it plainly under Don't:
 
 > Use stock photos, use screenshots, charts, and original visuals only.
 
-So image 1 is an original chart drawn from the sourced figures, and images 2 and
-3 are product screenshots that have to be captured from live accounts. A Pexels
-photo of someone holding a phone would break the brand rule and add nothing.
+That rules out Pexels, which is what the other article in this repo used. It
+leaves screenshots and original graphics. Product screenshots have to be
+captured from a logged-in Facebook and SocialBee account, which was not
+possible here, and an earlier draft carried them as placeholders with source
+links pointing at help articles. A help article is a web page, not an image, so
+those slots were replaced with charts that carry the same information and
+actually exist.
 
 ## The images
 
-Every `Image source` link is a deep link to the exact page or file the image
-comes from. A link to a site's front page is not a source; it satisfies the
-wording of the checklist and none of its point.
+| # | File | Placement | Alt text | Image source link |
+| --- | --- | --- | --- | --- |
+| 1 | `facebook-reel-upload-vs-in-app-limits.png` | After the paragraph stating the two limits, in "What's the Maximum Length of a Facebook Reel in 2026?" | Diagram comparing the two Facebook Reel length limits: an uploaded file has no fixed maximum, while recording in the app stops at 90 seconds | [.png file](https://raw.githubusercontent.com/aamir4uu/ishu/refs/heads/claude/facebook-reel-length-post-5fl797/blog/facebook-reel-length/images/facebook-reel-upload-vs-in-app-limits.png) |
+| 2 | `facebook-reel-length-limits-2021-2026.png` | After the TechCrunch and Social Media Today citations, in "Uploaded Reels: No Fixed Cap" | Bar chart of the maximum Facebook Reel length from 2021 to 2026, rising from 30 seconds to 90 seconds and then to no fixed cap | [.png file](https://raw.githubusercontent.com/aamir4uu/ishu/refs/heads/claude/facebook-reel-length-post-5fl797/blog/facebook-reel-length/images/facebook-reel-length-limits-2021-2026.png) |
+| 3 | `facebook-reel-length-by-content-type.png` | After the padding paragraph, in "How Long Should a Facebook Reel Be?" | Chart of recommended Facebook Reel length by content type, with hooks at 7 to 15 seconds, demos at 30 to 60 seconds and explainers at 60 to 180 seconds | [.png file](https://raw.githubusercontent.com/aamir4uu/ishu/refs/heads/claude/facebook-reel-length-post-5fl797/blog/facebook-reel-length/images/facebook-reel-length-by-content-type.png) |
 
-| # | File | Placement | Alt text | Exact source link | Status |
-| --- | --- | --- | --- | --- | --- |
-| 1 | `images/facebook-reel-length-limits-2021-2026.png` | After the opening paragraph of "What's the Maximum Length of a Facebook Reel in 2026?" | Bar chart of the maximum Facebook Reel length from 2021 to 2026, rising from 30 seconds to 90 seconds and then to no fixed cap | [the image file itself](https://github.com/aamir4uu/ishu/blob/claude/facebook-reel-length-post-5fl797/blog/facebook-reel-length/images/facebook-reel-length-limits-2021-2026.png) | **Done.** 1200x700 PNG, in the repo |
-| 2 | `images/facebook-reels-composer-timer.png` | End of "Reels Recorded in the App: 90 Seconds" | The Facebook Reels composer with the 90-second recording timer visible above the record button | [Create a reel on Facebook, Facebook Help Center](https://www.facebook.com/help/2862139500770200) | **To capture** |
-| 3 | `images/socialbee-facebook-reel-scheduled.png` | After the opening paragraph of "Facebook Reel Specs to Check Before You Post" | A Facebook Reel scheduled inside the SocialBee post editor with the preview panel open | [How to schedule and post Reels on Facebook, SocialBee Help](https://help.socialbee.com/hc/en-us/articles/29979081550487-How-to-schedule-and-post-Reels-on-Facebook) | **To capture** |
+Each one sits in the section it explains rather than decorating a heading, and
+text always comes between the heading and the image.
 
 Alt text carries the keyword where it reads naturally, per checklist item 2.6.
-Images 1 and 2 name Facebook Reel length directly. Image 3 describes what is in
-the frame instead, because forcing the keyword into a screenshot caption would
-read as stuffing.
+All three name Facebook Reel length directly, because all three are about it.
 
-### What each source link has to become at publish time
+## What each image shows
 
-The rule is that clicking `Image source` lands you on the image, or failing
-that, on the exact screen the image was taken from. Never on a front page.
+**1. Upload versus in-app recording.** Two cards, green and red, carrying the
+distinction the whole article turns on: an uploaded file has no fixed maximum
+since June 2025, while the in-app timer still stops at 90 seconds. Footer
+carries the 3-second minimum and SocialBee's 4-second floor.
 
-| # | Now | At publish |
-| --- | --- | --- |
-| 1 | The PNG in this repo | The direct file URL of the uploaded asset, e.g. `https://socialbee.com/wp-content/uploads/.../facebook-reel-length-limits-2021-2026.webp` |
-| 2 | The Facebook help article that documents that exact screen | Unchanged. It is a screenshot of Facebook's own UI, so the help article is the correct attribution |
-| 3 | The SocialBee help article that documents that exact screen | Unchanged, for the same reason |
+**2. The cap over time.** 30 seconds at launch, 60 in 2022, 90 in March 2023,
+then no fixed cap from June 2025, drawn as a bar that fades out into an arrow
+because there is no number to draw. Sources are named in the figure's own
+footer so the credit survives if the image is reshared alone.
 
-Image 1 is the only one that has to change, because it is the only one whose
-"source" is a file rather than a product screen. Once the chart is uploaded,
-swap the link for the asset's own URL.
+**3. Run time by content type.** Hooks at 7 to 15 seconds, demos at 30 to 60,
+explainers at 60 to 180, against a shaded band marking the 15 to 60 second
+range most business Reels do best in.
 
-### Checking this automatically
+## Reproducing them
+
+```bash
+python3 images/make_images.py
+```
+
+Requires Pillow. The script draws all three from the figures cited in the
+article, so the graphics can be regenerated or corrected without a design tool.
+
+## Source links: the rule
+
+Clicking `Image source` has to show you the image. Not a page containing the
+image, not the article, not a help centre entry, not a site's front page.
+
+Two earlier drafts got this wrong, first with bare domains
+(`https://www.facebook.com/`) and then with deep links that were still web
+pages (a Facebook help article, a GitHub blob viewer). Both now fail the check:
 
 ```bash
 python3 tools/check_image_sources.py blog/facebook-reel-length/facebook-reel-length.md
 ```
 
-Fails the build if any image is missing alt text, missing its `Image source`
-line, sitting directly under a heading, or pointing at a bare domain or at the
-article's own page. It was written after exactly those last two mistakes
-shipped in an earlier draft.
+It fails on a missing image file, missing alt text, a missing or malformed
+`Image source` line, a bare domain, a link to the article's own page, a URL
+that does not end in an image extension, and a GitHub `/blob/` viewer URL.
 
-## Image 1: the chart
-
-Original work, so there is no external licence to clear. It is reproducible:
-
-```bash
-python3 images/make_chart.py
-```
-
-`make_chart.py` is in the repo alongside the output. The figures it plots are
-the ones cited in the article body, and both sources are named in the chart's
-own footer so the credit survives if the image is reshared on its own.
-
-Its `Image source` link points at the image file, not at the article that
-contains it. That is the whole point of the line: it should take you to the
-photo. Replace it with the uploaded asset's direct URL once the chart is in the
-media library.
-
-## Images 2 and 3: what still needs doing
-
-Both are product screenshots. Neither could be captured here: this draft was
-produced in a sandboxed environment where `facebook.com` and `socialbee.com`
-are both blocked by the network egress policy, and neither product can be
-screenshotted without a logged-in session anyway.
-
-For each one:
-
-1. Open the product and reproduce the state described in the alt text.
-2. Capture at 1200px wide or better. Crop to the relevant panel; do not
-   screenshot a whole desktop.
-3. Blur or replace any real account name, profile photo, or client data.
-4. Save into `images/` under the exact filename in the table above, so the
-   `![...]()` reference in the draft resolves with no edit.
-5. Leave the `Image source` line beneath it untouched.
+**One caveat, stated plainly.** The links currently point at
+`raw.githubusercontent.com`, which serves the actual PNG bytes and satisfies
+the rule. This repository is private, so those URLs need a GitHub token and
+will not open in a plain browser session for anyone outside it. At publish
+time, replace each one with the uploaded asset's own URL on socialbee.com, for
+example `https://socialbee.com/wp-content/uploads/2026/08/facebook-reel-length-limits-2021-2026.webp`.
+The rule does not change: the link ends in an image extension and shows the
+photo.
 
 ## Before upload
 
 - Convert to WebP and compress. Target under 150KB each at 1200px wide. The
-  chart is currently 101KB as PNG, which is fine, but WebP will roughly halve it.
-- Set explicit width and height attributes so images do not shift layout while
-  the page loads.
-- Re-check that every image still has its hyperlinked `Image source` line after
-  the CMS import. That formatting is the item most often lost in a paste.
+  three PNGs are 101KB, 119KB and 99KB, so WebP will roughly halve them.
+- Set explicit width and height attributes so the images do not shift layout
+  while the page loads. All three are 1200px wide; heights are 700, 620 and 640.
+- Re-run `check_image_sources.py` after the CMS import. That formatting is the
+  thing most often lost in a paste.

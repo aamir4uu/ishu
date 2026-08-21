@@ -20,19 +20,19 @@ in 2026?", and in the FAQ heading.
 
 ## Images
 
-Three images. Full detail, sources and capture instructions are in
-`image-manifest.md`; the assets themselves are in `images/`.
+Three images, all original SocialBee graphics, all real files in `images/`.
+Full detail in `image-manifest.md`.
 
-| Slot | File | Alt text | Source | Status |
-| --- | --- | --- | --- | --- |
-| 1 | `images/facebook-reel-length-limits-2021-2026.png` | Bar chart of the maximum Facebook Reel length from 2021 to 2026, rising from 30 seconds to 90 seconds and then to no fixed cap | The image file itself. Swap for the uploaded asset URL at publish | In the repo |
-| 2 | `images/facebook-reels-composer-timer.png` | The Facebook Reels composer with the 90-second recording timer visible above the record button | facebook.com/help/2862139500770200 | To capture |
-| 3 | `images/socialbee-facebook-reel-scheduled.png` | A Facebook Reel scheduled inside the SocialBee post editor with the preview panel open | help.socialbee.com/.../29979081550487 | To capture |
+| Slot | File | Section | Source link |
+| --- | --- | --- | --- |
+| 1 | `facebook-reel-upload-vs-in-app-limits.png` | What's the Maximum Length | [.png file](https://raw.githubusercontent.com/aamir4uu/ishu/refs/heads/claude/facebook-reel-length-post-5fl797/blog/facebook-reel-length/images/facebook-reel-upload-vs-in-app-limits.png) |
+| 2 | `facebook-reel-length-limits-2021-2026.png` | Uploaded Reels: No Fixed Cap | [.png file](https://raw.githubusercontent.com/aamir4uu/ishu/refs/heads/claude/facebook-reel-length-post-5fl797/blog/facebook-reel-length/images/facebook-reel-length-limits-2021-2026.png) |
+| 3 | `facebook-reel-length-by-content-type.png` | How Long Should a Facebook Reel Be? | [.png file](https://raw.githubusercontent.com/aamir4uu/ishu/refs/heads/claude/facebook-reel-length-post-5fl797/blog/facebook-reel-length/images/facebook-reel-length-by-content-type.png) |
 
-Every image carries a hyperlinked `Image source` line directly beneath it, and
-every one of those links is a deep link to the exact page or file, never a
-front page. Text always sits between a heading and an image. No stock
-photography, per the brand guidelines. Verified by:
+Every `Image source` link resolves to an image file, not to a web page
+containing one. Text always sits between a heading and an image. No stock
+photography, per the brand guidelines. Swap each link for the uploaded asset's
+own URL at publish time; the rule stays the same. Verified by:
 
 ```bash
 python3 tools/check_image_sources.py blog/facebook-reel-length/facebook-reel-length.md
@@ -45,7 +45,7 @@ python3 tools/check_image_sources.py blog/facebook-reel-length/facebook-reel-len
 | `facebook-reel-length.md` | The draft, source of truth |
 | `How Long Can a Facebook Reel Be - 2026 Limits and Best Run Times.docx` | Word version, generated from the markdown by `tools/md_to_docx.py` |
 | `image-manifest.md` | Every image, its source, and what still needs capturing |
-| `images/` | The image assets and the script that generates the chart |
+| `images/` | The three image files and the script that draws them |
 | `schema.json` | Article and FAQPage JSON-LD |
 | `aeo-seo-checklist.md` | The checklist, marked up |
 | `tools/check_image_sources.py` | Fails the build if any image source is a bare domain, is missing, or sits under a heading |
