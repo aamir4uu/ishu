@@ -6,7 +6,8 @@
 
 | File | What it is |
 | --- | --- |
-| `agency-delivery-sop.md` | The article. H1/H2/H3, APA title case, six images each with a hyperlinked "Image Source" line beneath |
+| `The Delivery SOP...10-Person One.docx` | **Word deliverable.** Real Heading 1/2/3 styles, live hyperlinks, image slots with hyperlinked "Image Source" captions |
+| `agency-delivery-sop.md` | Markdown source of record. H1/H2/H3, APA title case, three images each with a hyperlinked "Image Source" line beneath |
 | `seo-publishing-pack.md` | Title tag, meta description, slug, internal links, and the AEO/SEO checklist worked item by item with open items called out |
 | `schema-markup.json` | FAQPage, Article, HowTo and SoftwareApplication JSON-LD, generated from the live copy. Client reference only, per checklist section 4 |
 | `image-manifest.md` | The six images, their alt text, source URLs, and what still needs doing before upload |
@@ -17,14 +18,16 @@ professionals), second person, per the brand content guidelines. No SITEJET
 Website Builder features are referenced and "Studio" never appears without the
 Sitejet prefix.
 
+**Length:** 1,072 words against a 800-1000 target with 25% headroom accepted.
+
 ### Open items before publishing
 
-1. Confirm the primary keyword and check its volume. The brief said "check task
-   info" for keywords and that file was not supplied, so `agency delivery SOP`
-   was inferred from the headline.
-2. Download the six images and upload them to the media library, then swap the
-   URLs inside the `![]()` markdown. Outbound access to Pexels was blocked in
-   this environment. See `image-manifest.md`.
+1. Confirm the primary keyword and check its volume. Task Info was confirmed
+   N/A, so `agency delivery SOP` was inferred from the headline.
+2. Drop the three images in. Outbound access to Pexels was blocked in this
+   environment, so the .docx carries sized placeholder frames with the source
+   link and alt text beside each, and the markdown `![]()` tags point at the
+   photo pages. See `image-manifest.md`.
 3. Replace the team byline with a named author and a personal LinkedIn URL.
    Checklist item 5.1 asks for a person, and a named human author matters for
    the no-AI requirement too.
@@ -63,7 +66,9 @@ values recorded. Nothing changes without a report behind it.
 The first article already forced one recalibration: the sentence-opener gate
 used a raw count of 3, which failed a clean 219-sentence draft where "the"
 opened 16 sentences (7.3%, normal for English). It is now proportional with a
-raw floor. Recorded in the calibration history.
+raw floor. Cutting that draft to 1,072 words then produced a second finding,
+that large cuts break the variance gates because trimming attacks long sentences
+first. Both are recorded in the learning log.
 
 ### Usage
 

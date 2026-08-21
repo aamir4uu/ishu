@@ -1,5 +1,5 @@
 {
-  "_note": "Client reference only, per checklist section 4. FAQPage, Article and HowTo are generated from the live copy in agency-delivery-sop.md. Replace the three author placeholders in the Article block before shipping. Only ship SoftwareApplication on this blog URL if the client wants it there.",
+  "_note": "Client reference only, per checklist section 4. FAQPage, Article and HowTo are generated from the live copy in agency-delivery-sop.md and must be regenerated if the copy changes. Replace the three author placeholders in the Article block before shipping. Only ship SoftwareApplication on this blog URL if the client wants it there.",
   "FAQPage": {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -9,7 +9,7 @@
         "name": "What Should Be Included in an Agency Delivery SOP?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Five stages with a gate condition between each, a named owner per stage, and three templates: a scope sheet, a build checklist and a launch checklist. Anything beyond that is documentation you'll stop maintaining by March."
+          "text": "Five stages with a gate condition between each, a named owner per stage, and three templates: scope sheet, build checklist, launch checklist. Anything more is documentation you'll stop maintaining by March."
         }
       },
       {
@@ -17,31 +17,23 @@
         "name": "How Long Does It Take to Document a Delivery SOP?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Four weeks, at roughly two hours a week, provided you write it alongside live projects rather than in a vacuum. Working from a project in front of you beats working from memory, because memory quietly edits out every bit where you improvised."
+          "text": "Four weeks at two hours a week, provided you write it alongside live projects. Working from a project in front of you beats working from memory, because memory edits out every bit where you improvised."
         }
       },
       {
         "@type": "Question",
-        "name": "Should a Freelancer Use a Delivery SOP or Is It Only for Teams?",
+        "name": "Should a Freelancer Use One, or Is It Only for Teams?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Freelancers benefit more, not less. You have no colleague to catch what you missed, so the checklist is your second pair of eyes. The scope sheet also does something a solo operator badly needs: it lets you say no to an out-of-scope request by pointing at a document rather than at yourself."
+          "text": "Freelancers benefit more. No colleague catches what you missed, so the checklist is your second pair of eyes, and the scope sheet lets you refuse a request by pointing at a document rather than at yourself."
         }
       },
       {
         "@type": "Question",
-        "name": "How Do I Get Clients to Respect the Review Rounds?",
+        "name": "How Many Clients Can a Three-Person Agency Handle?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Put the number in the proposal, repeat it at kickoff, and repeat it in the email that shares the preview link. Clients almost never push back on a limit they were told about three times before it mattered. The ones who push back are usually pushing back on being surprised, not on the limit."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What Happens When a Client Misses Their Content Deadline?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The launch date moves by one working day for every working day the content is late, and this is written into the scope sheet before anyone signs. Then actually enforce it once. After the first time, content tends to arrive."
+          "text": "Six to eight concurrent builds, with two or three active and the rest parked at a gate. A project waiting at a gate costs you nothing. A project in an undefined state costs you a check-in every day."
         }
       },
       {
@@ -49,23 +41,7 @@
         "name": "Does an SOP Make the Work Feel Generic?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Only if you've standardised the wrong half. Sequence, checks and admin should be identical every time. Design, copy and strategy shouldn't be touched. Removing decisions about process is how you free up attention for decisions about the work."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How Do I Handle a Client Who Wants to Skip Straight to the Build?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Show them the scope sheet and tell them it takes twenty minutes to complete. Most enthusiasm to skip planning comes from assuming planning means weeks of discovery. When they see it's one page, the objection usually disappears. If it doesn't, that's useful information about how the rest of the project will go."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I Run This SOP Across Multiple Client Sites at Once?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "That's the point of it. Six to eight concurrent projects is manageable for three people once each project sits in a defined state you can see at a glance. Managing them from one platform, with shared team roles and a client portal per project, is what keeps the tenth site from costing more attention than the fifth."
+          "text": "Only if you standardise the wrong half. Sequence, checks and admin should be identical every time. Design and strategy shouldn't be touched at all."
         }
       }
     ]
@@ -110,7 +86,8 @@
         "name": "Project Management Institute"
       },
       "url": "https://www.pmi.org/-/media/pmi/documents/public/pdf/learning/thought-leadership/pulse/pulse-of-the-profession-2018.pdf"
-    }
+    },
+    "wordCount": 1072
   },
   "HowTo": {
     "@context": "https://schema.org",

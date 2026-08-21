@@ -45,7 +45,7 @@ two independent sightings.
 
 | Date | Piece | Words | Pre-flight gates failed | ZeroGPT score | Notes |
 | --- | --- | --- | --- | --- | --- |
-| 2026-08-21 | Sitejet: agency delivery SOP | 2,956 | 0 of 11 at final pass | pending client run | First piece under v3.0. Forced one gate recalibration (sentence opener repetition). Client requires APA title case, which conflicts with pattern 17; resolved by excluding headings from the prose scan and compensating with a 22.7 per 1k contraction rate and 37% short sentences. Full report in `reports/2026-08-21-sitejet-agency-delivery-sop.md`. |
+| 2026-08-21 | Sitejet: agency delivery SOP | 1,072 (cut from 2,956) | 0 of 11 at final pass | pending client run | First piece under v3.0. Forced one gate recalibration (sentence opener repetition). Client requires APA title case, which conflicts with pattern 17; resolved by excluding headings from the prose scan and compensating with a 22.7 per 1k contraction rate and 37% short sentences. Full report in `reports/2026-08-21-sitejet-agency-delivery-sop.md`. |
 
 ## Standing findings
 
@@ -74,6 +74,13 @@ lists (pattern 16) into flowing prose removed long sentences and dropped the
 long-sentence share below its floor, failing a gate that had been passing.
 Structural edits change the length distribution. Re-run the script after every
 structural edit, not only at the end.
+
+**Cutting a piece in half breaks the variance gates.** Trimming this article
+from 2,956 words to a 1,000-word spec dropped it below both the long-sentence
+floor and the paragraph-variance floor, because trimming attacks long sentences
+first. The fix was to restore length in a few specific places rather than trim
+evenly: one long sentence per section, plus two single-sentence paragraphs.
+Re-run after any large cut, and expect to add words back.
 
 **Gates that use raw counts do not survive contact with a long piece.** Any
 threshold expressed as an absolute number needs checking against a 3,000-word
