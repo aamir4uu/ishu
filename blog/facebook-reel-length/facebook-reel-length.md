@@ -16,10 +16,6 @@ You cut a video and now you're checking whether it'll fit. That answer moved in 
 
 Two separate limits exist. One governs the video you upload from your computer, the other governs the video you record inside the Facebook app, and mixing them up is what causes most of the confusion online.
 
-![Diagram comparing the two Facebook Reel length limits: an uploaded file has no fixed maximum, while recording in the app stops at 90 seconds](images/facebook-reel-upload-vs-in-app-limits.png)
-
-*[Image source](https://raw.githubusercontent.com/aamir4uu/ishu/refs/heads/claude/facebook-reel-length-post-5fl797/blog/facebook-reel-length/images/facebook-reel-upload-vs-in-app-limits.png)*
-
 ### Uploaded Reels: No Fixed Cap
 
 Send Facebook a finished video file and it stops enforcing any maximum duration at all. Meta confirmed in June 2025 that everything you post to Facebook except Stories and Live would publish as a Reel, and the 90-second restriction was dropped at that point. Horizontal footage gets shown in a vertical frame rather than refused.
@@ -38,6 +34,10 @@ Recording works differently. Open the Reels composer and you're on a timer that 
 
 Want a four-minute Reel? Film and edit it elsewhere, then upload the file.
 
+![The Facebook Reels composer with the 90-second recording timer visible above the record button](images/facebook-reels-composer-timer.png)
+
+*Image source: pending capture, see image-manifest.md*
+
 ### The Minimum Length
 
 Facebook needs 3 seconds. Below that, it won't publish. Scheduling tools set their own floor too, so check yours before you build a whole batch around a run time the tool won't accept. SocialBee's direct publishing to Facebook Pages takes **4 to 90 seconds** at a 9:16 ratio, 540 x 960 or better, as an .MP4 or .MOV under 512 MB. Our [free social media resources](https://socialbee.com/resources/) include planning templates.
@@ -53,10 +53,6 @@ For most business content, aim somewhere between 15 and 60 seconds. That's enoug
 3. **Explainers and interviews** can run to three minutes. Only worth it once an audience already knows who you are.
 
 Padding is the mistake. Stretch a 45-second Reel to 90 and you don't win 45 more seconds of attention, you just hand viewers a clearly marked place to leave, right at the point the video stops moving.
-
-![Chart of recommended Facebook Reel length by content type, with hooks at 7 to 15 seconds, demos at 30 to 60 seconds and explainers at 60 to 180 seconds](images/facebook-reel-length-by-content-type.png)
-
-*[Image source](https://raw.githubusercontent.com/aamir4uu/ishu/refs/heads/claude/facebook-reel-length-post-5fl797/blog/facebook-reel-length/images/facebook-reel-length-by-content-type.png)*
 
 ## Does Reel Length Affect Reach on Facebook?
 
@@ -89,6 +85,10 @@ Posting across several platforms? Every one of them wants something slightly dif
 Rushing is what makes you settle for the wrong length.
 
 SocialBee publishes Reels straight to your Facebook Pages. Queue Tuesday's 12-second hook and Thursday's demo, which needs a full minute, in the same sitting without switching apps once. Each one gets a preview before it goes out, and content categories keep the mix from turning into five demos in a row. On a personal profile you get a mobile notification at post time instead, caption copied and file ready.
+
+![A 45-second Facebook Reel scheduled in the SocialBee post editor, with the preview panel and content category selector visible](images/socialbee-facebook-reel-scheduled.png)
+
+*Image source: pending capture, see image-manifest.md*
 
 Here's the full walkthrough: [how to schedule Reels on Facebook](https://socialbee.com/blog/can-you-schedule-reels-on-facebook/).
 

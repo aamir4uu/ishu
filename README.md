@@ -9,7 +9,7 @@ Content work for SocialBee, plus the tooling used to produce it.
 | `blog/facebook-reel-length/` | Blog post: "How Long Can a Facebook Reel Be? 2026 Limits and Best Run Times", with its .docx, images, metadata, schema, filled checklist and humanizer log |
 | `.claude/skills/humanizer/` | The humanizer skill, v4.0. Gates drafts before a detector run, ranks sentences by risk, and learns from every filed ZeroGPT report |
 | `tools/md_to_docx.py` | Converts an article markdown file to .docx |
-| `tools/check_image_sources.py` | Checks every image has alt text and an `Image source` deep link |
+| `tools/check_image_sources.py` | Checks every image has alt text and a source link resolving to an image file; `--strict` also fails on uncaptured slots |
 
 ## The article
 
@@ -18,8 +18,8 @@ Content work for SocialBee, plus the tooling used to produce it.
 - `How Long Can a Facebook Reel Be - 2026 Limits and Best Run Times.docx` - the
   Word version, generated from the markdown
 - `image-manifest.md` and `images/` - every image, its source, and what still
-  needs capturing. The length-limit chart is an original asset with the script
-  that draws it
+  needs capturing. One chart with the script that draws it, and two screenshots
+  the client captures
 - `meta.md` - title tag, meta description, slug, image slots, link plan, and
   the facts that need re-verifying against a live account before publishing
 - `schema.json` - Article and FAQPage JSON-LD

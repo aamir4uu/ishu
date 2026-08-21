@@ -16,6 +16,14 @@ Rules enforced:
   5. Every referenced image file actually exists on disk.
   6. Text sits between a heading and an image, per the brand guidelines.
 
+A slot awaiting a screenshot is not a failure, as long as it says so. Mark it:
+
+    *Image source: pending capture, see image-manifest.md*
+
+Those are reported as PENDING rather than passed off as done. Run with
+``--strict`` before handing the draft over and pending slots become failures,
+so an uncaptured screenshot cannot reach a publisher unnoticed.
+
     python3 tools/check_image_sources.py blog/slug/article.md
 
 Exit status is non-zero if anything fails, so it can gate a build.
@@ -28,6 +36,8 @@ from urllib.parse import urlparse
 
 IMAGE = re.compile(r"^!\[([^\]]*)\]\(([^)]+)\)\s*$")
 SOURCE = re.compile(r"^\*\[Image source\]\(([^)]+)\)\*\s*$", re.I)
+PENDING = re.compile(
+    r"^\*Image source: pending capture, see image-manifest\.md\*\s*$", re.I)
 HEADING = re.compile(r"^#{1,6}\s")
 
 # Paths that mean "the front page" and nothing more.
@@ -46,6 +56,7 @@ def check(path):
         lines = fh.read().splitlines()
 
     problems = []
+    pending = []
     images = 0
     last_meaningful = None
 
@@ -67,7 +78,17 @@ def check(path):
         if not alt:
             problems.append(f"{where}: image has no alt text ({src})")
 
-        if not urlparse(src).scheme:
+        # Find the source line first: a slot marked pending is allowed to be
+        # missing its file, because that is precisely what pending means.
+        k = i + 1
+        while k < len(lines) and not lines[k].strip():
+            k += 1
+        is_pending = k < len(lines) and PENDING.match(lines[k].strip())
+
+        if is_pending:
+            pending.append(f"{where}: awaiting capture, {src}")
+
+        if not is_pending and not urlparse(src).scheme:
             on_disk = os.path.normpath(os.path.join(base, src))
             if not os.path.isfile(on_disk):
                 problems.append(
@@ -83,10 +104,10 @@ def check(path):
                 f"guidelines want text between a heading and an image."
             )
 
-        # Find the source line: the next non-blank line.
-        j = i + 1
-        while j < len(lines) and not lines[j].strip():
-            j += 1
+        if is_pending:
+            continue
+
+        j = k
         if j >= len(lines):
             problems.append(f"{where}: no 'Image source' line beneath the image")
             continue
@@ -128,24 +149,34 @@ def check(path):
                 f"{url}\n    Use the raw file URL instead."
             )
 
-    return images, problems
+    return images, problems, pending
 
 
 def main():
-    if len(sys.argv) < 2:
+    if len([a for a in sys.argv[1:] if not a.startswith("--")]) < 1:
         print(__doc__)
         return 2
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    strict = "--strict" in sys.argv
     failed = False
-    for path in sys.argv[1:]:
-        images, problems = check(path)
+    for path in args:
+        images, problems, pending = check(path)
         if problems:
             failed = True
             print(f"{path}: {len(problems)} problem(s) across {images} image(s)")
             for p in problems:
                 print(f"  - {p}")
         else:
-            print(f"{path}: OK, {images} image(s), all present on disk, "
-                  f"every source links straight to an image file")
+            done = images - len(pending)
+            print(f"{path}: OK, {done} of {images} image(s) final, every "
+                  f"source links straight to an image file")
+        if pending:
+            if strict:
+                failed = True
+            label = "FAILED (--strict)" if strict else "pending"
+            print(f"  {len(pending)} slot(s) {label}:")
+            for p in pending:
+                print(f"  - {p}")
     return 1 if failed else 0
 
 

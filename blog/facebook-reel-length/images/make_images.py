@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
-"""Generate every image the article uses.
+"""Draw the article's one chart.
 
-SocialBee's brand guidelines rule out stock photography and ask for
-screenshots, charts and original visuals. Product screenshots have to be
-captured from a logged-in account, which cannot happen here, so all three
-images are original graphics drawn from the article's own sourced figures.
+The brand guidelines permit charts but ask for screenshots: "Include real
+examples, case studies, and screenshots, especially of SocialBee in action",
+and the promotion pattern in section 6 wants a screenshot, caption and CTA.
+Charts appear once, in a single word, in the list of things that are not stock
+photography. So the article carries one chart and two screenshots, not three
+charts.
 
-Keeping the generator in the repo means the images are reproducible, their
-provenance is checkable, and the "Image source" line can point at a real image
-file rather than at a web page that happens to contain one.
+This is the chart. It earns its place because it plots dated figures from two
+cited sources, which is the citable data point the GEO checklist asks for, and
+no screenshot can show a value that changed four times over five years.
 
     python3 make_images.py
 
-Data sources are cited in ../image-manifest.md and in each figure's footer.
+Sources are cited in ../image-manifest.md and in the figure's own footer.
 """
 
 import os
@@ -125,146 +127,5 @@ def length_limits_timeline():
     save(img, W, H, "facebook-reel-length-limits-2021-2026.png")
 
 
-# --------------------------------------------------------------- figure two
-
-def two_paths():
-    """Upload versus record: the distinction the whole article turns on."""
-    W, H = 1200, 620
-    img, d = canvas(W, H)
-
-    f_title = font("LiberationSans-Bold.ttf", 34)
-    f_sub = font("LiberationSans-Regular.ttf", 19)
-    f_head = font("LiberationSans-Bold.ttf", 23)
-    f_body = font("LiberationSans-Regular.ttf", 17)
-    f_big = font("LiberationSans-Bold.ttf", 40)
-    f_cap = font("LiberationSans-Regular.ttf", 16)
-    f_foot = font("LiberationSans-Regular.ttf", 15)
-
-    d.text((px(60), px(48)), "Two Ways to Post a Reel, Two Different Limits",
-           font=f_title, fill=INK)
-    d.text((px(60), px(96)),
-           "Mixing these up is what causes most of the confusion about Reel length.",
-           font=f_sub, fill=MUTED)
-
-    cards = [
-        ("Upload a finished file", "You export the video from your editor "
-         "and upload it to Facebook.", "No fixed\nmaximum",
-         "Since June 2025, on updated accounts", GREEN),
-        ("Record in the Facebook app", "You open the Reels composer and shoot "
-         "straight into the timer.", "90 sec\nceiling",
-         "The in-app timer still stops you", RED),
-    ]
-
-    cw, gap, top, ch = 500, 40, 160, 340
-    for i, (head, body, verdict, foot, accent) in enumerate(cards):
-        x = 60 + i * (cw + gap)
-        d.rounded_rectangle([px(x), px(top), px(x + cw), px(top + ch)],
-                            radius=px(14), fill=PANEL, outline=RULE,
-                            width=SCALE)
-        d.rounded_rectangle([px(x), px(top), px(x + 8), px(top + ch)],
-                            radius=px(4), fill=accent)
-
-        d.text((px(x + 34), px(top + 30)), head, font=f_head, fill=INK)
-        # Wrap the body text by hand; two short lines beat one long one.
-        words, line, lines = body.split(), "", []
-        for w in words:
-            trial = (line + " " + w).strip()
-            if text_width(d, trial, f_body) > cw - 70:
-                lines.append(line)
-                line = w
-            else:
-                line = trial
-        lines.append(line)
-        for j, ln in enumerate(lines):
-            d.text((px(x + 34), px(top + 74 + j * 26)), ln, font=f_body,
-                   fill=MUTED)
-
-        vy = top + 74 + len(lines) * 26 + 26
-        for j, ln in enumerate(verdict.split("\n")):
-            d.text((px(x + 34), px(vy + j * 46)), ln, font=f_big, fill=accent)
-        d.text((px(x + 34), px(vy + len(verdict.split("\n")) * 46 + 8)),
-               foot, font=f_cap, fill=MUTED)
-
-    fy = top + ch + 34
-    d.line([(px(60), px(fy)), (px(W - 60), px(fy))], fill=RULE, width=SCALE)
-    d.text((px(60), px(fy + 20)),
-           "Either way the minimum is 3 seconds, and SocialBee's direct "
-           "publishing needs at least 4.", font=f_foot, fill=MUTED)
-    d.text((px(60), px(fy + 44)),
-           "Sources: Meta, June 2025 video consolidation; SocialBee help "
-           "documentation.  Chart: SocialBee.", font=f_foot, fill=MUTED)
-
-    save(img, W, H, "facebook-reel-upload-vs-in-app-limits.png")
-
-
-# ------------------------------------------------------------- figure three
-
-def length_by_content_type():
-    """Recommended run time per kind of Reel, against the sweet spot."""
-    W, H = 1200, 640
-    img, d = canvas(W, H)
-
-    f_title = font("LiberationSans-Bold.ttf", 34)
-    f_sub = font("LiberationSans-Regular.ttf", 19)
-    f_lab = font("LiberationSans-Bold.ttf", 20)
-    f_small = font("LiberationSans-Regular.ttf", 15)
-    f_val = font("LiberationSans-Bold.ttf", 20)
-    f_foot = font("LiberationSans-Regular.ttf", 15)
-
-    d.text((px(60), px(48)), "How Long Should a Facebook Reel Be?",
-           font=f_title, fill=INK)
-    d.text((px(60), px(96)),
-           "Ranges that tend to hold attention, by what the Reel is doing.",
-           font=f_sub, fill=MUTED)
-
-    # Right margin has to hold the longest value label ("60 to 180 sec"),
-    # otherwise the widest bar pushes its own label off the canvas.
-    left, right, top, row_h, bar_h = 330, W - 250, 200, 96, 34
-    axis_max = 180.0
-
-    def x_of(sec):
-        return left + (right - left) * (sec / axis_max)
-
-    # Sweet-spot band behind everything else.
-    d.rectangle([px(x_of(15)), px(top - 26), px(x_of(60)), px(top + 3 * row_h - 22)],
-                fill=BAR_PALE)
-    d.text((px(x_of(15) + 8), px(top - 48)), "15 to 60 sec: the range most "
-           "business Reels do best in", font=f_small, fill=MUTED)
-
-    rows = [
-        ("Hooks and single tips", "One idea, no setup", 7, 15),
-        ("Product demos and how-tos", "Long enough for a real workflow", 30, 60),
-        ("Explainers and interviews", "Only once people know you", 60, 180),
-    ]
-    for i, (label, note, lo, hi) in enumerate(rows):
-        y = top + i * row_h
-        d.text((px(60), px(y - 4)), label, font=f_lab, fill=INK)
-        d.text((px(60), px(y + 24)), note, font=f_small, fill=MUTED)
-        d.rounded_rectangle([px(x_of(lo)), px(y), px(x_of(hi)), px(y + bar_h)],
-                            radius=px(bar_h / 2), fill=BAR)
-        d.text((px(x_of(hi) + 16), px(y + 6)), f"{lo} to {hi} sec",
-               font=f_val, fill=INK)
-
-    ay = top + 3 * row_h - 18
-    d.line([(px(left), px(ay)), (px(right), px(ay))], fill=RULE, width=SCALE)
-    for tick in (0, 30, 60, 90, 120, 150, 180):
-        tx = x_of(tick)
-        d.line([(px(tx), px(ay)), (px(tx), px(ay + 7))], fill=RULE, width=SCALE)
-        d.text((px(tx - 8), px(ay + 14)), str(tick), font=f_small, fill=MUTED)
-    d.text((px(right - 40), px(ay + 40)), "seconds", font=f_small, fill=MUTED)
-
-    fy = ay + 74
-    d.line([(px(60), px(fy)), (px(right), px(fy))], fill=RULE, width=SCALE)
-    d.text((px(60), px(fy + 20)),
-           "Facebook ranks on completion rather than duration, so the right "
-           "length is the one people finish.", font=f_foot, fill=MUTED)
-    d.text((px(60), px(fy + 44)),
-           "Chart: SocialBee.", font=f_foot, fill=MUTED)
-
-    save(img, W, H, "facebook-reel-length-by-content-type.png")
-
-
 if __name__ == "__main__":
     length_limits_timeline()
-    two_paths()
-    length_by_content_type()
