@@ -1,0 +1,17 @@
+ZeroGPT pre-flight: blog/ai-content-optimisation/ai-content-optimisation.md
+1035 words / 72 sentences / 24 paragraphs
+mean sentence 14.51 words, stdev 10.01
+
+  [PASS] sentence length variance (CV): 0.69 (need >= 0.45)
+  [PASS] sentences clustered at mean: 26.4% (need <= 40.0%)
+  [PASS] short sentences present: 30.6% (need >= 12.0%)
+  [PASS] long sentences present: 16.7% (need >= 12.0%)
+  [PASS] paragraph size variance (CV): 0.366 (need >= 0.35)
+  [PASS] sentence opener repetition: 'it' x5 = 6.9% of sentences (max 9.0%, floor 3)
+  [PASS] AI marker density: 0.0/1k (max 2.2)
+  [PASS] em dashes: 0
+  [PASS] curly quotes: 0
+  [PASS] rule of three: 0.0/1k (max 2.0)
+  [PASS] contraction rate: 14.49/1k (need >= 4.0)
+
+All gates passed.

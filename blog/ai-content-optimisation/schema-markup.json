@@ -1,0 +1,167 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.xovi.com/ai-content-optimisation/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does AI content optimisation replace SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, and treating it as a swap is how teams end up with neither working. That job sits upstream. Ranking work still decides where you place in results, while AI search optimisation decides whether the tool understands what it is ranking in the first place. Budget for both."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long until AI tools pick up a rewrite?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Expect weeks, not days. Crawl schedules differ by platform and some assistants lean on cached or licensed data, so compare month to month and ignore any single check."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need schema markup for this?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It helps, it's cheap, and Organization, Product and FAQ markup are worth adding. Schema describes a page that already makes sense, though. It won't rescue one that doesn't."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I block AI crawlers to protect my content?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "That's a commercial decision rather than an SEO one. Block them and your content stays out of training data and out of answers. Most agencies and SaaS teams want the visibility more than the protection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I fix first?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Crawler access, then the first sentence on your homepage."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://www.xovi.com/ai-content-optimisation/#article",
+      "headline": "Stop Writing Content AI Tools Can't Understand",
+      "description": "AI content optimisation without the guesswork. Four fixes that make your pages legible to ChatGPT, Gemini and AI Overviews, plus how to check what they see.",
+      "inLanguage": "en",
+      "url": "https://www.xovi.com/ai-content-optimisation/",
+      "datePublished": "2026-08-21",
+      "dateModified": "2026-08-21",
+      "author": {
+        "@type": "Person",
+        "name": "REPLACE WITH NAMED AUTHOR",
+        "jobTitle": "REPLACE WITH ROLE",
+        "url": "REPLACE WITH PERSONAL LINKEDIN URL"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "XOVI",
+        "url": "https://www.xovi.com/"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "AI content optimisation"
+        },
+        {
+          "@type": "Thing",
+          "name": "AI visibility"
+        },
+        {
+          "@type": "Thing",
+          "name": "Generative engine optimisation"
+        }
+      ],
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "Google users are less likely to click on links when an AI summary appears in the results",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Pew Research Center"
+          },
+          "url": "https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "An Analysis of AI Overview Brand Visibility Factors (75K Brands Studied)",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Ahrefs"
+          },
+          "url": "https://ahrefs.com/blog/ai-overview-brand-correlation/"
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.xovi.com/ai-content-optimisation/#howto",
+      "name": "How to write content AI tools can understand",
+      "description": "Five steps that make a page legible to AI search tools and let you check whether it worked.",
+      "totalTime": "PT2H",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Answer the question in the first 40 words",
+          "text": "State the answer, then explain it. Every H2 section should survive being copied out on its own and still make sense to somebody who never saw the intro."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Name what you sell in the words buyers use",
+          "text": "Write the sentence a competitor would have to argue with: category, then audience, then function, in the language buyers type into a search box."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Attach a number, a date, or a source to every claim",
+          "text": "Vague claims are free and everybody makes them, so no tool has a reason to repeat yours. Specific ones are rarer, which is what makes them worth quoting."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Use one set of facts everywhere",
+          "text": "Reconcile the pricing page, the FAQ, the review listings and the social profiles so nothing contradicts anything else."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Check what the tools actually say",
+          "text": "Ask ChatGPT, Gemini and Perplexity what your company sells, read the answers for category errors, then monitor the answer over time rather than trusting one check."
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.xovi.com/xovi-ai/#software",
+      "name": "XOVI AI",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "url": "https://www.xovi.com/xovi-ai/",
+      "description": "XOVI AI is an AI visibility platform that shows how AI tools interpret and surface a business and its individual offerings compared to competitors in AI-powered search.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "XOVI",
+        "url": "https://www.xovi.com/"
+      },
+      "featureList": [
+        "Access check: detect whether AI crawlers can technically read the site",
+        "Understanding analysis: how AI classifies the business and where information is missing or conflicting",
+        "Competitor benchmarking: which competitors appear in AI answers instead",
+        "Improvement Centre: prioritised recommendations tied to content and structure",
+        "Scheduled monitoring and AI Visibility Score tracking",
+        "Client-ready exports and white-label reporting"
+      ]
+    }
+  ]
+}
