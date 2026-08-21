@@ -31,11 +31,12 @@ def scan(text):
     all_doc_hits = D.document_hits(text, rules)
     sents = D.sentences(text)
 
-    # Parallelism is measured across the document but repaired one sentence at
-    # a time, so it is attributed to the sentences it matched rather than to the
-    # document penalty. Counting it in both would double-charge it.
-    doc_hits = [h for h in all_doc_hits if not h.signal.startswith("parallel_")]
-    parallel = [h for h in all_doc_hits if h.signal.startswith("parallel_")]
+    # Some signals are measured across the document but repaired one sentence
+    # at a time: parallelism, and position. Those name the sentences they apply
+    # to, so they are charged to those sentences rather than to the document
+    # penalty. Counting them in both would double-charge them.
+    doc_hits = [h for h in all_doc_hits if not h.members]
+    attributed = [h for h in all_doc_hits if h.members]
 
     per_sentence = []
     for s in sents:
@@ -47,12 +48,12 @@ def scan(text):
             "hits": [h.to_dict() for h in hits],
         })
 
-    for h in parallel:
+    for h in attributed:
         for idx in h.members:
             if 0 <= idx < len(per_sentence):
                 per_sentence[idx]["risk"] = round(
                     min(100.0, per_sentence[idx]["risk"]
-                        + weights.get(h.signal, 13.0) * max(h.magnitude, 0.6)), 1)
+                        + weights.get(h.signal, 10.0) * max(h.magnitude, 0.5)), 1)
                 per_sentence[idx]["hits"].append(h.to_dict())
 
     # No floor on the magnitude. Document signals already emit a scaled 0-1
@@ -152,4 +153,11 @@ def main():
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        sys.exit(main())
+    except BrokenPipeError:
+        # Piping into head closes the stream early. That is not an error.
+        try:
+            sys.stdout.close()
+        finally:
+            sys.exit(0)

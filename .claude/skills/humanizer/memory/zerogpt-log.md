@@ -61,3 +61,33 @@ Weight moves:
 
   - `parallel_structure` 13.0 -> 16.6 (lift 1.79)
   - `parallel_opening` 13.0 -> 15.92 (lift 1.64)
+
+## Session 2 - 2026-08-21
+
+- Draft: `/home/user/ishu/blog/trending-instagram-hashtags/trending-instagram-hashtags.md`
+- ZeroGPT score: 25.6
+- Flagged spans matched: 18
+- Scanner recall before this report: 0.33
+- Rules promoted: 2
+
+Missed by the scanner (now feeding rule mining):
+
+  - Read the section after it before you use any of them, though, because the rules have changed twice in the past eighteen months.
+  - These are the tags carrying the most volume this month, grouped by what they are for.
+  - The head of Instagram has put it about as bluntly as he can.
+  - Hashtags aren't a primary way to increase reach, and whatever effect they once had was marginal.
+  - What hashtags still do is tell Instagram what your post is about, which feeds search and Explore.
+  - Our guide to the Instagram algorithm covers the signals that actually rank you.
+  - That sounds manageable until you're scheduling twenty posts across four content categories.
+  - SocialBee generates relevant hashtags from your post, then saves them as Hashtag Collections you can drop into any future post.
+  - Build one set per content pillar and you'll stop rebuilding the same five tags every Tuesday.
+  - Here is how hashtag generation works in SocialBee.
+  - Use one only when your content genuinely belongs to that moment.
+  - Mosseri has said they never meaningfully did, and Metricool's 2026 study found posts with hashtags underperforming the average by roughly a third on views.
+
+Weight moves:
+
+  - `stat_dense` 11.0 -> 23.83 (lift 4.33)
+  - `clause_triad` 8.0 -> 11.11 (lift 2.11)
+  - `parallel_structure` 16.6 -> 14.25 (lift 0.6)
+  - `intro_position` 12.0 -> 13.54 (lift 1.37)

@@ -536,15 +536,14 @@ def main():
     rules = D.load_rules()
     session = state["sessions"] + 1
 
-    # Parallelism is a document-level measurement attributed back to the
-    # sentences it matched. scan.py does the same thing, and if learn.py did
-    # not, every cross-sentence signal would show zero lift forever and could
-    # never earn a weight.
+    # Document-level signals that name the sentences they apply to get charged
+    # to those sentences, exactly as scan.py does it. Without this, every
+    # cross-sentence and positional signal would show zero lift forever and
+    # could never earn a weight.
     parallel_by_sentence = {}
     for h in D.document_hits(text, rules):
-        if h.signal.startswith("parallel_"):
-            for idx in h.members:
-                parallel_by_sentence.setdefault(idx, []).append(h)
+        for idx in h.members:
+            parallel_by_sentence.setdefault(idx, []).append(h)
 
     flagged_feats, clean_feats = [], []
     missed, caught = [], []
@@ -656,4 +655,10 @@ def main():
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        sys.exit(main())
+    except BrokenPipeError:
+        try:
+            sys.stdout.close()
+        finally:
+            sys.exit(0)

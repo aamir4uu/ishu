@@ -10,7 +10,7 @@
 | Meta description | Instagram now caps you at five hashtags. Here are August 2026's trending tags, what the cap changed, and how to spend your five slots. | 133 chars |
 | URL slug | `trending-instagram-hashtags` | Short, keyword-rich, no stop words |
 | H1 | Trending Instagram Hashtags (August 2026) | Matches the title tag |
-| Word count | 1,231 total | Brief: 800-1,000, +25% tolerance approved |
+| Word count | 1,251 total / ~1,090 prose | Brief: 800-1,000, +25% tolerance approved |
 | Point of view | Second person | Per brief |
 | Structure | Subheads, APA title case | Per brief and checklist |
 

@@ -1,6 +1,6 @@
 # How Long Can a Facebook Reel Be? 2026 Limits and Best Run Times
 
-**Short answer:** There isn't a fixed maximum any more. Meta scrapped the 90-second cap in June 2025, when it turned every Facebook video into a Reel, so an uploaded Reel can run as long as you want it to on an updated account. Record inside the app, though, and 90 seconds is still your ceiling. Minimum is 3.
+There isn't a fixed maximum any more. Meta scrapped the 90-second cap in June 2025, when it turned every Facebook video into a Reel, so an uploaded Reel can run as long as you want it to on an updated account. Record inside the app, though, and 90 seconds is still your ceiling. Minimum is 3.
 
 ## Key Takeaways
 

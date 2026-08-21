@@ -236,6 +236,17 @@ CONTRACTION = re.compile(
     r"\b\w+(?:'|’)(?:s|t|re|ve|ll|d|m)\b", re.I
 )
 
+# Three coordinated clauses in one sentence. rule_of_three matches noun-phrase
+# lists and walks straight past "it's X, it applies to Y, and doing Z won't W".
+CLAUSE_TRIAD = re.compile(
+    r"\b(?:it'?s|it |they'?re|there |you |we |that )[^,.;!?]{8,70},\s*"
+    r"(?:it |it'?s|they |they'?re|there |you |we |that )[^,.;!?]{8,70},\s*and\s+",
+    re.I
+)
+
+ENTITY = re.compile(r"\b(?:[A-Z][a-z]{2,}(?:'s)?)(?:\s+[A-Z][A-Za-z]{2,})*\b")
+FIGURE = re.compile(r"\b\d[\d,.]*\s*(?:%|percent|million|billion|thousand)?\b")
+
 CHALLENGES_TROPE = re.compile(
     r"\b(despite (its|these|the|such)[^.?!]{0,40}challenges?|"
     r"faces? (several|a number of|various) challenges|"
@@ -482,6 +493,10 @@ def default_state():
             "generic_closer": 9.0,
             "parallel_opening": 13.0,
             "parallel_structure": 13.0,
+            "clause_triad": 8.0,
+            "stat_dense": 11.0,
+            "intro_position": 12.0,
+            "table_row_markers": 5.0,
         },
     }
 
@@ -555,6 +570,23 @@ def sentence_hits(sent, rules=None):
     if n:
         hits.append(Hit("emoji", "emoji", float(n)))
 
+    m = CLAUSE_TRIAD.search(sent)
+    if m:
+        hits.append(Hit("clause_triad", m.group(0)[:70].strip(), 1.0))
+
+    # The encyclopedic citation sentence: a named source, a pile of figures and
+    # a reported finding, all in one long declarative. Both filed ZeroGPT
+    # reports flagged every sentence of this shape. It is also exactly what the
+    # E-E-A-T and GEO checklists ask for, so the fix is to break the delivery
+    # up, never to drop the fact.
+    figures = [f for f in FIGURE.findall(sent) if any(c.isdigit() for c in f)]
+    if len(w) >= 22 and len(figures) >= 2 and ENTITY.search(sent):
+        hits.append(Hit("stat_dense",
+                        f"{len(figures)} figures in a {len(w)}-word declarative",
+                        1.0,
+                        "split the source from the numbers, or put a short "
+                        "sentence between them"))
+
     if len(w) > 34:
         hits.append(Hit("long_sentence", f"{len(w)} words", 1.0))
 
@@ -611,6 +643,34 @@ def document_hits(text, rules=None):
                         float(len(BOLD_HEADER_ITEM.findall(text)) - 2)))
 
     hits.extend(parallel_hits(sents))
+
+    # The oldest standing finding in the learning log, finally measured. Both
+    # filed reports flagged the entire opening: the short answer, the line
+    # after it, and the first sentence under the first heading. Intros are the
+    # most formulaic thing anyone writes, and a detector reads them first.
+    if len(sents) >= 10:
+        span = min(6, len(sents))
+        hits.append(Hit("intro_position",
+                        f"first {span} sentences of the document",
+                        0.55,
+                        "rewrite the opening last, and by hand",
+                        tuple(range(span))))
+
+    # ZeroGPT flattens tables and reads the cells as prose. Both scripts keep
+    # table rows out of the rhythm statistics, which is right, because a
+    # two-word cell is not a sentence. They still need linting for markers.
+    for row in re.findall(r"^\s*\|(.+)\|\s*$", text, re.M):
+        cells = [c.strip() for c in row.split("|") if c.strip()]
+        if len(cells) < 2 or all(re.fullmatch(r":?-{2,}:?", c) for c in cells):
+            continue
+        joined = " ".join(cells)
+        cell_hits = sentence_hits(joined, rules)
+        if cell_hits:
+            hits.append(Hit("table_row_markers",
+                            joined[:70],
+                            float(len(cell_hits)),
+                            "detectors read table cells as prose; "
+                            + ", ".join(sorted({h.signal for h in cell_hits}))))
 
     if len(sents) >= 12:
         n_contr = len(CONTRACTION.findall(strip_markdown(text)))

@@ -52,6 +52,8 @@ two independent sightings.
 
 | Pattern | First seen | Sightings | Status |
 | --- | --- | --- | --- |
+| Statistic-dense attribution: a named source, a date or figures, and a reported finding, all in one long declarative | 2026-08-21, SocialBee Instagram hashtag report | 1 report, 4 highlighted spans | **Promoted.** Implemented as `stat_dense`. Fired on every sentence of that shape in the draft and showed the highest lift of any signal on ingest, 4.33. The bind is that the E-E-A-T and GEO checklists ask for exactly this kind of sentence, so the repair is to split the source from the numbers, never to drop the fact. |
+| Three coordinated clauses in one sentence | 2026-08-21, same report | 1 report, 1 span | **Promoted** as `clause_triad`. The existing `rule_of_three` regex matches noun-phrase lists and walks past "it's X, it applies to Y, and doing Z won't W". |
 | Cross-sentence parallel construction: two or three neighbouring sentences or list items built to the same grammatical template | 2026-08-21, SocialBee Facebook Reel length report | 1 report, 8 highlighted spans | **Promoted immediately.** Normally two independent sightings are needed, but this was not a single sighting. One report produced eight separate highlighted spans that were all halves of matched pairs or triads, including a three-item list where the items were flagged and the numerals between them were not. Implemented as `parallel_opening` and `parallel_structure` in `scripts/detectors.py`, with a regression test in `tests/run_tests.sh` built from the exact flagged text. |
 | Tailing rhetorical triple used as a section opener, e.g. "You cap them, you channel them, and you price the overflow." | 2026-08-21, Sitejet SOP draft | 1 | Caught by the existing rule-of-three regex during drafting, before any detector run. Not yet a new pattern. Watch whether ZeroGPT highlights this shape specifically. |
 
@@ -67,6 +69,8 @@ two independent sightings.
 
 | Date | Piece | Words | Pre-flight gates failed | ZeroGPT score | Notes |
 | --- | --- | --- | --- | --- | --- |
+| 2026-08-21 | SocialBee: Instagram trending hashtags (after fix) | 1,251 | 0 of 11 | not yet re-run | Rewrote all 16 highlighted spans. Two gates broke during the rewrite (mean clustering 42.9% against a 40% cap, paragraph variance 0.339 against a 0.35 floor) and were fixed by merging mid-length sentences into long ones and cutting others to fragments. `scan.py` 0.4/100. |
+| 2026-08-21 | SocialBee: Instagram trending hashtags (first run) | 1,159 | 0 of 11 at final pass | **25.6% AI** | Second report. Parallelism, the dominant failure in report 1, did not appear once. Statistic-dense attribution took its place. |
 | 2026-08-21 | SocialBee: Facebook Reel length (after fix) | 1,036 | 0 of 11 | not yet re-run | Rewrote all 17 highlighted spans against the report. `scan.py` 0.6/100, no sentence-level hits, parallelism cleared. Needs a second ZeroGPT run to confirm the 23.4% actually moved. Two of the pairs the new detector found were ones I introduced while rewriting, which is the argument for re-running it after every structural edit rather than only at the end. |
 | 2026-08-21 | SocialBee: Facebook Reel length (first run) | 1,017 | 0 of 11 at final pass | **23.4% AI** | Second piece. First run under v4.0. Two gates failed on the first pass and were fixed in the draft, not the thresholds: paragraph size variance at CV 0.349 against a 0.35 floor, and "the" opening 12.1% of sentences against a 9% cap. Both were real. The FAQ format produces a run of same-size paragraphs, which is what pushed paragraph variance to the floor. Client requires APA title case, same conflict as the previous piece, resolved the same way. `scan.py` scores 0.0 with no sentence-level or rhythm hits. Awaiting the client's ZeroGPT run before anything is ingested. |
 | 2026-08-21 | Sitejet: agency delivery SOP | 1,072 (cut from 2,956) | 0 of 11 at final pass | pending client run | First piece under v3.0. Forced one gate recalibration (sentence opener repetition). Client requires APA title case, which conflicts with pattern 17; resolved by excluding headings from the prose scan and compensating with a 22.7 per 1k contraction rate and 37% short sentences. Full report in `reports/2026-08-21-sitejet-agency-delivery-sop.md`. |
@@ -101,10 +105,50 @@ remote work, it promoted "remote work" as an AI tell. Fixed with
 maximal-n-gram filter so one phrase does not become nine rules, and
 `learn.py --unlearn` for correction.
 
+## What the second report changed
+
+Two pieces, both passing all eleven gates before scoring, came back 23.4% and
+25.6%. The second number is not worse in a meaningful sense; it is a different
+article with a different failure mode, and the first article's failure mode was
+gone.
+
+**Parallelism is closed.** Report 1 was dominated by matched pairs and triads.
+Report 2 contains none. The detector built from report 1 also caught two pairs
+in the second draft before it was ever scored, and two more that the rewrite
+itself introduced. `parallel_structure`'s weight went *down* on ingest, from
+16.6 to 14.25, because it no longer predicted anything in this draft. That is
+the calibration working: a signal that stops earning its keep loses weight.
+
+**Three findings reached a second sighting and are now measured.** Tables read
+as prose, intros flagging hardest, and promotional passages flagging. The first
+two had been standing findings for two versions with nothing measuring them.
+`intro_position` finally does.
+
+**Recall is climbing but is still low.** 0.24, then 0.33. Roughly two thirds of
+what ZeroGPT highlights is still invisible to the model, and the honest reading
+is that a countable-proxy scanner will never close that gap entirely. It does
+not need to. It needs to catch enough before submission that each report
+teaches something new rather than repeating the last one, and across two
+reports it has.
+
+**A passing gate is not a correct draft.** The Instagram first draft ran 5.51
+contractions per 1,000 words, comfortably above the gate floor of 4.0, and
+badly wrong for a client whose guidelines require contractions throughout. The
+gates are a floor, not a specification.
+
 ## Standing findings
 
 Things learned that are already baked into the skill, kept here so the reason
 survives.
+
+**The register that E-E-A-T rewards is the register a detector punishes.**
+"Metricool's 2026 Instagram Study looked at 24 million posts from 375,118
+accounts and found that posts carrying at least one hashtag averaged 31.7%
+fewer views." Sourced, dated, specific, and exactly what the checklists ask
+for. It is also the most predictable prose there is: once a sentence begins
+"Study X found that", the rest is nearly determined. Do not resolve this by
+removing facts. Break the delivery instead. Split the source from the numbers,
+put a short sentence between them, let a person appear in the sentence.
 
 **Parallel structure is the most expensive good habit in editorial writing.**
 Three list items on one template, two sentences that both open "A N-second
