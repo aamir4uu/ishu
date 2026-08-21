@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Goyal Glow Lights — COB, LED, panel, decorative and Diwali lights at wholesale rates. Bhagirath Palace, Chandni Chowk, Delhi. GST billing, transport to any city, rate list on WhatsApp.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="business.business">
+<meta property="og:title" content="Goyal Glow Lights — Bhagirath Palace">
+<meta property="og:description" content="COB, LED, panel, decorative and Diwali lights at wholesale rates. Bhagirath Palace, Chandni Chowk, Delhi.">
+<meta property="og:locale" content="en_IN">
+<title>Goyal Glow Lights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Karla:wght@400;500;700&family=Tiro+Devanagari+Hindi&display=swap">
+<style>
+/* ---------------------------------------------------------------
+   EDIT ME BEFORE DEPLOYING
+   Replace throughout this file:
+     91XXXXXXXXXX   -> WhatsApp number, country code, no + or spaces
+     +91 XXXXX XXXXX-> displayed phone number
+     Shop No. __    -> your shop and building number
+     GSTIN: __      -> your GSTIN
+     MAPS_LINK      -> your Google Business Profile / Maps short link
+     __ months      -> your real replacement window
+   Then deploy free on Netlify, Cloudflare Pages or GitHub Pages.
+   --------------------------------------------------------------- */
+
+:root{
+  --ground:#ffffff;
+  --surface:#f2f4f6;
+  --raised:#e7ebef;
+  --line:#d6dce2;
+  --ink:#13161a;
+  --ink-soft:#4d5761;
+  --ink-mute:#6b7681;
+  --accent:#9a6206;
+  --accent-bright:#c98216;
+  --festive:#ad3a1f;
+  --shadow:0 1px 2px rgba(19,22,26,.06),0 8px 24px -12px rgba(19,22,26,.18);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#14110b;
+    --surface:#1e1a12;
+    --raised:#292318;
+    --line:#3a3222;
+    --ink:#f2e9d8;
+    --ink-soft:#c2b49b;
+    --ink-mute:#9b8d76;
+    --accent:#f2a93b;
+    --accent-bright:#ffc36a;
+    --festive:#e06744;
+    --shadow:0 1px 2px rgba(0,0,0,.5),0 12px 32px -14px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#14110b;
+  --surface:#1e1a12;
+  --raised:#292318;
+  --line:#3a3222;
+  --ink:#f2e9d8;
+  --ink-soft:#c2b49b;
+  --ink-mute:#9b8d76;
+  --accent:#f2a93b;
+  --accent-bright:#ffc36a;
+  --festive:#e06744;
+  --shadow:0 1px 2px rgba(0,0,0,.5),0 12px 32px -14px rgba(0,0,0,.8);
+}
+
+/* The hero is a committed dark band in both themes: it is the lane at night. */
+.hero{
+  --h-ground:#0f0d08;
+  --h-ink:#f6efe0;
+  --h-mute:#a99b80;
+  --h-line:#332c1e;
+  --bulb:#ffb65c;      /* 2700 K default, switched by the CCT chips */
+  --bulb-glow:#ff9d2e;
+}
+
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:"Karla","Segoe UI",system-ui,sans-serif;
+  font-size:17px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:"Fraunces",Georgia,"Times New Roman",serif;text-wrap:balance;margin:0;line-height:1.1;}
+.hi{font-family:"Tiro Devanagari Hindi",Georgia,serif;font-weight:400;}
+a{color:inherit;}
+:where(a,button,input):focus-visible{outline:2px solid var(--accent-bright);outline-offset:3px;border-radius:3px;}
+
+.wrap{width:min(1080px,calc(100% - 2.5rem));margin-inline:auto;}
+section{padding-block:clamp(3.5rem,7vw,6rem);}
+.eyebrow{
+  font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 .9rem;
+}
+
+/* ---------- hero ---------- */
+.hero{
+  background:var(--h-ground);
+  color:var(--h-ink);
+  position:relative;
+  overflow:hidden;
+  padding-block:0 clamp(3.5rem,7vw,5.5rem);
+  border-bottom:1px solid var(--h-line);
+}
+.hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 55% at 50% -8%,color-mix(in srgb,var(--bulb-glow) 22%,transparent),transparent 62%);
+  transition:background .7s ease;
+}
+.hero > *{position:relative;z-index:1;}
+
+.bulbs{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  gap:1rem;height:clamp(96px,15vw,150px);margin:0 auto;
+  width:min(1080px,calc(100% - 2.5rem));
+}
+.bulb{display:flex;flex-direction:column;align-items:center;flex:1;}
+.cord{width:1px;background:linear-gradient(var(--h-line),color-mix(in srgb,var(--bulb) 45%,transparent));}
+.glass{
+  width:15px;height:20px;border-radius:50% 50% 46% 46%;
+  background:radial-gradient(circle at 50% 35%,#fff 0%,var(--bulb) 42%,color-mix(in srgb,var(--bulb) 60%,#000) 100%);
+  box-shadow:0 0 14px 3px color-mix(in srgb,var(--bulb-glow) 55%,transparent),
+             0 0 44px 14px color-mix(in srgb,var(--bulb-glow) 22%,transparent);
+  animation:flicker 5.5s ease-in-out infinite;
+  transition:background .7s ease,box-shadow .7s ease;
+}
+@keyframes flicker{0%,100%{opacity:1;}42%{opacity:.82;}58%{opacity:.97;}72%{opacity:.86;}}
+@media (prefers-reduced-motion:reduce){.glass{animation:none;}}
+
+.hero-body{padding-top:clamp(1.5rem,4vw,2.5rem);}
+.shopname{
+  font-size:clamp(2.9rem,9.5vw,6rem);font-weight:900;letter-spacing:-.025em;
+  margin:0 0 .35rem;color:var(--h-ink);
+}
+.shopname em{font-style:normal;color:var(--bulb);transition:color .7s ease;}
+.shopname-hi{font-size:clamp(1.1rem,3.2vw,1.6rem);color:var(--h-mute);margin:0 0 1.6rem;}
+.lede{
+  font-size:clamp(1.05rem,2.2vw,1.3rem);max-width:36ch;color:var(--h-ink);
+  margin:0 0 .6rem;
+}
+.lede-hi{color:var(--h-mute);max-width:40ch;margin:0 0 2rem;font-size:1.02rem;}
+
+.addr{
+  display:inline-flex;align-items:center;gap:.6rem;flex-wrap:wrap;
+  border:1px solid var(--h-line);border-radius:999px;
+  padding:.45rem 1rem;font-size:.86rem;color:var(--h-mute);margin-bottom:1.8rem;
+}
+.addr b{color:var(--h-ink);font-weight:500;}
+
+.cta-row{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:2.2rem;}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.85rem 1.5rem;border-radius:6px;text-decoration:none;
+  font-weight:700;font-size:1rem;border:1px solid transparent;
+  transition:transform .15s ease,box-shadow .15s ease,background .15s ease;
+}
+.btn-1{background:var(--bulb);color:#17130a;}
+.btn-1:hover{transform:translateY(-2px);box-shadow:0 8px 22px -8px color-mix(in srgb,var(--bulb-glow) 70%,transparent);}
+.btn-2{border-color:var(--h-line);color:var(--h-ink);}
+.btn-2:hover{border-color:var(--bulb);transform:translateY(-2px);}
+
+.cct{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;font-size:.8rem;color:var(--h-mute);}
+.cct span{letter-spacing:.1em;text-transform:uppercase;font-size:.68rem;font-weight:700;}
+.chip{
+  background:none;border:1px solid var(--h-line);color:var(--h-mute);
+  font-family:inherit;font-size:.8rem;font-weight:500;
+  padding:.35rem .8rem;border-radius:999px;cursor:pointer;
+  font-variant-numeric:tabular-nums;transition:all .2s ease;
+}
+.chip:hover{border-color:var(--bulb);color:var(--h-ink);}
+.chip[aria-pressed="true"]{border-color:var(--bulb);color:#17130a;background:var(--bulb);}
+
+.countdown{
+  margin-top:2.4rem;padding-top:1.6rem;border-top:1px solid var(--h-line);
+  display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;font-size:.95rem;color:var(--h-mute);
+}
+.countdown b{
+  font-family:"Fraunces",serif;font-size:2.1rem;font-weight:700;color:var(--bulb);
+  font-variant-numeric:tabular-nums;line-height:1;transition:color .7s ease;
+}
+
+/* ---------- trust strip ---------- */
+.trust{background:var(--surface);border-bottom:1px solid var(--line);padding-block:clamp(2.5rem,5vw,3.5rem);}
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.75rem 2rem;}
+.trust-grid h3{font-size:1.06rem;font-weight:700;margin-bottom:.3rem;}
+.trust-grid p{margin:0;font-size:.93rem;color:var(--ink-soft);}
+.trust-grid .k{
+  font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);display:block;margin-bottom:.5rem;
+}
+
+/* ---------- stock ---------- */
+.head{max-width:56ch;margin-bottom:2.75rem;}
+.head h2{font-size:clamp(1.9rem,4.5vw,2.9rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.7rem;}
+.head p{color:var(--ink-soft);margin:0;}
+
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.1rem;}
+.cat{
+  background:var(--surface);border:1px solid var(--line);border-radius:8px;
+  padding:1.4rem 1.4rem 1.5rem;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+.cat:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:var(--shadow);}
+.cat h3{font-size:1.18rem;font-weight:700;margin-bottom:.15rem;}
+.cat .cat-hi{font-size:.92rem;color:var(--accent);margin:0 0 .8rem;}
+.cat ul{margin:0;padding:0;list-style:none;font-size:.9rem;color:var(--ink-soft);line-height:1.75;}
+.cat li{padding-left:.95rem;position:relative;}
+.cat li::before{content:"";position:absolute;left:0;top:.68em;width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.55;}
+
+/* ---------- two ways ---------- */
+.ways{background:var(--surface);border-block:1px solid var(--line);}
+.ways-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.1rem;}
+.way{background:var(--ground);border:1px solid var(--line);border-radius:8px;padding:1.75rem;}
+.way h3{font-size:1.45rem;font-weight:700;margin-bottom:.2rem;}
+.way .way-hi{color:var(--accent);font-size:.95rem;margin:0 0 1.1rem;}
+.way dl{margin:0;display:grid;gap:.85rem;}
+.way dt{font-weight:700;font-size:.93rem;}
+.way dd{margin:.1rem 0 0;font-size:.92rem;color:var(--ink-soft);}
+
+/* ---------- visit ---------- */
+.visit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:2.5rem;}
+.hours{width:100%;border-collapse:collapse;font-size:.95rem;font-variant-numeric:tabular-nums;}
+.hours td{padding:.55rem 0;border-bottom:1px solid var(--line);}
+.hours td:last-child{text-align:right;color:var(--ink-soft);}
+.hours tr.closed td{color:var(--festive);}
+.hours tr.closed td:last-child{color:var(--festive);font-weight:700;}
+.steps{margin:0;padding-left:1.25rem;font-size:.95rem;color:var(--ink-soft);display:grid;gap:.55rem;}
+.steps li::marker{color:var(--accent);font-weight:700;}
+.addr-block{font-style:normal;line-height:1.85;margin-bottom:1.4rem;}
+.addr-block b{font-weight:700;}
+
+/* ---------- closing band ---------- */
+.band{
+  background:var(--raised);border-top:3px solid var(--accent);
+  text-align:center;
+}
+.band h2{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:700;margin-bottom:.6rem;}
+.band p{color:var(--ink-soft);max-width:48ch;margin:0 auto 1.9rem;}
+.band .cta-row{justify-content:center;margin-bottom:0;}
+.band .btn-1{background:var(--accent);color:var(--ground);}
+.band .btn-2{border-color:var(--line);color:var(--ink);}
+.band .btn-2:hover{border-color:var(--accent);}
+
+footer{
+  border-top:1px solid var(--line);padding-block:2.25rem;
+  font-size:.85rem;color:var(--ink-mute);
+}
+.foot-grid{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;align-items:baseline;}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease;}
+.reveal.on{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="bulbs" aria-hidden="true">
+    <div class="bulb" style="height:58%"><div class="cord" style="flex:1"></div><div class="glass" style="animation-delay:-.2s"></div></div>
+    <div class="bulb" style="height:88%"><div class="cord" style="flex:1"></div><div class="glass" style="animation-delay:-1.9s"></div></div>
+    <div class="bulb" style="height:44%"><div class="cord" style="flex:1"></div><div class="glass" style="animation-delay:-3.4s"></div></div>
+    <div class="bulb" style="height:74%"><div class="cord" style="flex:1"></div><div class="glass" style="animation-delay:-.9s"></div></div>
+    <div class="bulb" style="height:52%"><div class="cord" style="flex:1"></div><div class="glass" style="animation-delay:-2.7s"></div></div>
+    <div class="bulb" style="height:96%"><div class="cord" style="flex:1"></div><div class="glass" style="animation-delay:-4.1s"></div></div>
+    <div class="bulb" style="height:64%"><div class="cord" style="flex:1"></div><div class="glass" style="animation-delay:-1.3s"></div></div>
+  </div>
+
+  <div class="wrap hero-body">
+    <h1 class="shopname">Goyal <em>Glow</em> Lights</h1>
+    <p class="shopname-hi hi">गोयल ग्लो लाइट्स — भागीरथ पैलेस, चांदनी चौक</p>
+
+    <p class="lede">COB, LED, panel, decorative and Diwali lights — at Bhagirath Palace wholesale rates.</p>
+    <p class="lede-hi hi">थोक और फुटकर, दोनों। रेट लिस्ट WhatsApp पर, बिल GST के साथ, माल आपके शहर तक।</p>
+
+    <p class="addr"><b>Shop No. __</b> · Bhagirath Palace, Chandni Chowk, Delhi 110006 · <b>Mon–Sat, 11–7</b></p>
+
+    <div class="cta-row">
+      <a class="btn btn-1" href="https://wa.me/91XXXXXXXXXX?text=Namaste%2C%20mujhe%20rate%20list%20chahiye">Get the rate list on WhatsApp</a>
+      <a class="btn btn-2" href="tel:+91XXXXXXXXXX">Call +91 XXXXX XXXXX</a>
+    </div>
+
+    <div class="cct">
+      <span>See the light</span>
+      <button class="chip" data-bulb="#ffb65c" data-glow="#ff9d2e" aria-pressed="true">2700 K Warm</button>
+      <button class="chip" data-bulb="#ffe3b8" data-glow="#ffca85" aria-pressed="false">4000 K Natural</button>
+      <button class="chip" data-bulb="#dfecff" data-glow="#9cc4ff" aria-pressed="false">6500 K Cool</button>
+    </div>
+
+    <p class="countdown"><b id="days">—</b> days to Dhanteras · <span>Friday 6 November 2026. Retailers are stocking now.</span></p>
+  </div>
+</header>
+
+<section class="trust">
+  <div class="wrap trust-grid">
+    <div>
+      <span class="k">Billing</span>
+      <h3>Proper GST bill, every order</h3>
+      <p>Full invoice with HSN codes, so your input credit is clean and your accountant never calls us.</p>
+    </div>
+    <div>
+      <span class="k">Transport</span>
+      <h3>Delivered to your city</h3>
+      <p>Packed, taped, labelled and booked with bilty. Order on WhatsApp, collect at your transport office.</p>
+    </div>
+    <div>
+      <span class="k">After sales</span>
+      <h3>Replacement on LED failures</h3>
+      <p>__ months, at the counter, no argument. Send a photo and we send the replacement with your next order.</p>
+    </div>
+    <div>
+      <span class="k">Response</span>
+      <h3>Rates inside 10 minutes</h3>
+      <p>Send the item name or a photo on WhatsApp during shop hours and you get a rate back the same session.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">What we stock</p>
+      <h2>Everything a lights shop should have, in one counter</h2>
+      <p>Technical lighting for contractors and electricians, festive and decorative for households and decorators. Ask for anything you don't see — most of it we can arrange from the market the same day.</p>
+    </div>
+
+    <div class="cats">
+      <article class="cat reveal">
+        <h3>COB &amp; Spot</h3>
+        <p class="cat-hi hi">सीओबी और स्पॉट लाइट</p>
+        <ul><li>COB spotlights 7W–30W</li><li>Surface &amp; recessed</li><li>Gimbal / tiltable, anti-glare</li><li>Track &amp; magnetic track</li><li>Drivers and SMPS</li></ul>
+      </article>
+      <article class="cat reveal">
+        <h3>Panel, Ceiling &amp; Cove</h3>
+        <p class="cat-hi hi">पैनल और सीलिंग लाइट</p>
+        <ul><li>Round &amp; square panels 3W–24W</li><li>Backlit and edge-lit slim</li><li>Surface panels</li><li>Cove &amp; false-ceiling profile</li><li>Aluminium profiles with diffuser</li></ul>
+      </article>
+      <article class="cat reveal">
+        <h3>Bulbs, Battens &amp; Tubes</h3>
+        <p class="cat-hi hi">बल्ब और ट्यूबलाइट</p>
+        <ul><li>LED bulbs 9W–18W, B22 &amp; E27</li><li>3-in-1 colour changing</li><li>Inverter &amp; rechargeable</li><li>Battens 20W / 40W, T5 / T8</li><li>Filament &amp; vintage Edison</li></ul>
+      </article>
+      <article class="cat reveal">
+        <h3>Diwali &amp; Decorative</h3>
+        <p class="cat-hi hi">दिवाली और सजावटी लाइट</p>
+        <ul><li>Jhalar, ladi, rice &amp; fairy strings</li><li>Curtain, net and icicle lights</li><li>Pixel strings with controller</li><li>Rope light &amp; neon flex</li><li>LED diya, toran, star &amp; motif</li></ul>
+      </article>
+      <article class="cat reveal">
+        <h3>Outdoor &amp; Architectural</h3>
+        <p class="cat-hi hi">बाहरी और आर्किटेक्चरल</p>
+        <ul><li>Flood lights 10W–200W</li><li>Street lights</li><li>Gate, pillar &amp; bollard</li><li>Garden spikes, wall washers</li><li>Underwater &amp; facade</li></ul>
+      </article>
+      <article class="cat reveal">
+        <h3>Fancy &amp; Interior</h3>
+        <p class="cat-hi hi">फैंसी और झूमर</p>
+        <ul><li>Chandeliers &amp; jhoomar</li><li>Pendants and hanging lights</li><li>Wall brackets &amp; sconces</li><li>Mirror, vanity &amp; picture lights</li><li>Café, cage &amp; Turkish lamps</li></ul>
+      </article>
+      <article class="cat reveal">
+        <h3>Solar</h3>
+        <p class="cat-hi hi">सोलर लाइट</p>
+        <ul><li>Solar street lights</li><li>Garden &amp; spike lights</li><li>Solar decorative strings</li><li>Gate lights</li><li>For RWAs, farmhouses, temples</li></ul>
+      </article>
+      <article class="cat reveal">
+        <h3>Accessories</h3>
+        <p class="cat-hi hi">फिटिंग और सामान</p>
+        <ul><li>Drivers, SMPS, holders</li><li>Adaptors &amp; strip connectors</li><li>Dimmers, RGB controllers, remotes</li><li>PVC pipe &amp; channel</li><li>Switches, sockets, MCB, wire</li></ul>
+      </article>
+      <article class="cat reveal">
+        <h3>Event &amp; Party</h3>
+        <p class="cat-hi hi">डीजे और पार्टी लाइट</p>
+        <ul><li>DJ lights &amp; LED PAR bars</li><li>Disco balls, strobes</li><li>Laser projectors</li><li>Fog machines</li><li>Rental-grade pixel sets</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="ways">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Two ways to buy</p>
+      <h2>Wholesale by the carton, retail by the piece</h2>
+      <p>Same counter, same stock, different terms. Tell us which one you are and we will quote accordingly.</p>
+    </div>
+    <div class="ways-grid">
+      <div class="way reveal">
+        <h3>Wholesale</h3>
+        <p class="way-hi hi">थोक — दुकानदार, इलेक्ट्रीशियन, डेकोरेटर</p>
+        <dl>
+          <dt>Who</dt><dd>Retailers, electricians, contractors, decorators and tent houses across Delhi NCR, UP, Haryana, Punjab, Rajasthan and Bihar.</dd>
+          <dt>How to order</dt><dd>Send your list on WhatsApp. Rate list comes back the same session. Confirm, pay, and we book transport.</dd>
+          <dt>Terms</dt><dd>GST invoice with HSN codes. Minimum order quantity per item. Credit terms for regular buyers after the first few orders.</dd>
+          <dt>Delivery</dt><dd>Packed and booked with bilty to your city's transport office. Tracking details shared on WhatsApp.</dd>
+        </dl>
+      </div>
+      <div class="way reveal">
+        <h3>Retail</h3>
+        <p class="way-hi hi">फुटकर — घर, दुकान, कैफ़े</p>
+        <dl>
+          <dt>Who</dt><dd>Households decorating for Diwali, café and restaurant owners, wedding shoppers, anyone doing up a room.</dd>
+          <dt>How to buy</dt><dd>Walk in Monday to Saturday, 11 AM to 7 PM. Or send a photo of what you want on WhatsApp and we will keep it aside.</dd>
+          <dt>Rates</dt><dd>Wholesale market rates, single piece onwards. No minimum.</dd>
+          <dt>Help choosing</dt><dd>Tell us the room size and we will tell you the wattage and the colour temperature. That part is free.</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Find us</p>
+      <h2>Inside the lane, not on the main road</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="reveal">
+        <address class="addr-block">
+          <b>Goyal Glow Lights</b><br>
+          Shop No. __, Bhagirath Palace<br>
+          Chandni Chowk, Delhi 110006<br>
+          <br>
+          <a href="tel:+91XXXXXXXXXX">+91 XXXXX XXXXX</a><br>
+          <a href="https://wa.me/91XXXXXXXXXX">WhatsApp</a> · GSTIN: __
+        </address>
+        <a class="btn btn-2" href="MAPS_LINK" style="border-color:var(--line);color:var(--ink);">Open in Google Maps</a>
+      </div>
+      <div class="reveal">
+        <h3 style="font-size:1.05rem;margin-bottom:.9rem;">Walking from the metro</h3>
+        <ol class="steps">
+          <li>Chandni Chowk metro station (Yellow Line), Gate 5. Lal Qila station (Violet Line) also works.</li>
+          <li>Walk along Chandni Chowk road towards the Red Fort side.</li>
+          <li>Watch for the cinema hall with the film posters — the lane entrance is just before it, part-hidden behind a tree and a temple.</li>
+          <li>Turn in. Once you are in the lane of lights, call us and we will walk out to meet you.</li>
+        </ol>
+      </div>
+      <div class="reveal">
+        <h3 style="font-size:1.05rem;margin-bottom:.9rem;">Shop hours</h3>
+        <table class="hours">
+          <tbody>
+            <tr><td>Monday – Saturday</td><td>11:00 – 19:00</td></tr>
+            <tr class="closed"><td>Sunday</td><td>Closed</td></tr>
+            <tr><td>Dhanteras, Fri 6 Nov</td><td>Extended hours</td></tr>
+            <tr><td>Diwali week</td><td>Open daily</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:.88rem;color:var(--ink-mute);margin-top:1rem;">The whole market shuts on Sunday. Messages sent on Sunday are answered first thing Monday.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>Send us your list. Get rates back today.</h2>
+    <p>One message with the items and quantities is enough. No forms, no callbacks, no waiting until tomorrow.</p>
+    <div class="cta-row">
+      <a class="btn btn-1" href="https://wa.me/91XXXXXXXXXX?text=Namaste%2C%20mujhe%20rate%20list%20chahiye">WhatsApp us now</a>
+      <a class="btn btn-2" href="tel:+91XXXXXXXXXX">Call the shop</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div><b>Goyal Glow Lights</b> · <span class="hi">गोयल ग्लो लाइट्स</span><br>Bhagirath Palace, Chandni Chowk, Delhi 110006</div>
+    <div>Wholesale &amp; retail · GST billing · Transport across North India</div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LightingStore",
+  "name":"Goyal Glow Lights",
+  "description":"Wholesale and retail lighting shop in Bhagirath Palace, Chandni Chowk, Delhi. COB, LED, panel, decorative and Diwali lights.",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Shop No. __, Bhagirath Palace",
+    "addressLocality":"Chandni Chowk",
+    "addressRegion":"Delhi",
+    "postalCode":"110006",
+    "addressCountry":"IN"
+  },
+  "telephone":"+91XXXXXXXXXX",
+  "openingHoursSpecification":[{
+    "@type":"OpeningHoursSpecification",
+    "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens":"11:00","closes":"19:00"
+  }],
+  "priceRange":"₹₹",
+  "areaServed":["Delhi NCR","Uttar Pradesh","Haryana","Punjab","Rajasthan","Bihar"]
+}
+</script>
+
+<script>
+(function(){
+  var hero = document.querySelector('.hero');
+  document.querySelectorAll('.chip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      document.querySelectorAll('.chip').forEach(function(c){ c.setAttribute('aria-pressed','false'); });
+      chip.setAttribute('aria-pressed','true');
+      hero.style.setProperty('--bulb', chip.dataset.bulb);
+      hero.style.setProperty('--bulb-glow', chip.dataset.glow);
+    });
+  });
+
+  var el = document.getElementById('days');
+  if (el) {
+    var today = new Date();
+    var target = new Date(2026, 10, 6); // 6 November 2026, Dhanteras
+    var d = Math.ceil((target - today) / 86400000);
+    el.textContent = d > 0 ? d : '0';
+  }
+
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.reveal').forEach(function(n){ io.observe(n); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(n){ n.classList.add('on'); });
+  }
+})();
+</script>
+</body>
+</html>
