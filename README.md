@@ -1,17 +1,22 @@
-# Sitejet Content Delivery
+# Blog Content Delivery
 
-Blog content for sitejet.io, written for the **Sitejet Studio** audience
-(agencies, freelancers, web professionals) in second person, per the brand
-content guidelines. Every piece is worked against the AEO/SEO checklist and
-gated by the humanizer skill before delivery.
+Client blog content, written in second person against each client's brand
+guide. Every piece is worked through the AEO/SEO checklist and gated by the
+humanizer skill before delivery.
 
-| Article | Words | Gates | Folder |
-| --- | --- | --- | --- |
-| The Delivery SOP That Lets a 3-Person Agency Run Like a 10-Person One | 1,072 | 11/11 | `blog/delivery-sop/` |
-| What to Send a Client on Launch Day so They Never Email You Again | 1,233 | 11/11 | `blog/launch-day-handover/` |
+| Client | Article | Words | Gates | Folder |
+| --- | --- | --- | --- | --- |
+| Sitejet | The Delivery SOP That Lets a 3-Person Agency Run Like a 10-Person One | 1,072 | 11/11 | `blog/delivery-sop/` |
+| Sitejet | What to Send a Client on Launch Day so They Never Email You Again | 1,233 | 11/11 | `blog/launch-day-handover/` |
+| SolusVM | Choosing Between Shared Storage and Local Storage for VPS Infrastructure | 1,033 | 11/11 | `blog/vps-storage-choice/` |
 
-The two pieces cross-link: the handover article points back at the delivery SOP
-as its stage five. Publish the SOP piece first, or fix that URL.
+The two Sitejet pieces cross-link: the handover article points back at the
+delivery SOP as its stage five. Publish the SOP piece first, or fix that URL.
+The SolusVM piece is standalone.
+
+Each folder holds the same six things: the .docx deliverable, the markdown
+source of record, a publishing pack with the checklist worked item by item,
+JSON-LD schema, an image manifest, and the humanizer gate results.
 
 ## Blog: The Delivery SOP That Lets a 3-Person Agency Run Like a 10-Person One
 
@@ -78,14 +83,65 @@ Sitejet prefix.
    headline reads "...Launch Day so They Never Email You Again". That is
    correct, not a typo. Capitalise it if the client prefers the look.
 
+## Blog: Choosing Between Shared Storage and Local Storage for VPS Infrastructure
+
+`blog/vps-storage-choice/`, client: **SolusVM**
+
+| File | What it is |
+| --- | --- |
+| `Choosing Between Shared Storage...VPS Infrastructure.docx` | **Word deliverable.** Heading 1/2/3 styles, seven live hyperlinks, two image slots with hyperlinked "Image Source" captions |
+| `shared-vs-local-storage-vps.md` | Markdown source of record |
+| `seo-publishing-pack.md` | Metadata, the checklist worked item by item, brand guide compliance table, open items flagged |
+| `schema-markup.json` | Article, FAQPage, a five-step HowTo and SoftwareApplication JSON-LD as one `@graph` |
+| `image-manifest.md` | Two images plus one optional, alt text, source URLs, upload steps |
+| `zerogpt-preflight-result.txt` | Detector gate results, 11/11 |
+
+**Written for the SolusVM audience** (small to mid-sized hosting providers and
+VPS resellers) in second person, per the SolusVM content writing guidelines. The
+register is documentation-like rather than promotional, VPS and iSCSI and thin
+provisioning are used without definition, and every performance claim carries a
+figure. "SolusVM" appears in the correct casing throughout.
+
+**Length:** 1,033 body words against a 800-1000 target with 25% headroom
+accepted, or roughly 1,130 including headings.
+
+**The angle:** the piece is built on a real product constraint rather than a
+generic pros-and-cons list. High Availability in SolusVM requires Shared LVM
+over iSCSI or NFS, and the Shared LVM implementation supports neither Thin LVM
+nor snapshots. So the decision is not "which is faster", it is whether you want
+to sell failover or sell oversubscription.
+
+### Open items before publishing
+
+1. Confirm the primary keyword (`shared storage vs local storage`) and check its
+   volume. Task Info was N/A, so it was inferred from the headline.
+2. Drop the two images in. `pexels.com` was blocked by the network egress proxy
+   in this environment. See `image-manifest.md`.
+3. Replace the placeholder author with a named person, role and personal
+   LinkedIn URL, in the post and in `schema-markup.json`.
+4. Verify the four SolusVM documentation URLs resolve. `docs.solusvm.com` and
+   `solusvm.com` were both blocked here, so those URLs came from search results.
+   Each supporting fact was confirmed in more than one result.
+5. Spot-check the NVMe latency ranges and the SPDK iSCSI IOPS figures against
+   the linked source.
+6. After publishing, link older SolusVM posts to this one and test the target
+   query in ChatGPT, Perplexity and Gemini.
+
 ## Tooling
 
 `tools/build-docx.js` converts any of these markdown articles to a formatted
 Word file:
 
 ```
+npm install docx
 node tools/build-docx.js <source.md> <output.docx>
 ```
+
+It resolves the `docx` package from `DOCX_PATH`, then `NODE_PATH`, then the
+usual `node_modules` lookup, so it runs from any checkout. Image placeholders
+are generated in memory, so there is no external asset to stage; set
+`PLACEHOLDER_DIR` to a folder of `placeholder-1.png`, `placeholder-2.png` and so
+on if you want real comps in the frames instead.
 
 It maps H1/H2/H3 to real Word heading styles, keeps hyperlinks live, renders
 bullets through a proper numbering config, and drops a sized placeholder frame
@@ -123,12 +179,19 @@ script so it is caught automatically from then on. A gate that passed on text
 ZeroGPT then flagged is too loose and gets tightened, with the old and new
 values recorded. Nothing changes without a report behind it.
 
+Three pieces have been through it so far, all filed open pending a client-side
+ZeroGPT run. Nothing is scored yet, so no threshold has moved on detector
+evidence.
+
 The first article already forced one recalibration: the sentence-opener gate
 used a raw count of 3, which failed a clean 219-sentence draft where "the"
 opened 16 sentences (7.3%, normal for English). It is now proportional with a
 raw floor. Cutting that draft to 1,072 words then produced a second finding,
 that large cuts break the variance gates because trimming attacks long sentences
-first. Both are recorded in the learning log.
+first. Both are recorded in the learning log. The SolusVM piece added a third finding:
+the adversarial pass itself breaks the paragraph-variance gate, because the
+symmetric two-beat constructions you remove are the ones carrying the short
+paragraphs. Run the script after that pass, not only before it.
 
 ### Usage
 

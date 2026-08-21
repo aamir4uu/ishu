@@ -47,6 +47,7 @@ two independent sightings.
 | --- | --- | --- | --- | --- | --- |
 | 2026-08-21 | Sitejet: agency delivery SOP | 1,072 (cut from 2,956) | 0 of 11 at final pass | pending client run |
 | 2026-08-21 | Sitejet: website launch handover | 1,233 | 0 of 11 at final pass | pending client run | Second piece under v3.0. Failed three gates on first draft: paragraph variance, rule of three, and opener repetition. All three came from the same cause, a seven-item listicle structure that pushes every paragraph toward the same shape. Fixed without changing the structure. | First piece under v3.0. Forced one gate recalibration (sentence opener repetition). Client requires APA title case, which conflicts with pattern 17; resolved by excluding headings from the prose scan and compensating with a 22.7 per 1k contraction rate and 37% short sentences. Full report in `reports/2026-08-21-sitejet-agency-delivery-sop.md`. |
+| 2026-08-21 | SolusVM: shared vs local storage for VPS | 1,033 | 0 of 11 at final pass | pending client run | Third piece under v3.0, first for a different client and a different voice. Brand guide mandates a formal, documentation-like register, which pushes the contraction rate down; landed at 12.58 per 1k against 22.67 on the Sitejet piece and still passed. The adversarial pass broke the paragraph-variance gate: removing parallel two-beat constructions is a sentence-level edit that flattens paragraph shapes as a side effect. Full report in `reports/2026-08-21-solusvm-shared-vs-local-storage.md`. |
 
 ## Standing findings
 
@@ -91,6 +92,27 @@ each item began by naming a thing. The structure was correct for the topic and
 was kept. The fix was per-item: vary the sentence count deliberately, convert
 two triples into pairs plus a trailing clause, and reword four openers. Expect
 this cluster whenever a piece is built from parallel numbered items.
+
+**The adversarial pass can break a gate the trim pass left clean.** Removing
+symmetric two-beat constructions ("X wins on A. Y wins on B.") is the single most
+useful editorial fix in the catalogue, and it is also a paragraph-shape edit in
+disguise: those pairs were carrying the short paragraphs. Paragraph variance fell
+from 0.373 to 0.307 on a draft where nothing else changed. Run the script after
+the adversarial pass, not only before it.
+
+**Paragraph variance moves at the extremes.** Two failed repairs nudged
+mid-sized paragraphs around and gained 0.023. The third merged a 2-sentence and
+a 3-sentence paragraph into one 5-sentence paragraph and cut an FAQ answer to a
+single sentence, and the gate went from 0.330 to 0.400 in one edit. This gate is
+stdev over mean of paragraph sentence counts, so add a very long paragraph and a
+very short one. Do not redistribute the middle.
+
+**A formal brand voice costs you contractions, and that is survivable.** The
+SolusVM guide asks for a register close to technical documentation. That halved
+the contraction rate against the previous client (12.58 per 1k against 22.67)
+while still clearing the 4.0 floor. The floor is low for exactly this reason.
+Compensate on rhythm and specificity, not by forcing contractions into copy the
+brand would reject.
 
 **Gates that use raw counts do not survive contact with a long piece.** Any
 threshold expressed as an absolute number needs checking against a 3,000-word

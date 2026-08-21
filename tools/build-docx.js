@@ -1,7 +1,68 @@
 const fs = require('fs');
 const path = require('path');
-const SP = '/tmp/claude-0/-home-user-ishu/89903e44-ab5e-50c4-8ae0-a56dee02f12e/scratchpad';
-const D = require(path.join(SP, 'node_modules', 'docx'));
+// Resolve the `docx` package. Set DOCX_PATH to a node_modules/docx directory if
+// it is not installed where node can find it (npm i docx in any scratchpad works).
+function loadDocx() {
+  const candidates = [];
+  if (process.env.DOCX_PATH) candidates.push(process.env.DOCX_PATH);
+  if (process.env.NODE_PATH) {
+    for (const dir of process.env.NODE_PATH.split(path.delimiter).filter(Boolean)) {
+      candidates.push(path.join(dir, 'docx'));
+    }
+  }
+  candidates.push('docx');
+  for (const c of candidates) {
+    try { return require(c); } catch (e) { if (e.code !== 'MODULE_NOT_FOUND') throw e; }
+  }
+  console.error('Cannot find the `docx` package.\n  npm install docx   (then re-run, or set DOCX_PATH=/path/to/node_modules/docx)');
+  process.exit(1);
+}
+const D = loadDocx();
+
+// Placeholder frames. Prefer a real file from PLACEHOLDER_DIR (placeholder-N.png)
+// so a designer can supply comps; otherwise synthesise a plain grey PNG in memory
+// so the builder has no external asset dependency.
+const zlib = require('zlib');
+function greyPng(w, h) {
+  const chunk = (type, data) => {
+    const len = Buffer.alloc(4); len.writeUInt32BE(data.length);
+    const body = Buffer.concat([Buffer.from(type, 'ascii'), data]);
+    const crcBuf = Buffer.alloc(4); crcBuf.writeUInt32BE(crc32(body) >>> 0);
+    return Buffer.concat([len, body, crcBuf]);
+  };
+  const table = (() => {
+    const t = new Int32Array(256);
+    for (let n = 0; n < 256; n++) {
+      let c = n;
+      for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1;
+      t[n] = c;
+    }
+    return t;
+  })();
+  function crc32(buf) {
+    let c = 0xffffffff;
+    for (let i = 0; i < buf.length; i++) c = table[(c ^ buf[i]) & 0xff] ^ (c >>> 8);
+    return c ^ 0xffffffff;
+  }
+  const ihdr = Buffer.alloc(13);
+  ihdr.writeUInt32BE(w, 0); ihdr.writeUInt32BE(h, 4);
+  ihdr[8] = 8; ihdr[9] = 2; ihdr[10] = 0; ihdr[11] = 0; ihdr[12] = 0;
+  const row = Buffer.alloc(1 + w * 3);
+  for (let x = 0; x < w; x++) { row[1 + x * 3] = 0xe8; row[2 + x * 3] = 0xeb; row[3 + x * 3] = 0xef; }
+  const raw = Buffer.concat(Array.from({ length: h }, () => row));
+  return Buffer.concat([
+    Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]),
+    chunk('IHDR', ihdr), chunk('IDAT', zlib.deflateSync(raw)), chunk('IEND', Buffer.alloc(0)),
+  ]);
+}
+function placeholder(n) {
+  const dir = process.env.PLACEHOLDER_DIR;
+  if (dir) {
+    const f = path.join(dir, `placeholder-${n}.png`);
+    if (fs.existsSync(f)) return fs.readFileSync(f);
+  }
+  return greyPng(920, 518);
+}
 const {
   Document, Packer, Paragraph, TextRun, HeadingLevel, ExternalHyperlink,
   ImageRun, AlignmentType, BorderStyle, LevelFormat, convertInchesToTwip,
@@ -69,7 +130,7 @@ for (let i = 0; i < lines.length; i++) {
       spacing: { before: 260, after: 60 },
       children: [new ImageRun({
         type: 'png',
-        data: fs.readFileSync(path.join(SP, 'placeholders', `placeholder-${imgN}.png`)),
+        data: placeholder(imgN),
         transformation: { width: 460, height: 259 },
         altText: { title: `Image ${imgN}`, description: alt, name: `Image ${imgN}` },
       })],
