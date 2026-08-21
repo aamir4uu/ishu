@@ -45,7 +45,8 @@ two independent sightings.
 
 | Date | Piece | Words | Pre-flight gates failed | ZeroGPT score | Notes |
 | --- | --- | --- | --- | --- | --- |
-| 2026-08-21 | Sitejet: agency delivery SOP | 1,072 (cut from 2,956) | 0 of 11 at final pass | pending client run | First piece under v3.0. Forced one gate recalibration (sentence opener repetition). Client requires APA title case, which conflicts with pattern 17; resolved by excluding headings from the prose scan and compensating with a 22.7 per 1k contraction rate and 37% short sentences. Full report in `reports/2026-08-21-sitejet-agency-delivery-sop.md`. |
+| 2026-08-21 | Sitejet: agency delivery SOP | 1,072 (cut from 2,956) | 0 of 11 at final pass | pending client run |
+| 2026-08-21 | Sitejet: website launch handover | 1,233 | 0 of 11 at final pass | pending client run | Second piece under v3.0. Failed three gates on first draft: paragraph variance, rule of three, and opener repetition. All three came from the same cause, a seven-item listicle structure that pushes every paragraph toward the same shape. Fixed without changing the structure. | First piece under v3.0. Forced one gate recalibration (sentence opener repetition). Client requires APA title case, which conflicts with pattern 17; resolved by excluding headings from the prose scan and compensating with a 22.7 per 1k contraction rate and 37% short sentences. Full report in `reports/2026-08-21-sitejet-agency-delivery-sop.md`. |
 
 ## Standing findings
 
@@ -81,6 +82,15 @@ floor and the paragraph-variance floor, because trimming attacks long sentences
 first. The fix was to restore length in a few specific places rather than trim
 evenly: one long sentence per section, plus two single-sentence paragraphs.
 Re-run after any large cut, and expect to add words back.
+
+**Listicle structures flatten everything at once.** A seven-item numbered
+section drove three separate gate failures in one draft: every item became a
+three-sentence paragraph (paragraph variance), each item body reached for an
+"X, Y and Z" list (rule of three), and nine sentences opened with "A" because
+each item began by naming a thing. The structure was correct for the topic and
+was kept. The fix was per-item: vary the sentence count deliberately, convert
+two triples into pairs plus a trailing clause, and reword four openers. Expect
+this cluster whenever a piece is built from parallel numbered items.
 
 **Gates that use raw counts do not survive contact with a long piece.** Any
 threshold expressed as an absolute number needs checking against a 3,000-word

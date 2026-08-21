@@ -1,5 +1,18 @@
 # Sitejet Content Delivery
 
+Blog content for sitejet.io, written for the **Sitejet Studio** audience
+(agencies, freelancers, web professionals) in second person, per the brand
+content guidelines. Every piece is worked against the AEO/SEO checklist and
+gated by the humanizer skill before delivery.
+
+| Article | Words | Gates | Folder |
+| --- | --- | --- | --- |
+| The Delivery SOP That Lets a 3-Person Agency Run Like a 10-Person One | 1,072 | 11/11 | `blog/delivery-sop/` |
+| What to Send a Client on Launch Day so They Never Email You Again | 1,233 | 11/11 | `blog/launch-day-handover/` |
+
+The two pieces cross-link: the handover article points back at the delivery SOP
+as its stage five. Publish the SOP piece first, or fix that URL.
+
 ## Blog: The Delivery SOP That Lets a 3-Person Agency Run Like a 10-Person One
 
 `blog/delivery-sop/`
@@ -35,6 +48,53 @@ Sitejet prefix.
    but pmi.org could not be opened from here.
 5. After publishing, update older posts to link to this one, and test the target
    query in ChatGPT, Perplexity and Gemini.
+
+## Blog: What to Send a Client on Launch Day so They Never Email You Again
+
+`blog/launch-day-handover/`
+
+| File | What it is |
+| --- | --- |
+| `What to Send a Client on Launch Day so They Never Email You Again.docx` | **Word deliverable.** Heading 1/2/3 styles, live hyperlinks, image slots with hyperlinked "Image Source" captions |
+| `website-launch-handover.md` | Markdown source of record |
+| `seo-publishing-pack.md` | Metadata, checklist worked item by item, open items flagged |
+| `schema-markup.json` | FAQPage, Article and a seven-step HowTo, generated from the live copy |
+| `image-manifest.md` | Three images, alt text, source URLs, upload steps |
+| `zerogpt-preflight-result.txt` | Detector gate results |
+
+**Length:** 1,233 words against a 800-1000 target with 25% headroom accepted.
+
+### Open items before publishing
+
+1. Confirm the primary keyword (`website launch handover`) and check its volume.
+   Task Info is N/A, so it was inferred from the headline.
+2. Drop the three images in. See `image-manifest.md`. Image 3 is shared with the
+   delivery SOP shortlist, so swap it if both pieces publish together.
+3. Replace the team byline with a named author and a personal LinkedIn URL.
+4. Spot-check the Ignition figures against the linked report.
+5. Fix the internal link to the delivery SOP article once that piece has a real
+   URL, and add a link back from that article to this one.
+6. **Title capitalisation:** APA lowercases "so" as a short conjunction, so the
+   headline reads "...Launch Day so They Never Email You Again". That is
+   correct, not a typo. Capitalise it if the client prefers the look.
+
+## Tooling
+
+`tools/build-docx.js` converts any of these markdown articles to a formatted
+Word file:
+
+```
+node tools/build-docx.js <source.md> <output.docx>
+```
+
+It maps H1/H2/H3 to real Word heading styles, keeps hyperlinks live, renders
+bullets through a proper numbering config, and drops a sized placeholder frame
+into each image slot with the alt text and the hyperlinked "Image Source"
+caption beneath it.
+
+Note: LibreOffice in this environment cannot open any .docx, including the
+client's own brand guide file, so output is verified by parsing the packed XML
+rather than by rendering.
 
 ## Skill: humanizer v3.0.0
 
