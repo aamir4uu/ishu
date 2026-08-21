@@ -34,9 +34,9 @@ Recording works differently. Open the Reels composer and you're on a timer that 
 
 Want a four-minute Reel? Film and edit it elsewhere, then upload the file.
 
-![The Facebook Reels composer with the 90-second recording timer visible above the record button](images/facebook-reels-composer-timer.png)
+![Decision diagram showing which way to post a Facebook Reel by length: 3 to 90 seconds can be recorded or uploaded, over 90 seconds must be uploaded, under 3 seconds will not publish](images/facebook-reel-post-route-decision.png)
 
-*Image source: pending capture, see image-manifest.md*
+*[Image source](https://raw.githubusercontent.com/aamir4uu/ishu/refs/heads/claude/facebook-reel-length-post-5fl797/blog/facebook-reel-length/images/facebook-reel-post-route-decision.png)*
 
 ### The Minimum Length
 
@@ -86,9 +86,9 @@ Rushing is what makes you settle for the wrong length.
 
 SocialBee publishes Reels straight to your Facebook Pages. Queue Tuesday's 12-second hook and Thursday's demo, which needs a full minute, in the same sitting without switching apps once. Each one gets a preview before it goes out, and content categories keep the mix from turning into five demos in a row. On a personal profile you get a mobile notification at post time instead, caption copied and file ready.
 
-![A 45-second Facebook Reel scheduled in the SocialBee post editor, with the preview panel and content category selector visible](images/socialbee-facebook-reel-scheduled.png)
+![Four-step diagram of scheduling a batch of Facebook Reels in SocialBee: plan the batch, add the files, sort by content category, let it publish](images/facebook-reel-scheduling-workflow.png)
 
-*Image source: pending capture, see image-manifest.md*
+*[Image source](https://raw.githubusercontent.com/aamir4uu/ishu/refs/heads/claude/facebook-reel-length-post-5fl797/blog/facebook-reel-length/images/facebook-reel-scheduling-workflow.png)*
 
 Here's the full walkthrough: [how to schedule Reels on Facebook](https://socialbee.com/blog/can-you-schedule-reels-on-facebook/).
 

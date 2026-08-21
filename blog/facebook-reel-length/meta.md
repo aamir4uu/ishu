@@ -20,33 +20,29 @@ in 2026?", and in the FAQ heading.
 
 ## Images
 
-One chart and two screenshots. The brand guidelines ask for screenshots three
-times and permit charts once, so the article follows that emphasis rather than
-running charts throughout. Reasoning and capture instructions in
-`image-manifest.md`.
+Three original visuals, all finished, nothing outstanding. One chart and two
+diagrams. No screenshots: this environment has no web egress, so no product UI
+could be captured, and a mocked-up product screenshot would misrepresent the
+product. Evidence and reasoning in `image-manifest.md`.
 
-| Slot | File | Section | Source | Status |
+| Slot | File | Type | Section | Source |
 | --- | --- | --- | --- | --- |
-| 1 | `facebook-reels-composer-timer.png` | Reels Recorded in the App: 90 Seconds | pending capture | To capture |
-| 2 | `facebook-reel-length-limits-2021-2026.png` | Uploaded Reels: No Fixed Cap | [.png file](https://raw.githubusercontent.com/aamir4uu/ishu/refs/heads/claude/facebook-reel-length-post-5fl797/blog/facebook-reel-length/images/facebook-reel-length-limits-2021-2026.png) | Done |
-| 3 | `socialbee-facebook-reel-scheduled.png` | How to Schedule Facebook Reels With SocialBee | pending capture | To capture |
+| 1 | `facebook-reel-post-route-decision.png` | Decision diagram | Reels Recorded in the App: 90 Seconds | [.png file](https://raw.githubusercontent.com/aamir4uu/ishu/refs/heads/claude/facebook-reel-length-post-5fl797/blog/facebook-reel-length/images/facebook-reel-post-route-decision.png) |
+| 2 | `facebook-reel-length-limits-2021-2026.png` | Chart | Uploaded Reels: No Fixed Cap | [.png file](https://raw.githubusercontent.com/aamir4uu/ishu/refs/heads/claude/facebook-reel-length-post-5fl797/blog/facebook-reel-length/images/facebook-reel-length-limits-2021-2026.png) |
+| 3 | `facebook-reel-scheduling-workflow.png` | Process diagram | How to Schedule Facebook Reels With SocialBee | [.png file](https://raw.githubusercontent.com/aamir4uu/ishu/refs/heads/claude/facebook-reel-length-post-5fl797/blog/facebook-reel-length/images/facebook-reel-scheduling-workflow.png) |
 
-Slot 3 is the promotion touchpoint. Section 6 of the guidelines describes the
-pattern as context, natural transition, then "a relevant screenshot, caption,
-and CTA", which is the shape that section already has.
+Slot 3 is the promotion touchpoint, where section 6 of the guidelines asks for
+a visual, caption and CTA.
 
-Every finished `Image source` link resolves to an image file, never to a web
-page containing one. Pending slots say so rather than carrying a link that goes
-nowhere useful. Text always sits between a heading and an image. No stock
-photography.
+Every `Image source` link resolves to an image file, never to a web page
+containing one. Text always sits between a heading and an image. Swap each link
+for the uploaded asset's own URL at publish; the rule stays the same.
 
 ```bash
-python3 tools/check_image_sources.py blog/facebook-reel-length/facebook-reel-length.md
 python3 tools/check_image_sources.py blog/facebook-reel-length/facebook-reel-length.md --strict
 ```
 
-Run the strict form before handing the draft to a publisher: it fails while any
-screenshot is still uncaptured.
+Passes with 3 of 3 final.
 
 ## Deliverables
 
@@ -55,7 +51,7 @@ screenshot is still uncaptured.
 | `facebook-reel-length.md` | The draft, source of truth |
 | `How Long Can a Facebook Reel Be - 2026 Limits and Best Run Times.docx` | Word version, generated from the markdown by `tools/md_to_docx.py` |
 | `image-manifest.md` | Every image, its source, and what still needs capturing |
-| `images/` | The chart, and the script that draws it |
+| `images/` | The three visuals, and the script that draws them |
 | `schema.json` | Article and FAQPage JSON-LD |
 | `aeo-seo-checklist.md` | The checklist, marked up |
 | `tools/check_image_sources.py` | Fails the build if any image source is a bare domain, is missing, or sits under a heading |

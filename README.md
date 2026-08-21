@@ -17,9 +17,8 @@ Content work for SocialBee, plus the tooling used to produce it.
 
 - `How Long Can a Facebook Reel Be - 2026 Limits and Best Run Times.docx` - the
   Word version, generated from the markdown
-- `image-manifest.md` and `images/` - every image, its source, and what still
-  needs capturing. One chart with the script that draws it, and two screenshots
-  the client captures
+- `image-manifest.md` and `images/` - three original visuals with the script
+  that draws them, and why there are no screenshots
 - `meta.md` - title tag, meta description, slug, image slots, link plan, and
   the facts that need re-verifying against a live account before publishing
 - `schema.json` - Article and FAQPage JSON-LD

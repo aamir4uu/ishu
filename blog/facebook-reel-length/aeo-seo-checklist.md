@@ -87,9 +87,9 @@ and owned by whoever publishes.
 - [x] Title and subheadings in APA title case.
 - [x] No plagiarism, no fluff, no unedited AI phrasing. Every factual claim
   traces to a cited source or is marked for verification in `meta.md`.
-- [~] Images uploaded to their appropriate places - three slots, each in the
-  section it belongs to, each with alt text. The chart is a finished file with
-  a source link resolving to the image itself. The two screenshots are marked
-  `pending capture` and specified in `image-manifest.md`; they need a
-  logged-in Facebook and SocialBee account, which was not available here.
-  `check_image_sources.py --strict` fails while either is outstanding.
+- [x] Images uploaded to their appropriate places - three finished files in
+  `images/`, each placed in the section it explains, each with alt text and a
+  source link resolving to the image itself. One chart and two diagrams, all
+  original. Screenshots were not possible: this environment refuses every
+  external host at the proxy, verified with curl and headless Chromium.
+  `check_image_sources.py --strict` passes with 3 of 3 final.
