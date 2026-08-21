@@ -1,0 +1,18 @@
+# Terms the rule miner must never promote, one per line.
+#
+# The miner is statistical: it promotes n-grams that keep appearing inside
+# flagged sentences. Topic vocabulary trips that test constantly, because an
+# article about Facebook Reels naturally says "Facebook Reels" in most of its
+# sentences, flagged or not. Add topic and brand terms here.
+#
+# Add entries with:  python3 scripts/learn.py --unlearn "the term"
+
+socialbee
+facebook
+instagram
+reel
+reels
+linkedin
+tiktok
+remote work
+social media

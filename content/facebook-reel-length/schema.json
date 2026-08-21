@@ -1,0 +1,80 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "How Long Can a Facebook Reel Be? 2026 Limits and Best Run Times",
+      "description": "Facebook Reels no longer stop at 90 seconds. Get the 2026 length limits, the specs to check before you post, and the run times that actually get watched.",
+      "author": {
+        "@type": "Person",
+        "name": "AUTHOR NAME",
+        "jobTitle": "AUTHOR ROLE",
+        "sameAs": "https://www.linkedin.com/in/AUTHOR-PROFILE/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "SocialBee",
+        "url": "https://socialbee.com/"
+      },
+      "datePublished": "PUBLISH-DATE",
+      "dateModified": "PUBLISH-DATE",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://socialbee.com/blog/facebook-reel-length/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can a Facebook Reel be 3 minutes long?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, if you upload it as a finished file and your account has the June 2025 update. The in-app camera still won't record that long."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the shortest a Facebook Reel can be?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "3 seconds. Through SocialBee's direct Facebook Page publishing, 4 seconds."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does my Facebook Reel still cap at 90 seconds?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your account probably hasn't received the change yet. Upload a finished file rather than recording in the app, and check whether you're posting to a Page or a personal profile."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do longer Facebook Reels get less reach?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not because of their length. Fewer people finish them, and completion is what Facebook rewards."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a length limit for Facebook Reels ads?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Meta publishes no maximum for the Reels placement. Keep ads under 30 seconds regardless, because a cold audience gives you very little patience."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I post a horizontal video as a Reel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can, and it'll publish. It gets shown in a vertical frame, so shoot 9:16 when you have the choice."
+          }
+        }
+      ]
+    }
+  ]
+}
