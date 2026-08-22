@@ -95,7 +95,7 @@ Everything you need to change lives in **one file**: `src/config/shop.ts`.
 Then:
 
 1. **Publish** from the Lovable editor.
-2. **Connect `goyalglow.com`** in Lovable's domain settings (custom domains need a paid Lovable plan; alternatively export the code to GitHub and host free on Netlify or Cloudflare Pages).
+2. **Connect `goyallights.com`** in Lovable's domain settings (custom domains need a paid Lovable plan; alternatively export the code to GitHub and host free on Netlify or Cloudflare Pages).
 3. **Submit the site to Google Search Console** and request indexing.
 4. **Add the site URL to your Google Business Profile**, IndiaMART, JustDial and every WhatsApp/Instagram bio. Same URL everywhere — see the NAP consistency rule in `03-marketing-plan.md`.
 

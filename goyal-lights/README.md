@@ -1,4 +1,4 @@
-# Goyal Glow Lights — Marketing & Launch Pack
+# Goyal Lights — Marketing & Launch Pack
 
 Marketing, naming and web pack for a new lights shop in **Bhagirath Palace,
 Chandni Chowk, Delhi 110006**, selling COB, LED, panel, decorative and Diwali
@@ -16,9 +16,19 @@ Prepared 21 August 2026 — **79 days before Diwali (Sunday 8 November 2026)**.
 | `06-info-needed.md` | Fill-in form: everything still needed from you, ranked by what it unblocks |
 | `site/index.html` | Single-file bilingual landing page. Self-contained, deployable on any free host |
 
+## Final details (decided 22 Aug 2026)
+
+- **Name:** Goyal Lights · गोयल लाइट्स
+- **Address:** 1858, Ground Floor, Mahalaxmi Market, Bhagirath Palace, Chandni Chowk, Delhi 110006
+- **Pin:** 28.656861, 77.233972 · https://maps.app.goo.gl/guznh4czrvjFCCDR8
+- **WhatsApp / phone:** +91 83758 28408 (Gaurav Goyal) · +91 98995 61897 (Mahender Goyal)
+- **No replacement/warranty claim** anywhere until a policy is set
+- **Hindi** is a rare accent on the site, not a parallel track
+- The Lovable build is the primary website; `site/index.html` is a fact-synced static fallback
+
 ## Working name
 
-**Goyal Glow Lights** · गोयल ग्लो लाइट्स — scored highest (24/25) in
+**Goyal Lights** · गोयल लाइट्स — scored highest (24/25) in
 `02-naming-seo.md`. It is a find-and-replace away from any of the alternatives;
 the runners-up are **Goyal Jagmag Lights** and **Goyal Lightwala**.
 
@@ -39,7 +49,7 @@ free on Netlify, Cloudflare Pages or GitHub Pages and point your domain at it.
 
 ---
 
-# Goyal Glow Lights — Bhagirath Palace Marketing Pack
+# Goyal Lights — Bhagirath Palace Marketing Pack
 
 `goyal-lights/`
 

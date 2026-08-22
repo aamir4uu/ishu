@@ -159,4 +159,4 @@ from one clip.
 | Category items | Trim to what you genuinely stock — an empty promise on the site becomes a refund at the counter |
 
 Then deploy free on Netlify, Cloudflare Pages or GitHub Pages and point
-`goyalglow.com` at it.
+`goyallights.com` at it.

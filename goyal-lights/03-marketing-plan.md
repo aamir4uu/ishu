@@ -1,9 +1,9 @@
-# Marketing & Sales Plan — Goyal Glow Lights
+# Marketing & Sales Plan — Goyal Lights
 
 **Budget:** under ₹10,000/month · **Audience:** wholesale + retail, balanced
 **Written:** 21 August 2026 · **Diwali:** Sunday 8 November 2026 (79 days out)
 
-> Rename freely. Every mention of "Goyal Glow Lights" in this pack is a
+> Rename freely. Every mention of "Goyal Lights" in this pack is a
 > find-and-replace away from whichever name you pick in `02-naming-seo.md`.
 
 ---
@@ -47,7 +47,7 @@ counter with cash in hand.
 **Setup**
 
 - Create at [business.google.com](https://business.google.com), verify by postcard or video.
-- **Name:** exactly your registered trade name — `Goyal Glow Lights`. Nothing more. Adding "Best LED Wholesale Delhi" gets profiles suspended.
+- **Name:** exactly your registered trade name — `Goyal Lights`. Nothing more. Adding "Best LED Wholesale Delhi" gets profiles suspended.
 - **Primary category:** `Lighting store`
 - **Secondary categories:** `LED lighting supplier`, `Electrical supply store`, `Lighting contractor`, `Light bulb supplier`
 - **Address:** full shop number, building name, lane, Bhagirath Palace, Chandni Chowk, Delhi 110006. Drag the map pin to the exact door — Old Delhi geocoding is bad and a pin 80 m away sends buyers to a competitor.
@@ -291,7 +291,7 @@ cannot afford to run anything on faith.
 ## 10. Scripts — copy these
 
 **WhatsApp greeting (auto)**
-> नमस्ते 🙏 Goyal Glow Lights, Bhagirath Palace में आपका स्वागत है।
+> नमस्ते 🙏 Goyal Lights, Bhagirath Palace में आपका स्वागत है।
 > COB, LED, panel, decorative और Diwali lights — wholesale व retail दोनों।
 > अपनी requirement भेजिए, हम 10 मिनट में rate भेज देंगे।
 > 📍 Shop No. __, Bhagirath Palace, Chandni Chowk, Delhi 110006
@@ -311,7 +311,7 @@ cannot afford to run anything on faith.
 > सर, आपका order ready है 🙏 अगर service अच्छी लगी हो तो Google पर एक review कर दीजिए — नई दुकान है, आपके दो शब्द बहुत मदद करेंगे। 30 second लगेंगे: [link]
 
 **Weekly broadcast**
-> 🪔 Goyal Glow Lights — इस हफ़्ते का नया stock
+> 🪔 Goyal Lights — इस हफ़्ते का नया stock
 > • LED jhalar — नए 6 colours
 > • Pixel string light — remote के साथ
 > • COB spot 12W / 15W — fresh lot

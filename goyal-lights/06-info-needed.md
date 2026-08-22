@@ -1,5 +1,13 @@
 # Information Needed From You
 
+> **STATUS — updated 22 Aug 2026.** Received and applied: final name **Goyal
+> Lights** (D1 ✓), WhatsApp/phone +91 83758 28408 Gaurav Goyal and
+> +91 98995 61897 Mahender Goyal (A1–A2 ✓), full address 1858, Ground Floor,
+> Mahalaxmi Market (A3 ✓), exact map pin 28.656861, 77.233972 /
+> https://maps.app.goo.gl/guznh4czrvjFCCDR8 (B1 ✓). Replacement window (A5):
+> **dropped by decision** — no warranty claim appears anywhere until one is set.
+> Still open: A4 GSTIN, B2–B6, all of C, D2–D3, E.
+
 Split by what each answer unblocks. **Group A alone gets the website live.**
 
 ---
@@ -55,9 +63,9 @@ These are the analyst questions. Your answers may change what I recommend.
 
 | # | Decision | Status |
 | --- | --- | --- |
-| D1 | **Final shop name** | I built everything on **Goyal Glow Lights**. Confirm it, or pick from `02-naming-seo.md` — it's a find-and-replace, cheap to change now, expensive after the signboard is painted. |
-| D2 | **Domain bought?** | Check `goyalglow.com` and `goyalglow.in` at any registrar. ~₹700–1,500/year for both. |
-| D3 | **Social handles reserved?** | `@goyalglow` on Instagram, YouTube, Facebook. Free, do it today even if you won't post for a month. |
+| D1 | **Final shop name** | I built everything on **Goyal Lights**. Confirm it, or pick from `02-naming-seo.md` — it's a find-and-replace, cheap to change now, expensive after the signboard is painted. |
+| D2 | **Domain bought?** | Check `goyallights.com` and `goyallights.in` at any registrar. ~₹700–1,500/year for both. |
+| D3 | **Social handles reserved?** | `@goyallights` on Instagram, YouTube, Facebook. Free, do it today even if you won't post for a month. |
 
 ---
 

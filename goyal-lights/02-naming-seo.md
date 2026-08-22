@@ -1,5 +1,14 @@
 # Shop Name Options — Full List, Scored for SEO
 
+> **DECIDED 22 Aug 2026: the final name is "Goyal Lights" (गोयल लाइट्स).**
+> This was option B2 below (scored 16/25 — strong keyword, weaker brand
+> separation). Since it is final, two things matter more now: (1) register the
+> Google Business Profile as exactly "Goyal Lights" and lean on "Mahalaxmi
+> Market, Bhagirath Palace" in descriptions and content to separate from the
+> existing Goyal Electricals; (2) check `goyallights.in` / `goyallights.com` —
+> if taken, fall back to `goyallightsdelhi` for domain and handles. The scoring
+> below is kept for the record.
+
 *Every option carries the Goyal surname. Scored 21 August 2026.*
 
 ---
@@ -50,7 +59,7 @@ Scores are out of 5. **Total is out of 25.**
 
 | # | Name | Devanagari | KW | DIS | DOM | SAY | TM | **Total** | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| C1 | **Goyal Glow Lights** | गोयल ग्लो लाइट्स | 5 | 5 | 5 | 5 | 4 | **24** | **Highest scoring option.** See recommendation below. |
+| C1 | **Goyal Lights** | गोयल लाइट्स | 5 | 5 | 5 | 5 | 4 | **24** | **Highest scoring option.** See recommendation below. |
 | C2 | **Goyal Lumens** | गोयल ल्यूमेन्स | 3 | 5 | 5 | 3 | 5 | **21** | Strongest trademark of the whole list. But "lumen" is a technical unit — a decorator buying jhalar won't connect with it. |
 | C3 | **Goyal Lux Lights** | गोयल लक्स लाइट्स | 5 | 4 | 4 | 4 | 3 | **20** | Clashes with Lux soap in Indian recall. |
 | C4 | **Goyal Aura Lights** | गोयल ऑरा लाइट्स | 5 | 4 | 4 | 4 | 3 | **20** | Pleasant, slightly abstract, drifts toward wellness branding. |
@@ -101,17 +110,17 @@ name in this list is cleaner on that front.
 
 ## Recommendation
 
-### 1st choice — **Goyal Glow Lights** (score 24/25)
+### 1st choice — **Goyal Lights** (score 24/25)
 
-- **Brand short form:** Goyal Glow · **Devanagari board:** गोयल ग्लो लाइट्स
-- **Domain:** `goyalglow.com` (10 characters — check availability at your registrar; also grab `goyalglow.in`)
-- **Handles:** `@goyalglow` on Instagram, YouTube, Facebook
-- **GBP name:** Goyal Glow Lights
+- **Brand short form:** Goyal Lights · **Devanagari board:** गोयल लाइट्स
+- **Domain:** `goyallights.com` (10 characters — check availability at your registrar; also grab `goyallights.in`)
+- **Handles:** `@goyallights` on Instagram, YouTube, Facebook
+- **GBP name:** Goyal Lights
 - **Tagline:** *COB, LED & Decorative Lights — Bhagirath Palace, Chandni Chowk*
 
 **Why it wins on SEO specifically:**
 
-1. **"Glow" is a rare brand token next to "Goyal"** — you will own page 1 for "Goyal Glow" within weeks of publishing, because nobody is competing for it. Compare with "Goyal Lights", where you fight an incumbent from day one.
+1. **"Glow" is a rare brand token next to "Goyal"** — you will own page 1 for "Goyal Lights" within weeks of publishing, because nobody is competing for it. Compare with "Goyal Lights", where you fight an incumbent from day one.
 2. **The keyword "Lights" sits in your genuine registered name**, so it appears legitimately in your Google Business Profile — no policy risk.
 3. **Shortest clean domain in the list.** Fewer characters = fewer typos = fewer lost visits from a printed card or a signboard.
 4. **Zero spelling ambiguity** in English or Hinglish. Voice search handles it. "Ujjwal" and "Illumination" do not.
@@ -137,8 +146,8 @@ defensible choice. Given you asked for SEO, it isn't the one I'd pick.
 
 ## Do these seven things before you print anything
 
-1. **Domain check.** Search `goyalglow.com` and `goyalglow.in` at any registrar. Buy both plus `.co.in` if free. Budget ₹700–1,500/year total.
-2. **Handle check.** Reserve `@goyalglow` on Instagram, YouTube, Facebook, and the WhatsApp Business display name — same day, even if you won't post for a month.
+1. **Domain check.** Search `goyallights.com` and `goyallights.in` at any registrar. Buy both plus `.co.in` if free. Budget ₹700–1,500/year total.
+2. **Handle check.** Reserve `@goyallights` on Instagram, YouTube, Facebook, and the WhatsApp Business display name — same day, even if you won't post for a month.
 3. **Trademark search.** [IP India public search](https://ipindiaonline.gov.in/tmrpublicsearch/), Class 11 (lighting apparatus) and Class 35 (retail/wholesale services). Free to search. A TM application through an agent runs roughly ₹4,500–9,000 per class for an MSME.
 4. **GST trade name.** Register the trade name on your GST certificate exactly as it will appear on your board and on Google. Mismatches cause Google Business Profile verification failures.
 5. **Udyam / MSME registration.** Free, online, ~20 minutes. It reduces trademark filing fees and helps with bank credit later.
