@@ -147,3 +147,32 @@ components.
 The preview domain is blocked by this environment's network policy, so the
 rendered page has not been viewed. Everything above was confirmed by reading the
 source. Open the preview and judge the visual result yourself.
+
+---
+
+## 6. Revision of 22 Aug 2026 — final details applied
+
+Verified line-by-line in the commit diff:
+
+- **Rebrand to "Goyal Lights"** — H1 (with "Lights" as the retintable accent
+  word), header, footer, page title, meta, both JSON-LD blocks, root fallback meta
+- **Real contacts wired in** — WhatsApp and hero call CTA use Gaurav Goyal
+  +91 83758 28408; Visit section and footer list both Gaurav and Mahender Goyal
+  by name; JSON-LD telephone in E.164
+- **Exact map** — embed now uses the door coordinates 28.656861, 77.233972;
+  "Open in Google Maps" uses the shop's own share link
+  (maps.app.goo.gl/guznh4czrvjFCCDR8)
+- **Warranty erased** — trust item replaced with "Budget and branded, side by
+  side"; FAQ question replaced with stock-photos-on-WhatsApp; the config field
+  deleted so it cannot leak back
+- **GSTIN gated** — the field stays in config but renders nowhere until the
+  placeholder is replaced
+- **Hindi as accent** — Devanagari survives in exactly three places (hero name
+  line, three ticker words, footer name); all card subtitles, ledes and section
+  Hindi removed
+- **Polish** — bulb sway layered on the flicker with per-bulb delays, colour
+  swatch dots in the CCT chips, tinted hover glow on the primary CTA, consistent
+  eyebrow labels on every section, fade-rise on stock-filter changes, hover
+  accent on card titles, hairline on the scrolled header, amber rule on the
+  footer; every new animation covered by prefers-reduced-motion
+
