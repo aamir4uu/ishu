@@ -10,6 +10,7 @@
 <meta property="og:description" content="COB, LED, panel, decorative and Diwali lights at wholesale rates. Bhagirath Palace, Chandni Chowk, Delhi.">
 <meta property="og:locale" content="en_IN">
 <title>Goyal Lights</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Karla:wght@400;500;700&family=Tiro+Devanagari+Hindi&display=swap">
@@ -128,6 +129,27 @@ section{padding-block:clamp(3.5rem,7vw,6rem);}
   transition:background .7s ease,box-shadow .7s ease;
 }
 @keyframes flicker{0%,100%{opacity:1;}42%{opacity:.82;}58%{opacity:.97;}72%{opacity:.86;}}
+@keyframes sway{from{transform:rotate(-.6deg);}to{transform:rotate(.6deg);}}
+.bulb{transform-origin:top center;animation:sway 7s ease-in-out infinite alternate;}
+.bulb:nth-child(2n){animation-delay:-3.1s}.bulb:nth-child(3n){animation-delay:-5.2s}
+@media (min-width:1024px){
+  .bulbs{height:190px;}
+  .glass{width:20px;height:26px;
+    box-shadow:0 0 22px 5px color-mix(in srgb,var(--bulb-glow) 55%,transparent),
+               0 0 66px 22px color-mix(in srgb,var(--bulb-glow) 22%,transparent);}
+  .cord{background:linear-gradient(var(--h-line),color-mix(in srgb,var(--bulb) 35%,var(--h-line)));}
+}
+.pendant{display:none;}
+@media (min-width:1024px){
+  .pendant{display:flex;position:absolute;top:0;left:72%;height:58%;z-index:5;
+    flex-direction:column;align-items:center;pointer-events:none;
+    transform-origin:top center;animation:sway 8s ease-in-out -2s infinite alternate;}
+  .pendant .cord{flex:1;width:2px;}
+  .pendant .glass{width:48px;height:60px;animation-delay:-1.7s;
+    box-shadow:0 0 44px 12px color-mix(in srgb,var(--bulb-glow) 60%,transparent),
+               0 0 140px 48px color-mix(in srgb,var(--bulb-glow) 26%,transparent);}
+}
+@media (prefers-reduced-motion:reduce){.bulb,.pendant{animation:none;}}
 @media (prefers-reduced-motion:reduce){.glass{animation:none;}}
 
 .hero-body{padding-top:clamp(1.5rem,4vw,2.5rem);}
@@ -171,7 +193,10 @@ section{padding-block:clamp(3.5rem,7vw,6rem);}
   font-variant-numeric:tabular-nums;transition:all .2s ease;
 }
 .chip:hover{border-color:var(--bulb);color:var(--h-ink);}
+.chip{display:inline-flex;align-items:center;gap:.45rem;}
+.chip::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--dot);box-shadow:0 0 6px 1px color-mix(in srgb,var(--dot) 45%,transparent);}
 .chip[aria-pressed="true"]{border-color:var(--bulb);color:#17130a;background:var(--bulb);}
+.chip[aria-pressed="true"]::before{box-shadow:0 0 0 1.5px rgba(0,0,0,.35);}
 
 .countdown{
   margin-top:2.4rem;padding-top:1.6rem;border-top:1px solid var(--h-line);
@@ -267,6 +292,8 @@ footer{
     <div class="bulb" style="height:64%"><div class="cord" style="flex:1"></div><div class="glass" style="animation-delay:-1.3s"></div></div>
   </div>
 
+  <div class="pendant" aria-hidden="true"><div class="cord"></div><div class="glass"></div></div>
+
   <div class="wrap hero-body">
     <h1 class="shopname">Goyal <em>Lights</em></h1>
     <p class="shopname-hi hi">गोयल लाइट्स — भागीरथ पैलेस, चांदनी चौक</p>
@@ -283,12 +310,12 @@ footer{
 
     <div class="cct">
       <span>See the light</span>
-      <button class="chip" data-bulb="#ffb65c" data-glow="#ff9d2e" aria-pressed="true">2700 K Warm</button>
-      <button class="chip" data-bulb="#ffe3b8" data-glow="#ffca85" aria-pressed="false">4000 K Natural</button>
-      <button class="chip" data-bulb="#dfecff" data-glow="#9cc4ff" aria-pressed="false">6500 K Cool</button>
+      <button class="chip" style="--dot:#ffb65c" data-bulb="#ffb65c" data-glow="#ff9d2e" aria-pressed="true">2700 K Warm</button>
+      <button class="chip" style="--dot:#ffe3b8" data-bulb="#ffe3b8" data-glow="#ffca85" aria-pressed="false">4000 K Natural</button>
+      <button class="chip" style="--dot:#dfecff" data-bulb="#dfecff" data-glow="#9cc4ff" aria-pressed="false">6500 K Cool</button>
     </div>
 
-    <p class="countdown"><b id="days">—</b> days to Dhanteras · <span>Friday 6 November 2026. Retailers are stocking now.</span></p>
+    <p class="countdown"><b id="days">—</b><span style="max-width:36rem"> days to Dhanteras — Friday 6 November 2026. Retailers are stocking now.</span></p>
   </div>
 </header>
 
