@@ -1,0 +1,29 @@
+Goyal Lights - Landed Cost Calculator,,,Notes
+INPUTS,,,
+Model / SKU,,,e.g. 9W LED bulb B22 6500K
+Quantity (pcs),5000,,
+FOB unit price (USD),0.62,,From supplier quote - FOB named port
+Exchange rate (INR per USD),88,,Use your bank's card rate not the news rate
+Sea freight + insurance (INR),31000,,LCL: get a quote per CBM from your forwarder
+CHA + port + ICD + transport to shop (INR),28000,,Ask 3 CHAs; typical 20000-35000 per LCL consignment
+Basic Customs Duty %,20,,HS 9405 LED luminaires - CONFIRM per 8-digit HS with your CHA
+Social Welfare Surcharge % of BCD,10,,
+IGST %,18,,Recoverable as input credit ONLY if you have GSTIN
+,,,
+CALCULATION,,,Formula
+FOB value (INR),272800,,= Qty x FOB USD x Ex rate
+CIF / Assessable value (INR),303800,,= FOB INR + freight + insurance
+BCD (INR),60760,,= AV x 20%
+SWS (INR),6076,,= BCD x 10%
+Duty total (INR),66836,,= BCD + SWS
+Landed cost excl IGST (INR),398636,,= AV + duty + CHA/transport
+Landed cost per piece (INR),79.73,,= Landed / Qty
+IGST paid at customs (INR),66412,,= (AV+BCD+SWS) x 18% - claim as input credit
+Landed multiplier on FOB,1.46,,= Landed / FOB INR
+,,,
+DECISION,,,
+Current Delhi wholesale buying price per pc (INR),,,What you pay today in the market
+Delhi market selling price per pc (INR),,,What you sell at
+Break-even ratio needed,1.6,,Import only if market price / landed cost is 1.6 or higher
+Cash blocked (INR),,,= 30% advance now + 70% in ~30 days + duty at clearing
+Days cash blocked,75,,Order to shelf: production + sailing + customs + transport

@@ -1,0 +1,622 @@
+<title>Goyal Lights Sourcing Pack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Karla:wght@400;500;700&family=Tiro+Devanagari+Hindi&display=swap">
+
+<style>
+  :root {
+    --ground:#ffffff; --surface:#f6f7f8; --raised:#eceff2; --line:#d6dce2;
+    --ink:#13161a; --ink-soft:#4d5761; --ink-mute:#6b7681;
+    --accent:#9a6206; --accent-bright:#c98216; --festive:#ad3a1f; --good:#2f6b42; --on-accent:#ffffff;
+    --h-ground:#0f0d08; --h-ink:#f6efe0; --h-mute:#a99b80; --h-line:#332c1e;
+    --bulb:#ffb65c; --bulb-glow:#ff9d2e;
+    --measure:68ch; --wide:1080px;
+    --step-0:1rem; --step-1:1.15rem; --step-2:1.45rem; --step-3:1.95rem; --step-4:2.6rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#14110b; --surface:#1e1a12; --raised:#292318; --line:#3a3222;
+      --ink:#f2e9d8; --ink-soft:#c2b49b; --ink-mute:#9b8d76;
+      --accent:#f2a93b; --accent-bright:#ffc36a; --festive:#e06744; --good:#7fb98e; --on-accent:#1a1206;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#14110b; --surface:#1e1a12; --raised:#292318; --line:#3a3222;
+    --ink:#f2e9d8; --ink-soft:#c2b49b; --ink-mute:#9b8d76;
+    --accent:#f2a93b; --accent-bright:#ffc36a; --festive:#e06744; --good:#7fb98e; --on-accent:#1a1206;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ground); color: var(--ink);
+    font-family: Karla, "Segoe UI", system-ui, sans-serif;
+    font-size: var(--step-0); line-height: 1.62;
+    margin: 0; -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3 { font-family: Fraunces, Georgia, "Times New Roman", serif; letter-spacing:-.025em; text-wrap: balance; margin:0; }
+  .hi { font-family: "Tiro Devanagari Hindi", Karla, serif; line-height:1.9; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-bright); outline-offset: 3px; border-radius: 3px; }
+
+  /* ---------- masthead ---------- */
+  .mast { background: var(--h-ground); color: var(--h-ink); position: relative; overflow: hidden; }
+  .mast::after {
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background: radial-gradient(120% 80% at 50% -20%, color-mix(in srgb, var(--bulb-glow) 26%, transparent), transparent 62%);
+  }
+  .bulbs { display:flex; justify-content:center; gap: clamp(26px, 7vw, 62px); height: 74px; position:relative; z-index:1; }
+  .bulb { width:1px; background: var(--h-line); position:relative; animation: flick 5.5s ease-in-out infinite; }
+  .bulb::after {
+    content:""; position:absolute; left:50%; bottom:-5px; transform:translateX(-50%);
+    width:11px; height:14px; border-radius:50% 50% 46% 46%;
+    background: radial-gradient(circle at 50% 35%, #fff8ec, var(--bulb));
+    box-shadow: 0 0 10px 2px color-mix(in srgb, var(--bulb-glow) 70%, transparent),
+                0 0 26px 8px color-mix(in srgb, var(--bulb-glow) 26%, transparent);
+  }
+  .bulb:nth-child(1){height:58%;animation-delay:-1.2s} .bulb:nth-child(2){height:88%;animation-delay:-3.4s}
+  .bulb:nth-child(3){height:44%;animation-delay:-0.4s} .bulb:nth-child(4){height:74%;animation-delay:-2.6s}
+  .bulb:nth-child(5){height:52%;animation-delay:-4.4s} .bulb:nth-child(6){height:96%;animation-delay:-1.9s}
+  .bulb:nth-child(7){height:64%;animation-delay:-3.9s}
+  @keyframes flick { 0%,100%{opacity:1} 42%{opacity:.72} 47%{opacity:.95} 61%{opacity:.66} }
+  @media (prefers-reduced-motion: reduce) { .bulb { animation: none; } }
+
+  .mast-in { max-width: var(--wide); margin:0 auto; padding: 8px 24px 54px; position:relative; z-index:1; }
+  .mast h1 { font-size: clamp(2.3rem, 6.4vw, 3.9rem); font-weight:900; line-height:1.02; }
+  .mast h1 em { font-style: normal; color: var(--bulb); }
+  .mast .kicker { font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color: var(--h-mute); font-weight:700; }
+  .mast p.lede { color:#e2d6bf; max-width: 46ch; font-size: var(--step-1); margin:.7rem 0 0; }
+  .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:1.5rem; }
+  .chip {
+    font-size:.78rem; border:1px solid var(--h-line); color:var(--h-mute);
+    padding:5px 11px; border-radius:999px; background: rgba(255,255,255,.02);
+  }
+
+  /* ---------- layout ---------- */
+  main { max-width: var(--wide); margin:0 auto; padding: 0 24px 96px; }
+  section { padding: 54px 0 0; }
+  .measure { max-width: var(--measure); }
+  .eyebrow {
+    font-size:.7rem; letter-spacing:.17em; text-transform:uppercase; font-weight:700;
+    color: var(--accent); display:flex; align-items:center; gap:10px; margin-bottom:.7rem;
+  }
+  .eyebrow::after { content:""; flex:1; height:1px; background: var(--line); }
+  h2 { font-size: clamp(1.6rem, 3.4vw, var(--step-3)); font-weight:900; margin-bottom:.55rem; }
+  h3 { font-size: var(--step-1); font-weight:700; margin: 1.9rem 0 .35rem; }
+  p { margin: .75rem 0; }
+  .lead { font-size: var(--step-1); color: var(--ink-soft); }
+  strong { font-weight:700; }
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* ---------- cards ---------- */
+  .grid { display:grid; gap:14px; margin-top:1.4rem; }
+  .g2 { grid-template-columns: repeat(auto-fit, minmax(268px,1fr)); }
+  .g3 { grid-template-columns: repeat(auto-fit, minmax(232px,1fr)); }
+  .card { background: var(--surface); border:1px solid var(--line); border-radius:4px; padding:18px 19px; }
+  .card h4 { margin:0 0 .3rem; font-family: Fraunces, Georgia, serif; font-size:1.05rem; font-weight:700; letter-spacing:-.02em; }
+  .card p { margin:0; color: var(--ink-soft); font-size:.94rem; }
+  .card .idx { font-size:.7rem; letter-spacing:.15em; color: var(--accent); font-weight:700; display:block; margin-bottom:.5rem; }
+
+  /* ---------- tables ---------- */
+  .scroll { overflow-x:auto; margin-top:1.3rem; border:1px solid var(--line); border-radius:4px; }
+  table { border-collapse: collapse; width:100%; min-width: 520px; font-size:.92rem; }
+  th, td { text-align:left; padding:11px 14px; border-bottom:1px solid var(--line); vertical-align: top; }
+  thead th { background: var(--raised); font-size:.71rem; letter-spacing:.11em; text-transform:uppercase; color: var(--ink-soft); font-weight:700; }
+  tbody tr:last-child td { border-bottom:none; }
+  td.n, th.n { text-align:right; font-variant-numeric: tabular-nums; white-space:nowrap; }
+  tr.total td { background: var(--raised); font-weight:700; }
+
+  /* ---------- callout ---------- */
+  .warn {
+    margin-top:1.4rem; border-left:3px solid var(--festive); background: var(--surface);
+    padding:16px 20px; border-radius:0 4px 4px 0;
+  }
+  .warn h3 { margin:0 0 .35rem; color: var(--festive); font-size:1.05rem; }
+  .warn p { margin:.45rem 0 0; }
+  .note { font-size:.86rem; color: var(--ink-mute); }
+
+  /* ---------- timeline ---------- */
+  .tl { margin-top:1.4rem; border:1px solid var(--line); border-radius:4px; padding:20px 20px 14px; background:var(--surface); }
+  .tl-row { display:grid; grid-template-columns: 138px 1fr; align-items:center; gap:14px; margin-bottom:11px; }
+  .tl-row span { font-size:.8rem; color: var(--ink-soft); }
+  .bar { height:19px; border-radius:2px; position:relative; font-size:.7rem; color: var(--ground); display:flex; align-items:center; padding:0 8px; white-space:nowrap; }
+  .bar.prod { background: var(--accent); color: var(--on-accent); }
+  .bar.sea  { background: var(--accent-bright); color: var(--h-ground); }
+  .bar.cust { background: var(--ink-soft); color: var(--ground); }
+  .bar.over { background: var(--festive); color:#fff; }
+  .tl-axis { display:flex; justify-content:space-between; border-top:1px solid var(--line); padding-top:7px; font-size:.72rem; color: var(--ink-mute); margin-left:152px; }
+
+  /* ---------- supplier ---------- */
+  .sup { border:1px solid var(--line); border-radius:4px; padding:17px 19px; background: var(--surface); }
+  .sup h4 { font-family: Fraunces, Georgia, serif; font-size:1.06rem; font-weight:700; margin:0 0 .15rem; letter-spacing:-.02em; }
+  .sup .cn { font-size:.85rem; color: var(--ink-mute); margin:0 0 .55rem; }
+  .sup dl { margin:0; display:grid; grid-template-columns: 62px 1fr; gap:3px 12px; font-size:.87rem; }
+  .sup dt { color: var(--ink-mute); text-transform:uppercase; font-size:.66rem; letter-spacing:.1em; font-weight:700; padding-top:3px; }
+  .sup dd { margin:0; word-break: break-word; }
+
+  /* ---------- letter ---------- */
+  .letter {
+    margin-top:1.3rem; border:1px solid var(--line); border-radius:4px; background: var(--surface);
+  }
+  .letter-head {
+    display:flex; justify-content:space-between; align-items:center; gap:12px;
+    padding:12px 18px; border-bottom:1px solid var(--line); background: var(--raised);
+    flex-wrap:wrap;
+  }
+  .letter-head span { font-size:.73rem; letter-spacing:.13em; text-transform:uppercase; font-weight:700; color: var(--ink-soft); }
+  .letter-body { padding: 22px 24px; font-size:.94rem; }
+  .letter-body h5 { font-family: Karla, sans-serif; font-size:.85rem; text-transform:uppercase; letter-spacing:.09em; margin:1.5rem 0 .3rem; color: var(--accent); }
+  .letter-body h5:first-child { margin-top:0; }
+  .letter-body ol, .letter-body ul { padding-left: 1.15rem; margin:.5rem 0; }
+  .letter-body li { margin:.3rem 0; }
+  .sig { border-top:1px solid var(--line); margin-top:1.4rem; padding-top:1rem; font-size:.88rem; color:var(--ink-soft); }
+  .sig b { color: var(--ink); font-family: Fraunces, Georgia, serif; font-size:1rem; }
+  button.copy {
+    font-family: Karla, sans-serif; font-size:.78rem; font-weight:700; letter-spacing:.06em;
+    background: var(--accent); color: var(--on-accent); border:none; padding:7px 15px; border-radius:3px; cursor:pointer;
+  }
+  button.copy:hover { background: var(--accent-bright); }
+
+  /* ---------- checklist ---------- */
+  .check { list-style:none; padding:0; margin:1.2rem 0 0; display:grid; gap:9px; }
+  .check li { display:flex; gap:12px; align-items:flex-start; background: var(--surface); border:1px solid var(--line); padding:13px 16px; border-radius:4px; }
+  .check .box { width:15px; height:15px; border:2px solid var(--accent); border-radius:2px; flex:none; margin-top:4px; }
+
+  footer { border-top:1px solid var(--line); margin-top:64px; padding-top:22px; font-size:.85rem; color: var(--ink-mute); }
+  @media (max-width: 620px) {
+    .tl-row { grid-template-columns: 96px 1fr; }
+    .tl-axis { margin-left:110px; }
+    .letter-body { padding:18px 16px; }
+  }
+</style>
+
+<header class="mast">
+  <div class="bulbs" aria-hidden="true">
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+  </div>
+  <div class="mast-in">
+    <p class="kicker">Supplier sourcing pack · 23 August 2026</p>
+    <h1>Buying <em>cheaper</em> for Goyal Lights</h1>
+    <p class="lede">Where the stock actually comes from, what it really costs to land it in Chandni Chowk, and the email that opens the account.</p>
+    <p class="hi" style="color:#c9bda6;margin:.6rem 0 0;font-size:.95rem;">गोयल लाइट्स — भागीरथ पैलेस, चांदनी चौक</p>
+    <div class="chips">
+      <span class="chip">Shop 1858, Mahalaxmi Market</span>
+      <span class="chip">Bhagirath Palace, Delhi 110006</span>
+      <span class="chip">+91 78384 68407</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section id="summary">
+    <div class="eyebrow">Start here</div>
+    <h2>Five things that decide everything else</h2>
+    <p class="lead measure">Read these before the detail. Four of the five cost nothing but paperwork and attention, and they matter more than any price you will negotiate.</p>
+    <div class="grid g2">
+      <div class="card">
+        <span class="idx">01</span>
+        <h4>Get GSTIN and IEC now</h4>
+        <p>Your website still shows <strong>GSTIN: __</strong>. Without it the 18% IGST you pay at customs is a dead cost instead of input credit. IEC is ₹500 and takes two days. Nothing else in this pack works until both exist.</p>
+      </div>
+      <div class="card">
+        <span class="idx">02</span>
+        <h4>Diwali 2026 cannot come from China</h4>
+        <p>Dhanteras is 6 November. A China order placed today lands after it. Buy this season's jhalar and ladi in India, record what sells, and use that record to buy from China in April 2027.</p>
+      </div>
+      <div class="card">
+        <span class="idx">03</span>
+        <h4>BIS belongs to the factory, not to you</h4>
+        <p>LED bulbs, luminaires and lighting chains clear Indian customs only if that Chinese factory holds a BIS R-number for that exact model. Ask it in your first message, every time.</p>
+      </div>
+      <div class="card">
+        <span class="idx">04</span>
+        <h4>Multiply the FOB price by 1.4</h4>
+        <p>That is roughly what a piece costs standing in your shop after duty, freight and clearing. Import only where the Delhi market rate is at least 1.6× that number.</p>
+      </div>
+      <div class="card">
+        <span class="idx">05</span>
+        <h4>30% advance, 70% against the B/L</h4>
+        <p>Never 100% in advance. Never into a personal account. Never to bank details that changed by email — confirm those on a video call, always.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tiers">
+    <div class="eyebrow">The plan</div>
+    <h2>Three ways to buy cheaper, in the order you should do them</h2>
+    <p class="lead measure">Direct import gives the biggest margin and the worst cash flow. A new shop dies from blocked cash, not from thin margin — so tier one comes first, and tier three waits until you know exactly which ten items are worth it.</p>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th>Tier</th><th>Where you buy</th><th class="n">Cash tied up</th><th class="n">Margin gain</th><th>When</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1 · Buy better in India</strong></td>
+            <td>Direct from Indian factories in Noida, Ahmedabad and Rajkot, and from the importers already sitting in your own market</td>
+            <td class="n">₹50k – ₹3L</td><td class="n">10–25%</td><td>This week</td>
+          </tr>
+          <tr>
+            <td><strong>2 · Group import</strong></td>
+            <td>Share a container with two or three other Bhagirath Palace shops, or buy into a Delhi importer's China order</td>
+            <td class="n">₹2L – ₹5L</td><td class="n">25–40%</td><td>Oct–Dec 2026</td>
+          </tr>
+          <tr>
+            <td><strong>3 · Direct China import</strong></td>
+            <td>FOB from the factory, your own IEC, your own bill of entry — for your top ten fast movers only</td>
+            <td class="n">₹4L – ₹15L</td><td class="n">35–55%</td><td>From Jan 2027</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Tier one, in practice</h3>
+    <p class="measure">Your own market is full of importers — Bhagirath Palace holds some of the largest lighting importers in North India, and a 200-piece lot out of a neighbour's container at importer+8% beats a bad direct import, paid in 30 days instead of 90. Beyond that: the assembly cluster in <strong>Noida, Greater Noida, Bahadurgarh and Sonipat</strong> for panels, COB, battens and drivers; <strong>Ahmedabad, Rajkot and Morbi</strong> for decorative, fancy and festive; <strong>Aligarh</strong> for fittings and hardware. Walk in with a printed list of your top twenty SKUs and monthly quantities — that list is what gets you factory rates instead of visitor rates.</p>
+    <p class="measure">Take one or two brand distributorships as well — Surya Roshni, Halonix, Syska, Wipro, Polycab, Havells. Margin is thinner at 12–20%, but branded stock brings contractors and RWA tenders through the door, and those buyers then take your unbranded high-margin lines too.</p>
+  </section>
+
+  <section id="clock">
+    <div class="eyebrow">Timing</div>
+    <h2>Why the Diwali maths does not work this year</h2>
+    <p class="lead measure">Today is 23 August. Dhanteras is 6 November — 75 days. Here is what a China order actually consumes, and Chinese festive-light factories are booked solid through September, so lead times stretch rather than shrink.</p>
+    <div class="tl">
+      <div class="tl-row"><span>Production</span><div class="bar prod" style="width:32%">25–40 days</div></div>
+      <div class="tl-row"><span>Sea freight</span><div class="bar sea" style="width:28%">18–28 days</div></div>
+      <div class="tl-row"><span>Customs + BIS check</span><div class="bar cust" style="width:13%">5–15 days</div></div>
+      <div class="tl-row"><span>To your shop</span><div class="bar over" style="width:9%">2–4 days</div></div>
+      <div class="tl-axis"><span>23 Aug</span><span>20 Sep</span><span>18 Oct</span><span>6 Nov · Dhanteras</span><span>late Nov</span></div>
+    </div>
+    <p class="note measure" style="margin-top:1rem;">Best case the container clears in late October and you are unpacking during the festival instead of before it. Worst case it lands in late November, into a dead market, with your cash inside it. <strong>Your China window for Diwali 2027 is April to June 2027</strong> — samples approved by February, order placed by May, goods landed August.</p>
+  </section>
+
+  <section id="paperwork">
+    <div class="eyebrow">Before you import anything</div>
+    <h2>The five registrations, and the one trap</h2>
+    <div class="grid g3">
+      <div class="card"><h4>GSTIN</h4><p>Without it, 18% IGST at customs is a cost, not a credit. This is the single most valuable line in the pack.</p></div>
+      <div class="card"><h4>IEC</h4><p>Import Export Code from DGFT. Online, PAN-based, about ₹500, issued in one to two days, permanent.</p></div>
+      <div class="card"><h4>AD Code</h4><p>Your bank's Authorised Dealer letter, registered by your CHA at the port or ICD you clear through. No AD code, no bill of entry.</p></div>
+      <div class="card"><h4>A CHA you trust</h4><p>Ask three shops in the market who they use. ₹8,000–₹15,000 per consignment plus port charges.</p></div>
+      <div class="card"><h4>Current account with A1 remittance</h4><p>A branch that actually handles outward remittance to China without a two-week argument.</p></div>
+    </div>
+
+    <div class="warn">
+      <h3>The trap: BIS registration sits with the Chinese factory</h3>
+      <p>Under the Compulsory Registration Scheme, LED bulbs (IS 16102), LED luminaires (IS 10322:2026 series) and decorative lighting chains, fairy lights and rope lights (IS 10322 Part 5 Sec 7) can only be imported if <strong>that factory, for that exact model, holds a valid BIS R-number</strong> — obtained through an Authorised Indian Representative and tested in a BIS-recognised Indian lab. The number is issued to the manufacturing unit, never to the importer.</p>
+      <p>The whole LED luminaire family was revised to the IS 10322:2026 series and the concurrent-running transition period <strong>ended on 2 August 2026</strong>. Registration against only the old standard is now a problem at the port.</p>
+      <p>If the supplier has no R-number, your goods can be held, rejected or destroyed at your cost. So: ask for the number and the certificate copy in the first message, verify it yourself on the BIS site, and put the liability in writing in your purchase terms.</p>
+      <p class="note">Also applies: BEE star labelling on lamps, and Legal Metrology labelling — importer name and address, MRP, month and year of import, country of origin — printed on the retail carton, not stuck on afterwards at the counter.</p>
+    </div>
+  </section>
+
+  <section id="cost">
+    <div class="eyebrow">The maths</div>
+    <h2>What a piece really costs on your shelf</h2>
+    <p class="lead measure">Worked on 5,000 pieces of a 9W LED bulb quoted at USD 0.62 FOB Shenzhen, at ₹88 to the dollar, shipped LCL.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Line</th><th>Basis</th><th class="n">Amount</th></tr></thead>
+        <tbody>
+          <tr><td>FOB value</td><td>5,000 × $0.62 × ₹88</td><td class="n">₹2,72,800</td></tr>
+          <tr><td>Sea freight + insurance</td><td>≈ 3.5 CBM, LCL</td><td class="n">₹31,000</td></tr>
+          <tr><td><strong>CIF / assessable value</strong></td><td>FOB + freight + insurance</td><td class="n"><strong>₹3,03,800</strong></td></tr>
+          <tr><td>Basic customs duty</td><td>20% of AV — HS 9405</td><td class="n">₹60,760</td></tr>
+          <tr><td>Social welfare surcharge</td><td>10% of BCD</td><td class="n">₹6,076</td></tr>
+          <tr><td>CHA, port, ICD, transport to Chandni Chowk</td><td>per consignment</td><td class="n">₹28,000</td></tr>
+          <tr class="total"><td>Landed cost, excluding IGST</td><td>₹79.73 per bulb</td><td class="n">₹3,98,636</td></tr>
+          <tr><td>IGST at customs</td><td>18% — input credit, needs GSTIN</td><td class="n">₹66,412</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="measure" style="margin-top:1.1rem;"><strong>The rule of thumb: FOB rupee price × 1.32 to 1.45 on a small LCL shipment</strong>, dropping to about 1.25 on a full container. Import only where the Delhi wholesale rate is at least 1.6× your landed cost — below that, ninety days of blocked cash is not worth the difference. Check it per SKU, never per category.</p>
+    <p class="note measure">Duty rates here are for planning. Confirm the exact BCD and IGST against the 8-digit HS code with your CHA on the day you file, and settle the 9405-versus-8539 classification for LED modules and lamps before the goods sail — that one has been litigated both ways.</p>
+  </section>
+
+  <section id="suppliers">
+    <div class="eyebrow">Who to contact</div>
+    <h2>Chinese manufacturers and exporters</h2>
+    <p class="lead measure">Addresses and contacts below were taken from company pages and trade-platform listings in August 2026. Export desks change often — verify on the company's own site before sending samples or money, and treat a general address as the front door. The relationship starts when a named salesperson replies with their WeChat or WhatsApp.</p>
+
+    <h3>The large branded manufacturers</h3>
+    <p class="measure">Best for bulbs, panels, battens, downlights, tubes, street and flood lights. Consistent quality, real certifications, usually familiar with BIS — but higher MOQs and slower to answer a small buyer.</p>
+    <div class="grid g2">
+      <div class="sup">
+        <h4>Opple Lighting</h4><p class="cn">欧普照明 · factories in Zhongshan and Wujiang, sells in 50+ countries</p>
+        <dl>
+          <dt>HQ</dt><dd>Building V3, The MIXC, Lane 1799 Wuzhong Road, Minhang District, Shanghai 201103</dd>
+          <dt>Tel</dt><dd class="num">+86 21 3855 0000</dd>
+          <dt>Email</dt><dd>GlobalService@opple.com</dd>
+          <dt>Web</dt><dd>opple.com/en</dd>
+        </dl>
+      </div>
+      <div class="sup">
+        <h4>NVC Lighting</h4><p class="cn">雷士照明 · founded 1998, among the largest lighting-system makers in China</p>
+        <dl>
+          <dt>HK HQ</dt><dd>Unit 705, 7/F, Building 20E, Phase 3, Hong Kong Science Park, Pak Shek Kok, N.T.</dd>
+          <dt>CN HQ</dt><dd>Building 12-3F, No. 1 Zhongzhu Road South, Science &amp; Technology Innovation Coast, Zhuhai 519000</dd>
+          <dt>Email</dt><dd>hello@nvc-international.com</dd>
+          <dt>Web</dt><dd>nvc-international.com</dd>
+        </dl>
+      </div>
+      <div class="sup">
+        <h4>MLS · Forest Lighting</h4><p class="cn">木林森 · one of the world's largest LED packagers, owns LEDVANCE</p>
+        <dl>
+          <dt>HQ</dt><dd>No. 1 Mulinsen Avenue, Xiaolan Town, Zhongshan, Guangdong 528415</dd>
+          <dt>Web</dt><dd>zsmls.com/en · mls-ledlights.com</dd>
+          <dt>Listed</dt><dd class="num">002745.SZ</dd>
+        </dl>
+      </div>
+      <div class="sup">
+        <h4>Foshan Electrical &amp; Lighting</h4><p class="cn">佛山照明 (FSL) · exchange-listed, wide export range, workable for mid-size Indian buyers</p>
+        <dl>
+          <dt>Address</dt><dd>64 North Fenjiang Road, Chancheng District, Foshan, Guangdong 528000</dd>
+          <dt>Tel</dt><dd class="num">+86 757 8338 0127</dd>
+          <dt>Email</dt><dd>export@chinafsl.com</dd>
+          <dt>Web</dt><dd>chinafsl.com/en</dd>
+        </dl>
+      </div>
+      <div class="sup">
+        <h4>Zhejiang Yankon Group</h4><p class="cn">阳光照明 · founded 1975, ~10,000 staff, historically the biggest OEM lamp exporter</p>
+        <dl>
+          <dt>Address</dt><dd>No. 568 West Renmin Avenue, Caoe Street, Shangyu, Shaoxing, Zhejiang</dd>
+          <dt>Web</dt><dd>yankon.com/en</dd>
+        </dl>
+      </div>
+      <div class="sup">
+        <h4>TCL Lighting</h4><p class="cn">Lighting arm of the TCL group · residential ranges and ceiling fittings</p>
+        <dl>
+          <dt>Address</dt><dd>No. 55 Shexi Road, China-Korea Industrial Park, Zhongkai Hi-Tech Zone, Huizhou, Guangdong</dd>
+          <dt>Tel</dt><dd class="num">+86 138 0286 2755</dd>
+          <dt>Email</dt><dd>lt.service@tcl.com</dd>
+          <dt>Web</dt><dd>tcllight.com</dd>
+        </dl>
+      </div>
+    </div>
+
+    <h3>Guzhen, Zhongshan — the decorative and fancy capital</h3>
+    <p class="measure">Guzhen town is where the large majority of the world's decorative lighting is made: chandeliers, jhoomar, pendants, wall brackets, ceiling fittings, magnetic track, profile. Thousands of small and mid-size factories inside a few square kilometres. This is the right place for the fancy half of your shop — and these factories rarely have polished English websites, so you find them on the platforms or you walk the town during the fair.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Company</th><th>What they are</th></tr></thead>
+        <tbody>
+          <tr><td>Zhongshan Bangtai Photoelectric Technology Co., Ltd.</td><td>LED lighting manufacturer, Guzhen</td></tr>
+          <tr><td>Zhongshan DLSS Lighting Co., Ltd.</td><td>Lighting manufacturer, Guzhen</td></tr>
+          <tr><td>Zhongshan YAYE Lighting Co., Ltd.</td><td>Lighting manufacturer, Guzhen</td></tr>
+          <tr><td>Zhongshan Laviki Lighting Co., Ltd.</td><td>Decorative lighting</td></tr>
+          <tr><td>Zhongshan Guzhen Hongli Wire &amp; Appliance Factory Co., Ltd.</td><td>Wire, holders, fittings</td></tr>
+          <tr><td>Zhongshan Qiyang Import and Export Co., Ltd.</td><td>Export house — useful for mixed containers</td></tr>
+          <tr><td>Zhongshan Wanhui Trade Co., Ltd.</td><td>Export house — useful for mixed containers</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="measure" style="margin-top:1.1rem;">Work through the directory pages to find more: <strong>made-in-china.com/manufacturers/zhongshan-guzhen-lighting.html</strong> and the Guzhen fair exhibitor list at <strong>en.jiagle.com/lighting-fair/exhibitor-list/</strong>. For a first mixed order — six chandelier models, four pendants, some track and some panels — a Guzhen <em>trading house</em> usually beats a factory: they consolidate from twenty factories into one container, handle the export paperwork and accept small per-model quantities. You pay 5–10% more per piece and save more than that on freight and on the headache of ten separate payments.</p>
+
+    <h3>Shenzhen and Guangdong — festive, string, strip and pixel</h3>
+    <p class="measure">For jhalar, ladi, rice lights, fairy and curtain strings, pixel sets with controllers, rope light, neon flex and LED strip.</p>
+    <div class="grid g2">
+      <div class="sup">
+        <h4>Shenzhen Leading Shine Electronic &amp; Technology</h4><p class="cn">Christmas and fairy lights, flameless candles, holiday and wedding lighting, LED strip · ISO 9001</p>
+        <dl>
+          <dt>Address</dt><dd>A423, Huafeng Internet Creative Park, 107 Gonghe Industrial Road, Bao'an, Shenzhen</dd>
+          <dt>Store</dt><dd>leadingshine.en.made-in-china.com</dd>
+        </dl>
+      </div>
+      <div class="sup">
+        <h4>Shenzhen Ledcolourlight Technology</h4><p class="cn">Christmas and decorative string lights</p>
+        <dl>
+          <dt>Address</dt><dd>3F, Building 2, Hejing Industrial Park, Heping Community, Fuyong Street, Bao'an, Shenzhen</dd>
+          <dt>Store</dt><dd>ledcolourlight.en.made-in-china.com</dd>
+        </dl>
+      </div>
+    </div>
+    <p class="measure" style="margin-top:1.1rem;">Also search Shenzhen Bao'an and Longgang for strip, pixel and controllers, and Guzhen for rope and neon flex. And keep <strong>Yiwu, Zhejiang</strong> in mind — Yiwu International Trade City is the single best place in China for a shop your size to buy mixed festive stock at low MOQ, and Yiwu agents will consolidate a half-container of forty different items for you.</p>
+
+    <h3>Where to search, rather than who to email</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Platform</th><th>Use it for</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Alibaba.com</strong></td><td>Widest choice. Use Trade Assurance so payment is escrowed. Filter to Verified Supplier, 5+ years, ships to India</td></tr>
+          <tr><td><strong>Made-in-China.com</strong></td><td>Stronger on real factories versus traders; the Audited Supplier reports are detailed</td></tr>
+          <tr><td><strong>Global Sources</strong></td><td>Best for seasonal and festive ranges, and for OEM/ODM work</td></tr>
+          <tr><td><strong>1688.com</strong></td><td>Domestic Chinese prices, 20–40% under the export platforms — Chinese only, no export service, needs an agent</td></tr>
+          <tr><td><strong>IndiaMART / TradeIndia</strong></td><td>Post a buy requirement with exact specs; 15–30 quotes in 48 hours tells you the real floor price</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Go and see it — one trip covers both fairs</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Fair</th><th>Dates</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Canton Fair, Autumn — Phase 1</strong></td><td>15–19 Oct 2026, Guangzhou</td><td>Phase 1 is lighting and electronics — the widest single view of Chinese suppliers anywhere</td></tr>
+          <tr><td><strong>Guzhen International Lighting Fair, Autumn (35th)</strong></td><td>22–25 Oct 2026, Zhongshan</td><td>Straight after Canton. The whole town is the showroom</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note measure" style="margin-top:1rem;">15–25 October covers both. M business visa, apply three to four weeks ahead, budget ₹1.2–1.8L for eight days. Even if you buy nothing you come back knowing the floor price of everything you sell — which changes how you negotiate in Delhi.</p>
+  </section>
+
+  <section id="email">
+    <div class="eyebrow">The opening move</div>
+    <h2>The enquiry email</h2>
+    <p class="lead measure">Send it individually to each supplier, with their company name in the greeting — a mass email with twelve visible addresses gets deleted. Replies take three to seven working days. Follow up once after five days, then move on.</p>
+
+    <div class="letter">
+      <div class="letter-head">
+        <span>Main enquiry — send to factories</span>
+        <button class="copy" data-target="mail1" type="button">Copy email</button>
+      </div>
+      <div class="letter-body" id="mail1">
+        <p><strong>Subject:</strong> Enquiry — regular LED &amp; decorative lighting supply to Delhi, India | Goyal Lights</p>
+        <p>Dear [Company Name] Export Sales Team,</p>
+        <p>We are <strong>Goyal Lights</strong>, a lighting wholesaler and retailer at Bhagirath Palace, Chandni Chowk, New Delhi — the largest wholesale electrical market in India. We sell technical LED lighting to electricians, contractors and interior fit-out firms, and decorative and festive lighting to households, decorators and event companies.</p>
+        <p>We are building a direct import programme for 2027 and are looking for two or three long-term factory partners. Your company came to us through [Alibaba / Made-in-China / Guzhen Lighting Fair]. We would like to open an account with you.</p>
+
+        <h5>1 · What we want to buy</h5>
+        <ul>
+          <li>LED bulbs — 9W / 12W / 18W, B22 and E27, 3000K and 6500K — first order 5,000 pcs, then 3,000–5,000 monthly</li>
+          <li>COB spotlights — 7W–30W, recessed, surface and gimbal anti-glare — 2,000 pcs</li>
+          <li>LED panels — round and square, 3W–24W, backlit and edge-lit — 3,000 pcs</li>
+          <li>LED battens — 20W / 40W, T5 and T8 — 2,000 pcs</li>
+          <li>Flood lights — 10W–200W, IP65 — 1,000 pcs</li>
+          <li>Decorative string, fairy and curtain lights — 220–240V, indoor and outdoor — 3,000 sets</li>
+          <li>Chandeliers, pendants and wall brackets — mixed models, 200 pcs</li>
+          <li>LED strip, rope light, neon flex and profile — 2,000 m</li>
+          <li>Drivers, SMPS, controllers and connectors to match</li>
+        </ul>
+
+        <h5>2 · Information we need in your reply</h5>
+        <p>Please send your quotation as an Excel file, one row per model:</p>
+        <ol>
+          <li><strong>FOB price</strong> in USD with the port named, and the validity period</li>
+          <li><strong>MOQ per model</strong>, and separately the MOQ per colour temperature and body colour</li>
+          <li><strong>Price breaks</strong> — at MOQ, at 3× MOQ, and at full 20ft container quantity</li>
+          <li><strong>Packing data</strong> — pcs per inner box and master carton, carton size, CBM, gross and net weight</li>
+          <li><strong>HS code</strong> you declare on export</li>
+          <li><strong>Lead time</strong> for the first order and for repeat orders</li>
+          <li><strong>Certifications</strong> — CE, RoHS, and specifically: do you hold a valid <strong>BIS CRS R-number for India</strong> (IS 16102 for LED bulbs, IS 10322:2026 series for luminaires and lighting chains)? Please send the certificate copy and the R-number. This is mandatory for customs clearance in India and we cannot import a model without it.</li>
+          <li><strong>BEE star rating</strong> data — tested lumens per watt — for lamps</li>
+          <li><strong>Warranty period</strong> and your procedure for defective goods</li>
+          <li><strong>Payment terms</strong> you accept, and bank details in the company's registered name</li>
+          <li>Whether you offer <strong>OEM / private label</strong> on the product and carton under our brand, and the MOQ for it</li>
+          <li>Your <strong>catalogue</strong> with photographs and technical data sheets</li>
+        </ol>
+
+        <h5>3 · Our terms — how we would like to work</h5>
+        <ul>
+          <li><strong>Trial order first.</strong> One LCL shipment, 2–5 CBM, mixed models, so both sides can test the process. Repeat orders would grow to a 20ft container per quarter.</li>
+          <li><strong>Payment.</strong> 30% by T/T on order confirmation, 70% by T/T against a scanned Bill of Lading. After two successful orders we would like to move to 20/80 or an L/C at sight. We do not pay 100% in advance, and we pay only into an account in your registered company name.</li>
+          <li><strong>Inspection.</strong> We may appoint a third-party inspector (SGS, TÜV, QIMA or our own agent) for a pre-shipment inspection at your factory, at our cost. Balance payment follows a passed inspection. Please confirm you accept this.</li>
+          <li><strong>Quality.</strong> AQL 2.5 for major defects. Acceptable dead-on-arrival rate 0.5%; anything above that credited against our next order or replaced free with the next shipment.</li>
+          <li><strong>Packing and marking.</strong> Export-standard 5-ply master cartons marked with model, quantity, gross weight, CBM, country of origin and our shipping mark. Retail cartons must show country of origin and leave a clear panel for the Indian importer label — importer name and address, MRP, month and year of import — as required by Indian Legal Metrology rules.</li>
+          <li><strong>Documents.</strong> Commercial invoice, packing list, Bill of Lading, certificate of origin, and BIS and BEE certificate copies with every shipment. Late or incorrect documents cause demurrage in India, so document accuracy is part of the deal.</li>
+          <li><strong>Delivery.</strong> FOB to begin with, shipping to Nhava Sheva or ICD Tughlakabad, Delhi — we will nominate our own freight forwarder. Please also quote CIF Nhava Sheva so we can compare.</li>
+          <li><strong>Prices.</strong> A price hold of 90 days from confirmation, and 30 days' written notice of any increase.</li>
+          <li><strong>Samples.</strong> We will pay for samples and courier. Please advise the sample cost and your DHL or FedEx arrangement. We would like samples of items 1, 2 and 3 to begin with.</li>
+          <li><strong>Exclusivity.</strong> If the first year goes well we would like to discuss distribution rights for the Delhi NCR region.</li>
+        </ul>
+
+        <p>We are a serious, growing buyer in India's biggest lighting market and we intend to order every quarter. Please reply with your quotation, your catalogue, and the name and direct WhatsApp or WeChat number of the salesperson who will handle our account.</p>
+        <p>Thank you — we look forward to a long relationship.</p>
+
+        <div class="sig">
+          <b>Goyal Lights</b><br>
+          Shop No. 1858, Ground Floor, Mahalaxmi Market<br>
+          Bhagirath Palace, Chandni Chowk, New Delhi 110006, India<br>
+          Phone / WhatsApp: +91 78384 68407<br>
+          Email: [your email] · Web: goyal-lights.lovable.app<br>
+          GSTIN: [ ] · IEC: [ ]
+        </div>
+      </div>
+    </div>
+
+    <div class="letter">
+      <div class="letter-head">
+        <span>Short first contact — Alibaba chat, WeChat, WhatsApp</span>
+        <button class="copy" data-target="mail2" type="button">Copy message</button>
+      </div>
+      <div class="letter-body" id="mail2">
+        <p>Hello, this is Goyal Lights, a lighting wholesaler at Bhagirath Palace, Chandni Chowk, New Delhi — India's largest electrical market.</p>
+        <p>We want to import [LED bulbs 9W/12W/18W and COB spotlights 7W–30W]. First order about [5,000 pcs], then monthly repeat orders.</p>
+        <p>Please send: FOB price list with MOQ, carton packing and CBM, lead time, and confirm whether you hold a <strong>BIS CRS R-number for India</strong> for these models — we cannot clear customs without it.</p>
+        <p>My email is [your email]. WhatsApp +91 78384 68407.</p>
+        <p>Thank you — Goyal Lights, New Delhi</p>
+      </div>
+    </div>
+
+    <div class="letter">
+      <div class="letter-head">
+        <span>The same message in Chinese — Guzhen and Shenzhen reply faster to this</span>
+        <button class="copy" data-target="mail3" type="button">Copy message</button>
+      </div>
+      <div class="letter-body" id="mail3" lang="zh">
+        <p>您好！我们是印度新德里 Goyal Lights（钱德尼曹克 Bhagirath Palace 灯具批发市场，印度最大的电气批发市场）。</p>
+        <p>我们想采购【9W/12W/18W LED球泡灯、7W–30W COB射灯】。首单约【5000 只】，之后每月长期返单。</p>
+        <p>请提供：FOB 报价单（含起订量 MOQ）、装箱资料（每箱数量、箱规、体积 CBM、毛重）、交货期。</p>
+        <p>另外请务必确认：贵司是否持有印度 <strong>BIS CRS 注册号（R-Number）</strong>？印度海关清关必须提供，没有的话我们无法进口，请附证书复印件。</p>
+        <p>我的邮箱：[your email]，WhatsApp：+91 78384 68407。</p>
+        <p>谢谢！Goyal Lights，印度新德里</p>
+      </div>
+    </div>
+
+    <p class="note measure" style="margin-top:1.3rem;">Use a business email address, not a personal one with numbers in it — <strong>sales@goyallights.com</strong> reads as a real buyer in a way that a personal Gmail does not, and a domain with a mailbox costs about ₹1,000 a year. Attach nothing to the first email; attachments from unknown Indian addresses land in spam in China. And put your WhatsApp number in every message — the real negotiation moves there within a day.</p>
+  </section>
+
+  <section id="terms">
+    <div class="eyebrow">Your side of the deal</div>
+    <h2>Purchase terms, in short</h2>
+    <p class="lead measure">Attach the full version to every order as a signed annexure. A stamped annexure is what makes a claim enforceable later; an email chain usually is not.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Clause</th><th>What you insist on</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Prices</strong></td><td>FOB in USD, port named. Firm for 90 days. 30 days' written notice of any increase, not applying to confirmed orders. Remitting bank charges yours, receiving and intermediary charges theirs.</td></tr>
+          <tr><td><strong>MOQ</strong></td><td>Agreed per model — and separately per colour temperature and body colour. A supplier who quotes "MOQ 1,000" and then wants 1,000 per CCT has quoted 3,000.</td></tr>
+          <tr><td><strong>Payment</strong></td><td>30% advance, 70% against scanned B/L and a passed inspection. From the third order, 20/80 or L/C at sight. Only into the registered company name. Any mid-order change of bank details confirmed by video call before payment.</td></tr>
+          <tr><td><strong>Compliance</strong></td><td>Supplier warrants a valid BIS R-number for each CRS model, correct BEE data, 220–240V 50Hz with B22/E27 bases. If goods are detained or destroyed for a compliance failure on their side, they bear goods, freight, demurrage and destruction costs and refund all payments.</td></tr>
+          <tr><td><strong>Quality</strong></td><td>AQL 2.5 major / 4.0 minor. Pre-shipment inspection at your cost, balance released only on a pass. Shipped goods must match the approved sample — any change of driver, chip, housing or wire gauge needs written approval and a fresh sample.</td></tr>
+          <tr><td><strong>Warranty</strong></td><td>12 months minimum from arrival. DOA up to 0.5% absorbed by you; above that, credit note or free replacement with the next shipment, on photo and video evidence within 30 days.</td></tr>
+          <tr><td><strong>Packing</strong></td><td>5-ply export cartons, marked with model, quantity, weight, CBM, origin and your shipping mark. Glass shades and filament bulbs individually protected — breakage above 1% to their account.</td></tr>
+          <tr><td><strong>Documents</strong></td><td>Invoice, packing list, B/L, certificate of origin, BIS and BEE copies, ISPM-15 where wooden packing is used — emailed and couriered within 3 working days of shipment. Demurrage caused by late or wrong documents is charged to them.</td></tr>
+          <tr><td><strong>Delivery</strong></td><td>Lead time runs from receipt of advance. Seven days' notice before goods are ready. Beyond 15 days late, 0.5% of order value per week capped at 5%; beyond 45 days, cancel and recover the advance in full.</td></tr>
+          <tr><td><strong>Channel</strong></td><td>Your artwork and designs stay yours. Private-label goods carrying the Goyal Lights brand may not be sold to anyone else, in any market.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="week">
+    <div class="eyebrow">Next</div>
+    <h2>This week</h2>
+    <ul class="check">
+      <li><span class="box" aria-hidden="true"></span><div>Apply for <strong>GSTIN</strong> and <strong>IEC</strong> — both online, both fast, and everything else waits on them</div></li>
+      <li><span class="box" aria-hidden="true"></span><div>Print your <strong>top-20 SKU list with monthly quantities</strong> — you will hand it to every factory and attach it to every quote request</div></li>
+      <li><span class="box" aria-hidden="true"></span><div>Ask three neighbouring shops for their <strong>CHA's name</strong> and their Ahmedabad and Noida factory contacts</div></li>
+      <li><span class="box" aria-hidden="true"></span><div>Send the enquiry email to the <strong>twelve Chinese suppliers</strong> in this pack — replies take a week, so start now even though you will not buy until January</div></li>
+      <li><span class="box" aria-hidden="true"></span><div>Post a <strong>buy requirement on IndiaMART</strong> for your five fastest-moving items and see where the quotes land</div></li>
+      <li><span class="box" aria-hidden="true"></span><div>Decide on the <strong>October China trip</strong> — Canton Fair Phase 1 and the Guzhen fair sit back to back, and the visa needs lead time</div></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Prepared for Goyal Lights · Shop 1858, Ground Floor, Mahalaxmi Market, Bhagirath Palace, Chandni Chowk, New Delhi 110006 · +91 78384 68407</p>
+    <p>Supplier contacts, duty rates and fair dates were compiled from public sources in August 2026 and should be verified before you act on them. Duty and GST rates change with the tariff — confirm each HS code with your CHA on the day you file.</p>
+  </footer>
+</main>
+
+<script>
+  document.querySelectorAll("button.copy").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var el = document.getElementById(btn.dataset.target);
+      if (!el) return;
+      var text = el.innerText.replace(/\n{3,}/g, "\n\n").trim();
+      var done = function () {
+        var old = btn.textContent;
+        btn.textContent = "Copied";
+        setTimeout(function () { btn.textContent = old; }, 1800);
+      };
+      try {
+        navigator.clipboard.writeText(text).then(done, function () { fallback(text, done); });
+      } catch (e) {
+        fallback(text, done);
+      }
+    });
+  });
+  function fallback(text, done) {
+    try {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      done();
+    } catch (e) { /* clipboard unavailable — the text is on the page to select by hand */ }
+  }
+</script>
