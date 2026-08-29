@@ -39,6 +39,7 @@ two independent sightings.
 | Date | Gate | Old | New | Report that forced it |
 | --- | --- | --- | --- | --- |
 | 2026-08-21 | all | n/a | initial values | Seeded from editorial prose baselines, not from a ZeroGPT report. Treat every number as provisional until the first three reports land. |
+| 2026-08-29 | strip_markdown (measurement, not a threshold) | list items and `[Image Source]` lines fed into the sentence splitter as-is | list items terminated so each counts as one sentence; image credit lines dropped; `**Meta Title:**` / `**Meta Description:**` lines dropped | No report. Found while writing the Hero FinCorp set. A markdown list has no sentence terminators, so the splitter was swallowing an entire bullet block into one "sentence" of 40 or 80 words. That single fake sentence was carrying the long-sentence gate on any bullet-heavy draft. Re-measuring the two Sitejet articles with the fix drops them to 11.4% and 11.6% against a 12% floor, so **both were passing that gate on an artefact**. Their filed results are stale; the copy was not changed. |
 | 2026-08-21 | sentence opener repetition | `opener_repeat_max: 3` (raw count) | `opener_repeat_pct_max: 9.0` with `opener_repeat_floor: 3` | `reports/2026-08-21-sitejet-agency-delivery-sop.md`. A fixed raw cap cannot scale. On a 219-sentence article, "the" opened 16 sentences, which is 7.3% and entirely normal, and the gate failed a clean draft. Now proportional, with the raw floor kept so a 20-sentence piece is still checked. |
 
 ## Piece history
@@ -46,7 +47,10 @@ two independent sightings.
 | Date | Piece | Words | Pre-flight gates failed | ZeroGPT score | Notes |
 | --- | --- | --- | --- | --- | --- |
 | 2026-08-21 | Sitejet: agency delivery SOP | 1,072 (cut from 2,956) | 0 of 11 at final pass | pending client run |
-| 2026-08-21 | Sitejet: website launch handover | 1,233 | 0 of 11 at final pass | pending client run | Second piece under v3.0. Failed three gates on first draft: paragraph variance, rule of three, and opener repetition. All three came from the same cause, a seven-item listicle structure that pushes every paragraph toward the same shape. Fixed without changing the structure. | First piece under v3.0. Forced one gate recalibration (sentence opener repetition). Client requires APA title case, which conflicts with pattern 17; resolved by excluding headings from the prose scan and compensating with a 22.7 per 1k contraction rate and 37% short sentences. Full report in `reports/2026-08-21-sitejet-agency-delivery-sop.md`. |
+| 2026-08-21 | Sitejet: website launch handover | 1,233 | 0 of 11 at final pass | pending client run |
+| 2026-08-29 | Hero FinCorp: what is collateral | 961 | 0 of 11 at final pass | pending client run | English, UK spelling. Failed opener repetition on the first draft ("the" x6 = 9.2%), fixed by rewording five sentence openings. Trimming to the brief's per-section word caps then cost the long-sentence gate, recovered by merging pairs rather than restoring words. |
+| 2026-08-29 | Hero FinCorp: CIBIL score (Hindi) | 935 | 0 of 10 applicable at final pass | pending client run | First Devanagari piece. Contraction gate is N/A. Needed three separate rounds on the long-sentence gate: it broke on the first draft, again after the section trim, and again after the meta-field fix changed the sentence count. |
+| 2026-08-29 | Hero FinCorp: education loan (Hindi) | 860 | 0 of 10 applicable at final pass | pending client run | Three bullet lists in nine sections. Long-sentence share read 13.0% before the strip_markdown fix and 4.6% after, which is the clearest single measurement of how badly the bullet bug distorted things. | Second piece under v3.0. Failed three gates on first draft: paragraph variance, rule of three, and opener repetition. All three came from the same cause, a seven-item listicle structure that pushes every paragraph toward the same shape. Fixed without changing the structure. | First piece under v3.0. Forced one gate recalibration (sentence opener repetition). Client requires APA title case, which conflicts with pattern 17; resolved by excluding headings from the prose scan and compensating with a 22.7 per 1k contraction rate and 37% short sentences. Full report in `reports/2026-08-21-sitejet-agency-delivery-sop.md`. |
 
 ## Standing findings
 
@@ -97,3 +101,35 @@ threshold expressed as an absolute number needs checking against a 3,000-word
 draft before it is trusted. The opener gate failed this test on the first real
 article it saw. If you add a gate, express it per thousand words or as a
 percentage of sentences.
+
+**Devanagari drafts measure on ten gates, not eleven.** Apostrophe contractions
+do not exist in Hindi, so the contraction gate measures nothing and is reported
+as N/A above a 50% Devanagari word share. Nothing replaces it yet. That is a
+real hole: contraction rate was the proxy for register informality, and a Hindi
+draft can now be stiff and formal without any gate objecting. The Hindi
+equivalent would be a floor on colloquial particles, but there is no report
+behind such a list yet, so none was invented. Watch for it in the first Hindi
+ZeroGPT report.
+
+**AI-written Hindi reaches for translated scaffolding.** Three Hindi marker
+families were added to `MARKERS` on the same reasoning as their English
+counterparts: connective scaffolding (इसके अलावा, निष्कर्ष के रूप में, अंततः),
+signposting (आइए जानते हैं, इस लेख में हम) and significance inflation
+(महत्वपूर्ण भूमिका निभाता है, ध्यान देने योग्य बात यह है कि). These are
+predictions from the English patterns, not observations from a Hindi report.
+Treat them as provisional until a Hindi ZeroGPT report either confirms or
+clears them.
+
+**A per-section word cap fights the long-sentence gate.** The Hero FinCorp
+briefs specify a word count for every H2, and trimming to a cap attacks long
+sentences first, exactly as the earlier bulk-cut finding predicted. The fix
+that works inside a cap is merging: turning two 14-word sentences into one
+27-word sentence removes a sentence, adds a long one, and costs no words at
+all. Deleting clauses does the opposite on both counts. Reach for the merge
+before the delete whenever a word ceiling is binding.
+
+**Metadata carried in a draft is not prose.** The Hero FinCorp sample puts the
+meta title and meta description in the body of the .docx, under the H1. Left
+unstripped they read as two ~20-word sentences with no contractions, which
+pushed one draft below the long-sentence floor purely by changing the
+denominator. They are now stripped alongside headings.

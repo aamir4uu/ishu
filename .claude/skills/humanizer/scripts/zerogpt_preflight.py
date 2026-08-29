@@ -45,6 +45,7 @@ GATES = {
     "curly_quote_max": 0,
     "rule_of_three_max_per_1k": 2.0,
     "contraction_min_per_1k": 4.0,
+    "devanagari_majority": 0.5,     # above this share, English-only gates skip
 }
 
 # Markers that ZeroGPT-flagged spans repeatedly contain. Grouped so the report
@@ -101,6 +102,27 @@ MARKERS = {
         r"\bit'?s (?:important|worth) (?:to note|noting)\b",
         r"\bgenerally speaking\b", r"\bin many cases,",
     ],
+    # Hindi/Hinglish equivalents. AI-written Hindi reaches for the same
+    # scaffolding as AI-written English, just translated, and ZeroGPT scores
+    # Devanagari through the same perplexity model.
+    "hindi_connective_scaffolding": [
+        r"इसके अलावा", r"इसके अतिरिक्त", r"साथ ही साथ",
+        r"निष्कर्ष के (?:रूप में|तौर पर)", r"निष्कर्षतः", r"अंततः",
+        r"संक्षेप में", r"दूसरी ओर", r"इसलिए यह कहा जा सकता है",
+        r"जैसा कि हम (?:सभी )?जानते ह", r"आज के (?:इस )?(?:समय|दौर|युग) में",
+        r"वर्तमान समय में", r"आजकल के दौर में",
+    ],
+    "hindi_signposting": [
+        r"आइए (?:जानते|समझते|देखते|विस्तार से)", r"चलिए (?:जानते|समझते|देखते)",
+        r"इस (?:लेख|ब्लॉग|आर्टिकल) में हम", r"इस (?:लेख|ब्लॉग|आर्टिकल) में आपको",
+        r"तो चलिए", r"सबसे पहले (?:तो )?बात करते ह",
+    ],
+    "hindi_significance_inflation": [
+        r"महत्वपूर्ण भूमिका निभात", r"अहम भूमिका निभात",
+        r"बेहद महत्वपूर्ण ह", r"अत्यंत आवश्यक ह",
+        r"ध्यान देने योग्य बात यह है कि", r"यह ध्यान रखना (?:महत्वपूर्ण|जरूरी) है",
+        r"एक बेहतरीन विकल्प (?:है|साबित)", r"वरदान साबित",
+    ],
     "promotional": [
         r"\bstunning\b", r"\bbreathtaking\b", r"\bworld-class\b",
         r"\bstate-of-the-art\b", r"\bunparalleled\b", r"\bboasts?\b",
@@ -114,6 +136,35 @@ CONTRACTIONS = re.compile(
 RULE_OF_THREE = re.compile(
     r"\b\w+(?:\s+\w+){0,2},\s+\w+(?:\s+\w+){0,2},\s+and\s+\w+(?:\s+\w+){0,2}\b"
 )
+# Same tic in Hindi: "X, Y और Z" used as a habit.
+RULE_OF_THREE_HI = re.compile(
+    r"[\u0900-\u097F\w]+(?:\s+[\u0900-\u097F\w]+){0,2},\s*"
+    r"[\u0900-\u097F\w]+(?:\s+[\u0900-\u097F\w]+){0,2},\s*"
+    r"और\s+[\u0900-\u097F\w]+"
+)
+
+DEVANAGARI = r"\u0900-\u097F"
+WORD_RE = re.compile(f"[A-Za-z'{DEVANAGARI}‍]+")
+# Hindi ends sentences on the danda as often as on a full stop.
+SENT_END = f"[.!?।]"
+NEXT_START = f"[\"'(\\[]?[A-Z0-9{DEVANAGARI}]"
+
+
+def devanagari_share(text: str) -> float:
+    """Fraction of word tokens written in Devanagari. Decides which gates apply."""
+    words = WORD_RE.findall(text)
+    if not words:
+        return 0.0
+    hi = sum(1 for w in words if re.search(f"[{DEVANAGARI}]", w))
+    return hi / len(words)
+
+
+def _terminate_list_item(m: "re.Match") -> str:
+    """A list item is a sentence. Give it a full stop so the splitter sees one."""
+    body = m.group(1).strip()
+    if body and body[-1] not in ".!?।:":
+        body += "."
+    return body
 
 
 def strip_markdown(text: str) -> str:
@@ -122,8 +173,21 @@ def strip_markdown(text: str) -> str:
     text = re.sub(r"`[^`]*`", " ", text)
     text = re.sub(r"^\s*\|.*\|\s*$", " ", text, flags=re.M)   # tables
     text = re.sub(r"^\s{0,3}#{1,6}\s.*$", " ", text, flags=re.M)  # headings
+    # Meta title and description lines are CMS fields carried in the draft for
+    # the client's convenience. They are not body copy and must not be scored.
+    text = re.sub(r"^\s*\*\*Meta (?:Title|Description):\*\*.*$", " ", text,
+                  flags=re.M | re.I)
     text = re.sub(r"!\[[^\]]*\]\([^)]*\)", " ", text)          # images
+    # Image credit lines are a caption, not prose. Drop them before links are
+    # unwrapped, or every one becomes a two-word "sentence".
+    text = re.sub(r"^\s*\[Image Source\]\([^)]*\)\s*$", " ", text,
+                  flags=re.M | re.I)
     text = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", text)       # links -> label
+    # A reader takes each bullet as its own sentence. Without a terminator the
+    # splitter swallowed an entire list into one enormous "sentence", which
+    # inflated the long-sentence share and flattened the variance figures.
+    text = re.sub(r"^\s{0,4}(?:[-*+]|\d+[.)])\s+(.*?)\s*$",
+                  _terminate_list_item, text, flags=re.M)
     text = re.sub(r"^\s*>\s?", "", text, flags=re.M)
     text = re.sub(r"<[^>]+>", " ", text)
     return text
@@ -135,7 +199,7 @@ def split_sentences(text: str):
         r"\1<DOT>", text,
     )
     protected = re.sub(r"(\d)\.(\d)", r"\1<DOT>\2", protected)
-    parts = re.split(r"(?<=[.!?])\s+(?=[\"'(\[]?[A-Z0-9])", protected)
+    parts = re.split(f"(?<={SENT_END})\\s+(?={NEXT_START})", protected)
     out = []
     for p in parts:
         p = p.replace("<DOT>", ".").strip()
@@ -147,7 +211,7 @@ def split_sentences(text: str):
 def analyse(raw: str) -> dict:
     prose = strip_markdown(raw)
     sentences = split_sentences(prose)
-    words = re.findall(r"[A-Za-z']+", prose)
+    words = WORD_RE.findall(prose)
     n_words = len(words) or 1
     per_1k = 1000.0 / n_words
 
@@ -172,7 +236,7 @@ def analyse(raw: str) -> dict:
 
     openers = {}
     for s in sentences:
-        w = re.sub(r"[^A-Za-z']", "", s.split()[0]).lower() if s.split() else ""
+        w = re.sub(f"[^A-Za-z'{DEVANAGARI}]", "", s.split()[0]).lower() if s.split() else ""
         if w:
             openers[w] = openers.get(w, 0) + 1
     worst_opener = max(openers.items(), key=lambda kv: kv[1]) if openers else ("", 0)
@@ -200,13 +264,14 @@ def analyse(raw: str) -> dict:
                 break
         if not CONTRACTIONS.search(s) and wc > 18:
             score += 1
-        if RULE_OF_THREE.search(s):
+        if RULE_OF_THREE.search(s) or RULE_OF_THREE_HI.search(s):
             score += 2
         if score >= 3:
             flagged.append({"score": score, "words": wc, "text": s[:180]})
     flagged.sort(key=lambda d: -d["score"])
 
     return {
+        "devanagari_share": round(devanagari_share(prose), 3),
         "words": n_words,
         "sentences": n_s,
         "mean_sentence_len": round(mean_len, 2),
@@ -223,7 +288,9 @@ def analyse(raw: str) -> dict:
             "pct": round(opener_pct, 1),
         },
         "contractions_per_1k": round(len(CONTRACTIONS.findall(prose)) * per_1k, 2),
-        "rule_of_three_per_1k": round(len(RULE_OF_THREE.findall(prose)) * per_1k, 2),
+        "rule_of_three_per_1k": round(
+            (len(RULE_OF_THREE.findall(prose)) + len(RULE_OF_THREE_HI.findall(prose)))
+            * per_1k, 2),
         "em_dashes": prose.count("—"),
         "curly_quotes": sum(prose.count(c) for c in "“”‘’"),
         "marker_density_per_1k": round(marker_total * per_1k, 2),
@@ -256,9 +323,20 @@ def gate(r: dict):
         ("curly quotes", r["curly_quotes"] <= GATES["curly_quote_max"], str(r["curly_quotes"])),
         ("rule of three", r["rule_of_three_per_1k"] <= GATES["rule_of_three_max_per_1k"],
          f"{r['rule_of_three_per_1k']}/1k (max {GATES['rule_of_three_max_per_1k']})"),
-        ("contraction rate", r["contractions_per_1k"] >= GATES["contraction_min_per_1k"],
-         f"{r['contractions_per_1k']}/1k (need >= {GATES['contraction_min_per_1k']})"),
     ]
+    # Apostrophe contractions do not exist in Devanagari, so the gate measures
+    # nothing on a Hindi draft. It is reported as not applicable rather than
+    # failed. Nothing replaces it yet; see the limitation note in
+    # references/learning-log.md.
+    if r["devanagari_share"] >= GATES["devanagari_majority"]:
+        checks.append(("contraction rate", None,
+                       "n/a on a Devanagari-majority draft "
+                       f"(script share {int(r['devanagari_share'] * 100)}%)"))
+    else:
+        checks.append(("contraction rate",
+                       r["contractions_per_1k"] >= GATES["contraction_min_per_1k"],
+                       f"{r['contractions_per_1k']}/1k "
+                       f"(need >= {GATES['contraction_min_per_1k']})"))
     return checks
 
 
@@ -272,17 +350,21 @@ def main():
     raw = Path(a.file).read_text(encoding="utf-8")
     r = analyse(raw)
     checks = gate(r)
-    failed = [c for c in checks if not c[1]]
+    failed = [c for c in checks if c[1] is False]
 
     if a.json:
-        print(json.dumps({"metrics": r, "failed": [c[0] for c in checks if not c[1]]}, indent=2))
+        print(json.dumps(
+            {"metrics": r, "failed": [c[0] for c in checks if c[1] is False]}, indent=2))
         return 1 if failed else 0
 
     print(f"ZeroGPT pre-flight: {a.file}")
     print(f"{r['words']} words / {r['sentences']} sentences / {r['paragraphs']} paragraphs")
+    if r["devanagari_share"] > 0.05:
+        print(f"Devanagari share: {int(r['devanagari_share'] * 100)}% of word tokens")
     print(f"mean sentence {r['mean_sentence_len']} words, stdev {r['stdev_sentence_len']}\n")
     for name, ok, detail in checks:
-        print(f"  [{'PASS' if ok else 'FAIL'}] {name}: {detail}")
+        mark = "N/A " if ok is None else ("PASS" if ok else "FAIL")
+        print(f"  [{mark}] {name}: {detail}")
 
     if r["marker_hits"]:
         print("\nMarker families present:")

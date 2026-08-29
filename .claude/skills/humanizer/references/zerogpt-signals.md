@@ -140,6 +140,39 @@ compensate elsewhere. Log every conflict here.
 | FAQ section with 5-8 Q&A pairs | Highly templated block, uniform answer length | Vary answer length by 3x across the set. Let one answer be a single line and one run to a short paragraph. |
 | Formal or serious tone | Contraction suppression | Keep contractions in the explanatory sentences even where the register is formal. Second person helps carry them. |
 | Keyword in first 100 words and in an H2 | Repetitive keyword placement reads templated | Place the keyword inside a sentence doing real work, not in an announcement sentence. |
+| A word count fixed per H2 section | Trimming to a cap attacks long sentences first and drops the long-sentence share | Merge two mediums into one long instead of deleting clauses. A merge is word-neutral, removes a sentence and adds a long one. |
+| Hindi or Hinglish body copy | The contraction gate does not apply and is reported N/A, leaving register informality unmeasured | Ten gates instead of eleven. Compensate by hand: read for stiffness, and keep the short-sentence share well above its floor. |
+| Meta title and description carried inside the draft | Two long, contraction-free pseudo-sentences skew the distribution | Stripped by `strip_markdown`. Keep them on their own lines with the `**Meta Title:**` label so the pattern matches. |
+
+## Writing in a script other than English
+
+The two statistical signals are script-independent. Burstiness, paragraph
+variance and opener repetition mean the same thing in Devanagari as in Latin,
+and `zerogpt_preflight.py` measures all three once its tokeniser and sentence
+splitter know about the Devanagari block and the danda. The marker bag is not
+script-independent, and neither is the contraction gate.
+
+What carries over:
+
+- Length variance, clustering, short and long sentence shares, paragraph
+  variance, opener repetition. All measured normally.
+- Specificity. A real date or a named circular raises perplexity in any
+  language.
+- Em dashes and curly quotes. Both appear in Hindi typesetting.
+
+What does not:
+
+- **Contractions.** No Devanagari equivalent. The gate reports N/A above a 50%
+  Devanagari word share.
+- **The English marker list.** Hindi has its own scaffolding, and three
+  families are now in `MARKERS`. They are translated predictions rather than
+  observed highlights, so do not trust a 0.0 marker density on a Hindi draft
+  the way you would on an English one.
+- **The rule-of-three regex.** The Hindi shape is "X, Y और Z" and needs its own
+  pattern, which `RULE_OF_THREE_HI` supplies.
+
+Mixed Hinglish is the normal case in Indian finance copy, and the script share
+is reported at the top of every run so you can see which regime you are in.
 
 ## Repair order
 

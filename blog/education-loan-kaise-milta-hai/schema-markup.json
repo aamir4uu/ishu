@@ -1,0 +1,155 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.herofincorp.com/blog/education-loan-kaise-milta-hai#faq",
+      "inLanguage": "hi-IN",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "एजुकेशन लोन के लिए कौन आवेदन कर सकता है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "दाखिला ले चुका कोई भी पात्र छात्र, आमतौर पर co-applicant के साथ।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "क्या higher education के लिए education loan मिल सकता है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "हां। स्नातक, स्नातकोत्तर और professional courses इसमें आते हैं।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "क्या विदेश में पढ़ाई के लिए education loan मिल सकता है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "हां, बशर्ते कोर्स और संस्थान lender की सूची में हों।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "एजुकेशन लोन के लिए co-applicant क्यों जरूरी होता है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "छात्र की अपनी आय नहीं होती, इसलिए lender repayment क्षमता co-applicant की आय से आंकता है।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "एजुकेशन लोन की repayment कब शुरू होती है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "आमतौर पर कोर्स और moratorium अवधि खत्म होने के बाद।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "एजुकेशन लोन की EMI कैसे calculate करें?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "रकम, दर और tenure डालकर EMI calculator से।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "क्या एजुकेशन लोन के लिए online apply कर सकते हैं?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "हां, लगभग हर lender के पास digital प्रक्रिया है।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hero FinCorp से education-related loan के लिए कैसे apply करें?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hero FinCorp शिक्षा के लिए पर्सनल लोन देता है, जिसमें collateral नहीं लगता। पर्सनल लोन पात्रता कैलकुलेटर पर eligibility जांचकर आवेदन कीजिए।"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://www.herofincorp.com/blog/education-loan-kaise-milta-hai#article",
+      "headline": "एजुकेशन लोन कैसे मिलता है? योग्यता, दस्तावेज, लाभ एवं विशेषताएं",
+      "description": "एजुकेशन लोन कैसे मिलता है, इसकी पात्रता, ज़रूरी दस्तावेज, ब्याज दर, कवर होने वाले खर्च और आवेदन की पूरी प्रक्रिया आसान भाषा में समझिए।",
+      "inLanguage": "hi-IN",
+      "keywords": "education loan kaise milta hai, education loan kya hota hai, education loan kya hai",
+      "image": "https://www.pexels.com/photo/thoughtful-student-using-laptop-at-table-with-many-different-books-7034451/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.herofincorp.com/blog/education-loan-kaise-milta-hai"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Hero FinCorp Limited",
+        "url": "https://www.herofincorp.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.herofincorp.com/logo.png"
+        }
+      },
+      "author": {
+        "@type": "Person",
+        "name": "REPLACE WITH NAMED AUTHOR",
+        "url": "REPLACE WITH AUTHOR LINKEDIN URL"
+      },
+      "datePublished": "REPLACE ON PUBLISH",
+      "dateModified": "REPLACE ON PUBLISH"
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.herofincorp.com/blog/education-loan-kaise-milta-hai#howto",
+      "name": "एजुकेशन लोन के लिए आवेदन कैसे करें",
+      "inLanguage": "hi-IN",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Eligibility जांचिए",
+          "text": "अपनी और co-applicant की पात्रता देखिए।"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "रकम तय कीजिए",
+          "text": "कोर्स की कुल लागत देखकर ज़रूरी रकम तय कीजिए।"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Online form भरिए",
+          "text": "Lender के portal पर आवेदन भरिए।"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "दस्तावेज़ अपलोड कीजिए",
+          "text": "Admission letter, marksheets, KYC और co-applicant के income documents।"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Assessment",
+          "text": "Lender आपकी और co-applicant की profile जांचता है।"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Offer पढ़िए",
+          "text": "Rate, tenure और charges offer letter में जांचिए।"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Disbursement",
+          "text": "मंज़ूरी के बाद रकम खाते या संस्थान तक पहुंचती है।"
+        }
+      ]
+    }
+  ]
+}

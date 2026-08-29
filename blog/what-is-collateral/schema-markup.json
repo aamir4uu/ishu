@@ -1,0 +1,143 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.herofincorp.com/blog/what-is-collateral#faq",
+      "inLanguage": "en-IN",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What Are Examples of Collateral?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Property, gold, vehicles, fixed deposits and certain securities."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Collateral Mandatory for Every Loan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Only secured loans need it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What Happens to Collateral if a Borrower Defaults?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your lender can enforce its security under the loan agreement and the applicable law, which may run as far as selling the asset. Notices reach you well before that point."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Property Be Used as Collateral for a Loan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, residential and commercial both. Check the documents required for loan against property first, because incomplete title papers are the usual reason these files stall."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Gold Be Used as Collateral?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, against a gold loan, subject to the lender's purity and valuation norms."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When Is Collateral Released After Loan Repayment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Within 30 days of full repayment, under RBI's rules."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I Get a Loan Without Collateral?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. A personal loan needs no security at all."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What Factors Do Lenders Consider Besides Collateral?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Income, employment stability, credit score, existing EMIs and your repayment record."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://www.herofincorp.com/blog/what-is-collateral#article",
+      "headline": "What Is Collateral? Meaning, Types and How It Works",
+      "description": "Collateral is an asset you pledge to secure a loan. Learn the types, how secured and unsecured loans differ, and when a personal loan needs none.",
+      "inLanguage": "en-IN",
+      "keywords": "what is collateral, collateral loan meaning, collateral loans, secured loan, unsecured loan",
+      "image": "https://www.pexels.com/photo/real-estate-keys-and-documents-with-house-models-34135038/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.herofincorp.com/blog/what-is-collateral"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Hero FinCorp Limited",
+        "url": "https://www.herofincorp.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.herofincorp.com/logo.png"
+        }
+      },
+      "author": {
+        "@type": "Person",
+        "name": "REPLACE WITH NAMED AUTHOR",
+        "url": "REPLACE WITH AUTHOR LINKEDIN URL"
+      },
+      "datePublished": "REPLACE ON PUBLISH",
+      "dateModified": "REPLACE ON PUBLISH"
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.herofincorp.com/blog/what-is-collateral#howto",
+      "name": "How a Secured Loan Uses Collateral, Step by Step",
+      "inLanguage": "en-IN",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Pledge the asset",
+          "text": "Hand the original ownership papers to your lender."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Valuation",
+          "text": "Your lender has the asset valued, usually through an empanelled valuer."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Sanction and disbursal",
+          "text": "A share of the assessed value is sanctioned and paid out, not the whole of it."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Repayment",
+          "text": "Repay across the agreed tenure."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Release of charge",
+          "text": "On full repayment the lender releases its charge and returns the original documents, within 30 days under RBI rules."
+        }
+      ]
+    }
+  ]
+}
