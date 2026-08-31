@@ -101,6 +101,26 @@ needs moving into the last FAQ answer.
 Both should be spot-checked against rbi.org.in before publishing. Outbound
 access to that domain was blocked in the environment this was written in.
 
+## Detector status
+
+**Run ZeroGPT on `detector-paste.txt`, not on the .docx.** The Word file carries
+scaffolding a published page never shows: the meta title and description lines,
+image placeholder frames, alt-text lines and "Image Source" captions. When the
+education loan piece was tested, all of that went into the detector along with
+the copy, roughly 330 words of it, including one English boilerplate sentence
+repeated verbatim. `detector-paste.txt` is the published article and nothing
+else. Regenerate it after any edit:
+
+```
+python3 tools/detector-paste.py blog/<slug>/<slug>.md
+```
+
+**If the result comes back high, send the highlights, not just the number.** The
+report we received was printed with background graphics turned off, which
+silently drops every highlight ZeroGPT draws. That leaves a percentage and no
+way to tell which sentences caused it. Tick "Background graphics" in the browser
+print dialog, or send a screenshot of the result panel.
+
 ## Open items before publishing
 
 1. Confirm the primary keyword and its volume against your own keyword sheet.
@@ -110,7 +130,7 @@ access to that domain was blocked in the environment this was written in.
 3. Add the author byline. The master guidelines want a trusted-friend voice, and
    a named human author matters for the no-AI requirement.
 4. Verify both RBI facts against rbi.org.in.
-5. Run the ZeroGPT check and attach the report. The brief asks for a score below
-   15%. `zerogpt-preflight-result.txt` records the pre-flight gate results, which
-   is not the same thing as a detector score.
+5. Run ZeroGPT on `detector-paste.txt` and attach the report, target under 15%.
+   `zerogpt-preflight-result.txt` records the pre-flight gate results, which is
+   not the same thing as a detector score.
 6. Decide whether the added closing CTA section stays.

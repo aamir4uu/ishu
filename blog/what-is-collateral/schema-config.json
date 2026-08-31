@@ -1,0 +1,34 @@
+{
+  "url": "https://www.herofincorp.com/blog/what-is-collateral",
+  "lang": "en-IN",
+  "faq_heading": "Frequently Asked Questions About Collateral",
+  "headline": "What Is Collateral? Meaning, Types and How It Works",
+  "description": "Collateral is an asset you pledge to secure a loan. Learn the types, how secured and unsecured loans differ, and when a personal loan needs none.",
+  "keywords": "what is collateral, collateral loan meaning, collateral loans, secured loan, unsecured loan",
+  "image": "https://www.pexels.com/photo/real-estate-keys-and-documents-with-house-models-34135038/",
+  "howto": {
+    "name": "How a Secured Loan Uses Collateral, Step by Step",
+    "steps": [
+      [
+        "Pledge the asset",
+        "Hand the original ownership papers to your lender."
+      ],
+      [
+        "Valuation",
+        "Your lender has the asset valued, usually through an empanelled valuer."
+      ],
+      [
+        "Sanction and disbursal",
+        "A share of the assessed value is sanctioned and paid out, not the whole of it."
+      ],
+      [
+        "Repayment",
+        "Repay across the agreed tenure."
+      ],
+      [
+        "Release of charge",
+        "On full repayment the lender releases its charge and returns the original documents, within 30 days under RBI rules."
+      ]
+    ]
+  }
+}

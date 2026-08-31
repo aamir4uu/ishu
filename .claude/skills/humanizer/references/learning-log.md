@@ -32,6 +32,8 @@ two independent sightings.
 
 | Pattern | First seen | Sightings | Status |
 | --- | --- | --- | --- |
+| Sentence-closer repetition in verb-final languages. Hindi drafts closing 45.5% and 33.3% of sentences on `है।` | 2026-08-31, Hero FinCorp education loan | 1 | **Promoted to a gate, not a marker.** `closer_repeat_pct_max` added. Thresholds provisional pending a human-Hindi baseline. |
+| Document scaffolding pasted into the detector along with the copy: image placeholders, alt-text lines, meta fields. Verbatim-repeated English boilerplate inside Hindi prose | 2026-08-31, Hero FinCorp education loan | 1 | Fixed at source with `tools/detector-paste.py`. Watch whether removing it alone moves a score. |
 | Tailing rhetorical triple used as a section opener, e.g. "You cap them, you channel them, and you price the overflow." | 2026-08-21, Sitejet SOP draft | 1 | Caught by the existing rule-of-three regex during drafting, before any detector run. Not yet a new pattern. Watch whether ZeroGPT highlights this shape specifically. |
 
 ## Threshold calibration history
@@ -39,6 +41,7 @@ two independent sightings.
 | Date | Gate | Old | New | Report that forced it |
 | --- | --- | --- | --- | --- |
 | 2026-08-21 | all | n/a | initial values | Seeded from editorial prose baselines, not from a ZeroGPT report. Treat every number as provisional until the first three reports land. |
+| 2026-08-31 | sentence closer repetition | gate did not exist | `closer_repeat_pct_max: 12.0`, `closer_repeat_pct_max_devanagari: 30.0`, floor 3 | `reports/2026-08-31-herofincorp-education-loan-hindi.md`. First report where the pre-flight passed a draft ZeroGPT then scored 89.4%. The protocol says that condition tightens something. Openers were gated from the first report; nothing looked at closers, and Hindi is verb-final. Both numbers are **provisional guesses at a natural rate**, not measurements: no human-written Hindi has been scored yet. The English figure of 12% is a loose safety net, well above the 3.0% the English draft actually showed. |
 | 2026-08-29 | strip_markdown (measurement, not a threshold) | list items and `[Image Source]` lines fed into the sentence splitter as-is | list items terminated so each counts as one sentence; image credit lines dropped; `**Meta Title:**` / `**Meta Description:**` lines dropped | No report. Found while writing the Hero FinCorp set. A markdown list has no sentence terminators, so the splitter was swallowing an entire bullet block into one "sentence" of 40 or 80 words. That single fake sentence was carrying the long-sentence gate on any bullet-heavy draft. Re-measuring the two Sitejet articles with the fix drops them to 11.4% and 11.6% against a 12% floor, so **both were passing that gate on an artefact**. Their filed results are stale; the copy was not changed. |
 | 2026-08-21 | sentence opener repetition | `opener_repeat_max: 3` (raw count) | `opener_repeat_pct_max: 9.0` with `opener_repeat_floor: 3` | `reports/2026-08-21-sitejet-agency-delivery-sop.md`. A fixed raw cap cannot scale. On a 219-sentence article, "the" opened 16 sentences, which is 7.3% and entirely normal, and the gate failed a clean draft. Now proportional, with the raw floor kept so a 20-sentence piece is still checked. |
 
@@ -51,6 +54,9 @@ two independent sightings.
 | 2026-08-29 | Hero FinCorp: what is collateral | 961 | 0 of 11 at final pass | pending client run | English, UK spelling. Failed opener repetition on the first draft ("the" x6 = 9.2%), fixed by rewording five sentence openings. Trimming to the brief's per-section word caps then cost the long-sentence gate, recovered by merging pairs rather than restoring words. |
 | 2026-08-29 | Hero FinCorp: CIBIL score (Hindi) | 935 | 0 of 10 applicable at final pass | pending client run | First Devanagari piece. Contraction gate is N/A. Needed three separate rounds on the long-sentence gate: it broke on the first draft, again after the section trim, and again after the meta-field fix changed the sentence count. |
 | 2026-08-29 | Hero FinCorp: education loan (Hindi) | 860 | 0 of 10 applicable at final pass | pending client run | Three bullet lists in nine sections. Long-sentence share read 13.0% before the strip_markdown fix and 4.6% after, which is the clearest single measurement of how badly the bullet bug distorted things. | Second piece under v3.0. Failed three gates on first draft: paragraph variance, rule of three, and opener repetition. All three came from the same cause, a seven-item listicle structure that pushes every paragraph toward the same shape. Fixed without changing the structure. | First piece under v3.0. Forced one gate recalibration (sentence opener repetition). Client requires APA title case, which conflicts with pattern 17; resolved by excluding headings from the prose scan and compensating with a 22.7 per 1k contraction rate and 37% short sentences. Full report in `reports/2026-08-21-sitejet-agency-delivery-sop.md`. |
+| 2026-08-31 | Hero FinCorp: education loan (Hindi), **scored** | 1,188 as pasted | 0 of 10 applicable | **89.4% AI** | The whole .docx was pasted, scaffolding included. Commonest sentence ending was 33.3%. See the report. |
+| 2026-08-31 | Hero FinCorp: education loan (Hindi), revised | 856 | 0 of 10 applicable | pending rescore | Commonest ending cut to 6.1%. |
+| 2026-08-31 | Hero FinCorp: CIBIL score (Hindi), revised | 933 | 0 of 10 applicable | pending rescore | Commonest ending cut from 45.5% to 6.1%. Never scored in its original form. |
 
 ## Standing findings
 
@@ -133,3 +139,29 @@ meta title and meta description in the body of the .docx, under the H1. Left
 unstripped they read as two ~20-word sentences with no contractions, which
 pushed one draft below the long-sentence floor purely by changing the
 denominator. They are now stripped alongside headings.
+
+**A passing pre-flight is not a passing score, and the gap is widest in Hindi.**
+The education loan draft passed every applicable gate and came back 89.4% AI.
+The gates measure proxies for perplexity; they do not measure perplexity. On
+English there are now four pieces of evidence that the proxies track something
+real. On Hindi there is one piece of evidence and it is a failure. Treat a clean
+Hindi pre-flight as "nothing obvious is wrong", not as "this will pass".
+
+**Gate the sentence ending, not just the opening.** Which end of a sentence
+carries the predictable part depends on the language. English front-loads the
+subject, so "The" opening sixteen sentences is the tell. Hindi puts the verb
+last, so `है।` closing half of them is the same tell at the other end. Any
+future language needs the same question asked: where does this language put the
+part a model would predict?
+
+**Paste the article, not the document.** A deliverable carries scaffolding a
+published page never shows. Pasting it into a detector scores boilerplate that
+repeats verbatim, often in a different language from the body, and in this case
+smuggled in an em dash the gates ban. `tools/detector-paste.py` now emits
+exactly what should be pasted. Generate it and hand it over with the draft.
+
+**Get the highlights out of the report.** A ZeroGPT PDF exported through a
+browser print with background graphics off loses every highlight, and the
+highlights are the data the protocol runs on. Ask for them explicitly: tick
+"Background graphics" in the print dialog, or send a screenshot of the result
+panel. A percentage alone supports one report; it cannot support a pattern.

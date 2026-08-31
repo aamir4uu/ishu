@@ -11,7 +11,7 @@
           "name": "Personal Loan के लिए कितना CIBIL Score चाहिए?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "ज़्यादातर lenders 700 से ऊपर पसंद करते हैं। नीचे भी फाइल चलती है, बशर्ते बाकी profile मज़बूत हो।"
+            "text": "ज़्यादातर lenders 700 से ऊपर पसंद करते। नीचे भी फाइल चलती है, बशर्ते बाकी profile मज़बूत हो।"
           }
         },
         {
@@ -19,7 +19,7 @@
           "name": "क्या CIBIL Score check करने से score कम होता है?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "नहीं। खुद देखना soft enquiry है और इससे फर्क नहीं पड़ता। Lender की hard enquiry अलग चीज़ है।"
+            "text": "नहीं। खुद देखना soft enquiry कहलाता है और इससे फर्क नहीं पड़ता। Lender की hard enquiry अलग चीज़।"
           }
         },
         {
@@ -27,7 +27,7 @@
           "name": "CIBIL Score सुधारने में कितना समय लगता है?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "कुछ महीने। एक-दो चूक जल्दी भर जाती है, लगातार देरी देर तक टिकती है।"
+            "text": "कुछ महीने। एक-दो चूक जल्दी भर जाती, लगातार देरी देर तक टिकेगी।"
           }
         },
         {
@@ -35,7 +35,7 @@
           "name": "क्या समय पर EMI भरने से CIBIL Score improve होता है?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "हां, यही सबसे भरोसेमंद तरीका है।"
+            "text": "हां, यही सबसे भरोसेमंद तरीका।"
           }
         },
         {
@@ -43,7 +43,7 @@
           "name": "Loan बंद करने से CIBIL Score पर क्या असर पड़ता है?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "समय पर चुकाया loan report में अच्छा दिखता है। NOC लेना न भूलें।"
+            "text": "समय पर चुकाया loan report में अच्छा दिखेगा। NOC लेना न भूलें।"
           }
         },
         {
@@ -51,7 +51,7 @@
           "name": "CIBIL Score कितनी बार check करना चाहिए?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "साल में दो-तीन बार काफी है। बड़ा loan लेने से पहले ज़रूर।"
+            "text": "साल में दो-तीन बार काफी। बड़ा loan लेने से पहले ज़रूर।"
           }
         },
         {
@@ -59,7 +59,7 @@
           "name": "क्या कम CIBIL Score पर Personal Loan मिल सकता है?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "मुमकिन है, पर शर्तें सख्त हो सकती हैं। स्थिर income यहां मदद करती है।"
+            "text": "मुमकिन है, पर शर्तें सख्त हो सकती हैं। स्थिर income यहां मदद करेगी।"
           }
         }
       ]

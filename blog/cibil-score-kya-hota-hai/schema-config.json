@@ -1,0 +1,30 @@
+{
+  "url": "https://www.herofincorp.com/blog/cibil-score-kya-hota-hai",
+  "lang": "hi-IN",
+  "faq_heading": "अक्सर पूछे जाने वाले सवाल",
+  "headline": "CIBIL Score क्या होता है? इसे कैसे Check करें",
+  "description": "CIBIL Score 300 से 900 के बीच का नंबर है। जानिए अच्छा score कितना होता है, उसे प्रभावित करने वाले factors और उसे मुफ्त में check करने का तरीका।",
+  "keywords": "cibil score kya hota hai, cibil score kya hai, cibil ka matlab, cibil score range",
+  "image": "https://www.pexels.com/photo/calculator-and-a-credit-card-next-to-a-laptop-10020082/",
+  "howto": {
+    "name": "CIBIL Score कैसे Check करें",
+    "steps": [
+      [
+        "Bureau चुनिए",
+        "RBI-registered bureau से साल में एक बार मुफ्त report ली जा सकती है।"
+      ],
+      [
+        "पहचान verify कीजिए",
+        "PAN, जन्मतिथि और मोबाइल नंबर डालकर OTP से verification पूरा कीजिए।"
+      ],
+      [
+        "Report पढ़िए",
+        "नाम, PAN, accounts, repayment history और enquiries एक-एक करके मिलाइए।"
+      ],
+      [
+        "गलती पर dispute",
+        "कोई entry गलत दिखे तो lender या bureau के पास dispute दर्ज कराइए।"
+      ]
+    ]
+  }
+}

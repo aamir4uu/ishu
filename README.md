@@ -11,13 +11,13 @@ Three blogs, written from per-section content briefs against the Hero FinCorp
 master guidelines. Audience is the "Young Climber" ICP, second person, UK
 English, with the UTM-tagged personal loan CTA in every piece.
 
-| Article | Language | Words | Gates | Folder |
-| --- | --- | --- | --- | --- |
-| What Is Collateral? Meaning, Types and How It Works | English | 961 | 11/11 | `blog/what-is-collateral/` |
-| CIBIL Score क्या होता है? इसे कैसे Check करें | Hindi | 935 | 10/10 applicable | `blog/cibil-score-kya-hota-hai/` |
-| एजुकेशन लोन कैसे मिलता है? | Hindi | 860 | 10/10 applicable | `blog/education-loan-kaise-milta-hai/` |
+| Article | Language | Words | Gates | ZeroGPT | Folder |
+| --- | --- | --- | --- | --- | --- |
+| What Is Collateral? Meaning, Types and How It Works | English | 961 | 11/11 | not yet scored | `blog/what-is-collateral/` |
+| CIBIL Score क्या होता है? इसे कैसे Check करें | Hindi | 933 | 10/10 applicable | not yet scored | `blog/cibil-score-kya-hota-hai/` |
+| एजुकेशन लोन कैसे मिलता है? | Hindi | 856 | 10/10 applicable | 89.4% on the pre-revision draft, rescore pending | `blog/education-loan-kaise-milta-hai/` |
 
-Each folder carries the same six files:
+Each folder carries the same eight files:
 
 | File | What it is |
 | --- | --- |
@@ -26,7 +26,40 @@ Each folder carries the same six files:
 | `seo-publishing-pack.md` | Metadata, per-section word count against the brief, the master guidelines checklist, the compliance checklist, sources, and open items |
 | `schema-markup.json` | FAQPage, Article and HowTo JSON-LD, generated from the live copy |
 | `image-manifest.md` | The two images, alt text, source URLs, and what still needs doing before upload |
+| `detector-paste.txt` | **Paste this into ZeroGPT**, not the .docx. The published article with no meta fields, image placeholders or credit lines |
+| `schema-config.json` | The Article and HowTo metadata `tools/build-schema.py` needs; FAQ content comes from the article itself |
 | `zerogpt-preflight-result.txt` | Detector gate results for the final draft |
+
+### The ZeroGPT result, 31 August
+
+The education loan piece was scored and came back **89.4% AI**, against a brief
+that asks for under 15%. Full report in
+`.claude/skills/humanizer/reports/2026-08-31-herofincorp-education-loan-hindi.md`.
+
+Three things came out of it.
+
+**The whole .docx was pasted, not the article.** ZeroGPT counted 1,188 words
+against an 860-word article. The rest was scaffolding that never reaches a
+published page: meta fields, image placeholder frames, alt-text lines, credit
+captions. One English boilerplate sentence appeared verbatim twice inside Hindi
+prose, and it carried an em dash, a marker the gates ban outright. Each folder
+now has a `detector-paste.txt` holding the published article and nothing else.
+
+**The gates were blind to the end of the sentence.** Opener repetition has been
+gated since the first article. Hindi is verb-final, so its predictable part sits
+at the other end, and nothing was looking there. The two Hindi drafts were
+closing 45.5% and 33.3% of their sentences on `है।`; the English draft's
+commonest ending was 3.0%. Both have been rewritten to 6.1% by varying tense,
+mood and clause shape. A closer-repetition gate now exists.
+
+**What is still unknown is the important part.** Nobody has yet scored
+known-human Hindi on this tool, so there is no way to tell how much of 89.4% is
+the writing and how much is the detector's handling of Hindi. Before any further
+rewriting, paste an already-published Hero FinCorp Hindi post into ZeroGPT as a
+control. If the client's own live Hindi scores 80%+, the under-15% criterion is
+not achievable in Hindi and that is a conversation, not an editing problem.
+
+The English piece has not been scored yet.
 
 ### Read these three things before publishing
 
@@ -81,6 +114,8 @@ as its stage five. Publish the SOP piece first, or fix that URL.
 | `seo-publishing-pack.md` | Title tag, meta description, slug, internal links, and the AEO/SEO checklist worked item by item with open items called out |
 | `schema-markup.json` | FAQPage, Article, HowTo and SoftwareApplication JSON-LD, generated from the live copy. Client reference only, per checklist section 4 |
 | `image-manifest.md` | The six images, their alt text, source URLs, and what still needs doing before upload |
+| `detector-paste.txt` | **Paste this into ZeroGPT**, not the .docx. The published article with no meta fields, image placeholders or credit lines |
+| `schema-config.json` | The Article and HowTo metadata `tools/build-schema.py` needs; FAQ content comes from the article itself |
 | `zerogpt-preflight-result.txt` | Detector gate results for the final draft |
 
 **Written for the Sitejet Studio audience** (agencies, freelancers, web
@@ -137,6 +172,8 @@ Sitejet prefix.
 
 ## Tooling
 
+Three tools, all driven off the markdown source of record.
+
 `tools/build-docx.js` converts any of these markdown articles to a formatted
 Word file:
 
@@ -158,6 +195,23 @@ generated in-process, so there is no asset directory to carry around.
 Note: LibreOffice in this environment cannot open any .docx, including the
 client's own brand guide file, so output is verified by parsing the packed XML
 rather than by rendering.
+
+`tools/detector-paste.py` emits the text to paste into a detector: the published
+article with the meta fields, image placeholders and credit captions stripped
+out. Run it after every edit.
+
+```
+python3 tools/detector-paste.py blog/<slug>/<slug>.md
+```
+
+`tools/build-schema.py` regenerates an article's JSON-LD. The FAQ block is read
+out of the article's own FAQ section rather than maintained by hand, so an
+edited answer cannot drift out of sync with the schema. Everything not
+derivable from the prose lives in `schema-config.json` beside the article.
+
+```
+python3 tools/build-schema.py blog/<slug>/
+```
 
 ## Skill: humanizer v3.0.0
 

@@ -70,6 +70,30 @@ opens more than three sentences in a piece, a detector picks up the rhythm even
 if a reader would not. Start sentences with a subordinate clause, a number, a
 quoted phrase, a conjunction, a prepositional phrase.
 
+## Signal 3b: closer repetition
+
+The mirror of signal 3, and the one that got missed for three articles. Count
+the *last* word of every sentence, not just the first.
+
+Which end matters depends on the language. English front-loads the subject, so
+repetition shows up at the opener. Hindi is verb-final and its present copula is
+`है`, so a Hindi draft can vary its openers beautifully and still close half its
+sentences on the same two characters. Measured on real drafts:
+
+    Hindi, before revision:   है। x30 of 66 sentences = 45.5%
+    Hindi, after revision:    हैं। x4 of 66 = 6.1%
+    English, same author:     it x2 of 66 = 3.0%
+
+Ceilings enforced by the script: 12% normally, 30% on a Devanagari-majority
+draft, where the copula is structurally common enough that an English-style
+ceiling is not reachable. Both numbers are provisional, set from one report with
+no human-written baseline behind them.
+
+The fix is not synonym-swapping. Vary the grammar: switch tense, drop into an
+imperative, end on a noun instead of a verb, let one sentence be verbless. In
+Hindi, `होता है` to `होता`, `जाता है` to `जाएगा`, `करती है` to `करेगी`, and a
+plain nominal close where the copula is doing no work.
+
 ## Signal 4: connective scaffolding
 
 The highest-value single fix. Models glue clauses together with explicit
@@ -173,6 +197,32 @@ What does not:
 
 Mixed Hinglish is the normal case in Indian finance copy, and the script share
 is reported at the top of every run so you can see which regime you are in.
+
+## What the gates do not measure
+
+Worth keeping in front of you, because a clean run is easy to over-read.
+
+The gates measure proxies for perplexity. They do not measure perplexity, and
+they cannot: that needs a language model. Every threshold is a bet that the
+proxy tracks the thing. On English, four scored pieces support that bet. On
+Hindi there is one data point and it is a draft that passed all ten applicable
+gates and came back **89.4% AI**.
+
+So: a clean pre-flight means nothing obvious is wrong. It does not mean the
+piece will pass. On Hindi in particular, treat it as the floor and do the
+adversarial pass properly.
+
+Two practical rules follow.
+
+**Paste the article, not the document.** Meta fields, image placeholders,
+alt-text lines and credit captions are scaffolding a published page never shows.
+Pasting them scores boilerplate that repeats verbatim and is often in a
+different language from the body. `tools/detector-paste.py` emits the right
+text.
+
+**Insist on the highlights.** A ZeroGPT PDF printed with background graphics
+off loses every highlight, and the highlights are the data. A bare percentage
+tells you a piece failed; only the highlights tell you why.
 
 ## Repair order
 

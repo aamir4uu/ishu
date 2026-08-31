@@ -39,6 +39,13 @@ GATES = {
     "long_sentence_min_pct": 12.0,  # % of sentences over 24 words
     "opener_repeat_pct_max": 9.0,   # % of sentences sharing one first word
     "opener_repeat_floor": 3,       # never fail below this raw count (short texts)
+    # Sentence endings. Verb-final languages cluster here the way English
+    # clusters at the opener, and the two need different ceilings. Both values
+    # are PROVISIONAL: forced by one report, with no human-written baseline
+    # behind them yet. See references/learning-log.md.
+    "closer_repeat_pct_max": 12.0,          # non-Devanagari drafts
+    "closer_repeat_pct_max_devanagari": 30.0,
+    "closer_repeat_floor": 3,
     "para_cv_min": 0.35,            # stdev/mean of paragraph sentence counts
     "marker_density_max": 2.2,      # AI marker hits per 1000 words
     "em_dash_max": 0,
@@ -242,6 +249,18 @@ def analyse(raw: str) -> dict:
     worst_opener = max(openers.items(), key=lambda kv: kv[1]) if openers else ("", 0)
     opener_pct = 100.0 * worst_opener[1] / (len(sentences) or 1)
 
+    # Hindi puts the verb last, so its predictability sits at the end of the
+    # sentence rather than the start. A draft where half the sentences close on
+    # the same copula has the same flat cadence an English draft has when every
+    # sentence opens with "The", and the opener gate cannot see it.
+    closers = {}
+    for s in sentences:
+        w = re.sub(f"[^A-Za-z'{DEVANAGARI}]", "", s.split()[-1]).lower() if s.split() else ""
+        if w:
+            closers[w] = closers.get(w, 0) + 1
+    worst_closer = max(closers.items(), key=lambda kv: kv[1]) if closers else ("", 0)
+    closer_pct = 100.0 * worst_closer[1] / (len(sentences) or 1)
+
     marker_hits, marker_total = {}, 0
     for family, pats in MARKERS.items():
         hits = []
@@ -287,6 +306,11 @@ def analyse(raw: str) -> dict:
             "count": worst_opener[1],
             "pct": round(opener_pct, 1),
         },
+        "top_closer": {
+            "word": worst_closer[0],
+            "count": worst_closer[1],
+            "pct": round(closer_pct, 1),
+        },
         "contractions_per_1k": round(len(CONTRACTIONS.findall(prose)) * per_1k, 2),
         "rule_of_three_per_1k": round(
             (len(RULE_OF_THREE.findall(prose)) + len(RULE_OF_THREE_HI.findall(prose)))
@@ -317,6 +341,15 @@ def gate(r: dict):
          f"'{r['top_opener']['word']}' x{r['top_opener']['count']} = "
          f"{r['top_opener']['pct']}% of sentences "
          f"(max {GATES['opener_repeat_pct_max']}%, floor {GATES['opener_repeat_floor']})"),
+        ("sentence closer repetition",
+         r["top_closer"]["count"] <= GATES["closer_repeat_floor"]
+         or r["top_closer"]["pct"] <= (
+             GATES["closer_repeat_pct_max_devanagari"]
+             if r["devanagari_share"] >= GATES["devanagari_majority"]
+             else GATES["closer_repeat_pct_max"]),
+         f"'{r['top_closer']['word']}' x{r['top_closer']['count']} = "
+         f"{r['top_closer']['pct']}% of sentences (max "
+         f"{GATES['closer_repeat_pct_max_devanagari'] if r['devanagari_share'] >= GATES['devanagari_majority'] else GATES['closer_repeat_pct_max']}%)"),
         ("AI marker density", r["marker_density_per_1k"] <= GATES["marker_density_max"],
          f"{r['marker_density_per_1k']}/1k (max {GATES['marker_density_max']})"),
         ("em dashes", r["em_dashes"] <= GATES["em_dash_max"], str(r["em_dashes"])),
@@ -376,7 +409,18 @@ def main():
         for f in r["riskiest_sentences"]:
             print(f"  ({f['score']}) [{f['words']}w] {f['text']}")
 
-    print(f"\n{len(failed)} gate(s) failed." if failed else "\nAll gates passed.")
+    if failed:
+        print(f"\n{len(failed)} gate(s) failed.")
+    elif r["devanagari_share"] >= GATES["devanagari_majority"]:
+        # Do not let a Hindi run read as a clean bill of health. One Hindi draft
+        # has been scored so far: it passed every applicable gate here and came
+        # back 89.4% AI. See references/learning-log.md.
+        print("\nAll applicable gates passed (10 of 11; contraction is N/A on "
+              "Devanagari).")
+        print("These gates are proxies, not a score. The Hindi thresholds rest "
+              "on one report.")
+    else:
+        print("\nAll gates passed.")
     return 1 if failed else 0
 
 

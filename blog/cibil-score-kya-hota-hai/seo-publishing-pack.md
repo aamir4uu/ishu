@@ -110,13 +110,41 @@ positions rather than 2024 rulings, so they are stated without a date.
 Spot-check all of it against rbi.org.in before publishing. Outbound access to
 that domain was blocked in the environment this was written in.
 
+## Detector status
+
+**Run ZeroGPT on `detector-paste.txt`, not on the .docx.** The Word file carries
+scaffolding a published page never shows: the meta title and description lines,
+image placeholder frames, alt-text lines and "Image Source" captions. When the
+education loan piece was tested, all of that went into the detector along with
+the copy, roughly 330 words of it, including one English boilerplate sentence
+repeated verbatim. `detector-paste.txt` is the published article and nothing
+else. Regenerate it after any edit:
+
+```
+python3 tools/detector-paste.py blog/<slug>/<slug>.md
+```
+
+**If the result comes back high, send the highlights, not just the number.** The
+report we received was printed with background graphics turned off, which
+silently drops every highlight ZeroGPT draws. That leaves a percentage and no
+way to tell which sentences caused it. Tick "Background graphics" in the browser
+print dialog, or send a screenshot of the result panel.
+
+**Before rewriting anything on a bad Hindi score, run the control.** Paste a
+Hero FinCorp Hindi blog post that is already live and was written by a person,
+for example `https://www.herofincorp.com/blog/herofincorp-loan-status-check-karen`,
+into the same tool. If your own published Hindi scores 80% or more, the problem
+is the detector's handling of Hindi rather than this draft, and the under-15%
+acceptance criterion needs discussing before more time goes into rewrites. This
+takes about a minute and it decides whether any further editing is worth doing.
+
 ## Open items before publishing
 
 1. Confirm the keyword volumes against your own sheet.
 2. Drop the two images in and re-host them. See `image-manifest.md`.
 3. Add a named author byline.
 4. Verify both RBI circulars.
-5. Run ZeroGPT and attach the report, target under 15%.
+5. Run ZeroGPT on `detector-paste.txt` and attach the report, target under 15%.
 6. Decide whether the added closing section stays.
 7. **Detector note for the Hindi pieces:** the pre-flight contraction gate does
    not apply to Devanagari and is reported as N/A. Ten of the eleven gates were

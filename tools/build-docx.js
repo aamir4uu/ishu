@@ -195,7 +195,7 @@ for (let i = 0; i < lines.length; i++) {
       alignment: AlignmentType.CENTER,
       spacing: { after: 40 },
       children: [new TextRun({
-        text: `[IMAGE ${imgN} PLACEHOLDER — download from the Image Source link below, then replace this box]`,
+        text: `[IMAGE ${imgN} PLACEHOLDER: download from the Image Source link below, then replace this box]`,
         size: 17, italics: true, color: NOTE, font: FONT,
       })],
     }));

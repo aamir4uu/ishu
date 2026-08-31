@@ -19,7 +19,7 @@
           "name": "क्या higher education के लिए education loan मिल सकता है?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "हां। स्नातक, स्नातकोत्तर और professional courses इसमें आते हैं।"
+            "text": "हां। स्नातक, स्नातकोत्तर और professional courses, तीनों इसमें आते।"
           }
         },
         {
@@ -35,7 +35,7 @@
           "name": "एजुकेशन लोन के लिए co-applicant क्यों जरूरी होता है?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "छात्र की अपनी आय नहीं होती, इसलिए lender repayment क्षमता co-applicant की आय से आंकता है।"
+            "text": "छात्र की अपनी आय नहीं होती, इसलिए lender repayment क्षमता co-applicant की आय से आंकता।"
           }
         },
         {
@@ -59,7 +59,7 @@
           "name": "क्या एजुकेशन लोन के लिए online apply कर सकते हैं?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "हां, लगभग हर lender के पास digital प्रक्रिया है।"
+            "text": "हां, लगभग हर lender के पास digital प्रक्रिया मौजूद।"
           }
         },
         {
@@ -67,7 +67,7 @@
           "name": "Hero FinCorp से education-related loan के लिए कैसे apply करें?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Hero FinCorp शिक्षा के लिए पर्सनल लोन देता है, जिसमें collateral नहीं लगता। पर्सनल लोन पात्रता कैलकुलेटर पर eligibility जांचकर आवेदन कीजिए।"
+            "text": "Hero FinCorp शिक्षा के लिए पर्सनल लोन देता, जिसमें collateral नहीं लगता। पर्सनल लोन पात्रता कैलकुलेटर पर eligibility जांचकर आवेदन कीजिए।"
           }
         }
       ]
