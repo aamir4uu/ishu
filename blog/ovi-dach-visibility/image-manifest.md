@@ -1,4 +1,4 @@
-# Image Manifest: AI Visibility Audit
+# Image Manifest: OVI Index, 17 Years of DACH Visibility Data
 
 Three images, each placed in the draft with descriptive alt text and an "Image
 Source" line directly beneath it, hyperlinked to the image's own Pexels page.
@@ -24,19 +24,25 @@ demands it.
 
 | # | Placement | Alt text | Source URL |
 | --- | --- | --- | --- |
-| 1 | Below the opening answer, above Key Takeaways | A marketer typing a question into ChatGPT on a laptop during an AI visibility audit | https://www.pexels.com/photo/man-using-laptop-wit-chat-gpt-16094045/ |
-| 2 | End of "What Does an AI Visibility Audit Actually Check?" | A laptop on a desk showing graphs from a monthly AI visibility report | https://www.pexels.com/photo/a-laptop-showing-graphs-7109316/ |
-| 3 | End of "How Do You Turn the Audit Into a Client Deliverable?" | An AI chat interface open on a computer screen during a client audit | https://www.pexels.com/photo/ai-chat-interface-on-computer-screen-30530407/ |
+| 1 | Below the opening answer, above Key Takeaways | Line graph of visibility over time displayed on a laptop screen | https://www.pexels.com/photo/graph-on-laptop-screen-3861957/ |
+| 2 | End of "Who Loses, and Why It Is Usually the Same Story" | Business data graph on a monitor showing a visibility trend | https://www.pexels.com/photo/business-data-graph-on-monitor-10653886/ |
+| 3 | End of "How to Read an OVI Curve Without Overreacting" | A person pointing at a printed line graph during a client review | https://www.pexels.com/photo/background-board-chart-data-590041/ |
 
-Note that the Pexels slug for image 1 really does read "wit" rather than
-"with". That is the photographer's typo in the page URL, not ours. Do not
-correct it or the link breaks.
+## A better option if XOVI can supply it
+
+This is a data piece, and stock photos of graphs are the weakest possible
+illustration for it. If the XOVI team can export three real OVI curves from the
+platform (for example: a reference domain that has held the top of the German
+index since 2015, an affiliate domain stepping down through the 2018 and 2025
+updates, and a specialist domain with a flat, stable line), those screenshots
+should replace images 1 to 3. Keep the alt text descriptive and add the
+"Image Source" line pointing at xovi.com in that case.
 
 ## Before upload
 
 Checklist item 2.6 wants the keyword in alt text where it reads naturally.
-Images 1 and 2 carry "AI visibility". Image 3 describes what is in the frame
-rather than forcing the phrase in a third time.
+Image 1 and image 2 carry "visibility". None force "OVI" in, because the
+photos do not show the OVI; swap it in if real platform screenshots are used.
 
 Two things to do at upload time:
 

@@ -32,7 +32,7 @@ two independent sightings.
 
 | Pattern | First seen | Sightings | Status |
 | --- | --- | --- | --- |
-| Asyndetic triad, three comma-separated fragments with no "and", e.g. "One document, your logo, a number that moved." Slips past the rule-of-three regex, which keys on "X, Y, and Z". | 2026-09-15, XOVI AI visibility draft | 1 | Caught by hand in the adversarial pass. Watch for a second sighting before adding a comma-triad pattern to the regex. |
+| Asyndetic triad, three comma-separated fragments with no "and", e.g. "One document, your logo, a number that moved." Slips past the rule-of-three regex, which keys on "X, Y, and Z". | 2026-09-15, XOVI OVI draft (first, discarded angle) | 1 | Caught by hand in the adversarial pass. Watch for a second sighting before adding a comma-triad pattern to the regex. |
 | Tailing rhetorical triple used as a section opener, e.g. "You cap them, you channel them, and you price the overflow." | 2026-08-21, Sitejet SOP draft | 1 | Caught by the existing rule-of-three regex during drafting, before any detector run. Not yet a new pattern. Watch whether ZeroGPT highlights this shape specifically. |
 
 ## Threshold calibration history
@@ -48,7 +48,7 @@ two independent sightings.
 | --- | --- | --- | --- | --- | --- |
 | 2026-08-21 | Sitejet: agency delivery SOP | 1,072 (cut from 2,956) | 0 of 11 at final pass | pending client run |
 | 2026-08-21 | Sitejet: website launch handover | 1,233 | 0 of 11 at final pass | pending client run | Second piece under v3.0. Failed three gates on first draft: paragraph variance, rule of three, and opener repetition. All three came from the same cause, a seven-item listicle structure that pushes every paragraph toward the same shape. Fixed without changing the structure. | First piece under v3.0. Forced one gate recalibration (sentence opener repetition). Client requires APA title case, which conflicts with pattern 17; resolved by excluding headings from the prose scan and compensating with a 22.7 per 1k contraction rate and 37% short sentences. Full report in `reports/2026-08-21-sitejet-agency-delivery-sop.md`. |
-| 2026-09-15 | XOVI: AI visibility audit | 1,001 body (1,052 with bio) | 0 of 11 at final pass | pending client run | Third piece under v3.0, first for a second client. Two gates failed on the first draft (long-sentence share at 11.7% and paragraph variance at 0.31), and fixing the first by merging medium sentences pushed "It" openers over the 9% line, a new interaction between the opener gate and the merge repair. All cleared by varying sentence count per paragraph (one seven-sentence paragraph, four single-sentence ones) and rewording three openers. Adversarial pass caught two triads the regex missed ("One document, your logo, a number that moved") and one "X, not Y" tailing negation in a FAQ answer. |
+| 2026-09-15 | XOVI: OVI index, 17 years of DACH visibility data | 999 body (1,019 with bio) | 0 of 11 at final pass | pending client run | Third piece under v3.0, first for a second client. First draft failed three gates: "The" opened 11 of 68 sentences (16%), the rule-of-three regex fired three times, and paragraph variance sat at 0.33. A data-explainer topic drives the opener problem, because every sentence wants to start with "The index" or "The keyword set"; fixed by fronting with prepositional phrases and possessives. Two of the rule-of-three hits were false positives on ", though, and" and ", not a line, and" clause shapes, both rewritten anyway since the comma-heavy shape is a tell on its own. |
 
 ## Standing findings
 
@@ -93,6 +93,8 @@ each item began by naming a thing. The structure was correct for the topic and
 was kept. The fix was per-item: vary the sentence count deliberately, convert
 two triples into pairs plus a trailing clause, and reword four openers. Expect
 this cluster whenever a piece is built from parallel numbered items.
+
+**Comma-parenthetical clauses trip the rule-of-three regex.** "X, though, and Y" and "a staircase, not a line, and its steps" both match the `A, B, and C` shape. They are not lists, but they are the same comma-stacked rhythm a detector keys on, so the fix is to rewrite rather than to loosen the regex. Noted on the OVI piece, 2026-09-15.
 
 **Gates that use raw counts do not survive contact with a long piece.** Any
 threshold expressed as an absolute number needs checking against a 3,000-word

@@ -1,0 +1,127 @@
+{
+  "_note": "Client reference only, per checklist section 4. FAQPage and Article are generated from the live copy in ovi-dach-visibility.md and must be regenerated if the copy changes. No HowTo: the piece is analysis, not a step-by-step procedure. Replace the three author placeholders in the Article block before shipping. The mainEntityOfPage URL assumes xovi.com's flat blog URL pattern; adjust if the post lands elsewhere.",
+  "FAQPage": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What Is the OVI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "XOVI's Online Value Index: a weekly visibility score for a domain in Google's organic results, built from a fixed set of 500,000 keywords weighted by position, search volume and click rate."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How Often Is the OVI Updated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Weekly, per country. Germany, Austria and Switzerland each have their own index, and the keyword base for each has stayed constant since data collection began, which for Germany means 2009."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is a Falling OVI the Same as Falling Traffic?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not since 2025. A domain can hold its rankings and still lose clicks to an AI Overview. Check Search Console before you diagnose."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why Does a Small Site With Good Rankings Have a Low OVI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Because the index weights high-volume head terms far above long-tail ones. Ranking first for fifty local queries earns less OVI than ranking fourth for one national term. That's by design."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I Compare OVI Across Germany, Austria and Switzerland?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Compare trends, not totals. Each country has its own keyword set and its own search volumes, so the absolute numbers were never meant to line up."
+        }
+      }
+    ]
+  },
+  "Article": {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "17 Years of DACH Visibility Data: What the OVI Index Shows About Who Wins and Why",
+    "description": "What 17 years of OVI index data for Germany, Austria and Switzerland shows about which domains hold visibility through core updates, which lose it, and why.",
+    "author": {
+      "@type": "Person",
+      "name": "REPLACE WITH NAMED AUTHOR",
+      "jobTitle": "REPLACE WITH ROLE",
+      "url": "REPLACE WITH PERSONAL LINKEDIN URL"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "XOVI",
+      "url": "https://www.xovi.com"
+    },
+    "datePublished": "2026-09-15",
+    "dateModified": "2026-09-15",
+    "wordCount": 999,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.xovi.com/ovi-index-17-years-dach-visibility/"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "OVI index"
+      },
+      {
+        "@type": "Thing",
+        "name": "Online Value Index"
+      },
+      {
+        "@type": "Thing",
+        "name": "Visibility index"
+      },
+      {
+        "@type": "Place",
+        "name": "DACH region"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "XOVI",
+        "url": "https://www.xovi.com/"
+      }
+    ],
+    "citation": [
+      {
+        "@type": "CreativeWork",
+        "name": "What is the OVI?",
+        "url": "https://www.xovi.com/ovi/",
+        "publisher": {
+          "@type": "Organization",
+          "name": "XOVI"
+        }
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "Google Core Update June 2025: What's Actually Going On?",
+        "url": "https://www.xovi.com/google-core-update-june-2025-xovi-analysis/",
+        "publisher": {
+          "@type": "Organization",
+          "name": "XOVI"
+        }
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "AI Overviews Reduce Clicks by 34.5%",
+        "url": "https://ahrefs.com/blog/ai-overviews-reduce-clicks/",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Ahrefs"
+        }
+      }
+    ]
+  }
+}

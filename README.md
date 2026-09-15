@@ -8,48 +8,47 @@ the humanizer skill before delivery.
 | --- | --- | --- | --- | --- |
 | Sitejet | The Delivery SOP That Lets a 3-Person Agency Run Like a 10-Person One | 1,072 | 11/11 | `blog/delivery-sop/` |
 | Sitejet | What to Send a Client on Launch Day so They Never Email You Again | 1,233 | 11/11 | `blog/launch-day-handover/` |
-| XOVI | How to Run an AI Visibility Audit Before a Client Asks Why ChatGPT Ignores Them | 1,001 | 11/11 | `blog/ai-visibility-audit/` |
+| XOVI | 17 Years of DACH Visibility Data: What the OVI Index Shows About Who Wins and Why | 999 | 11/11 | `blog/ovi-dach-visibility/` |
 
-## Blog: How to Run an AI Visibility Audit Before a Client Asks Why ChatGPT Ignores Them
+## Blog: 17 Years of DACH Visibility Data: What the OVI Index Shows About Who Wins and Why
 
-`blog/ai-visibility-audit/` (XOVI, xovi.com)
+`blog/ovi-dach-visibility/` (XOVI, xovi.com)
 
 | File | What it is |
 | --- | --- |
-| `How to Run an AI Visibility Audit...ChatGPT Ignores Them.docx` | **Word deliverable.** Heading 1/2/3 styles, live hyperlinks, image slots with hyperlinked "Image Source" captions |
-| `ai-visibility-audit.md` | Markdown source of record |
-| `seo-publishing-pack.md` | Title tag, meta, slug, internal links, the checklist worked item by item, brand-guide compliance, and the assumptions made because Task Info was N/A |
-| `schema-markup.json` | FAQPage, Article and a five-step HowTo. Client reference only |
-| `image-manifest.md` | Three images, alt text, source URLs, upload steps |
+| `17 Years of DACH Visibility Data - What the OVI Index Shows...Why.docx` | **Word deliverable.** Heading 1/2/3 styles, live hyperlinks, image slots with hyperlinked "Image Source" captions |
+| `ovi-dach-visibility.md` | Markdown source of record |
+| `seo-publishing-pack.md` | Title tag, meta, slug, six internal links, the checklist worked item by item, brand-guide compliance, a source table for every fact, and what real OVI data to add |
+| `schema-markup.json` | FAQPage and Article. Client reference only |
+| `image-manifest.md` | Three images, alt text, source URLs, and a note that real OVI screenshots should replace them |
 | `zerogpt-preflight-result.txt` | Detector gate results for the final draft |
 
-**Written for XOVI's agency and freelancer audience** in the direct,
-lightly opinionated voice the brand guide describes. The topic (an AI
-visibility audit, built on the Access, Understanding, Visibility, Improvement,
-Monitoring framework) was chosen from the brand guide because the task brief
-carried no headline or keywords. XOVI AI's approved positioning anchor is used
-verbatim.
+**Written for XOVI's agency and freelancer audience** in the direct, lightly
+opinionated voice the brand guide describes. Second person, subheads, informed
+analysis with an advice section at the end.
 
-**Length:** 1,001 body words against an 800-1000 target, 1,052 with the author
+**Length:** 999 body words against an 800-1000 target, 1,019 with the author
 bio.
 
 ### Open items before publishing
 
-1. **Confirm the topic.** Task Info was N/A, so the AI visibility angle was
-   inferred from Part Two of the brand guide. See the assumptions section of
-   `seo-publishing-pack.md`.
-2. Confirm the primary keyword (`AI visibility audit`) and check its volume.
-3. Drop the three images in. Pexels was blocked from this environment, so the
-   .docx carries placeholder frames. See `image-manifest.md`.
+1. **Add real OVI data.** No platform data was available to this draft, so the
+   piece rests on XOVI's documented methodology and published update analyses.
+   `seo-publishing-pack.md` lists three specific charts or tables with the
+   slot in the copy each belongs in.
+2. Confirm the primary keyword (`OVI index`) and check its volume against
+   `visibility index`.
+3. Drop the three images in, or better, replace them with OVI screenshots. See
+   `image-manifest.md`.
 4. Replace the team byline with a named author and a personal LinkedIn URL.
-5. Spot-check the Ahrefs figures against the linked study. Confirmed through
-   several independent write-ups, but ahrefs.com could not be opened here.
-6. Check the four xovi.com internal links resolve. The URLs came from search
-   results because xovi.com was blocked from this environment.
+5. Spot-check the OVI explainer page for the current top-N basis after the
+   2025 move to top-50 tracking, and the Ahrefs figures against the linked
+   study. Neither site could be opened from this environment.
+6. Check the six xovi.com internal links resolve.
 7. Move to a Google Doc with edit access for all and add it to the tracker. The
    Google Drive connector was not authorised in this session.
-8. After publishing, link from the XOVI AI launch post to this one, and test
-   the target query in ChatGPT, Perplexity and Gemini.
+8. After publishing, link from the OVI explainer and OVI Analysis pages to this
+   post, and test the target query in ChatGPT, Perplexity and Gemini.
 
 The two Sitejet pieces below cross-link: the handover article points back at
 the delivery SOP as its stage five. Publish the SOP piece first, or fix that
