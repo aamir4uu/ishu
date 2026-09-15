@@ -96,6 +96,29 @@ Note: LibreOffice in this environment cannot open any .docx, including the
 client's own brand guide file, so output is verified by parsing the packed XML
 rather than by rendering.
 
+## Skills kit
+
+`.claude/skills/` carries 41 skills and `CLAUDE.md` routes to them. Install the
+same kit for every repo on your machine:
+
+```
+tools/install-skills.sh            # copy into ~/.claude/skills
+tools/install-skills.sh --link     # symlink, so edits here apply everywhere
+tools/install-skills.sh --upstream # pull the newest upstream versions instead
+```
+
+| Group | Skills | Source |
+| --- | --- | --- |
+| Tokens | `caveman` | JuliusBrussee/caveman |
+| Gateway | `omniroute` (setup guide, Claude Code profiles, combos, troubleshooting) | diegosouzapw/OmniRoute |
+| Research | `agent-reach` (web, X, Reddit, YouTube, GitHub, LinkedIn, RSS) | Panniantong/Agent-Reach |
+| Video | `hyperframes` router, 8 domain skills, 5 creation workflows | heygen-com/hyperframes |
+| Marketing | 17 skills: copywriting, copy-editing, content-strategy, ai-seo, seo-audit, schema, social, emails, cold-email, competitor-profiling, marketing-psychology, video, image, lead-magnets, launch, programmatic-seo, customer-research | coreyhaines31/marketingskills |
+| Process | brainstorming, writing-plans, executing-plans, verification-before-completion, systematic-debugging, dispatching-parallel-agents | obra/superpowers |
+| Writing gate | `humanizer` v3.0.0 | this repo |
+
+Sources, synced commits and licenses: `.claude/skills/THIRD_PARTY.md`.
+
 ## Skill: humanizer v3.0.0
 
 `.claude/skills/humanizer/`
