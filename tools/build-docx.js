@@ -1,7 +1,13 @@
 const fs = require('fs');
 const path = require('path');
-const SP = '/tmp/claude-0/-home-user-ishu/89903e44-ab5e-50c4-8ae0-a56dee02f12e/scratchpad';
-const D = require(path.join(SP, 'node_modules', 'docx'));
+// Where node_modules/docx and placeholders/placeholder-N.png live. Set DOCX_SP to
+// point at any directory that has both; defaults to the scratchpad that built
+// the last article.
+const SP = process.env.DOCX_SP
+  || '/tmp/claude-0/-home-user-ishu/b8c5672c-a999-5e20-b088-a5f7ce28b444/scratchpad';
+// Resolve through createRequire so the package's "exports" map is honoured.
+// A plain path require lands on the UMD build, which does not expose HeadingLevel.
+const D = require('module').createRequire(path.join(SP, '/'))('docx');
 const {
   Document, Packer, Paragraph, TextRun, HeadingLevel, ExternalHyperlink,
   ImageRun, AlignmentType, BorderStyle, LevelFormat, convertInchesToTwip,
@@ -148,7 +154,7 @@ for (let i = 0; i < lines.length; i++) {
 
 // ---------------------------------------------------------------- document
 const doc = new Document({
-  creator: 'Sitejet SEO and Content Team',
+  creator: process.env.DOCX_CREATOR || 'Content Team',
   title: docTitle,
   description: '',
   numbering: {

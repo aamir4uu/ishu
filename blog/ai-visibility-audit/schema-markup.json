@@ -1,0 +1,140 @@
+{
+  "_note": "Client reference only, per checklist section 4. FAQPage, Article and HowTo are generated from the live copy in ai-visibility-audit.md and must be regenerated if the copy changes. Replace the three author placeholders in the Article block before shipping. The mainEntityOfPage URL assumes xovi.com's flat blog URL pattern (e.g. xovi.com/xovi-ai-launch-ai-visibility/); adjust if the post lands elsewhere.",
+  "FAQPage": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What Is AI Visibility?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Whether ChatGPT, Gemini and Perplexity understand a business well enough to describe it accurately and recommend it for relevant queries."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is AI Visibility the Same as SEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. SEO measures where you rank, while AI visibility measures whether the AI understands and recommends you at all, which is the question upstream of ranking. Most of the fixes overlap. The diagnosis doesn't, and neither replaces the other."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How Often Should You Audit a Client's AI Visibility?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Monthly on a retainer. Weekly right after you ship fixes and want to watch them land. Never once."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why Does ChatGPT Recommend My Competitor Instead of Me?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Usually because their information is easier to read and more consistent, and size has less to do with it than people assume. Check access first, then whether your site says plainly what you do and where you do it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Fixing AI Visibility Hurt Google Rankings?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It shouldn't. Nearly every fix, from clearer service pages to content a crawler can read, is something Google rewards too. Treat it as the upstream layer of the same job."
+        }
+      }
+    ]
+  },
+  "Article": {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Run an AI Visibility Audit Before a Client Asks Why ChatGPT Ignores Them",
+    "description": "An AI visibility audit checks whether AI crawlers can read a site, how ChatGPT describes the business and who gets recommended instead. Five steps, in order.",
+    "author": {
+      "@type": "Person",
+      "name": "REPLACE WITH NAMED AUTHOR",
+      "jobTitle": "REPLACE WITH ROLE",
+      "url": "REPLACE WITH PERSONAL LINKEDIN URL"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "XOVI",
+      "url": "https://www.xovi.com"
+    },
+    "datePublished": "2026-09-15",
+    "dateModified": "2026-09-15",
+    "wordCount": 1001,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.xovi.com/ai-visibility-audit/"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "AI visibility audit"
+      },
+      {
+        "@type": "Thing",
+        "name": "AI visibility"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "XOVI AI",
+        "url": "https://www.xovi.com/xovi-ai/"
+      }
+    ],
+    "citation": {
+      "@type": "CreativeWork",
+      "name": "AI Overviews Reduce Clicks by 34.5%",
+      "url": "https://ahrefs.com/blog/ai-overviews-reduce-clicks/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Ahrefs"
+      }
+    }
+  },
+  "HowTo": {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Run an AI Visibility Audit",
+    "description": "The five checks, in order: access, understanding, visibility, improvement, monitoring.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Access",
+        "text": "Check whether AI crawlers can technically read the site. Look at robots.txt for blanket blocks on GPTBot or ClaudeBot, then at whether the key pages render as real text or as JavaScript a crawler never runs.",
+        "url": "https://www.xovi.com/ai-visibility-audit/#1-access"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Understanding",
+        "text": "Ask the AI plainly what the company does, who it's for and where it operates, then compare the answer with what the client would say and note every gap.",
+        "url": "https://www.xovi.com/ai-visibility-audit/#2-understanding"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Visibility",
+        "text": "Find which businesses get named for the queries the client cares about, and what those competitors have that the client doesn't.",
+        "url": "https://www.xovi.com/ai-visibility-audit/#3-visibility"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Improvement",
+        "text": "Turn the gaps into a ranked list: access failures first, then missing or conflicting information, then the content competitors have and the client doesn't.",
+        "url": "https://www.xovi.com/ai-visibility-audit/#4-improvement"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Monitoring",
+        "text": "Track the same set of queries on a schedule and report the trend rather than a single snapshot, since AI answers shift week to week.",
+        "url": "https://www.xovi.com/ai-visibility-audit/#5-monitoring"
+      }
+    ]
+  }
+}

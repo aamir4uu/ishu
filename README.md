@@ -1,17 +1,59 @@
-# Sitejet Content Delivery
+# Content Delivery
 
-Blog content for sitejet.io, written for the **Sitejet Studio** audience
-(agencies, freelancers, web professionals) in second person, per the brand
-content guidelines. Every piece is worked against the AEO/SEO checklist and
-gated by the humanizer skill before delivery.
+Blog content written in second person per each client's brand content
+guidelines. Every piece is worked against the AEO/SEO checklist and gated by
+the humanizer skill before delivery.
 
-| Article | Words | Gates | Folder |
-| --- | --- | --- | --- |
-| The Delivery SOP That Lets a 3-Person Agency Run Like a 10-Person One | 1,072 | 11/11 | `blog/delivery-sop/` |
-| What to Send a Client on Launch Day so They Never Email You Again | 1,233 | 11/11 | `blog/launch-day-handover/` |
+| Client | Article | Words | Gates | Folder |
+| --- | --- | --- | --- | --- |
+| Sitejet | The Delivery SOP That Lets a 3-Person Agency Run Like a 10-Person One | 1,072 | 11/11 | `blog/delivery-sop/` |
+| Sitejet | What to Send a Client on Launch Day so They Never Email You Again | 1,233 | 11/11 | `blog/launch-day-handover/` |
+| XOVI | How to Run an AI Visibility Audit Before a Client Asks Why ChatGPT Ignores Them | 1,001 | 11/11 | `blog/ai-visibility-audit/` |
 
-The two pieces cross-link: the handover article points back at the delivery SOP
-as its stage five. Publish the SOP piece first, or fix that URL.
+## Blog: How to Run an AI Visibility Audit Before a Client Asks Why ChatGPT Ignores Them
+
+`blog/ai-visibility-audit/` (XOVI, xovi.com)
+
+| File | What it is |
+| --- | --- |
+| `How to Run an AI Visibility Audit...ChatGPT Ignores Them.docx` | **Word deliverable.** Heading 1/2/3 styles, live hyperlinks, image slots with hyperlinked "Image Source" captions |
+| `ai-visibility-audit.md` | Markdown source of record |
+| `seo-publishing-pack.md` | Title tag, meta, slug, internal links, the checklist worked item by item, brand-guide compliance, and the assumptions made because Task Info was N/A |
+| `schema-markup.json` | FAQPage, Article and a five-step HowTo. Client reference only |
+| `image-manifest.md` | Three images, alt text, source URLs, upload steps |
+| `zerogpt-preflight-result.txt` | Detector gate results for the final draft |
+
+**Written for XOVI's agency and freelancer audience** in the direct,
+lightly opinionated voice the brand guide describes. The topic (an AI
+visibility audit, built on the Access, Understanding, Visibility, Improvement,
+Monitoring framework) was chosen from the brand guide because the task brief
+carried no headline or keywords. XOVI AI's approved positioning anchor is used
+verbatim.
+
+**Length:** 1,001 body words against an 800-1000 target, 1,052 with the author
+bio.
+
+### Open items before publishing
+
+1. **Confirm the topic.** Task Info was N/A, so the AI visibility angle was
+   inferred from Part Two of the brand guide. See the assumptions section of
+   `seo-publishing-pack.md`.
+2. Confirm the primary keyword (`AI visibility audit`) and check its volume.
+3. Drop the three images in. Pexels was blocked from this environment, so the
+   .docx carries placeholder frames. See `image-manifest.md`.
+4. Replace the team byline with a named author and a personal LinkedIn URL.
+5. Spot-check the Ahrefs figures against the linked study. Confirmed through
+   several independent write-ups, but ahrefs.com could not be opened here.
+6. Check the four xovi.com internal links resolve. The URLs came from search
+   results because xovi.com was blocked from this environment.
+7. Move to a Google Doc with edit access for all and add it to the tracker. The
+   Google Drive connector was not authorised in this session.
+8. After publishing, link from the XOVI AI launch post to this one, and test
+   the target query in ChatGPT, Perplexity and Gemini.
+
+The two Sitejet pieces below cross-link: the handover article points back at
+the delivery SOP as its stage five. Publish the SOP piece first, or fix that
+URL.
 
 ## Blog: The Delivery SOP That Lets a 3-Person Agency Run Like a 10-Person One
 
@@ -91,6 +133,15 @@ It maps H1/H2/H3 to real Word heading styles, keeps hyperlinks live, renders
 bullets through a proper numbering config, and drops a sized placeholder frame
 into each image slot with the alt text and the hyperlinked "Image Source"
 caption beneath it.
+
+It needs the `docx` npm package and three `placeholders/placeholder-N.png`
+files. Point `DOCX_SP` at a directory containing both (`npm install docx@8`
+there first), and set `DOCX_CREATOR` to the byline you want in the file's
+metadata:
+
+```
+DOCX_SP=/path/to/dir DOCX_CREATOR="XOVI SEO Team" node tools/build-docx.js src.md out.docx
+```
 
 Note: LibreOffice in this environment cannot open any .docx, including the
 client's own brand guide file, so output is verified by parsing the packed XML
