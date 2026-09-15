@@ -135,3 +135,10 @@ first. Both are recorded in the learning log.
 ```
 python3 .claude/skills/humanizer/scripts/zerogpt_preflight.py FILE.md --verbose
 ```
+
+## Meesho launch pack
+
+`meesho/` — everything needed to open Goyal Lights on Meesho: account setup and compliance
+notes for lighting, a fee-aware pricing calculator, 18 search-optimised starter listings,
+the photo-to-listing image workflow (ChatGPT prompts), a keyword bank and the daily/weekly
+operating loop. Start with `meesho/README.md`, then answer `meesho/01-questions-for-you.md`.
