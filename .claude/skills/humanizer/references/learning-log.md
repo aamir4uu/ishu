@@ -47,6 +47,8 @@ two independent sightings.
 | --- | --- | --- | --- | --- | --- |
 | 2026-08-21 | Sitejet: agency delivery SOP | 1,072 (cut from 2,956) | 0 of 11 at final pass | pending client run |
 | 2026-08-21 | Sitejet: website launch handover | 1,233 | 0 of 11 at final pass | pending client run | Second piece under v3.0. Failed three gates on first draft: paragraph variance, rule of three, and opener repetition. All three came from the same cause, a seven-item listicle structure that pushes every paragraph toward the same shape. Fixed without changing the structure. | First piece under v3.0. Forced one gate recalibration (sentence opener repetition). Client requires APA title case, which conflicts with pattern 17; resolved by excluding headings from the prose scan and compensating with a 22.7 per 1k contraction rate and 37% short sentences. Full report in `reports/2026-08-21-sitejet-agency-delivery-sop.md`. |
+| 2026-09-16 | Sitejet: multi-language client sites | 1,250 (948 body) | 2 of 11 on first draft, 0 at final | pending client run | Third piece under v3.0. First draft at 1,432 words failed paragraph variance and opener repetition ("the" x10, 12.2%). Fixed while cutting 200 words: merged the "why" section into one long paragraph, added two single-sentence paragraphs, reworded openers. Adversarial pass caught two aphoristic closers the script cannot see ("Fix the sequence and the doubling goes away"), both rewritten. |
+| 2026-09-16 | Sitejet: agency template library | 1,234 (931 body) | 2 of 11 on first draft, 0 at final | pending client run | Fourth piece under v3.0. First draft failed long-sentence share (10.5%) and opener repetition. Cutting to spec then pushed paragraph variance to 0.349 against a 0.35 floor; recovered by splitting the Sitejet Studio section's first sentence into its own paragraph and merging two short "when to save" paragraphs into one. Confirms the standing finding that cuts attack variance first. |
 
 ## Standing findings
 
@@ -91,6 +93,14 @@ each item began by naming a thing. The structure was correct for the topic and
 was kept. The fix was per-item: vary the sentence count deliberately, convert
 two triples into pairs plus a trailing clause, and reword four openers. Expect
 this cluster whenever a piece is built from parallel numbered items.
+
+**Balanced antithesis reads as generated even when every gate passes.** Lines
+shaped like "Less than you think, kept better than you expect" or "Fix the
+sequence and the doubling goes away" pass all eleven gates and still read as a
+model reaching for a closer. Both pieces on 2026-09-16 had one or two. The
+adversarial pass is the only thing that catches them, which is why step 4 in
+SKILL.md is not optional. Watch for ZeroGPT highlights on this shape before
+promoting it to a marker.
 
 **Gates that use raw counts do not survive contact with a long piece.** Any
 threshold expressed as an absolute number needs checking against a 3,000-word

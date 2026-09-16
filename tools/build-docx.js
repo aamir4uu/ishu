@@ -1,7 +1,12 @@
 const fs = require('fs');
 const path = require('path');
-const SP = '/tmp/claude-0/-home-user-ishu/89903e44-ab5e-50c4-8ae0-a56dee02f12e/scratchpad';
-const D = require(path.join(SP, 'node_modules', 'docx'));
+// Where the docx package and the placeholder PNGs live. Override with
+// BUILD_DOCX_ASSETS=/path when running outside the session that built this.
+const SP = process.env.BUILD_DOCX_ASSETS
+  || '/tmp/claude-0/-home-user-ishu/2903d476-769d-5f6d-9a11-23eb92650d9f/scratchpad';
+// Require the CJS build directly: an absolute-path require bypasses the
+// package "exports" map and lands on the UMD entry, which exports nothing.
+const D = require(path.join(SP, 'node_modules', 'docx', 'build', 'index.cjs'));
 const {
   Document, Packer, Paragraph, TextRun, HeadingLevel, ExternalHyperlink,
   ImageRun, AlignmentType, BorderStyle, LevelFormat, convertInchesToTwip,

@@ -1,0 +1,135 @@
+{
+  "_note": "Client reference only, per checklist section 4. FAQPage, Article and HowTo are generated from the live copy in multilanguage-client-sites.md and must be regenerated if the copy changes. Replace the three author placeholders in the Article block before shipping.",
+  "FAQPage": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does Sitejet Translate Websites Automatically?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Add a language, click Translate, and Sitejet drafts the content from the default language using AI. Review it before publishing, or switch the AI off under Preferences if the client is supplying professional translations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should You Use AI Translation on Client Websites?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For the first draft, yes. For the published version, only after a native speaker has read it. AI gets the paragraphs right and the button labels wrong, and button labels are what a visitor sees first."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What Happens to Other Languages When You Edit One Page?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nothing. Each language is edited separately in Sitejet, so a change to the English page doesn't reach the German one."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Each Language Need Its Own SEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Page titles, meta descriptions and alt text should be written in each language rather than translated word for word. Hreflang is handled by the language element, and XOVI can track rankings per country."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How Long Does Adding a Language Take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Four minutes for the setup if Language copy mode is set to Copy all pages. Then a review round, which is where the real time goes, and where the fee should go too."
+        }
+      }
+    ]
+  },
+  "Article": {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Deliver Multi-Language Client Sites Without Doubling the Work",
+    "description": "Deliver multi-language client sites without doubling the work: sign off one language, copy every page, let AI draft, bill for review. Sitejet Studio workflow.",
+    "author": {
+      "@type": "Person",
+      "name": "REPLACE WITH NAMED AUTHOR",
+      "jobTitle": "REPLACE WITH ROLE",
+      "url": "REPLACE WITH PERSONAL LINKEDIN URL"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sitejet",
+      "url": "https://www.sitejet.io"
+    },
+    "datePublished": "2026-09-16",
+    "dateModified": "2026-09-16",
+    "wordCount": 1250,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.sitejet.io/blog/multi-language-client-sites"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Multi-language client sites"
+      },
+      {
+        "@type": "Thing",
+        "name": "Multilingual website workflow"
+      }
+    ],
+    "citation": {
+      "@type": "CreativeWork",
+      "name": "Can't Read, Won't Buy: B2C",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CSA Research"
+      },
+      "url": "https://csa-research.com/Blogs-Events/CSA-in-the-Media/Press-Releases/Consumers-Prefer-their-Own-Language"
+    }
+  },
+  "HowTo": {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to deliver a multi-language client site without doubling the work",
+    "description": "Five steps that build the site structure once and translate the words as a separate, billable review round.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Freeze the Default Language First",
+        "text": "Pages, sections, navigation, forms. All of it signed off in one language before anything else exists, with written approval rather than a nod on a call, exactly like the scope lock in your delivery SOP. Once a second language exists every structural change costs double, so the cheapest moment to change structure is the moment before that.",
+        "url": "https://www.sitejet.io/blog/multi-language-client-sites#step-1"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Copy All Pages, Not Just the Home Page",
+        "text": "Out of the box, Sitejet creates only the home page when you add a language and leaves the rest to you. Change that first. Open Preferences from the burger menu and set Language copy mode to Copy all pages. Then go to More, open Languages, tick Enable multilanguage and add the language. Your whole site appears in the new language with its structure intact. Four minutes, instead of an afternoon rebuilding pages.",
+        "url": "https://www.sitejet.io/blog/multi-language-client-sites#step-2"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Let the AI Take the First Pass",
+        "text": "Click Translate on the new language and Sitejet drafts the copy with AI. Treat it like a first draft from a junior: usable, and not to be published unread. What you sell is the review, which is where a native speaker catches the button that says \"Submit\" in a language where nobody says that. If a client is paying a professional translator instead, switch AI translation off under Preferences and paste their copy into the copied pages.",
+        "url": "https://www.sitejet.io/blog/multi-language-client-sites#step-3"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Route Translation Review Through One Channel",
+        "text": "Native-speaker feedback from the client side arrives as voice notes, a marked-up PDF and a spreadsheet from someone in the Madrid office. Put it in the client portal instead, attached to the page being discussed, so \"the third paragraph on the services page\" means the same thing to both of you.",
+        "url": "https://www.sitejet.io/blog/multi-language-client-sites#step-4"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Ship the Language Plumbing as a Checklist",
+        "text": "Language switcher preset in the header, flags or country codes. Browser detection on, so a visitor from Lyon lands on the French version and falls back to the default when their language isn't there. Hreflang comes from the language element automatically, but check it anyway. Then per-language page titles and meta descriptions, skipped more than anything else here because they're the one thing the client can't see.",
+        "url": "https://www.sitejet.io/blog/multi-language-client-sites#step-5"
+      }
+    ]
+  }
+}
