@@ -2,7 +2,7 @@
 
 - Date scored: pending
 - File scored: `blog/herofincorp/suit-filed-cibil/suit-filed-cibil.md`
-- Word count: 991 as the client counts it (headings, body and tables; `tools/count-words.py`); 730 words of prose as the pre-flight measures it
+- Word count: 997 as the client counts it (headings, body, tables and captions; `tools/count-words.py`); 730 words of prose as the pre-flight measures it
 - Length brief: 500 to 700 words, up to 1000 for this page
 - ZeroGPT result: **pending client run**
 - Detector version or URL: https://www.zerogpt.com

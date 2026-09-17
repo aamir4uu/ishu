@@ -15,10 +15,10 @@ delivery, and every Word file is built from a markdown source of record with
 | --- | --- | --- | --- |
 | The Delivery SOP That Lets a 3-Person Agency Run Like a 10-Person One | 1,072 | 11/11 at delivery; 10/11 re-measured on 2026-09-17, see note | `blog/delivery-sop/` |
 | What to Send a Client on Launch Day so They Never Email You Again | 1,233 | 11/11 at delivery; 10/11 re-measured on 2026-09-17, see note | `blog/launch-day-handover/` |
-| What Is the UPI Transaction Limit per Day & Month? Complete Guide | 688 | 11/11 | `blog/herofincorp/upi-transaction-limit/` |
-| Working Capital Loan: Meaning, Eligibility and 2026 Application Guide | 697 | 11/11 | `blog/herofincorp/working-capital-loan/` |
-| E-KYC: Meaning, Full Form, Types, Process, and Eligibility | 696 | 11/11 | `blog/herofincorp/what-is-ekyc/` |
-| What Is Suit Filed and How to Remove It in CIBIL Report? | 991 | 11/11 | `blog/herofincorp/suit-filed-cibil/` |
+| What Is the UPI Transaction Limit per Day & Month? Complete Guide | 690 | 11/11 | `blog/herofincorp/upi-transaction-limit/` |
+| Working Capital Loan: Meaning, Eligibility and 2026 Application Guide | 698 | 11/11 | `blog/herofincorp/working-capital-loan/` |
+| E-KYC: Meaning, Full Form, Types, Process, and Eligibility | 698 | 11/11 | `blog/herofincorp/what-is-ekyc/` |
+| What Is Suit Filed and How to Remove It in CIBIL Report? | 997 | 11/11 | `blog/herofincorp/suit-filed-cibil/` |
 | What Is an MSME Loan? Meaning, Types, Eligibility & How to Apply in 2026 | 697 | 11/11 | `blog/herofincorp/msme-loan/` |
 | Simple Ways to Reduce Your Loan EMI | 698 | 11/11 | `blog/herofincorp/reduce-loan-emi/` |
 | Personal Loan Default Consequences in India & Legal Impact | 976 | 11/11 | `blog/herofincorp/personal-loan-default/` |
@@ -111,10 +111,10 @@ condensed to what fits around them.
 
 | Page | Live URL | Brief mandates | Words | Folder |
 | --- | --- | --- | --- | --- |
-| What Is the UPI Transaction Limit per Day & Month? Complete Guide | herofincorp.com/blog/upi-transaction-limit | 3 sections + 5 FAQs | 688 | `upi-transaction-limit/` |
-| Working Capital Loan: Meaning, Eligibility and 2026 Application Guide | herofincorp.com/blog/guide-understanding-working-capital-loans | 2 sections + 7 FAQs | 697 | `working-capital-loan/` |
-| E-KYC: Meaning, Full Form, Types, Process, and Eligibility | herofincorp.com/blog/what-is-ekyc | 4 sections + 4 FAQs | 696 | `what-is-ekyc/` |
-| What Is Suit Filed and How to Remove It in CIBIL Report? | herofincorp.com/blog/how-to-remove-suit-filed-in-cibil-report | 4 sections + 6 FAQs | 991 | `suit-filed-cibil/` |
+| What Is the UPI Transaction Limit per Day & Month? Complete Guide | herofincorp.com/blog/upi-transaction-limit | 3 sections + 5 FAQs | 690 | `upi-transaction-limit/` |
+| Working Capital Loan: Meaning, Eligibility and 2026 Application Guide | herofincorp.com/blog/guide-understanding-working-capital-loans | 2 sections + 7 FAQs | 698 | `working-capital-loan/` |
+| E-KYC: Meaning, Full Form, Types, Process, and Eligibility | herofincorp.com/blog/what-is-ekyc | 4 sections + 4 FAQs | 698 | `what-is-ekyc/` |
+| What Is Suit Filed and How to Remove It in CIBIL Report? | herofincorp.com/blog/how-to-remove-suit-filed-in-cibil-report | 4 sections + 6 FAQs | 997 | `suit-filed-cibil/` |
 | What Is an MSME Loan? Meaning, Types, Eligibility & How to Apply in 2026 | herofincorp.com/blog/msme-loan | 1 section + 4 FAQs | 697 | `msme-loan/` |
 | Simple Ways to Reduce Your Loan EMI | herofincorp.com/blog/simple-ways-reduce-your-loan-emi | 1 section + 6 FAQs | 698 | `reduce-loan-emi/` |
 | Personal Loan Default Consequences in India & Legal Impact | herofincorp.com/blog/what-are-the-consequences-of-defaulting-on-a-personal-loan | 5 sections + 6 FAQs | 976 | `personal-loan-default/` |

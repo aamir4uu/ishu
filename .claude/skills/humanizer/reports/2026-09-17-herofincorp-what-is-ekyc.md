@@ -2,7 +2,7 @@
 
 - Date scored: pending
 - File scored: `blog/herofincorp/what-is-ekyc/what-is-ekyc.md`
-- Word count: 696 as the client counts it (headings, body and tables; `tools/count-words.py`); 644 words of prose as the pre-flight measures it
+- Word count: 698 as the client counts it (headings, body, tables and captions; `tools/count-words.py`); 644 words of prose as the pre-flight measures it
 - Length brief: 500 to 700 words, up to 700 for this page
 - ZeroGPT result: **pending client run**
 - Detector version or URL: https://www.zerogpt.com

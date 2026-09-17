@@ -3,7 +3,7 @@
 - Live URL: https://www.herofincorp.com/blog/what-is-ekyc
 - Category: existing content (refresh)
 - H1: unchanged, **E-KYC: Meaning, Full Form, Types, Process, and Eligibility**.
-- Length: 696 words against the 500 to 700 brief (headings, body and tables counted; editor notes, captions and the disclaimer excluded).
+- Length: 698 words against the 500 to 700 brief (headings, body and tables counted; editor notes, captions and the disclaimer excluded).
 - Deliverable: `E-KYC - Meaning, Full Form, Types, Process, and Eligibility.docx`, the whole article.
 
 ## How the brief was met

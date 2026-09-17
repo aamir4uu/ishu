@@ -3,7 +3,7 @@
 - Live URL: https://www.herofincorp.com/blog/guide-understanding-working-capital-loans
 - Category: existing content (refresh)
 - H1: unchanged, **Working Capital Loan: Meaning, Eligibility and 2026 Application Guide**.
-- Length: 697 words against the 500 to 700 brief (headings, body and tables counted; editor notes, captions and the disclaimer excluded).
+- Length: 698 words against the 500 to 700 brief (headings, body and tables counted; editor notes, captions and the disclaimer excluded).
 - Deliverable: `Working Capital Loan - Meaning, Eligibility and 2026 Application Guide.docx`, the whole article.
 
 ## How the brief was met

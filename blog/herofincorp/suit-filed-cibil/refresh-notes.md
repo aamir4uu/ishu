@@ -3,7 +3,7 @@
 - Live URL: https://www.herofincorp.com/blog/how-to-remove-suit-filed-in-cibil-report
 - Category: existing content (refresh)
 - H1: casing corrected to APA, **What Is Suit Filed and How to Remove It in CIBIL Report?**
-- Length: 991 words. This is one of the two extreme cases the project brief allows up to 1,000: the page brief mandates four new sections and six FAQs, about 600 words on their own, and the page cannot explain removal without the steps. It sits under the 1,000 ceiling.
+- Length: 997 words. This is one of the two extreme cases the project brief allows up to 1,000: the page brief mandates four new sections and six FAQs, about 600 words on their own, and the page cannot explain removal without the steps. It sits under the 1,000 ceiling.
 - Deliverable: `What Is Suit Filed and How to Remove It in CIBIL Report.docx`, the whole article, with all three of the brief's images.
 
 ## How the brief was met

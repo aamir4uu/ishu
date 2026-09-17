@@ -3,7 +3,7 @@
 - Live URL: https://www.herofincorp.com/blog/upi-transaction-limit
 - Category: existing content (refresh)
 - H1: changed to **What Is the UPI Transaction Limit per Day & Month? Complete Guide**, as the brief suggests, in APA casing ("per" stays lowercase as a short preposition).
-- Length: 688 words against the 500 to 700 brief, counting headings, body copy and table cells; editor notes, image captions and the standard disclaimer are excluded.
+- Length: 690 words against the 500 to 700 brief, counting headings, body copy and table cells; editor notes, image captions and the standard disclaimer are excluded.
 - Deliverable: `What Is the UPI Transaction Limit per Day & Month - Complete Guide.docx`, the whole article, ready to paste. The markdown source of record carries HTML-comment notes that the Word file leaves out.
 
 ## How the brief was met
