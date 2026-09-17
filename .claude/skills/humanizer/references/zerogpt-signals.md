@@ -140,6 +140,7 @@ compensate elsewhere. Log every conflict here.
 | FAQ section with 5-8 Q&A pairs | Highly templated block, uniform answer length | Vary answer length by 3x across the set. Let one answer be a single line and one run to a short paragraph. |
 | Formal or serious tone | Contraction suppression | Keep contractions in the explanatory sentences even where the register is formal. Second person helps carry them. |
 | Keyword in first 100 words and in an H2 | Repetitive keyword placement reads templated | Place the keyword inside a sentence doing real work, not in an announcement sentence. |
+| Refresh brief supplies a competitor screenshot as the layout reference, and it is a bold-label-colon list ("**Short-Term Financing:** ...") | Pattern 16, inline-header vertical list | Match the section's job and length, not its shape. Write a numbered list of plain sentences, or prose. Say so in the refresh notes so the client knows the departure was deliberate. |
 
 ## Repair order
 

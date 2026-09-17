@@ -1,0 +1,8 @@
+{
+  "name": "content-delivery-tools",
+  "private": true,
+  "description": "Builds the Word deliverables from the markdown sources. Run `npm install` in this folder once, then `node tools/build-docx.js <source.md> <output.docx>` from the repo root.",
+  "dependencies": {
+    "docx": "^9.5.1"
+  }
+}

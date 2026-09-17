@@ -125,6 +125,11 @@ def strip_markdown(text: str) -> str:
     text = re.sub(r"!\[[^\]]*\]\([^)]*\)", " ", text)          # images
     text = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", text)       # links -> label
     text = re.sub(r"^\s*>\s?", "", text, flags=re.M)
+    # list markers: without this, consecutive bullets merge into one sentence,
+    # because the splitter needs a capital letter after the terminal period and
+    # a bullet line starts with "-". See learning-log.md, 2026-09-17.
+    text = re.sub(r"^\s*(?:[-*+]|\d+[.)])\s+", "", text, flags=re.M)
+    text = re.sub(r"<!--.*?-->", " ", text, flags=re.S)
     text = re.sub(r"<[^>]+>", " ", text)
     return text
 

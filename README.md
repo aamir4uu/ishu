@@ -1,14 +1,30 @@
-# Sitejet Content Delivery
+# Content Delivery
 
-Blog content for sitejet.io, written for the **Sitejet Studio** audience
-(agencies, freelancers, web professionals) in second person, per the brand
-content guidelines. Every piece is worked against the AEO/SEO checklist and
-gated by the humanizer skill before delivery.
+Two client workstreams. Every piece is gated by the humanizer skill before
+delivery, and every Word file is built from a markdown source of record with
+`tools/build-docx.js`.
+
+1. **Sitejet** (sitejet.io): two new blog articles for the Sitejet Studio
+   audience, second person, per the brand content guidelines and the AEO/SEO
+   checklist.
+2. **Hero FinCorp** (herofincorp.com): five existing SEO landing pages
+   refreshed against the client's content-gap briefs. See
+   [Hero FinCorp refreshes](#hero-fincorp-five-seo-landing-page-refreshes).
 
 | Article | Words | Gates | Folder |
 | --- | --- | --- | --- |
-| The Delivery SOP That Lets a 3-Person Agency Run Like a 10-Person One | 1,072 | 11/11 | `blog/delivery-sop/` |
-| What to Send a Client on Launch Day so They Never Email You Again | 1,233 | 11/11 | `blog/launch-day-handover/` |
+| The Delivery SOP That Lets a 3-Person Agency Run Like a 10-Person One | 1,072 | 11/11 at delivery; 10/11 re-measured on 2026-09-17, see note | `blog/delivery-sop/` |
+| What to Send a Client on Launch Day so They Never Email You Again | 1,233 | 11/11 at delivery; 10/11 re-measured on 2026-09-17, see note | `blog/launch-day-handover/` |
+| What Is the UPI Transaction Limit per Day & Month? Complete Guide | 530 new / 2,198 full | 11/11 on both runs | `blog/herofincorp/upi-transaction-limit/` |
+| Working Capital Loan: Meaning, Eligibility and 2026 Application Guide | 656 new / 1,662 full | 11/11 on both runs | `blog/herofincorp/working-capital-loan/` |
+| E-KYC: Meaning, Full Form, Types, Process, and Eligibility | 650 new / 1,792 full | 11/11 on both runs | `blog/herofincorp/what-is-ekyc/` |
+| What Is Suit Filed and How to Remove It in CIBIL Report? | 587 new / 1,491 full | 11/11 on both runs | `blog/herofincorp/suit-filed-cibil/` |
+| What Is an MSME Loan? Meaning, Types, Eligibility & How to Apply in 2026 | 374 new / 2,800 full | 11/11 on both runs | `blog/herofincorp/msme-loan/` |
+
+Note on the two Sitejet rows: a measurement bug fixed on 2026-09-17 (bullets
+were being counted as one sentence) means both now sit one sentence short of
+the long-sentence floor (11.4% and 11.6% against 12%). Nothing else changed.
+They were delivered as gated at the time and have not been edited since.
 
 The two pieces cross-link: the handover article points back at the delivery SOP
 as its stage five. Publish the SOP piece first, or fix that URL.
@@ -78,27 +94,120 @@ Sitejet prefix.
    headline reads "...Launch Day so They Never Email You Again". That is
    correct, not a typo. Capitalise it if the client prefers the look.
 
+## Hero FinCorp: Five SEO Landing Page Refreshes
+
+`blog/herofincorp/`
+
+Five "Existing Content" briefs from the client's SEO team, each an annotated
+copy of a live herofincorp.com article with "New Suggested H2/H3" blocks
+(content nature, word count, target keyword, competitor reference screenshot)
+and a list of new FAQs. The deliverable for each is the full refreshed page:
+the client's existing copy with the new sections written in place, the
+suggested H1 applied, stale facts corrected, and the new FAQs added.
+
+| Page | Live URL | New copy | Folder |
+| --- | --- | --- | --- |
+| UPI transaction limit | herofincorp.com/blog/upi-transaction-limit | 3 sections + 5 FAQs | `upi-transaction-limit/` |
+| Working capital loan | herofincorp.com/blog/guide-understanding-working-capital-loans | 2 sections + 7 FAQs | `working-capital-loan/` |
+| What is e-KYC | herofincorp.com/blog/what-is-ekyc | 4 sections + 4 FAQs | `what-is-ekyc/` |
+| Suit filed in CIBIL | herofincorp.com/blog/how-to-remove-suit-filed-in-cibil-report | 4 sections + 6 FAQs | `suit-filed-cibil/` |
+| MSME loan | herofincorp.com/blog/msme-loan | 1 section + 4 FAQs | `msme-loan/` |
+
+Each folder holds the same six things:
+
+| File | What it is |
+| --- | --- |
+| `<Title>.docx` | **Word deliverable.** Full refreshed page. Heading 1/2/3 styles, live hyperlinks, real banner image embedded with a hyperlinked "Image Source" caption, tables, numbered lists. New sections and edits to existing copy are marked with italic editor notes; delete them when pasting into the CMS |
+| `<slug>.md` | Markdown source of record for the full page. New sections sit between `<!-- NEW SECTION START -->` / `END` markers; edits to existing copy carry an `<!-- EDIT: ... -->` note |
+| `<slug>-new-copy.md` | Only the new copy, extracted with `tools/extract-new-copy.py`. This is what the writer is answerable for and what should be scored in ZeroGPT first |
+| `refresh-notes.md` | Keyword mapping, section-by-section delivery against the brief, every edit made to existing copy and why, the fact-check log with sources, and open items for the client |
+| `image-manifest.md` | Banner and infographic placement, alt text, source links, and what still needs doing |
+| `zerogpt-preflight-result.txt` | Both gate runs: new copy alone, then the full page |
+
+### Length against the brief
+
+The project brief says 500 to 700 words. The refresh briefs specify the new
+sections by word count, so the 500 to 700 was read as the new copy per page,
+which is the range three of the five land in. UPI and MSME are under it
+because their briefs ask for less (UPI: a 70-word answer, a 50-word
+conclusion and five FAQs; MSME: one 70-word section and four FAQs); padding
+FAQ answers to reach a number would repeat the page. Each `refresh-notes.md`
+says so and suggests where a further section would earn its place.
+
+### Facts corrected in the client's existing copy
+
+The checklist asks for every figure to be checked. These were wrong or stale
+in the briefs and are fixed in the drafts, each marked and sourced in the
+page's `refresh-notes.md`:
+
+- **MSME classification thresholds** were the 2020 values. Revised from
+  1 April 2025 (Notification S.O. 1364(E)): micro Rs 2.5 crore / Rs 10 crore,
+  small Rs 25 crore / Rs 100 crore, medium Rs 125 crore / Rs 500 crore.
+- **CLCSS** was described as a live 15% subsidy. Its general component closed
+  on 31 March 2020; only the Special CLCSS for SC/ST enterprises operates.
+- **"CIBIL Commercial Rank (CCR)"** is the CIBIL MSME Rank (CMR).
+- **MSME sector statistics** updated to Ministry of MSME figures (7.83 crore
+  Udyam registrations, 45.8% of exports).
+- **UPI sector table**: the education and healthcare row had its Rs 5 lakh
+  figure in the wrong column.
+- **Personal loan ceiling** on the e-KYC page read Rs 5 lakh; Hero FinCorp's
+  own product page now says Rs 7 lakh. Flagged for the product team.
+- **CIBIL dispute follow-up** said 45 days; RBI's timeline is 30.
+
+### Open items before publishing
+
+1. Hero FinCorp's site, NPCI, CIBIL, UIDAI and every stock-photo host were
+   blocked by the egress policy in the drafting environment. Product figures
+   (14% business loan rate, Rs 7 lakh personal loan ceiling) and the August
+   2026 NPCI biometric change were confirmed through search results only.
+   Each `refresh-notes.md` lists what to re-check on the live pages.
+2. Banners: four pages keep their existing banner, embedded from the brief,
+   with the Image Source line pointing at the live article. The working
+   capital brief has none, so its draft carries a placeholder frame and a
+   proposed Pexels photo. The UPI banner still shows the old title and needs
+   re-titling to match the new H1.
+3. Score each `<slug>-new-copy.md` and then each full page in ZeroGPT and
+   fill in the five open reports under `.claude/skills/humanizer/reports/`.
+
 ## Tooling
 
 `tools/build-docx.js` converts any of these markdown articles to a formatted
 Word file:
 
 ```
-node tools/build-docx.js <source.md> <output.docx>
+cd tools && npm install && cd ..      # once; installs the docx package
+node tools/build-docx.js <source.md> <output.docx> [--creator "Team name"]
 ```
 
 It maps H1/H2/H3 to real Word heading styles, keeps hyperlinks live, renders
-bullets through a proper numbering config, and drops a sized placeholder frame
-into each image slot with the alt text and the hyperlinked "Image Source"
-caption beneath it.
+bullets and numbered lists through proper numbering configs, converts pipe
+tables to Word tables, and handles image slots two ways: a local path
+(relative to the markdown file) is embedded as the real picture; a remote URL
+gets a sized placeholder frame from `tools/placeholders/` plus an instruction
+line. Either way the caption beneath is the words "Image Source", hyperlinked
+to the URL on the following `[Image Source](url)` line. HTML comments in the
+markdown render as italic editor notes so a refresh draft can mark what is
+new and what was changed.
+
+`tools/extract-new-copy.py <page.md>` prints only the copy between
+`<!-- NEW SECTION START -->` and `<!-- NEW SECTION END -->` markers, so the
+new words in a refresh can be gated on their own.
 
 Note: LibreOffice in this environment cannot open any .docx, including the
 client's own brand guide file, so output is verified by parsing the packed XML
 rather than by rendering.
 
-## Skill: humanizer v3.0.0
+## Skill: humanizer v3.0.1
 
 `.claude/skills/humanizer/`
+
+3.0.1 (2026-09-17) is a measurement fix plus findings, no threshold changes:
+`strip_markdown()` now removes list markers and HTML comments before sentence
+splitting, because consecutive bullets were being measured as one sentence.
+Five open reports for the Hero FinCorp pages sit in `reports/`, three
+self-observed candidate patterns are logged, and the known-conflicts table
+gained a row for competitor reference layouts. Details in
+`references/learning-log.md`.
 
 Upgraded from v2.5.1. The old version covered how text *reads*. This version
 adds a layer for how text *scores* in ZeroGPT and the other perplexity and

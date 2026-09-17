@@ -1,6 +1,6 @@
 ---
 name: humanizer
-version: 3.0.0
+version: 3.0.1
 description: |
   Remove signs of AI-generated writing and drive text past ZeroGPT-class
   detectors. Two layers: the Wikipedia "Signs of AI writing" catalogue for how
