@@ -1,12 +1,12 @@
-# ZeroGPT Report: Hero FinCorp: What Is Suit Filed and How to Remove It in CIBIL Report? (refresh)
+# ZeroGPT Report: Hero FinCorp: Personal Loan Default Consequences in India & Legal Impact (refresh)
 
 - Date scored: pending
-- File scored: `blog/herofincorp/suit-filed-cibil/suit-filed-cibil.md`
-- Word count: 991 as the client counts it (headings, body and tables; `tools/count-words.py`); 730 words of prose as the pre-flight measures it
+- File scored: `blog/herofincorp/personal-loan-default/personal-loan-default.md`
+- Word count: 976 as the client counts it (headings, body, tables and captions; `tools/count-words.py`); 834 words of prose as the pre-flight measures it
 - Length brief: 500 to 700 words, up to 1000 for this page
 - ZeroGPT result: **pending client run**
 - Detector version or URL: https://www.zerogpt.com
-- Pre-flight run before scoring: yes, saved to `blog/herofincorp/suit-filed-cibil/zerogpt-preflight-result.txt`
+- Pre-flight run before scoring: yes, saved to `blog/herofincorp/personal-loan-default/zerogpt-preflight-result.txt`
 - Gates failing at time of scoring: 0 of 11
 
 This report is filed open. The environment that produced the draft has no
@@ -19,19 +19,19 @@ new evidence from this piece and no threshold should be moved because of it.
 
 | Gate | Value | Threshold | Result |
 | --- | --- | --- | --- |
-| sentence length variance (CV) | 0.627 | >= 0.45 | pass |
-| sentences clustered at mean | 28.0% | <= 40% | pass |
-| short sentences (< 9 words) | 26.0% | >= 12% | pass |
-| long sentences (> 24 words) | 14.0% | >= 12% | pass |
-| paragraph size variance (CV) | 0.517 | >= 0.35 | pass |
-| top sentence opener | "it" x3 = 6.0% | <= 9% (floor 3) | pass |
+| sentence length variance (CV) | 0.527 | >= 0.45 | pass |
+| sentences clustered at mean | 31.8% | <= 40% | pass |
+| short sentences (< 9 words) | 15.9% | >= 12% | pass |
+| long sentences (> 24 words) | 31.8% | >= 12% | pass |
+| paragraph size variance (CV) | 0.652 | >= 0.35 | pass |
+| top sentence opener | "what" x3 = 6.8% | <= 9% (floor 3) | pass |
 | AI marker density | 0.0 per 1k | <= 2.2 per 1k | pass |
 | em dashes | 0 | 0 | pass |
 | curly quotes | 0 | 0 | pass |
-| rule of three | 1.37 per 1k | <= 2.0 per 1k | pass |
-| contraction rate | 20.55 per 1k | >= 4.0 per 1k | pass |
+| rule of three | 1.2 per 1k | <= 2.0 per 1k | pass |
+| contraction rate | 14.39 per 1k | >= 4.0 per 1k | pass |
 
-Mean sentence length 14.64 words, standard deviation 9.18, across 50 sentences and 16 paragraphs.
+Mean sentence length 19.43 words, standard deviation 10.25, across 44 sentences and 12 paragraphs.
 
 ## Highlighted sentences
 
@@ -43,7 +43,7 @@ Mean sentence length 14.64 words, standard deviation 9.18, across 50 sentences a
 
 Nothing here needed a detector run to establish.
 
-**This page.** One of two pages allowed up to 1,000 words because the brief mandates four sections and six FAQs. Tables carry about 120 of the words and the script ignores them, so the measured prose is roughly 730. The clustered gate and the long-sentence floor both tripped after the cut; four in-band sentences were split into short pairs and one bullet pair was merged into a 30-word sentence.
+**This page.** The second page allowed up to 1,000 words. Five mandated sections plus six FAQs run past 700 on their own, so the live page's consequences, handling and alternatives sections were cut to a conclusion. First draft failed the short-sentence floor (7%) and the opener gate ("A" x9, from list items and bullets that each named a thing); fixed with two fragments and by opening list items on the noun without an article. This page carried the most legal claims and each is sourced in refresh-notes.md.
 
 **All seven pages, the length constraint.** The client's brief caps the whole
 article at 500 to 700 words with headings and tables counted, which is 550 to

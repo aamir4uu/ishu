@@ -1,12 +1,13 @@
 # ZeroGPT Report: Hero FinCorp: Working Capital Loan, Meaning, Eligibility and 2026 Application Guide (refresh)
 
 - Date scored: pending
-- File scored: `blog/herofincorp/working-capital-loan/working-capital-loan-new-copy.md` (new copy) and `blog/herofincorp/working-capital-loan/working-capital-loan.md` (full refreshed page)
-- Word count: 656 new / 1662 full page (prose as measured; headings, tables and image lines excluded)
+- File scored: `blog/herofincorp/working-capital-loan/working-capital-loan.md`
+- Word count: 697 as the client counts it (headings, body and tables; `tools/count-words.py`); 592 words of prose as the pre-flight measures it
+- Length brief: 500 to 700 words, up to 700 for this page
 - ZeroGPT result: **pending client run**
 - Detector version or URL: https://www.zerogpt.com
-- Pre-flight run before scoring: yes, both runs saved to `blog/herofincorp/working-capital-loan/zerogpt-preflight-result.txt`
-- Gates failing at time of scoring: 0 of 11 on the new copy, 0 of 11 on the full page
+- Pre-flight run before scoring: yes, saved to `blog/herofincorp/working-capital-loan/zerogpt-preflight-result.txt`
+- Gates failing at time of scoring: 0 of 11
 
 This report is filed open. The environment that produced the draft has no
 outbound access to zerogpt.com, so the piece has not been scored yet. Whoever
@@ -14,44 +15,23 @@ runs it should paste the result and the highlighted sentences into the table
 below, then work the actions checklist. Until that happens this skill has no
 new evidence from this piece and no threshold should be moved because of it.
 
-Score the new copy and the full page separately. The new copy is what the
-writer is answerable for; the full page is what the client will paste in.
-
-## Pre-flight metrics at final pass: new copy
+## Pre-flight metrics at final pass
 
 | Gate | Value | Threshold | Result |
 | --- | --- | --- | --- |
-| sentence length variance (CV) | 0.548 | >= 0.45 | pass |
-| sentences clustered at mean | 30.2% | <= 40% | pass |
-| short sentences (< 9 words) | 23.3% | >= 12% | pass |
-| long sentences (> 24 words) | 16.3% | >= 12% | pass |
-| paragraph size variance (CV) | 0.724 | >= 0.35 | pass |
-| top sentence opener | "a" x3 = 7.0% | <= 9% (floor 3) | pass |
+| sentence length variance (CV) | 0.481 | >= 0.45 | pass |
+| sentences clustered at mean | 29.7% | <= 40% | pass |
+| short sentences (< 9 words) | 18.9% | >= 12% | pass |
+| long sentences (> 24 words) | 13.5% | >= 12% | pass |
+| paragraph size variance (CV) | 0.883 | >= 0.35 | pass |
+| top sentence opener | "a" x3 = 8.1% | <= 9% (floor 3) | pass |
 | AI marker density | 0.0 per 1k | <= 2.2 per 1k | pass |
 | em dashes | 0 | 0 | pass |
 | curly quotes | 0 | 0 | pass |
 | rule of three | 0.0 per 1k | <= 2.0 per 1k | pass |
-| contraction rate | 16.77 per 1k | >= 4.0 per 1k | pass |
+| contraction rate | 18.58 per 1k | >= 4.0 per 1k | pass |
 
-Mean sentence length 15.4 words, standard deviation 8.44, across 43 sentences and 9 paragraphs.
-
-## Pre-flight metrics at final pass: full refreshed page
-
-| Gate | Value | Threshold | Result |
-| --- | --- | --- | --- |
-| sentence length variance (CV) | 0.482 | >= 0.45 | pass |
-| sentences clustered at mean | 37.4% | <= 40% | pass |
-| short sentences (< 9 words) | 18.2% | >= 12% | pass |
-| long sentences (> 24 words) | 16.2% | >= 12% | pass |
-| paragraph size variance (CV) | 0.707 | >= 0.35 | pass |
-| top sentence opener | "a" x8 = 8.1% | <= 9% (floor 3) | pass |
-| AI marker density | 0.0 per 1k | <= 2.2 per 1k | pass |
-| em dashes | 0 | 0 | pass |
-| curly quotes | 0 | 0 | pass |
-| rule of three | 0.6 per 1k | <= 2.0 per 1k | pass |
-| contraction rate | 10.23 per 1k | >= 4.0 per 1k | pass |
-
-Mean sentence length 16.8 words, standard deviation 8.1, across 99 sentences and 24 paragraphs.
+Mean sentence length 16.05 words, standard deviation 7.72, across 37 sentences and 12 paragraphs.
 
 ## Highlighted sentences
 
@@ -63,29 +43,31 @@ Mean sentence length 16.8 words, standard deviation 8.1, across 99 sentences and
 
 Nothing here needed a detector run to establish.
 
-**New copy.** The reference competitor (Ujjivan SFB) presents the features section as a bold-label-colon list, which is Wikipedia pattern 16 and the surest structural tell in the catalogue. The section was written as a numbered list of plain sentences instead, and the trade-off is recorded in the known-conflicts table. New copy failed long-sentence share (11.6%) and rule of three (two forced triples) on the first pass; both were fixed by merging a pair of sentences and breaking the triples into a pair plus a trailing clause.
+**This page.** The brief mandates two sections and seven FAQs, which is about 450 words before a single existing sentence is kept, so the types section became one sentence and the three existing FAQs went. The rule-of-three, opener ("It" x4) and long-sentence gates each tripped once during the cut; every fix was a merge, because merging is the only repair that doesn't cost words when the count is capped.
 
-**Full page.** The full page is where the work was. The existing copy measured CV 0.40, 47% of sentences clustered at the mean and 9% long: a page written entirely in 14-to-20-word sentences. Seven existing sentences were split or merged, with the wording otherwise untouched, and that alone moved the page to CV 0.46 and 39% clustered. The fix for uniform client copy is length surgery, not rewriting.
+**All seven pages, the length constraint.** The client's brief caps the whole
+article at 500 to 700 words with headings and tables counted, which is 550 to
+600 words of prose. Two effects on the gates. First, every floor is a single
+sentence: at 40 sentences, the short-sentence and long-sentence floors are both
+five sentences, so one merge or split flips a gate, and the script has to run
+after every edit rather than at the end. Second, trimming pulls sentences
+toward the mean, because the words that go first are the tails of long
+sentences, so the clustered-at-mean gate is the one that fails during a cut
+even when it passed before. The repair that costs no words is the merge (two
+mid-length sentences into one long one) paired with a fragment somewhere
+else. `tools/count-words.py` was added so the length gate runs beside the
+detector gates.
 
-**Adversarial pass, all five pages.** After every gate passed, a hand read
-found three tells the script cannot see, each present in most of the five
-drafts: FAQ answers opening on a one-line aphorism ("Timing is the main
-benefit", "Daily is the number that matters", "Either."), an "X rather than Y"
-or "X, not Y" contrast in roughly one sentence in eight, and paragraph closers
-built as a matched pair ("Do that, and A. Ignore it, and B."). About half of
-each were rewritten. All three are logged as candidates in
-`references/learning-log.md`, marked as self-observed rather than
-detector-observed.
+**Adversarial pass.** After the gates passed, a hand read looked for the three
+tells logged as candidates in `references/learning-log.md` (aphoristic
+one-line openers, "X rather than Y" contrasts, matched-pair closers). The
+condensed pages carry fewer of them than the full-length drafts did, because
+there is no room for flourishes; the ones that remained were rewritten.
 
 ## Actions taken
 
-- [x] Three candidate patterns added to the `references/learning-log.md`
-      candidates table (self-observed during the adversarial pass; sightings
-      count starts at 0 until a detector highlights one)
-- [ ] Pattern promoted to `MARKERS` (needs two detector sightings)
-- [ ] Threshold changed in `GATES` (none; the 2026-09-17 change to
-      `strip_markdown()` is a measurement fix, recorded in the calibration
-      history)
-- [x] `references/zerogpt-signals.md` known-conflicts table gained a row for
-      competitor reference layouts built on bold-label lists
 - [x] Piece history row added to `references/learning-log.md`
+- [x] Standing finding on length-capped pages added to `references/learning-log.md`
+- [ ] Pattern added to the candidates table (nothing new observed; the three from the full-length drafts stand)
+- [ ] Pattern promoted to `MARKERS` (needs two detector sightings)
+- [ ] Threshold changed in `GATES` (none)

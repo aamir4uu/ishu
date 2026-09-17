@@ -51,11 +51,13 @@ two independent sightings.
 | --- | --- | --- | --- | --- | --- |
 | 2026-08-21 | Sitejet: agency delivery SOP | 1,072 (cut from 2,956) | 0 of 11 at final pass | pending client run |
 | 2026-08-21 | Sitejet: website launch handover | 1,233 | 0 of 11 at final pass | pending client run | Second piece under v3.0. Failed three gates on first draft: paragraph variance, rule of three, and opener repetition. All three came from the same cause, a seven-item listicle structure that pushes every paragraph toward the same shape. Fixed without changing the structure. | First piece under v3.0. Forced one gate recalibration (sentence opener repetition). Client requires APA title case, which conflicts with pattern 17; resolved by excluding headings from the prose scan and compensating with a 22.7 per 1k contraction rate and 37% short sentences. Full report in `reports/2026-08-21-sitejet-agency-delivery-sop.md`. |
-| 2026-09-17 | Hero FinCorp: upi-transaction-limit (refresh) | 530 new / 2198 full | 0 of 11 on both runs at final pass | pending client run | Refresh of an existing page. New copy gated on its own and the full page gated again. Report in `reports/2026-09-17-herofincorp-upi-transaction-limit.md`. |
-| 2026-09-17 | Hero FinCorp: working-capital-loan (refresh) | 656 new / 1662 full | 0 of 11 on both runs at final pass | pending client run | Refresh of an existing page. New copy gated on its own and the full page gated again. Report in `reports/2026-09-17-herofincorp-working-capital-loan.md`. |
-| 2026-09-17 | Hero FinCorp: what-is-ekyc (refresh) | 650 new / 1792 full | 0 of 11 on both runs at final pass | pending client run | Refresh of an existing page. New copy gated on its own and the full page gated again. Report in `reports/2026-09-17-herofincorp-what-is-ekyc.md`. |
-| 2026-09-17 | Hero FinCorp: suit-filed-cibil (refresh) | 587 new / 1491 full | 0 of 11 on both runs at final pass | pending client run | Refresh of an existing page. New copy gated on its own and the full page gated again. Report in `reports/2026-09-17-herofincorp-suit-filed-cibil.md`. |
-| 2026-09-17 | Hero FinCorp: msme-loan (refresh) | 374 new / 2800 full | 0 of 11 on both runs at final pass | pending client run | Refresh of an existing page. New copy gated on its own and the full page gated again. Report in `reports/2026-09-17-herofincorp-msme-loan.md`. |
+| 2026-09-17 | Hero FinCorp: upi-transaction-limit (refresh, 500 to 700 word brief) | 688 as counted / 525 prose | 0 of 11 at final pass | pending client run | Whole article gated as one run. Report in `reports/2026-09-17-herofincorp-upi-transaction-limit.md`. |
+| 2026-09-17 | Hero FinCorp: working-capital-loan (refresh, 500 to 700 word brief) | 697 as counted / 592 prose | 0 of 11 at final pass | pending client run | Whole article gated as one run. Report in `reports/2026-09-17-herofincorp-working-capital-loan.md`. |
+| 2026-09-17 | Hero FinCorp: what-is-ekyc (refresh, 500 to 700 word brief) | 696 as counted / 644 prose | 0 of 11 at final pass | pending client run | Whole article gated as one run. Report in `reports/2026-09-17-herofincorp-what-is-ekyc.md`. |
+| 2026-09-17 | Hero FinCorp: suit-filed-cibil (refresh, 500 to 700 word brief) | 991 as counted / 730 prose | 0 of 11 at final pass | pending client run | Whole article gated as one run. Report in `reports/2026-09-17-herofincorp-suit-filed-cibil.md`. |
+| 2026-09-17 | Hero FinCorp: msme-loan (refresh, 500 to 700 word brief) | 697 as counted / 545 prose | 0 of 11 at final pass | pending client run | Whole article gated as one run. Report in `reports/2026-09-17-herofincorp-msme-loan.md`. |
+| 2026-09-17 | Hero FinCorp: reduce-loan-emi (refresh, 500 to 700 word brief) | 698 as counted / 579 prose | 0 of 11 at final pass | pending client run | Whole article gated as one run. Report in `reports/2026-09-17-herofincorp-reduce-loan-emi.md`. |
+| 2026-09-17 | Hero FinCorp: personal-loan-default (refresh, 500 to 700 word brief) | 976 as counted / 834 prose | 0 of 11 at final pass | pending client run | Whole article gated as one run. Report in `reports/2026-09-17-herofincorp-personal-loan-default.md`. |
 
 ## Standing findings
 
@@ -100,6 +102,16 @@ each item began by naming a thing. The structure was correct for the topic and
 was kept. The fix was per-item: vary the sentence count deliberately, convert
 two triples into pairs plus a trailing clause, and reword four openers. Expect
 this cluster whenever a piece is built from parallel numbered items.
+
+**A strict word cap turns every floor into a single sentence.** Seven pages
+written to a 500 to 700 word brief (headings and tables counted) came out at
+36 to 54 sentences each. At that size the short-sentence and long-sentence
+floors are each four to six sentences, one merge or split flips a gate, and
+the clustered-at-mean gate fails during trimming because cuts take the tails
+off long sentences first. Run the script after every edit. Repair by merging
+two mid-length sentences into one long one and adding a fragment elsewhere;
+both cost nothing against the count. `tools/count-words.py` sits beside the
+script so the length gate and the detector gates run together.
 
 **Bullets were invisible to the sentence gates until 2026-09-17.** The splitter
 only breaks after a period when the next character is a capital, a digit or a

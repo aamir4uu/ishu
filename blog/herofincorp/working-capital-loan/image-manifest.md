@@ -23,3 +23,5 @@ frame under the H1 with a proposed stock photo linked beneath it.
   search is https://www.pexels.com/photo/warehouse-personnel-conducting-stock-check-operations-30824281/.
 - Compress to WebP, target under 150 KB at 1200 px wide, and set explicit width
   and height attributes.
+
+Alt text is stored in each image's alt attribute inside the Word file rather than printed beneath it, so it does not count toward the article length.

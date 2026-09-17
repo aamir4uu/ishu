@@ -13,5 +13,7 @@ file. The "Image Source" line beneath it is hyperlinked.
   creative. The Image Source link points at the live article because the
   original stock page is not recorded in the brief. If the client holds the
   licence details, link the source line to the stock page instead.
-- No new images were added. The brief's screenshots (Tata Capital and Axis
+- No new images were added, and the condensed draft keeps every image the brief carried. The brief's screenshots (Tata Capital and Axis
   Bank sections) are writer references, not page assets.
+
+Alt text is stored in each image's alt attribute inside the Word file rather than printed beneath it, so it does not count toward the article length.

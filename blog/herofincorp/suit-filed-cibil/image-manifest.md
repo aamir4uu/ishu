@@ -22,3 +22,5 @@ line beneath it.
   being re-exported.
 - The brief's screenshots of the SMFG India Credit page are writer references,
   not page assets, and were not carried over.
+
+Alt text is stored in each image's alt attribute inside the Word file rather than printed beneath it, so it does not count toward the article length.

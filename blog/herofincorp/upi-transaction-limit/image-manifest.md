@@ -21,6 +21,8 @@ hyperlinked, as the checklist asks.
    not be opened from the environment that produced this draft, so the CDN URL
    was not captured.
 
-No new images were added. The brief's own screenshots (Kotak and Cashfree
+No new images were added, and the condensed draft keeps every image the brief carried. The brief's own screenshots (Kotak and Cashfree
 sections) are references for the writer, not page assets, and were not carried
 over.
+
+Alt text is stored in each image's alt attribute inside the Word file rather than printed beneath it, so it does not count toward the article length.

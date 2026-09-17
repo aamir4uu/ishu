@@ -2,7 +2,10 @@
 // Markdown -> Word (.docx) builder for content deliverables.
 //
 // Usage:
-//   node tools/build-docx.js <source.md> <output.docx> [--creator "Team name"] [--images <dir>]
+//   node tools/build-docx.js <source.md> <output.docx> [--creator "Team name"] [--images <dir>] [--no-notes] [--no-alt]
+//
+//   --no-notes  leave HTML-comment editor notes out of the Word file
+//   --no-alt    do not print the alt text under each image (it stays in the image's alt attribute)
 //
 // Environment:
 //   NODE_PATH        where the `docx` npm package lives, if not resolvable from the cwd
@@ -50,15 +53,17 @@ const {
 // ---------------------------------------------------------------- args
 const args = process.argv.slice(2);
 const positional = [];
-const opts = { creator: process.env.DOCX_CREATOR || 'SEO and Content Team', images: null };
+const opts = { creator: process.env.DOCX_CREATOR || 'SEO and Content Team', images: null, notes: true, altLine: true };
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--creator') opts.creator = args[++i];
   else if (args[i] === '--images') opts.images = args[++i];
+  else if (args[i] === '--no-notes') opts.notes = false;
+  else if (args[i] === '--no-alt') opts.altLine = false;
   else positional.push(args[i]);
 }
 const [SRC, OUT] = positional;
 if (!SRC || !OUT) {
-  console.error('usage: node build-docx.js <source.md> <output.docx> [--creator NAME] [--images DIR]');
+  console.error('usage: node build-docx.js <source.md> <output.docx> [--creator NAME] [--images DIR] [--no-notes] [--no-alt]');
   process.exit(1);
 }
 const SRC_DIR = path.dirname(path.resolve(SRC));
@@ -163,7 +168,7 @@ for (let i = 0; i < lines.length; i++) {
   const note = line.match(/^<!--\s*(.*?)\s*-->$/);
   if (note) {
     const body = note[1];
-    if (/^NEW SECTION END$/i.test(body)) continue;
+    if (!opts.notes || /^NEW SECTION END$/i.test(body)) continue;
     let label;
     if (/^NEW SECTION START:/i.test(body)) label = `[New section: ${body.replace(/^NEW SECTION START:\s*/i, '')}]`;
     else if (/^EDIT:/i.test(body)) label = `[Edit to existing copy: ${body.replace(/^EDIT:\s*/i, '')}]`;
@@ -191,7 +196,7 @@ for (let i = 0; i < lines.length; i++) {
       buf = real.data; type = real.type; embedded += 1;
     } else {
       buf = placeholderBytes(imgN); type = 'png'; placeholders += 1;
-      note2 = `[IMAGE ${imgN} PLACEHOLDER: download from the Image Source link below, then replace this box]`;
+      note2 = '[Image placeholder]';
     }
     if (buf) {
       kids.push(new Paragraph({
@@ -203,7 +208,7 @@ for (let i = 0; i < lines.length; i++) {
       }));
     }
     if (note2) kids.push(new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 40 }, children: [noteRun(note2)] }));
-    kids.push(new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 60 }, children: [noteRun(`Alt text: ${alt}`, MUTED)] }));
+    if (opts.altLine) kids.push(new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 60 }, children: [noteRun(`Alt text: ${alt}`, MUTED)] }));
     if (sourceUrl) {
       kids.push(new Paragraph({
         alignment: AlignmentType.CENTER, spacing: { after: 300 },

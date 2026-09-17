@@ -2,63 +2,41 @@
 
 - Live URL: https://www.herofincorp.com/blog/how-to-remove-suit-filed-in-cibil-report
 - Category: existing content (refresh)
-- H1: casing corrected to APA, **What Is Suit Filed and How to Remove It in CIBIL Report?** (was "How To Remove it").
-- Deliverable: `What Is Suit Filed and How to Remove It in CIBIL Report.docx` is the full refreshed page with new sections and edits marked by italic notes. Delete the notes when pasting into the CMS.
+- H1: casing corrected to APA, **What Is Suit Filed and How to Remove It in CIBIL Report?**
+- Length: 991 words. This is one of the two extreme cases the project brief allows up to 1,000: the page brief mandates four new sections and six FAQs, about 600 words on their own, and the page cannot explain removal without the steps. It sits under the 1,000 ceiling.
+- Deliverable: `What Is Suit Filed and How to Remove It in CIBIL Report.docx`, the whole article, with all three of the brief's images.
 
-## Keywords from the brief
+## How the brief was met
 
-| Keyword | Monthly searches | Where it now sits |
+| Brief item | Delivered | Where |
 | --- | --- | --- |
-| cibil suit filed | 3,600 | New H2 "How Does a CIBIL Suit Filed Impact Your Credit Score?", new Conclusion, new FAQ |
-| suit cibil | 1,300 | Throughout |
-| suit filed cibil | 1,000 | Throughout, new FAQs |
-| suit filed meaning | 880 | "What Does a Suit Filed Mean in CIBIL?", new FAQ "What Is a Suit Filed in CIBIL?" |
-| suit filed meaning in cibil | 260 | Same |
-| suit filed wilful default written off | 210 | New H2 "Types of Suit Filed Status in a CIBIL Report", first paragraph (verbatim, without commas) |
+| New H2 "How Does a CIBIL Suit Filed Impact Your Credit Score?" (list, about 70 words, keyword "cibil suit filed") | 78 words | After "What Does Suit Filed Mean" |
+| New H2 "Types of Suit Filed Status in a CIBIL Report" (about 100 words, keyword "suit filed wilful default written off") | 45 words of prose plus a four-row table; keyword verbatim in the lead-in | After "Impact" |
+| New H2 "Difference Between Suit Filed, Written-off, and Settled Status" (comparative, about 150 words) | 60 words of prose plus a three-row table | After the removal steps |
+| New H2 "Conclusion" (about 60 words, keyword "cibil suit filed") | 66 words | Before the FAQs |
+| Six new FAQs | 20 to 40 words each; two of them replace existing FAQs that asked the same thing | FAQ section |
+| Keywords "cibil suit filed", "suit filed meaning", "suit cibil", "suit filed cibil" | H1, section headings, FAQ headings | |
 
-## What is new
+Kept, condensed: the opening, the definition, how to check, the removal steps (now six, with the check folded in), both infographics. Cut: the "Why Is Suit Filed Status Critical" bullets (the new impact section covers them), the dispute-documents table (merged into the steps and the documents FAQ), the consequences list, the "Credit Comeback" section (its CTA is now in the conclusion).
 
-| Section | Brief asked for | Delivered | Placement |
-| --- | --- | --- | --- |
-| How Does a CIBIL Suit Filed Impact Your Credit Score? | Practical impact explainer, list, about 70 words, reference SMFG | 82 words | After "Why Is Suit Filed Status Critical", before "Types" |
-| Types of Suit Filed Status in a CIBIL Report | Informational, about 100 words, reference SMFG | 55 words of prose plus a four-row table (about 140 words in all) | After "Impact", before "How to Check" |
-| Difference Between Suit Filed, Written-off, and Settled Status | Comparative clarifier, about 150 words, reference SMFG | 70 words of prose plus a three-row table (about 165 words in all) | After "How to Dispute a Wrongly Filed Suit", before "Consequences" |
-| Conclusion | Wrap-up plus soft CTA, about 60 words | 62 words | After "Your Credit Comeback Starts With the Right Action", before the FAQs |
-| Six new FAQs | What is a suit filed; does it reduce the score; suit filed vs written-off; loan while active; documents for a dispute; how to clear | 40 to 65 words each | FAQ section |
+## Corrections to the live copy
 
-Two of the brief's new FAQs repeat existing ones ("What is a suit filed in
-CIBIL?" and "Can I get a loan while a suit filed entry is active?"). The new
-wording was used and the old answers folded in, so the section does not ask the
-same question twice. The existing "Can the Suit Filed status be removed
-instantly?" stays.
-
-New copy: 587 words of prose, plus the two tables. Full page: about 1,490 words.
-
-## Edits to existing copy
-
-1. Intro: "In this guide, we'll break down what Suit Filed means, why it matters, and how to remove it from your CIBIL report step by step" became "This guide covers what Suit Filed means and how to get it off your CIBIL report, step by step." Signposting is a detector marker.
-2. Step 2: Oxford comma removed ("lender's name, filing date and total amount"); same in "Your Credit Comeback" ("clearing dues, obtaining NOCs and filing disputes").
-3. Step 5: "It's crucial evidence for CIBIL" became "It's the evidence CIBIL needs".
-4. Step 7: "If nothing changes after 45 days" became "after 30 days", to match the RBI timeline (21 days for the lender plus 9 for CIBIL).
-5. "Why Is Suit Filed Status Critical": "is essential for your financial recovery" became "matters for your financial recovery".
-6. Fifty-two curly quotes straightened; " - " dashes in the step labels turned into colons.
+- The 45-day dispute follow-up became 30 days, matching RBI's timeline (21 days for the lender, 9 for CIBIL).
+- Fifty-two curly quotes, "crucial" and the signposting intro are gone.
 
 ## Fact-check log
 
-| Claim in the draft | Source | Status |
+| Claim | Source | Status |
 | --- | --- | --- |
-| Four values in the Suit Filed / Wilful Default field: No Suit Filed, Suit Filed, Wilful Default, Suit Filed (Wilful Default); separate Written-off and Settled field with values including Written-off, Settled and Post (WO) Settled | TransUnion CIBIL report legend, as reproduced by Freed and other credit-repair explainers; SMFG India Credit reference page | Confirmed |
-| Debt Recovery Tribunals hear bank recovery cases of Rs 20 lakh and above | RDDBFI Act 1993, section 1(4), threshold raised to Rs 20 lakh by notification in 2018 | Confirmed |
-| Wilful default tag: dues of Rs 25 lakh and above, committee process and a chance to respond | RBI Master Direction on Treatment of Wilful Defaulters and Large Defaulters, 30 July 2024 | Confirmed |
-| Write-off typically after 180 days or more of non-payment | Lender practice once an account is an NPA (90 days) and provisioning follows; Freed explainer | Confirmed as typical, worded "typically" |
-| Dispute timeline 21 days (lender) plus 9 days (CIBIL); Rs 100 a day compensation beyond 30 days | RBI circular RBI/2023-24/72 of 26 October 2023 (effective 26 April 2024); cibil.com "Framework for Compensation" and "Consumer Dispute Resolution" pages; ClearTax summary | Confirmed |
-| Suit filed and written-off entries do not drop off after a fixed period; they stay until the lender updates them | Moneyview, Poonawalla Fincorp and SingleDebt explainers; no rule in CICRA 2005 or the CIC Regulations 2006 provides automatic deletion | Confirmed |
-| Most lenders want a CIBIL score of 700 or above | TransUnion CIBIL guidance and lender eligibility pages | Confirmed |
+| Four values in the Suit Filed / Wilful Default field; Written-off and Settled in a separate field; Post (WO) Settled | TransUnion CIBIL report legend as reproduced by Freed and other explainers; SMFG India Credit reference page | Confirmed |
+| Debt Recovery Tribunals hear bank recovery cases of Rs 20 lakh and above | RDDBFI Act 1993, section 1(4), threshold raised by 2018 notification | Confirmed |
+| Wilful default: dues of Rs 25 lakh and above, committee process | RBI Master Direction on Treatment of Wilful Defaulters and Large Defaulters, 30 July 2024 | Confirmed |
+| Write-off typically after 180 days or more unpaid | Lender practice after NPA classification; Freed explainer | Confirmed as typical |
+| 21 days plus 9 days dispute timeline; Rs 100 a day compensation past 30 days | RBI circular RBI/2023-24/72 of 26 October 2023; cibil.com dispute and compensation pages | Confirmed |
+| Suit filed and written-off entries stay until the lender updates them; no automatic drop-off | Moneyview, Poonawalla Fincorp, SingleDebt; nothing in CICRA 2005 provides automatic deletion | Confirmed |
 
 ## Open items
 
-1. The existing sentence "It can also show up when your lender includes the account in its mandatory recovery filings under RBI norms" was kept but is vague. Lenders report suit-filed accounts to CICs under CICRA and RBI's directions on large and wilful defaulters; consider rewording.
-2. "Also Read: How to Unlink UPI from Your Bank Account" sits in a credit-report article. Swap for a credit-related link.
-3. The brief for this page has no disclaimer paragraph, unlike the other four; add the standard one if the live page carries it.
-4. Fix the "if If neded" typo in the six-step infographic (see `image-manifest.md`).
-5. Score the new copy in ZeroGPT and file the result under `.claude/skills/humanizer/reports/`.
+1. The brief for this page has no disclaimer paragraph; add the standard one at publish if the live page carries it.
+2. Fix the "if If neded" typo in the six-step infographic (see `image-manifest.md`).
+3. Score the page in ZeroGPT and fill in `.claude/skills/humanizer/reports/2026-09-17-herofincorp-suit-filed-cibil.md`.

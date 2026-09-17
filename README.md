@@ -7,19 +7,21 @@ delivery, and every Word file is built from a markdown source of record with
 1. **Sitejet** (sitejet.io): two new blog articles for the Sitejet Studio
    audience, second person, per the brand content guidelines and the AEO/SEO
    checklist.
-2. **Hero FinCorp** (herofincorp.com): five existing SEO landing pages
-   refreshed against the client's content-gap briefs. See
-   [Hero FinCorp refreshes](#hero-fincorp-five-seo-landing-page-refreshes).
+2. **Hero FinCorp** (herofincorp.com): seven existing SEO landing pages
+   refreshed against the client's content-gap briefs at a strict 500 to 700
+   words each. See [Hero FinCorp refreshes](#hero-fincorp-seven-seo-landing-page-refreshes).
 
 | Article | Words | Gates | Folder |
 | --- | --- | --- | --- |
 | The Delivery SOP That Lets a 3-Person Agency Run Like a 10-Person One | 1,072 | 11/11 at delivery; 10/11 re-measured on 2026-09-17, see note | `blog/delivery-sop/` |
 | What to Send a Client on Launch Day so They Never Email You Again | 1,233 | 11/11 at delivery; 10/11 re-measured on 2026-09-17, see note | `blog/launch-day-handover/` |
-| What Is the UPI Transaction Limit per Day & Month? Complete Guide | 530 new / 2,198 full | 11/11 on both runs | `blog/herofincorp/upi-transaction-limit/` |
-| Working Capital Loan: Meaning, Eligibility and 2026 Application Guide | 656 new / 1,662 full | 11/11 on both runs | `blog/herofincorp/working-capital-loan/` |
-| E-KYC: Meaning, Full Form, Types, Process, and Eligibility | 650 new / 1,792 full | 11/11 on both runs | `blog/herofincorp/what-is-ekyc/` |
-| What Is Suit Filed and How to Remove It in CIBIL Report? | 587 new / 1,491 full | 11/11 on both runs | `blog/herofincorp/suit-filed-cibil/` |
-| What Is an MSME Loan? Meaning, Types, Eligibility & How to Apply in 2026 | 374 new / 2,800 full | 11/11 on both runs | `blog/herofincorp/msme-loan/` |
+| What Is the UPI Transaction Limit per Day & Month? Complete Guide | 688 | 11/11 | `blog/herofincorp/upi-transaction-limit/` |
+| Working Capital Loan: Meaning, Eligibility and 2026 Application Guide | 697 | 11/11 | `blog/herofincorp/working-capital-loan/` |
+| E-KYC: Meaning, Full Form, Types, Process, and Eligibility | 696 | 11/11 | `blog/herofincorp/what-is-ekyc/` |
+| What Is Suit Filed and How to Remove It in CIBIL Report? | 991 | 11/11 | `blog/herofincorp/suit-filed-cibil/` |
+| What Is an MSME Loan? Meaning, Types, Eligibility & How to Apply in 2026 | 697 | 11/11 | `blog/herofincorp/msme-loan/` |
+| Simple Ways to Reduce Your Loan EMI | 698 | 11/11 | `blog/herofincorp/reduce-loan-emi/` |
+| Personal Loan Default Consequences in India & Legal Impact | 976 | 11/11 | `blog/herofincorp/personal-loan-default/` |
 
 Note on the two Sitejet rows: a measurement bug fixed on 2026-09-17 (bullets
 were being counted as one sentence) means both now sit one sentence short of
@@ -94,55 +96,52 @@ Sitejet prefix.
    headline reads "...Launch Day so They Never Email You Again". That is
    correct, not a typo. Capitalise it if the client prefers the look.
 
-## Hero FinCorp: Five SEO Landing Page Refreshes
+## Hero FinCorp: Seven SEO Landing Page Refreshes
 
 `blog/herofincorp/`
 
-Five "Existing Content" briefs from the client's SEO team, each an annotated
+Seven "Existing Content" briefs from the client's SEO team, each an annotated
 copy of a live herofincorp.com article with "New Suggested H2/H3" blocks
 (content nature, word count, target keyword, competitor reference screenshot)
-and a list of new FAQs. The deliverable for each is the full refreshed page:
-the client's existing copy with the new sections written in place, the
-suggested H1 applied, stale facts corrected, and the new FAQs added.
+and a list of new FAQs. The project brief fixes the article length at 500 to
+700 words, with up to 1,000 allowed in extreme cases. So each deliverable is
+the whole article rewritten at that length: every section the brief asks for,
+the suggested H1, the corrected facts, the new FAQs, and the existing copy
+condensed to what fits around them.
 
-| Page | Live URL | New copy | Folder |
-| --- | --- | --- | --- |
-| UPI transaction limit | herofincorp.com/blog/upi-transaction-limit | 3 sections + 5 FAQs | `upi-transaction-limit/` |
-| Working capital loan | herofincorp.com/blog/guide-understanding-working-capital-loans | 2 sections + 7 FAQs | `working-capital-loan/` |
-| What is e-KYC | herofincorp.com/blog/what-is-ekyc | 4 sections + 4 FAQs | `what-is-ekyc/` |
-| Suit filed in CIBIL | herofincorp.com/blog/how-to-remove-suit-filed-in-cibil-report | 4 sections + 6 FAQs | `suit-filed-cibil/` |
-| MSME loan | herofincorp.com/blog/msme-loan | 1 section + 4 FAQs | `msme-loan/` |
+| Page | Live URL | Brief mandates | Words | Folder |
+| --- | --- | --- | --- | --- |
+| What Is the UPI Transaction Limit per Day & Month? Complete Guide | herofincorp.com/blog/upi-transaction-limit | 3 sections + 5 FAQs | 688 | `upi-transaction-limit/` |
+| Working Capital Loan: Meaning, Eligibility and 2026 Application Guide | herofincorp.com/blog/guide-understanding-working-capital-loans | 2 sections + 7 FAQs | 697 | `working-capital-loan/` |
+| E-KYC: Meaning, Full Form, Types, Process, and Eligibility | herofincorp.com/blog/what-is-ekyc | 4 sections + 4 FAQs | 696 | `what-is-ekyc/` |
+| What Is Suit Filed and How to Remove It in CIBIL Report? | herofincorp.com/blog/how-to-remove-suit-filed-in-cibil-report | 4 sections + 6 FAQs | 991 | `suit-filed-cibil/` |
+| What Is an MSME Loan? Meaning, Types, Eligibility & How to Apply in 2026 | herofincorp.com/blog/msme-loan | 1 section + 4 FAQs | 697 | `msme-loan/` |
+| Simple Ways to Reduce Your Loan EMI | herofincorp.com/blog/simple-ways-reduce-your-loan-emi | 1 section + 6 FAQs | 698 | `reduce-loan-emi/` |
+| Personal Loan Default Consequences in India & Legal Impact | herofincorp.com/blog/what-are-the-consequences-of-defaulting-on-a-personal-loan | 5 sections + 6 FAQs | 976 | `personal-loan-default/` |
+
+Words are counted the way a client counts them: headings, body copy, list
+items and table cells, with editor notes, image captions and the standard
+disclaimer excluded (`tools/count-words.py`). Suit filed and personal loan
+default are the two extreme cases: their briefs mandate 600 to 800 words of
+new sections and FAQs on their own, so they run above 700 and under 1,000.
 
 Each folder holds the same six things:
 
 | File | What it is |
 | --- | --- |
-| `<Title>.docx` | **Word deliverable.** Full refreshed page. Heading 1/2/3 styles, live hyperlinks, real banner image embedded with a hyperlinked "Image Source" caption, tables, numbered lists. New sections and edits to existing copy are marked with italic editor notes; delete them when pasting into the CMS |
-| `<slug>.md` | Markdown source of record for the full page. New sections sit between `<!-- NEW SECTION START -->` / `END` markers; edits to existing copy carry an `<!-- EDIT: ... -->` note |
-| `<slug>-new-copy.md` | Only the new copy, extracted with `tools/extract-new-copy.py`. This is what the writer is answerable for and what should be scored in ZeroGPT first |
-| `refresh-notes.md` | Keyword mapping, section-by-section delivery against the brief, every edit made to existing copy and why, the fact-check log with sources, and open items for the client |
+| `<Title>.docx` | **Word deliverable.** The whole article. Heading 1/2/3 styles, live hyperlinks, banner embedded (or a placeholder frame where the brief carried none) with a hyperlinked "Image Source" caption, tables, numbered lists. No editor notes; alt text lives in each image's alt attribute |
+| `<slug>.md` | Markdown source of record, with HTML-comment notes on the H1, the banner, the corrections and the length |
+| `refresh-notes.md` | How the brief was met section by section, what was kept and cut, corrections to the live copy, the fact-check log with sources, open items |
 | `image-manifest.md` | Banner and infographic placement, alt text, source links, and what still needs doing |
-| `zerogpt-preflight-result.txt` | Both gate runs: new copy alone, then the full page |
-
-### Length against the brief
-
-The project brief says 500 to 700 words. The refresh briefs specify the new
-sections by word count, so the 500 to 700 was read as the new copy per page,
-which is the range three of the five land in. UPI and MSME are under it
-because their briefs ask for less (UPI: a 70-word answer, a 50-word
-conclusion and five FAQs; MSME: one 70-word section and four FAQs); padding
-FAQ answers to reach a number would repeat the page. Each `refresh-notes.md`
-says so and suggests where a further section would earn its place.
+| `zerogpt-preflight-result.txt` | The length gate and the eleven detector gates on the final draft |
+| `images/` | The client's own banners and infographics, carried over from the briefs |
 
 ### Facts corrected in the client's existing copy
 
-The checklist asks for every figure to be checked. These were wrong or stale
-in the briefs and are fixed in the drafts, each marked and sourced in the
-page's `refresh-notes.md`:
+Each is marked and sourced in the page's `refresh-notes.md`:
 
 - **MSME classification thresholds** were the 2020 values. Revised from
-  1 April 2025 (Notification S.O. 1364(E)): micro Rs 2.5 crore / Rs 10 crore,
-  small Rs 25 crore / Rs 100 crore, medium Rs 125 crore / Rs 500 crore.
+  1 April 2025 (Notification S.O. 1364(E)).
 - **CLCSS** was described as a live 15% subsidy. Its general component closed
   on 31 March 2020; only the Special CLCSS for SC/ST enterprises operates.
 - **"CIBIL Commercial Rank (CCR)"** is the CIBIL MSME Rank (CMR).
@@ -153,6 +152,13 @@ page's `refresh-notes.md`:
 - **Personal loan ceiling** on the e-KYC page read Rs 5 lakh; Hero FinCorp's
   own product page now says Rs 7 lakh. Flagged for the product team.
 - **CIBIL dispute follow-up** said 45 days; RBI's timeline is 30.
+- **Loan default page**: "defaults drop off the credit report after seven
+  years" (no such rule in India), "IBC insolvency for Rs 1 crore personal loan
+  defaults" (a corporate threshold), and "IPC 420" (replaced by BNS section
+  318 on 1 July 2024) were all removed or updated.
+- **EMI page**: "seven ways" above a list of six; a prepayment section that
+  contradicted its own heading; and a disclaimer about travel and itineraries
+  pasted in from another site.
 
 ### Open items before publishing
 
@@ -162,12 +168,12 @@ page's `refresh-notes.md`:
    2026 NPCI biometric change were confirmed through search results only.
    Each `refresh-notes.md` lists what to re-check on the live pages.
 2. Banners: four pages keep their existing banner, embedded from the brief,
-   with the Image Source line pointing at the live article. The working
-   capital brief has none, so its draft carries a placeholder frame and a
-   proposed Pexels photo. The UPI banner still shows the old title and needs
-   re-titling to match the new H1.
-3. Score each `<slug>-new-copy.md` and then each full page in ZeroGPT and
-   fill in the five open reports under `.claude/skills/humanizer/reports/`.
+   with the Image Source line pointing at the live article. Working capital,
+   EMI and loan default briefs carry none, so those drafts hold a placeholder
+   frame and a proposed Pexels photo. The UPI banner still shows the old title
+   and needs re-titling.
+3. Score each page in ZeroGPT and fill in the seven open reports under
+   `.claude/skills/humanizer/reports/`.
 
 ## Tooling
 
@@ -190,8 +196,19 @@ markdown render as italic editor notes so a refresh draft can mark what is
 new and what was changed.
 
 `tools/extract-new-copy.py <page.md>` prints only the copy between
-`<!-- NEW SECTION START -->` and `<!-- NEW SECTION END -->` markers, so the
-new words in a refresh can be gated on their own.
+`<!-- NEW SECTION START -->` and `<!-- NEW SECTION END -->` markers, for the
+case where new sections are delivered into an unchanged page and need gating
+on their own.
+
+`tools/count-words.py <page.md> [--min 500 --max 700]` counts the words a
+client counts (headings, body, list items, table cells) and skips editor
+notes, image lines, "Image Source" captions and the disclaimer. Exit code 1
+when a file is outside the range, so it runs beside the detector gates.
+
+`--no-notes` leaves the HTML-comment editor notes out of the Word file and
+`--no-alt` keeps alt text in the image attribute instead of printing it, which
+is how the Hero FinCorp files were built so nothing in them counts against the
+client's length rule.
 
 Note: LibreOffice in this environment cannot open any .docx, including the
 client's own brand guide file, so output is verified by parsing the packed XML

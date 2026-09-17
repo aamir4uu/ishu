@@ -1,12 +1,13 @@
 # ZeroGPT Report: Hero FinCorp: E-KYC, Meaning, Full Form, Types, Process, and Eligibility (refresh)
 
 - Date scored: pending
-- File scored: `blog/herofincorp/what-is-ekyc/what-is-ekyc-new-copy.md` (new copy) and `blog/herofincorp/what-is-ekyc/what-is-ekyc.md` (full refreshed page)
-- Word count: 650 new / 1792 full page (prose as measured; headings, tables and image lines excluded)
+- File scored: `blog/herofincorp/what-is-ekyc/what-is-ekyc.md`
+- Word count: 696 as the client counts it (headings, body and tables; `tools/count-words.py`); 644 words of prose as the pre-flight measures it
+- Length brief: 500 to 700 words, up to 700 for this page
 - ZeroGPT result: **pending client run**
 - Detector version or URL: https://www.zerogpt.com
-- Pre-flight run before scoring: yes, both runs saved to `blog/herofincorp/what-is-ekyc/zerogpt-preflight-result.txt`
-- Gates failing at time of scoring: 0 of 11 on the new copy, 0 of 11 on the full page
+- Pre-flight run before scoring: yes, saved to `blog/herofincorp/what-is-ekyc/zerogpt-preflight-result.txt`
+- Gates failing at time of scoring: 0 of 11
 
 This report is filed open. The environment that produced the draft has no
 outbound access to zerogpt.com, so the piece has not been scored yet. Whoever
@@ -14,44 +15,23 @@ runs it should paste the result and the highlighted sentences into the table
 below, then work the actions checklist. Until that happens this skill has no
 new evidence from this piece and no threshold should be moved because of it.
 
-Score the new copy and the full page separately. The new copy is what the
-writer is answerable for; the full page is what the client will paste in.
-
-## Pre-flight metrics at final pass: new copy
+## Pre-flight metrics at final pass
 
 | Gate | Value | Threshold | Result |
 | --- | --- | --- | --- |
-| sentence length variance (CV) | 0.474 | >= 0.45 | pass |
-| sentences clustered at mean | 32.5% | <= 40% | pass |
-| short sentences (< 9 words) | 17.5% | >= 12% | pass |
-| long sentences (> 24 words) | 15.0% | >= 12% | pass |
-| paragraph size variance (CV) | 0.371 | >= 0.35 | pass |
-| top sentence opener | "you" x3 = 7.5% | <= 9% (floor 3) | pass |
+| sentence length variance (CV) | 0.525 | >= 0.45 | pass |
+| sentences clustered at mean | 35.1% | <= 40% | pass |
+| short sentences (< 9 words) | 13.5% | >= 12% | pass |
+| long sentences (> 24 words) | 21.6% | >= 12% | pass |
+| paragraph size variance (CV) | 0.608 | >= 0.35 | pass |
+| top sentence opener | "you" x3 = 8.1% | <= 9% (floor 3) | pass |
 | AI marker density | 0.0 per 1k | <= 2.2 per 1k | pass |
 | em dashes | 0 | 0 | pass |
 | curly quotes | 0 | 0 | pass |
 | rule of three | 0.0 per 1k | <= 2.0 per 1k | pass |
-| contraction rate | 27.69 per 1k | >= 4.0 per 1k | pass |
+| contraction rate | 20.19 per 1k | >= 4.0 per 1k | pass |
 
-Mean sentence length 15.78 words, standard deviation 7.47, across 40 sentences and 10 paragraphs.
-
-## Pre-flight metrics at final pass: full refreshed page
-
-| Gate | Value | Threshold | Result |
-| --- | --- | --- | --- |
-| sentence length variance (CV) | 0.452 | >= 0.45 | pass |
-| sentences clustered at mean | 39.6% | <= 40% | pass |
-| short sentences (< 9 words) | 12.3% | >= 12% | pass |
-| long sentences (> 24 words) | 16.0% | >= 12% | pass |
-| paragraph size variance (CV) | 0.503 | >= 0.35 | pass |
-| top sentence opener | "the" x4 = 3.8% | <= 9% (floor 3) | pass |
-| AI marker density | 0.0 per 1k | <= 2.2 per 1k | pass |
-| em dashes | 0 | 0 | pass |
-| curly quotes | 0 | 0 | pass |
-| rule of three | 1.12 per 1k | <= 2.0 per 1k | pass |
-| contraction rate | 13.39 per 1k | >= 4.0 per 1k | pass |
-
-Mean sentence length 16.58 words, standard deviation 7.5, across 106 sentences and 32 paragraphs.
+Mean sentence length 16.89 words, standard deviation 8.87, across 37 sentences and 15 paragraphs.
 
 ## Highlighted sentences
 
@@ -63,29 +43,31 @@ Mean sentence length 16.58 words, standard deviation 7.5, across 106 sentences a
 
 Nothing here needed a detector run to establish.
 
-**New copy.** Three passes on the opener gate alone: "The" x8 (numbered steps and FAQ answers), then "For" x5 (the how-to's two sub-lists both opened with "For a loan..." and "For mutual funds..."), then "You" x4 (the numbered steps). Numbered process sections drive opener repetition harder than prose does because every step naturally starts with the actor. The fix was to open steps with a time word, the object, or the system doing the work.
+**This page.** Four new sections and four FAQs inside 700 words. The clustered-at-mean gate failed twice while trimming, because cutting words from long sentences pulls them into the middle band; the fix was a deliberate pair of very short sentences and one merged 30-word one. The final trim also caught a rule-of-three hit that the earlier draft did not have ("gender, address and photo, and nothing else"), which is the regex reading a four-item list as a triple.
 
-**Full page.** The existing copy carried the heaviest marker load of the five pages (6.9 per 1k: "at its core", "leverages", "robust framework", "revolutionized", "empowers", "furthermore", "ensuring"). Word-level swaps cleared it without changing a fact. The adversarial pass then removed three "X, not Y" contrasts that the script does not see.
+**All seven pages, the length constraint.** The client's brief caps the whole
+article at 500 to 700 words with headings and tables counted, which is 550 to
+600 words of prose. Two effects on the gates. First, every floor is a single
+sentence: at 40 sentences, the short-sentence and long-sentence floors are both
+five sentences, so one merge or split flips a gate, and the script has to run
+after every edit rather than at the end. Second, trimming pulls sentences
+toward the mean, because the words that go first are the tails of long
+sentences, so the clustered-at-mean gate is the one that fails during a cut
+even when it passed before. The repair that costs no words is the merge (two
+mid-length sentences into one long one) paired with a fragment somewhere
+else. `tools/count-words.py` was added so the length gate runs beside the
+detector gates.
 
-**Adversarial pass, all five pages.** After every gate passed, a hand read
-found three tells the script cannot see, each present in most of the five
-drafts: FAQ answers opening on a one-line aphorism ("Timing is the main
-benefit", "Daily is the number that matters", "Either."), an "X rather than Y"
-or "X, not Y" contrast in roughly one sentence in eight, and paragraph closers
-built as a matched pair ("Do that, and A. Ignore it, and B."). About half of
-each were rewritten. All three are logged as candidates in
-`references/learning-log.md`, marked as self-observed rather than
-detector-observed.
+**Adversarial pass.** After the gates passed, a hand read looked for the three
+tells logged as candidates in `references/learning-log.md` (aphoristic
+one-line openers, "X rather than Y" contrasts, matched-pair closers). The
+condensed pages carry fewer of them than the full-length drafts did, because
+there is no room for flourishes; the ones that remained were rewritten.
 
 ## Actions taken
 
-- [x] Three candidate patterns added to the `references/learning-log.md`
-      candidates table (self-observed during the adversarial pass; sightings
-      count starts at 0 until a detector highlights one)
-- [ ] Pattern promoted to `MARKERS` (needs two detector sightings)
-- [ ] Threshold changed in `GATES` (none; the 2026-09-17 change to
-      `strip_markdown()` is a measurement fix, recorded in the calibration
-      history)
-- [x] `references/zerogpt-signals.md` known-conflicts table gained a row for
-      competitor reference layouts built on bold-label lists
 - [x] Piece history row added to `references/learning-log.md`
+- [x] Standing finding on length-capped pages added to `references/learning-log.md`
+- [ ] Pattern added to the candidates table (nothing new observed; the three from the full-length drafts stand)
+- [ ] Pattern promoted to `MARKERS` (needs two detector sightings)
+- [ ] Threshold changed in `GATES` (none)
