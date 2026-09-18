@@ -154,9 +154,15 @@ items joined by "and", so document lists and eligibility lists ran straight
 past it and were highlighted every time. Break them into two sentences, or
 rewrite as prose. Gate: 1.5 per 1,000 words.
 
-A fifth shape, uniform imperative procedure steps ("Start the application.",
-"Enter your Aadhaar."), was flagged on the e-KYC page and is not yet gated. It
-is in the candidates table pending a second sighting.
+**Runs of imperative list steps.** "Start the application. Enter your Aadhaar.
+Tick the consent screen." Highlighted in both scorings of the e-KYC page while
+the prose around the list stayed clean, so it is the run rather than any one
+step. Gate: a run of three consecutive list items opening on a bare command
+fails. Vary what each step opens on, and let one of them run long.
+
+Two further shapes are in the candidates table pending a second sighting: a
+bare definitional copula ("The X full form is Y.") and a pronoun-subject
+parallel ("It delivers X, and it lifts Y.").
 
 ## Known conflicts with client style guides
 
@@ -172,6 +178,7 @@ compensate elsewhere. Log every conflict here.
 | Keyword in first 100 words and in an H2 | Repetitive keyword placement reads templated | Place the keyword inside a sentence doing real work, not in an announcement sentence. |
 | Refresh brief supplies a competitor screenshot as the layout reference, and it is a bold-label-colon list ("**Short-Term Financing:** ...") | Pattern 16, inline-header vertical list | Match the section's job and length, not its shape. Write a numbered list of plain sentences, or prose. Say so in the refresh notes so the client knows the departure was deliberate. |
 | Brief says "Content Nature: listicle format" | Signal 10, colon-header bullets, and Signal 7 bullet parallelism | Keep the list. Write each item as a full sentence, or two, with no bolded label and no colon after the first few words. The scored evidence says the list itself is fine; the label shape is what flags. |
+| Brief mandates FAQ questions verbatim as headings | Headings are scored too; one mandated FAQ heading was highlighted | Leave the heading alone and buy the variance back in the answer beneath it. Changing a brief-mandated question loses the keyword it was chosen for. |
 
 ## Repair order
 

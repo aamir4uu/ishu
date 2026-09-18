@@ -1,6 +1,6 @@
 ---
 name: humanizer
-version: 3.1.0
+version: 3.1.1
 description: |
   Remove signs of AI-generated writing and drive text past ZeroGPT-class
   detectors. Two layers: the Wikipedia "Signs of AI writing" catalogue for how
@@ -78,16 +78,17 @@ Run the script:
 python3 scripts/zerogpt_preflight.py DRAFT.md --verbose
 ```
 
-It reports fifteen gates and lists the highest-risk sentences in the draft. Work
+It reports sixteen gates and lists the highest-risk sentences in the draft. Work
 the repair order from `references/zerogpt-signals.md`:
 
 1. Clear every marker family the script names. Mechanical work, do it first.
 2. Clear the punctuation gates. Em dashes to commas or periods. Curly quotes to
    straight.
 3. Rewrite the sentences the script lists as riskiest.
-4. Fix the four structural gates: no colon-header bullets, no "claim: the
+4. Fix the five structural gates: no colon-header bullets, no "claim: the
    restatement" colons in prose, no semicolon-welded balanced clauses, no
-   four-item comma lists. These were added from scored reports and they are
+   four-item comma lists, and no run of three or more list steps that each
+   open on a bare command. These were added from scored reports and they are
    the cheapest points on the board.
 5. Fix rhythm. Split long sentences into a long one plus a short one. Merge two
    mediums into one long. Add a fragment. This is what moves the CV gate, and

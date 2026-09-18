@@ -3,7 +3,7 @@
 - Live URL: https://www.herofincorp.com/blog/simple-ways-reduce-your-loan-emi
 - Category: existing content (refresh)
 - H1: unchanged, **Simple Ways to Reduce Your Loan EMI**.
-- Length: 987 words and 5,511 characters (see the 18 September update below) against the 500 to 700 brief (headings, body and tables counted; editor notes, captions and the disclaimer excluded).
+- Length: 994 words and 5,553 characters (see the 18 September update below) against the 500 to 700 brief (headings, body and tables counted; editor notes, captions and the disclaimer excluded).
 - Deliverable: `Simple Ways to Reduce Your Loan EMI.docx`, the whole article.
 
 ## How the brief was met
@@ -88,3 +88,15 @@ Re-score the rewritten page in ZeroGPT and record the result in
 `.claude/skills/humanizer/reports/2026-09-18-herofincorp-reduce-loan-emi.md` (create it from TEMPLATE.md; this page has no report yet).
 The gates are evidence-led but they are still a proxy, and only a real score
 confirms the 15% target has been met.
+
+## Update, 18 September 2026 (second pass): imperative step runs
+
+The e-KYC page was re-scored at 22.9% and the same two numbered steps were
+highlighted that had been highlighted at 37.9%. Two independent sightings
+promoted the pattern into the humanizer script as a sixteenth gate: a run of
+three or more consecutive list items each opening on a bare command now fails.
+
+This page tripped it with a run of five. Three step openers in the nine-way list were reworded so
+they no longer open on a command. Nothing else changed, and no step changed
+meaning, order or detail. The page measures 994 words and 5,553 characters
+and passes all sixteen gates.

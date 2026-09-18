@@ -1,8 +1,8 @@
 Humanizer pre-flight for the Hero FinCorp refresh: working-capital-loan
-Run on 2026-09-18 with .claude/skills/humanizer/scripts/zerogpt_preflight.py v3.1.0, which added four structural gates after three ZeroGPT reports came back 41.6%, 37.9% and 23.1% AI on drafts that had passed all eleven earlier gates.
+Run on 2026-09-18 with zerogpt_preflight.py v3.1.1 (sixteen gates).
 
-Length gate (tools/count-words.py, Word-style):  1000 words   5919 chars  ok   blog/herofincorp/working-capital-loan/working-capital-loan.md
-Client floor: 5,000 characters minimum.
+Length gate:  1000 words   5919 chars  ok   blog/herofincorp/working-capital-loan/working-capital-loan.md
+Client floor: 5,000 characters. Client AI bar: 15%.
 
 ZeroGPT pre-flight: blog/herofincorp/working-capital-loan/working-capital-loan.md
 884 words / 5295 characters / 59 sentences / 12 paragraphs
@@ -24,6 +24,7 @@ mean sentence 15.05 words, stdev 8.23
   [PASS] colon expansion in prose: 0.0/1k (max 3.0)
   [PASS] semicolon-balanced clauses: 0.0/1k (max 4.0)
   [PASS] long enumerations (4+ items): 1.13/1k (max 1.5)
+  [PASS] imperative step runs: longest run 0 (max 2)
 
 Highest-risk sentences (rewrite these first):
   (3) [24w] They work it out from your stock and receivables, net of creditors, and that calculation, the drawing power, looks nothing like a project cost.

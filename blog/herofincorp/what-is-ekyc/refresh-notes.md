@@ -3,7 +3,7 @@
 - Live URL: https://www.herofincorp.com/blog/what-is-ekyc
 - Category: existing content (refresh)
 - H1: unchanged, **E-KYC: Meaning, Full Form, Types, Process, and Eligibility**.
-- Length: 999 words and 5,682 characters (see the 18 September update below) against the 500 to 700 brief (headings, body and tables counted; editor notes, captions and the disclaimer excluded).
+- Length: 1,001 words and 5,691 characters (see the 18 September update below) against the 500 to 700 brief (headings, body and tables counted; editor notes, captions and the disclaimer excluded).
 - Deliverable: `E-KYC - Meaning, Full Form, Types, Process, and Eligibility.docx`, the whole article.
 
 ## How the brief was met
@@ -87,3 +87,36 @@ Re-score the rewritten page in ZeroGPT and record the result in
 `.claude/skills/humanizer/reports/2026-09-18-herofincorp-what-is-ekyc.md`.
 The gates are evidence-led but they are still a proxy, and only a real score
 confirms the 15% target has been met.
+
+## Update, 18 September 2026 (second pass): 22.9%, highlighted spans only
+
+The rewrite above was scored again and came back **22.9% AI**, down from 37.9%
+but still above the client's 15% bar. The client asked for the highlighted
+spans to be changed and nothing else, so exactly five were rewritten and every
+clean sentence was left as it was. The page now measures 1,001 words and 5,691
+characters.
+
+### The five spans that changed
+
+| Was | Why it flagged | Now |
+| --- | --- | --- |
+| "Neha, a freelance designer, found the studio she wanted on a Tuesday and had to leave a deposit by Friday. A branch visit with photocopies would have taken longer than the landlord would wait." | Two evenly built mid-length sentences opening the page | Broken into a three-word opener, a short sentence and a concrete list of what a branch visit involves |
+| "The e-KYC full form is electronic Know Your Customer." | Bare definitional copula, the most predictable sentence on the page | "Electronic Know Your Customer." The copula is gone |
+| "It is the paperless way a lender or NBFC confirms who you are ... by pulling authenticated records from UIDAI" | A "by ...-ing" clause bolted onto a definition | Recast so the lender is the subject doing the pulling |
+| "Nothing passes through a scanner or a data-entry clerk on the way ... and that is the real reason same-day lending works at all." | "The real reason" is a persuasive-authority trope | Split into a short sentence and a longer, more specific one about where details would otherwise drift |
+| "It delivers full KYC without a branch visit, and it lifts the Rs 60,000-a-year lending cap" | "It verbs X, and it verbs Y" pronoun parallel | Two sentences, second person |
+| Steps 2 and 3 of the "Opening a loan or bank account" list | Uniform imperative steps, flagged in both scorings | Reworded so neither opens on a bare command |
+
+### What was deliberately not changed
+
+The FAQ heading "What Is the Difference Between Aadhaar e-KYC and Video KYC?"
+was highlighted, but the client's brief mandates that question verbatim, so it
+stays. Changing it would lose the keyword it was chosen for. Logged in the
+known-conflicts table in the skill.
+
+### What this round taught
+
+Four structural gates took the page from 37.9% to 22.9%, and none of the four
+shapes they target reappeared in the second report. The residual sits in
+ordinary declarative prose that is simply predictable, which no regex catches.
+Expect two detector rounds on anything with a hard percentage target.

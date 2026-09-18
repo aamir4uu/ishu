@@ -1,8 +1,8 @@
 Humanizer pre-flight for the Hero FinCorp refresh: msme-loan
-Run on 2026-09-18 with .claude/skills/humanizer/scripts/zerogpt_preflight.py v3.1.0, which added four structural gates after three ZeroGPT reports came back 41.6%, 37.9% and 23.1% AI on drafts that had passed all eleven earlier gates.
+Run on 2026-09-18 with zerogpt_preflight.py v3.1.1 (sixteen gates).
 
-Length gate (tools/count-words.py, Word-style):  1000 words   5645 chars  ok   blog/herofincorp/msme-loan/msme-loan.md
-Client floor: 5,000 characters minimum.
+Length gate:  1000 words   5645 chars  ok   blog/herofincorp/msme-loan/msme-loan.md
+Client floor: 5,000 characters. Client AI bar: 15%.
 
 ZeroGPT pre-flight: blog/herofincorp/msme-loan/msme-loan.md
 847 words / 4986 characters / 58 sentences / 11 paragraphs
@@ -24,5 +24,6 @@ mean sentence 15.1 words, stdev 8.37
   [PASS] colon expansion in prose: 0.0/1k (max 3.0)
   [PASS] semicolon-balanced clauses: 0.0/1k (max 4.0)
   [PASS] long enumerations (4+ items): 0.0/1k (max 1.5)
+  [PASS] imperative step runs: longest run 0 (max 2)
 
 All gates passed.

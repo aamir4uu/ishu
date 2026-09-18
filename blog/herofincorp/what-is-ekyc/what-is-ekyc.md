@@ -6,13 +6,13 @@
 
 <!-- Rewritten on 2026-09-18 after ZeroGPT scored the previous draft 37.9% AI. The flagged spans were the colon-expansion sentences ("Aadhaar e-KYC is machine to machine: an OTP..."), the semicolon-welded clauses and the uniform imperative steps. All are gone. Personal loan ceiling stays at Rs 7 lakh per herofincorp.com; confirm with the product team. -->
 
-Neha, a freelance designer, found the studio she wanted on a Tuesday and had to leave a deposit by Friday. A branch visit with photocopies would have taken longer than the landlord would wait. She finished the loan application from her sofa in about ten minutes instead, and the money reached her the same evening. What made that possible was e-KYC.
+Neha designs freelance. She found her studio on a Tuesday and the landlord wanted a deposit by Friday. Photocopies, a queue at the branch, a clerk keying her details in twice, none of that fits inside three days. She finished the loan application from her sofa in about ten minutes instead, and the money reached her the same evening. What made that possible was e-KYC.
 
 To Avail Personal Loan [Apply Now](https://loans.apps.herofincorp.com/en/personal-loan)
 
 ## What Is e-KYC?
 
-The e-KYC full form is electronic Know Your Customer. It is the paperless way a lender or [NBFC](https://www.herofincorp.com/blog/what-is-nbfc) confirms who you are and where you live, by pulling authenticated records from [UIDAI](https://uidai.gov.in/) against your Aadhaar instead of asking you to post a photocopy. Nothing passes through a scanner or a data-entry clerk on the way, so the details cannot drift, and that is the real reason same-day lending works at all.
+Electronic Know Your Customer. Rather than have you post a photocopy, a lender or an [NBFC](https://www.herofincorp.com/blog/what-is-nbfc) pulls your identity and address straight out of [UIDAI](https://uidai.gov.in/) records against your Aadhaar. No clerk retypes a thing. Details that cannot drift somewhere between the enrolment centre and the lender's screen are the reason anyone will lend you money on the afternoon you ask.
 
 ## Types of e-KYC Methods in India
 
@@ -30,7 +30,7 @@ Offline e-KYC keeps your Aadhaar number out of the lender's database altogether.
 
 ### 4. Video KYC
 
-Video KYC is a live call with a real person on the other end. An officer of the lender records the session, asks you to hold your PAN up to the camera, matches your face against your Aadhaar photograph and geotags where you are sitting, all of which RBI's V-CIP rules require. It delivers full KYC without a branch visit, and it lifts the Rs 60,000-a-year lending cap that OTP-only KYC carries.
+Video KYC is a live call with a real person on the other end. An officer of the lender records the session, asks you to hold your PAN up to the camera, matches your face against your Aadhaar photograph and geotags where you are sitting, all of which RBI's V-CIP rules require. You get full KYC without setting foot in a branch. That also clears the Rs 60,000-a-year lending cap which OTP-only KYC leaves in place.
 
 ## Who Can Complete e-KYC
 
@@ -54,8 +54,8 @@ How to apply for e-KYC online depends on what you are opening. For a loan or a b
 Opening a loan or bank account:
 
 1. Begin the application in the lender's app or on its website.
-2. Have the Aadhaar-linked mobile beside you, because that is where the OTP arrives whatever number you typed into the form.
-3. Enter the Aadhaar, approve the OTP, tick the consent screen.
+2. The OTP goes to whichever mobile sits on your Aadhaar record, not the number you typed into the form, so keep that handset beside you.
+3. Aadhaar number next, then the OTP, then the consent screen.
 4. Then e-sign.
 
 For mutual funds or a demat account, go through a SEBI-registered KRA such as CVL KRA or CAMS KRA, or let your broker do it. Complete an Aadhaar OTP or a Video KYC, upload a PAN copy, then track the status on the KRA site using your PAN. Validation usually takes a few working days.

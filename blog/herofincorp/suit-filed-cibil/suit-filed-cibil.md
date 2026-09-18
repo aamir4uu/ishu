@@ -35,17 +35,17 @@ Each account's 'Suit Filed / Wilful Default' field carries one of four values, w
 
 ## How to Check and Remove a Suit Filed Entry
 
-Log in at [cibil.com](http://www.cibil.com/), download the report, and read the status field on every account listed before doing anything else. Then:
+Log in at [cibil.com](http://www.cibil.com/), download the report, and read the status field on every account listed. Then:
 
 ![Infographic: six steps to remove Suit Filed from your CIBIL report](images/suit-filed-how-to-remove-infographic.png)
 
 [Image Source](https://www.herofincorp.com/blog/how-to-remove-suit-filed-in-cibil-report)
 
-1. Note down the lender, the filing date and the amount claimed.
-2. Ask the recovery desk whether the case is still active and what the balance comes to once penalties and legal costs have been added on top.
+1. Note the lender, the filing date and the amount claimed.
+2. The recovery desk can tell you whether the case is still active, and what the balance comes to with penalties and legal costs added.
 3. Repay in full, or agree a [settlement](https://www.herofincorp.com/blog/loan-settlement-vs-loan-closure) and get every term of it down in writing before any money moves.
-4. Collect a No Dues Certificate or closure letter, because that document is the evidence CIBIL needs before it touches the entry.
-5. Raise a dispute on cibil.com under Credit Report Help and attach that certificate to it.
+4. A No Dues Certificate or closure letter is the one piece of evidence CIBIL insists on before it will touch the entry, so don't leave the lender without it.
+5. Raise a dispute on cibil.com under Credit Report Help and attach that certificate.
 6. [Check your report](https://www.herofincorp.com/check-free-credit-score) after 30 days, since the lender gets 21 days to confirm and CIBIL nine more. Still wrong? Escalate to the grievance officer, then a credit lawyer.
 
 ## Difference Between Suit Filed, Written-off, and Settled Status

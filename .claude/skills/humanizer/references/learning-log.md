@@ -36,7 +36,9 @@ two independent sightings.
 | Aphoristic one-line opener on FAQ answers and sections ("Timing is the main benefit.", "Daily is the number that matters.", "Either.") | 2026-09-17, Hero FinCorp refresh drafts | 0 detector, 5 drafts | Self-observed in the adversarial pass, not yet highlighted by a detector. Appeared in all five drafts once the gates passed, which suggests the gates push writing toward it: short sentences satisfy the short-sentence floor and land at the top of paragraphs. Watch for it in highlights. |
 | "X rather than Y" / "X, not Y" antithesis, about one sentence in eight | 2026-09-17, Hero FinCorp refresh drafts | 0 detector, 5 drafts | Self-observed. The negative-parallelism regex catches "not just X, it's Y" but not this plainer form. If a detector highlights it twice, add `\brather than\b` density to the hedging or negative_parallelism family with a per-1k cap rather than a ban. |
 | Matched-pair paragraph closer ("Do that, and A. Ignore it, and B.") | 2026-09-17, Hero FinCorp refresh drafts | 0 detector, 3 drafts | Self-observed. Symmetrical two-sentence closers on conclusions and FAQ answers. Rewritten by hand; no regex proposed yet. |
-| Uniform imperative procedure steps ("Start the application in the lender's app.", "Enter your Aadhaar, approve the OTP.") | 2026-09-18, Hero FinCorp e-KYC report | 1 detector sighting | Highlighted across a four-step numbered list while the surrounding prose stayed clean. Not gated yet. Promote if a second report highlights a numbered procedure. The working fix is to vary what each step opens on, and to let one step run long. |
+| Uniform imperative procedure steps ("Start the application in the lender's app.", "Enter your Aadhaar, approve the OTP.") | 2026-09-18, Hero FinCorp e-KYC report | 2 detector sightings | **PROMOTED 2026-09-18.** Highlighted in both scorings of the same page while the prose around the list stayed clean each time. Now gated as `imperative_run_max`, which fails a run of three consecutive list items opening on a bare command. |
+| Bare definitional copula ("The e-KYC full form is electronic Know Your Customer.") | 2026-09-18b, e-KYC second report | 1 | Six words, zero surprise, the most predictable sentence on the page. Glossary and definition sections invite it. Working fix is to drop the copula and name the thing. Promote on a second sighting. |
+| Pronoun-subject parallel ("It delivers X, and it lifts Y.") | 2026-09-18b, e-KYC second report | 1 | Two verbs hung off one repeated pronoun, joined by a comma and an "and". Close cousin of the semicolon-balance shape already gated. Promote on a second sighting. |
 
 ## Threshold calibration history
 
@@ -46,6 +48,7 @@ two independent sightings.
 | 2026-08-21 | sentence opener repetition | `opener_repeat_max: 3` (raw count) | `opener_repeat_pct_max: 9.0` with `opener_repeat_floor: 3` | `reports/2026-08-21-sitejet-agency-delivery-sop.md`. A fixed raw cap cannot scale. On a 219-sentence article, "the" opened 16 sentences, which is 7.3% and entirely normal, and the gate failed a clean draft. Now proportional, with the raw floor kept so a 20-sentence piece is still checked. |
 | 2026-09-17 | measurement, not a threshold: `strip_markdown()` | list markers (`- `, `1. `) left in the prose | list markers and HTML comments stripped before sentence splitting | Found while gating the Hero FinCorp refresh drafts, before any detector run. The sentence splitter needs a capital letter after the terminal period, and a bullet line starts with `-`, so every run of bullets was being measured as one sentence. Re-measured on the fix, the two Sitejet pieces each fall one sentence short of the long-sentence floor (11.4% and 11.6% against 12%). No threshold was moved; the earlier passes were partly an artefact and the pieces stay as delivered. |
 | 2026-09-18 | four new gates added: `colon_header_bullets_max` 0, `colon_expansion_max_per_1k` 3.0, `semicolon_balance_max_per_1k` 4.0, `long_enumeration_max_per_1k` 1.5 | did not exist | as listed | The three Hero FinCorp reports of 2026-09-18. All eleven existing gates passed on drafts ZeroGPT then scored 41.6%, 37.9% and 23.1%. Under the protocol that means the gate set was too loose, so the shapes inside the highlight spans were measured and gated directly. Thresholds sit just below the best performer of the three, because even that one was above the 15% the client requires. |
+| 2026-09-18 (second run) | `imperative_run_max` added at 2 | did not exist | a run of three consecutive list items opening on a bare command fails | `reports/2026-09-18b-herofincorp-what-is-ekyc.md`. Steps 2 and 3 of the same four-item list were highlighted in both the 37.9% and the 22.9% report on this page. Two independent sightings, so the candidate was promoted. Also added "the real reason" to `persuasive_authority`. |
 
 ## Piece history
 
@@ -67,6 +70,7 @@ two independent sightings.
 | 2026-09-18 | Hero FinCorp: suit-filed-cibil (rewrite) | 1028 words / 5863 chars | 0 of 15 at final pass | pending client run | Not scored, but carried the same shapes as the three that were, so it was rewritten against the new gates on 2026-09-18 and grown past the client's 5,000-character floor. |
 | 2026-09-18 | Hero FinCorp: reduce-loan-emi (rewrite) | 987 words / 5511 chars | 0 of 15 at final pass | pending client run | Not scored, but carried the same shapes as the three that were, so it was rewritten against the new gates on 2026-09-18 and grown past the client's 5,000-character floor. |
 | 2026-09-18 | Hero FinCorp: personal-loan-default (rewrite) | 1005 words / 5656 chars | 0 of 15 at final pass | pending client run | Not scored, but carried the same shapes as the three that were, so it was rewritten against the new gates on 2026-09-18 and grown past the client's 5,000-character floor. |
+| 2026-09-18 | Hero FinCorp: what-is-ekyc (second edit) | 1001 words / 5691 chars | 0 of 16 at final pass | **22.9%** after the first rewrite, down from 37.9%; pending a third score | Only the highlighted spans were changed, at the client's instruction. Report in `reports/2026-09-18b-herofincorp-what-is-ekyc.md`. |
 
 ## Standing findings
 
@@ -111,6 +115,16 @@ each item began by naming a thing. The structure was correct for the topic and
 was kept. The fix was per-item: vary the sentence count deliberately, convert
 two triples into pairs plus a trailing clause, and reword four openers. Expect
 this cluster whenever a piece is built from parallel numbered items.
+
+**Clearing every structural tell gets you most of the way, not all of it.** The
+e-KYC page went from 37.9% to 22.9% once the four structural gates were
+cleared, and not one of those four shapes appeared in the second report's
+highlights. The gates work. What remained was ordinary declarative prose with
+nothing wrong with it except that it was predictable: a six-word definition, a
+scene-setter, a comparative clause. Below roughly 25% the remaining score sits
+in rhythm and word choice rather than in any shape a regex can name, and the
+only lever left is specificity. Budget for two detector rounds on anything
+with a hard percentage target.
 
 **Structure flags, vocabulary does not.** The first three drafts ever scored in
 this skill came back 41.6%, 37.9% and 23.1% AI with an AI marker density of

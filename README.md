@@ -15,13 +15,13 @@ delivery, and every Word file is built from a markdown source of record with
 | --- | --- | --- | --- |
 | The Delivery SOP That Lets a 3-Person Agency Run Like a 10-Person One | 1,072 | 11/11 at delivery; 10/11 re-measured on 2026-09-17, see note | `blog/delivery-sop/` |
 | What to Send a Client on Launch Day so They Never Email You Again | 1,233 | 11/11 at delivery; 10/11 re-measured on 2026-09-17, see note | `blog/launch-day-handover/` |
-| What Is the UPI Transaction Limit per Day & Month? Complete Guide | 1,002 | 15/15 | `blog/herofincorp/upi-transaction-limit/` |
-| Working Capital Loan: Meaning, Eligibility and 2026 Application Guide | 1,000 | 15/15 | `blog/herofincorp/working-capital-loan/` |
-| E-KYC: Meaning, Full Form, Types, Process, and Eligibility | 999 | 15/15 | `blog/herofincorp/what-is-ekyc/` |
-| What Is Suit Filed and How to Remove It in CIBIL Report? | 1,028 | 15/15 | `blog/herofincorp/suit-filed-cibil/` |
-| What Is an MSME Loan? Meaning, Types, Eligibility & How to Apply in 2026 | 1,000 | 15/15 | `blog/herofincorp/msme-loan/` |
-| Simple Ways to Reduce Your Loan EMI | 987 | 15/15 | `blog/herofincorp/reduce-loan-emi/` |
-| Personal Loan Default Consequences in India & Legal Impact | 1,005 | 15/15 | `blog/herofincorp/personal-loan-default/` |
+| What Is the UPI Transaction Limit per Day & Month? Complete Guide | 1,002 | 16/16 | `blog/herofincorp/upi-transaction-limit/` |
+| Working Capital Loan: Meaning, Eligibility and 2026 Application Guide | 1,000 | 16/16 | `blog/herofincorp/working-capital-loan/` |
+| E-KYC: Meaning, Full Form, Types, Process, and Eligibility | 1,001 | 16/16 | `blog/herofincorp/what-is-ekyc/` |
+| What Is Suit Filed and How to Remove It in CIBIL Report? | 1,027 | 16/16 | `blog/herofincorp/suit-filed-cibil/` |
+| What Is an MSME Loan? Meaning, Types, Eligibility & How to Apply in 2026 | 1,000 | 16/16 | `blog/herofincorp/msme-loan/` |
+| Simple Ways to Reduce Your Loan EMI | 994 | 16/16 | `blog/herofincorp/reduce-loan-emi/` |
+| Personal Loan Default Consequences in India & Legal Impact | 1,005 | 16/16 | `blog/herofincorp/personal-loan-default/` |
 
 Note on the two Sitejet rows: a measurement bug fixed on 2026-09-17 (bullets
 were being counted as one sentence) means both now sit one sentence short of
@@ -113,10 +113,10 @@ condensed to what fits around them.
 | --- | --- | --- | --- | --- |
 | What Is the UPI Transaction Limit per Day & Month? Complete Guide | herofincorp.com/blog/upi-transaction-limit | 3 sections + 5 FAQs | 1,002 words, 5,478 chars | `upi-transaction-limit/` |
 | Working Capital Loan: Meaning, Eligibility and 2026 Application Guide | herofincorp.com/blog/guide-understanding-working-capital-loans | 2 sections + 7 FAQs | 1,000 words, 5,919 chars | `working-capital-loan/` |
-| E-KYC: Meaning, Full Form, Types, Process, and Eligibility | herofincorp.com/blog/what-is-ekyc | 4 sections + 4 FAQs | 999 words, 5,682 chars | `what-is-ekyc/` |
-| What Is Suit Filed and How to Remove It in CIBIL Report? | herofincorp.com/blog/how-to-remove-suit-filed-in-cibil-report | 4 sections + 6 FAQs | 1,028 words, 5,863 chars | `suit-filed-cibil/` |
+| E-KYC: Meaning, Full Form, Types, Process, and Eligibility | herofincorp.com/blog/what-is-ekyc | 4 sections + 4 FAQs | 1,001 words, 5,691 chars | `what-is-ekyc/` |
+| What Is Suit Filed and How to Remove It in CIBIL Report? | herofincorp.com/blog/how-to-remove-suit-filed-in-cibil-report | 4 sections + 6 FAQs | 1,027 words, 5,846 chars | `suit-filed-cibil/` |
 | What Is an MSME Loan? Meaning, Types, Eligibility & How to Apply in 2026 | herofincorp.com/blog/msme-loan | 1 section + 4 FAQs | 1,000 words, 5,645 chars | `msme-loan/` |
-| Simple Ways to Reduce Your Loan EMI | herofincorp.com/blog/simple-ways-reduce-your-loan-emi | 1 section + 6 FAQs | 987 words, 5,511 chars | `reduce-loan-emi/` |
+| Simple Ways to Reduce Your Loan EMI | herofincorp.com/blog/simple-ways-reduce-your-loan-emi | 1 section + 6 FAQs | 994 words, 5,553 chars | `reduce-loan-emi/` |
 | Personal Loan Default Consequences in India & Legal Impact | herofincorp.com/blog/what-are-the-consequences-of-defaulting-on-a-personal-loan | 5 sections + 6 FAQs | 1,005 words, 5,656 chars | `personal-loan-default/` |
 
 Words and characters are counted the way a client counts them: headings, body
@@ -142,6 +142,17 @@ measured 0.0 per 1,000 words on the two worst pages. The skill gained a gate
 for each shape in v3.1.0, all seven pages were rewritten against them, and the
 three reports are filed under `.claude/skills/humanizer/reports/`. The
 rewrites still need a confirming re-score.
+
+**Second round, same day.** The e-KYC page was re-scored at **22.9%**, down
+from 37.9%. None of the four shapes the new gates target reappeared in its
+highlights, so the gates did their job, but the page is still above the 15%
+bar. Only the highlighted spans were changed this time, at the client's
+instruction. One pattern reached a second sighting and was promoted to a
+sixteenth gate: runs of list steps that each open on a bare command. Two more
+are logged as candidates. The standing lesson is that clearing every known
+structural tell gets a page from the high thirties to the low twenties and no
+further; what is left is rhythm and predictability in ordinary sentences, and
+the only lever for that is specificity.
 
 Each folder holds the same six things:
 
@@ -232,9 +243,13 @@ Note: LibreOffice in this environment cannot open any .docx, including the
 client's own brand guide file, so output is verified by parsing the packed XML
 rather than by rendering.
 
-## Skill: humanizer v3.1.0
+## Skill: humanizer v3.1.1
 
 `.claude/skills/humanizer/`
+
+3.1.1 (2026-09-18) adds a sixteenth gate on runs of imperative list steps,
+promoted after a second sighting in the e-KYC re-score, plus "the real reason"
+in the persuasive-authority markers.
 
 3.1.0 (2026-09-18) is the first version built on real detector scores. Three
 Hero FinCorp pages came back 41.6%, 37.9% and 23.1% AI after passing every

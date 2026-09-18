@@ -2,8 +2,9 @@
 """
 zerogpt_preflight.py - measure the signals ZeroGPT-class detectors key on.
 
-v3.1.0 (2026-09-18) added four structural gates, calibrated against three
-scored ZeroGPT reports. See references/learning-log.md for the evidence.
+v3.1.1 (2026-09-18) adds a sixteenth gate on runs of imperative list steps,
+promoted after a second sighting. v3.1.0 added four structural gates,
+calibrated against three scored ZeroGPT reports. See references/learning-log.md.
 
 ZeroGPT's DeepAnalyse engine scores text sentence by sentence and leans on two
 statistical properties plus a bag of surface markers:
@@ -54,6 +55,9 @@ GATES = {
     "colon_expansion_max_per_1k": 3.0,   # "X is Y: the elaboration"
     "semicolon_balance_max_per_1k": 4.0, # "A does X; B does Y"
     "long_enumeration_max_per_1k": 1.5,  # four or more comma-separated items
+    # Added 2026-09-18 on a second sighting. A numbered procedure whose steps
+    # all open on a bare command was highlighted in both e-KYC reports.
+    "imperative_run_max": 2,             # consecutive list items opening on an imperative
 }
 
 # Markers that ZeroGPT-flagged spans repeatedly contain. Grouped so the report
@@ -98,6 +102,7 @@ MARKERS = {
         r"\bthe real question is\b", r"\bat its core\b", r"\bthe heart of\b",
         r"\bwhat (?:really|truly) matters\b", r"\bfundamentally,",
         r"\bthe bottom line is\b", r"\bthe truth is\b",
+        r"\bthe real reason\b", r"\bwhich is the real\b",
     ],
     "negative_parallelism": [
         r"\bit'?s not (?:just|merely|only) about\b",
@@ -142,6 +147,33 @@ LONG_ENUMERATION = re.compile(
     r"\b[\w\-%.]+(?:\s+[\w\-%.]+){0,4},\s+[\w\-%.]+(?:\s+[\w\-%.]+){0,4},"
     r"\s+[\w\-%.]+(?:\s+[\w\-%.]+){0,4},\s+(?:and\s+|or\s+)?[\w\-%.]+"
 )
+# A run of list items each opening on a bare imperative. "Start the application.
+# Enter your Aadhaar. Tick the consent screen." Flagged in both e-KYC reports
+# while the prose around the list stayed clean, so it is the shape of the run
+# rather than any one step. Promoted on the second sighting, 2026-09-18.
+IMPERATIVE_VERBS = (
+    "Start|Begin|Enter|Keep|Have|Complete|Go|Visit|Check|Submit|Upload|Track|"
+    "Fill|Open|Download|Add|Read|Note|Ask|Call|Pay|Collect|Raise|Wait|Use|Take|"
+    "Choose|Compare|Review|Confirm|Apply|Select|Attach|Send|Get|Make|Set|Log|"
+    "Find|Look|Write|Bring|Put|Tell|Share|Repay|Draw|Multiply|Subtract|Negotiate|"
+    "Extend|Consolidate|Move|Clear|Pull|Register|Define|Receive|Maintain|Reduce"
+)
+LIST_ITEM = re.compile(r"^\s*(?:[-*+]|\d+[.)])\s+(.*)$", re.M)
+IMPERATIVE_STEP = re.compile(rf"^(?:{IMPERATIVE_VERBS})\b")
+
+
+def longest_imperative_run(raw: str) -> int:
+    """Longest run of consecutive list items that each open on an imperative."""
+    best = run = 0
+    for line in raw.split("\n"):
+        m = LIST_ITEM.match(line)
+        if not m:
+            if line.strip():
+                run = 0
+            continue
+        run = run + 1 if IMPERATIVE_STEP.match(m.group(1).strip()) else 0
+        best = max(best, run)
+    return best
 
 
 def strip_markdown(text: str) -> str:
@@ -268,6 +300,7 @@ def analyse(raw: str) -> dict:
         "semicolon_balance_per_1k": round(len(SEMICOLON_BALANCE.findall(prose)) * per_1k, 2),
         "long_enumeration_per_1k": round(len(LONG_ENUMERATION.findall(prose)) * per_1k, 2),
         "list_line_pct": round(100.0 * list_lines / max(1, len(body_lines)), 1),
+        "imperative_run": longest_imperative_run(re.sub(r"<!--.*?-->", " ", raw, flags=re.S)),
         "characters": len(prose.strip()),
         "marker_hits": marker_hits,
         "riskiest_sentences": flagged[:12],
@@ -308,6 +341,8 @@ def gate(r: dict):
          f"{r['semicolon_balance_per_1k']}/1k (max {GATES['semicolon_balance_max_per_1k']})"),
         ("long enumerations (4+ items)", r["long_enumeration_per_1k"] <= GATES["long_enumeration_max_per_1k"],
          f"{r['long_enumeration_per_1k']}/1k (max {GATES['long_enumeration_max_per_1k']})"),
+        ("imperative step runs", r["imperative_run"] <= GATES["imperative_run_max"],
+         f"longest run {r['imperative_run']} (max {GATES['imperative_run_max']})"),
     ]
     return checks
 

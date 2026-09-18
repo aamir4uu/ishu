@@ -20,11 +20,11 @@ Put numbers on that and the trade-off becomes obvious. Rs 5 lakh at 18% over 36 
 
 1. Negotiate the rate. Your repayment record is a bargaining chip, and a point or two shaved off the rate cuts the EMI without costing you anything.
 2. Part-prepay when cash allows. Most lenders will either keep the EMI and shorten the tenure, or keep the tenure and cut the EMI, so ask for the second if it's monthly relief you're after.
-3. Move the loan to a cheaper lender. The arithmetic on a balance transfer appears further down.
+3. A cheaper lender may be willing to take the whole loan off your hands, and the arithmetic on whether that is worth doing appears further down this page.
 4. Extend the tenure. Your EMI falls straight away, the total interest rises, and that makes this relief rather than a strategy.
-5. Ask about a step-down plan, where higher EMIs now and lower ones later suit anyone who expects income to dip, a planned sabbatical being the obvious case.
+5. Step-down plans exist, with higher EMIs now and lower ones later, which suits anyone expecting income to dip. A planned sabbatical is the obvious case.
 6. Consolidate. Fold several costlier loans into one at a single rate and the combined EMI usually shrinks.
-7. Take a top-up at a lower rate and close the dearer debt with the proceeds.
+7. A top-up at a lower rate can close the dearer debt outright.
 8. Repair your credit score first. Six months of clean payments changes what you can ask for.
 9. Ask for restructuring if the hardship is real. Lenders can extend tenure or allow a short payment holiday, though the account may then be reported as restructured.
 

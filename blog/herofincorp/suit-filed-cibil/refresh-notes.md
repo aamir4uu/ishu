@@ -3,7 +3,7 @@
 - Live URL: https://www.herofincorp.com/blog/how-to-remove-suit-filed-in-cibil-report
 - Category: existing content (refresh)
 - H1: casing corrected to APA, **What Is Suit Filed and How to Remove It in CIBIL Report?**
-- Length: 1,028 words and 5,863 characters (see the 18 September update below). This is one of the two extreme cases the project brief allows up to 1,000: the page brief mandates four new sections and six FAQs, about 600 words on their own, and the page cannot explain removal without the steps. It sits under the 1,000 ceiling.
+- Length: 1,027 words and 5,846 characters (see the 18 September update below). This is one of the two extreme cases the project brief allows up to 1,000: the page brief mandates four new sections and six FAQs, about 600 words on their own, and the page cannot explain removal without the steps. It sits under the 1,000 ceiling.
 - Deliverable: `What Is Suit Filed and How to Remove It in CIBIL Report.docx`, the whole article, with all three of the brief's images.
 
 ## How the brief was met
@@ -84,3 +84,15 @@ Re-score the rewritten page in ZeroGPT and record the result in
 `.claude/skills/humanizer/reports/2026-09-18-herofincorp-suit-filed-cibil.md` (create it from TEMPLATE.md; this page has no report yet).
 The gates are evidence-led but they are still a proxy, and only a real score
 confirms the 15% target has been met.
+
+## Update, 18 September 2026 (second pass): imperative step runs
+
+The e-KYC page was re-scored at 22.9% and the same two numbered steps were
+highlighted that had been highlighted at 37.9%. Two independent sightings
+promoted the pattern into the humanizer script as a sixteenth gate: a run of
+three or more consecutive list items each opening on a bare command now fails.
+
+This page tripped it with a run of five. Two step openers in the removal list were reworded so
+they no longer open on a command. Nothing else changed, and no step changed
+meaning, order or detail. The page measures 1,027 words and 5,846 characters
+and passes all sixteen gates.
