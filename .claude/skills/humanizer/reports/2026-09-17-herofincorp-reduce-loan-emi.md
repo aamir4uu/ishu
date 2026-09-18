@@ -1,5 +1,11 @@
 # ZeroGPT Report: Hero FinCorp: Simple Ways to Reduce Your Loan EMI (refresh)
 
+> **SUPERSEDED on 2026-09-18.** The draft described here was scored in
+> ZeroGPT and its siblings came back above the client bar. See
+> `2026-09-18-herofincorp-reduce-loan-emi.md` for the score, the highlighted sentences
+> and the rewrite. The metrics below describe a draft that no longer exists.
+
+
 - Date scored: pending
 - File scored: `blog/herofincorp/reduce-loan-emi/reduce-loan-emi.md`
 - Word count: 698 as the client counts it (headings, body, tables and captions; `tools/count-words.py`); 579 words of prose as the pre-flight measures it

@@ -128,6 +128,36 @@ Models produce balanced, non-committal prose. An opinion, an admission, a mild
 complaint, or a sentence that takes a side raises perplexity and reads human.
 You do not need much. One per section is plenty in professional copy.
 
+
+## Signal 10: sentence shapes that carry a detector's fingerprint
+
+Added 2026-09-18 from the first three scored reports in `reports/`. These four
+shapes accounted for almost every highlighted span across three pages, on
+drafts whose AI marker density was zero. They are gated by the script.
+
+**Colon-header bullets.** `- Term loans: a lump sum repaid in EMIs.` Every
+bullet of this shape was highlighted; the plain-sentence bullets beside them
+were not. Write the bullet as a sentence, or two. Gate: zero tolerance.
+
+**Colon expansion in prose.** A short declarative, a colon, then an appositive
+restating it. "Aadhaar e-KYC is machine to machine: an OTP or a fingerprint."
+A long sentence with a colon before a genuine list did not flag, so the tell
+is the restatement rather than the punctuation mark on its own. Gate: 3.0 per
+1,000 words.
+
+**Semicolon-balanced clauses.** `A is priced off a benchmark; B starts higher.`
+The lowest-scoring of the three pages was flagged almost entirely on this one
+shape. Use a full stop, or "and", or "but". Gate: 4.0 per 1,000 words.
+
+**Comma lists of four or more items.** The rule-of-three regex only sees three
+items joined by "and", so document lists and eligibility lists ran straight
+past it and were highlighted every time. Break them into two sentences, or
+rewrite as prose. Gate: 1.5 per 1,000 words.
+
+A fifth shape, uniform imperative procedure steps ("Start the application.",
+"Enter your Aadhaar."), was flagged on the e-KYC page and is not yet gated. It
+is in the candidates table pending a second sighting.
+
 ## Known conflicts with client style guides
 
 Some client requirements push *toward* detector signals. Follow the client and
@@ -141,6 +171,7 @@ compensate elsewhere. Log every conflict here.
 | Formal or serious tone | Contraction suppression | Keep contractions in the explanatory sentences even where the register is formal. Second person helps carry them. |
 | Keyword in first 100 words and in an H2 | Repetitive keyword placement reads templated | Place the keyword inside a sentence doing real work, not in an announcement sentence. |
 | Refresh brief supplies a competitor screenshot as the layout reference, and it is a bold-label-colon list ("**Short-Term Financing:** ...") | Pattern 16, inline-header vertical list | Match the section's job and length, not its shape. Write a numbered list of plain sentences, or prose. Say so in the refresh notes so the client knows the departure was deliberate. |
+| Brief says "Content Nature: listicle format" | Signal 10, colon-header bullets, and Signal 7 bullet parallelism | Keep the list. Write each item as a full sentence, or two, with no bolded label and no colon after the first few words. The scored evidence says the list itself is fine; the label shape is what flags. |
 
 ## Repair order
 

@@ -1,5 +1,11 @@
 # ZeroGPT Report: Hero FinCorp: Working Capital Loan, Meaning, Eligibility and 2026 Application Guide (refresh)
 
+> **SUPERSEDED on 2026-09-18.** The draft described here was scored in
+> ZeroGPT and came back above the client bar. See
+> `2026-09-18-herofincorp-working-capital-loan.md` for the score, the highlighted sentences
+> and the rewrite. The metrics below describe a draft that no longer exists.
+
+
 - Date scored: pending
 - File scored: `blog/herofincorp/working-capital-loan/working-capital-loan.md`
 - Word count: 698 as the client counts it (headings, body, tables and captions; `tools/count-words.py`); 592 words of prose as the pre-flight measures it

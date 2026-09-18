@@ -15,13 +15,13 @@ delivery, and every Word file is built from a markdown source of record with
 | --- | --- | --- | --- |
 | The Delivery SOP That Lets a 3-Person Agency Run Like a 10-Person One | 1,072 | 11/11 at delivery; 10/11 re-measured on 2026-09-17, see note | `blog/delivery-sop/` |
 | What to Send a Client on Launch Day so They Never Email You Again | 1,233 | 11/11 at delivery; 10/11 re-measured on 2026-09-17, see note | `blog/launch-day-handover/` |
-| What Is the UPI Transaction Limit per Day & Month? Complete Guide | 690 | 11/11 | `blog/herofincorp/upi-transaction-limit/` |
-| Working Capital Loan: Meaning, Eligibility and 2026 Application Guide | 698 | 11/11 | `blog/herofincorp/working-capital-loan/` |
-| E-KYC: Meaning, Full Form, Types, Process, and Eligibility | 698 | 11/11 | `blog/herofincorp/what-is-ekyc/` |
-| What Is Suit Filed and How to Remove It in CIBIL Report? | 997 | 11/11 | `blog/herofincorp/suit-filed-cibil/` |
-| What Is an MSME Loan? Meaning, Types, Eligibility & How to Apply in 2026 | 697 | 11/11 | `blog/herofincorp/msme-loan/` |
-| Simple Ways to Reduce Your Loan EMI | 698 | 11/11 | `blog/herofincorp/reduce-loan-emi/` |
-| Personal Loan Default Consequences in India & Legal Impact | 976 | 11/11 | `blog/herofincorp/personal-loan-default/` |
+| What Is the UPI Transaction Limit per Day & Month? Complete Guide | 1,002 | 15/15 | `blog/herofincorp/upi-transaction-limit/` |
+| Working Capital Loan: Meaning, Eligibility and 2026 Application Guide | 1,000 | 15/15 | `blog/herofincorp/working-capital-loan/` |
+| E-KYC: Meaning, Full Form, Types, Process, and Eligibility | 999 | 15/15 | `blog/herofincorp/what-is-ekyc/` |
+| What Is Suit Filed and How to Remove It in CIBIL Report? | 1,028 | 15/15 | `blog/herofincorp/suit-filed-cibil/` |
+| What Is an MSME Loan? Meaning, Types, Eligibility & How to Apply in 2026 | 1,000 | 15/15 | `blog/herofincorp/msme-loan/` |
+| Simple Ways to Reduce Your Loan EMI | 987 | 15/15 | `blog/herofincorp/reduce-loan-emi/` |
+| Personal Loan Default Consequences in India & Legal Impact | 1,005 | 15/15 | `blog/herofincorp/personal-loan-default/` |
 
 Note on the two Sitejet rows: a measurement bug fixed on 2026-09-17 (bullets
 were being counted as one sentence) means both now sit one sentence short of
@@ -109,21 +109,39 @@ the whole article rewritten at that length: every section the brief asks for,
 the suggested H1, the corrected facts, the new FAQs, and the existing copy
 condensed to what fits around them.
 
-| Page | Live URL | Brief mandates | Words | Folder |
+| Page | Live URL | Brief mandates | Length | Folder |
 | --- | --- | --- | --- | --- |
-| What Is the UPI Transaction Limit per Day & Month? Complete Guide | herofincorp.com/blog/upi-transaction-limit | 3 sections + 5 FAQs | 690 | `upi-transaction-limit/` |
-| Working Capital Loan: Meaning, Eligibility and 2026 Application Guide | herofincorp.com/blog/guide-understanding-working-capital-loans | 2 sections + 7 FAQs | 698 | `working-capital-loan/` |
-| E-KYC: Meaning, Full Form, Types, Process, and Eligibility | herofincorp.com/blog/what-is-ekyc | 4 sections + 4 FAQs | 698 | `what-is-ekyc/` |
-| What Is Suit Filed and How to Remove It in CIBIL Report? | herofincorp.com/blog/how-to-remove-suit-filed-in-cibil-report | 4 sections + 6 FAQs | 997 | `suit-filed-cibil/` |
-| What Is an MSME Loan? Meaning, Types, Eligibility & How to Apply in 2026 | herofincorp.com/blog/msme-loan | 1 section + 4 FAQs | 697 | `msme-loan/` |
-| Simple Ways to Reduce Your Loan EMI | herofincorp.com/blog/simple-ways-reduce-your-loan-emi | 1 section + 6 FAQs | 698 | `reduce-loan-emi/` |
-| Personal Loan Default Consequences in India & Legal Impact | herofincorp.com/blog/what-are-the-consequences-of-defaulting-on-a-personal-loan | 5 sections + 6 FAQs | 976 | `personal-loan-default/` |
+| What Is the UPI Transaction Limit per Day & Month? Complete Guide | herofincorp.com/blog/upi-transaction-limit | 3 sections + 5 FAQs | 1,002 words, 5,478 chars | `upi-transaction-limit/` |
+| Working Capital Loan: Meaning, Eligibility and 2026 Application Guide | herofincorp.com/blog/guide-understanding-working-capital-loans | 2 sections + 7 FAQs | 1,000 words, 5,919 chars | `working-capital-loan/` |
+| E-KYC: Meaning, Full Form, Types, Process, and Eligibility | herofincorp.com/blog/what-is-ekyc | 4 sections + 4 FAQs | 999 words, 5,682 chars | `what-is-ekyc/` |
+| What Is Suit Filed and How to Remove It in CIBIL Report? | herofincorp.com/blog/how-to-remove-suit-filed-in-cibil-report | 4 sections + 6 FAQs | 1,028 words, 5,863 chars | `suit-filed-cibil/` |
+| What Is an MSME Loan? Meaning, Types, Eligibility & How to Apply in 2026 | herofincorp.com/blog/msme-loan | 1 section + 4 FAQs | 1,000 words, 5,645 chars | `msme-loan/` |
+| Simple Ways to Reduce Your Loan EMI | herofincorp.com/blog/simple-ways-reduce-your-loan-emi | 1 section + 6 FAQs | 987 words, 5,511 chars | `reduce-loan-emi/` |
+| Personal Loan Default Consequences in India & Legal Impact | herofincorp.com/blog/what-are-the-consequences-of-defaulting-on-a-personal-loan | 5 sections + 6 FAQs | 1,005 words, 5,656 chars | `personal-loan-default/` |
 
-Words are counted the way a client counts them: headings, body copy, list
-items and table cells, with editor notes, image captions and the standard
-disclaimer excluded (`tools/count-words.py`). Suit filed and personal loan
-default are the two extreme cases: their briefs mandate 600 to 800 words of
-new sections and FAQs on their own, so they run above 700 and under 1,000.
+Words and characters are counted the way a client counts them: headings, body
+copy, list items, table cells and image captions, with editor notes and the
+standard disclaimer excluded (`tools/count-words.py`).
+
+**Length, updated 18 September 2026.** The client added two constraints after
+running three pages through ZeroGPT: every article must reach at least 5,000
+characters, and must score 15% AI or below. A 5,000-character floor is roughly
+870 words of English, so all seven now sit near the 1,000-word ceiling the
+brief allows in extreme cases rather than in the original 500 to 700 band. The
+floor is the newer and more specific instruction.
+
+**AI detection.** ZeroGPT scored the MSME loan, e-KYC and working capital
+drafts at 41.6%, 37.9% and 23.1% AI on 18 September, all above the client's
+15% bar and all on drafts that had passed every gate the humanizer skill had
+at the time. Reading the fill colour of each text run in the report PDFs
+separates the flagged spans from the clean ones exactly, and four sentence
+shapes accounted for almost all of them: colon-header bullets, colon
+expansions in prose, semicolons welding balanced clauses, and comma lists of
+four or more items. Marker vocabulary was not involved at all; density
+measured 0.0 per 1,000 words on the two worst pages. The skill gained a gate
+for each shape in v3.1.0, all seven pages were rewritten against them, and the
+three reports are filed under `.claude/skills/humanizer/reports/`. The
+rewrites still need a confirming re-score.
 
 Each folder holds the same six things:
 
@@ -214,9 +232,19 @@ Note: LibreOffice in this environment cannot open any .docx, including the
 client's own brand guide file, so output is verified by parsing the packed XML
 rather than by rendering.
 
-## Skill: humanizer v3.0.1
+## Skill: humanizer v3.1.0
 
 `.claude/skills/humanizer/`
+
+3.1.0 (2026-09-18) is the first version built on real detector scores. Three
+Hero FinCorp pages came back 41.6%, 37.9% and 23.1% AI after passing every
+gate the skill had, so four structural gates were added: colon-header bullets
+at zero tolerance, colon expansions in prose, semicolons welding balanced
+clauses, and comma lists of four or more items. The three report PDFs are
+filed beside their reports, because the flagged sentences can only be
+recovered by reading text fill colours out of the PDF. The standing finding is
+that structure flags and vocabulary does not; marker density was 0.0 per 1,000
+words on the two worst-scoring drafts.
 
 3.0.1 (2026-09-17) is a measurement fix plus findings, no threshold changes:
 `strip_markdown()` now removes list markers and HTML comments before sentence

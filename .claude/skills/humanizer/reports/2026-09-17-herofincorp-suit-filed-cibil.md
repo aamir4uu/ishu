@@ -1,5 +1,11 @@
 # ZeroGPT Report: Hero FinCorp: What Is Suit Filed and How to Remove It in CIBIL Report? (refresh)
 
+> **SUPERSEDED on 2026-09-18.** The draft described here was scored in
+> ZeroGPT and its siblings came back above the client bar. See
+> `2026-09-18-herofincorp-suit-filed-cibil.md` for the score, the highlighted sentences
+> and the rewrite. The metrics below describe a draft that no longer exists.
+
+
 - Date scored: pending
 - File scored: `blog/herofincorp/suit-filed-cibil/suit-filed-cibil.md`
 - Word count: 997 as the client counts it (headings, body, tables and captions; `tools/count-words.py`); 730 words of prose as the pre-flight measures it

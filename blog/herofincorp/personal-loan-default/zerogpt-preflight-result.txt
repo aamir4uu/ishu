@@ -1,22 +1,28 @@
 Humanizer pre-flight for the Hero FinCorp refresh: personal-loan-default
-Run on 2026-09-17 with .claude/skills/humanizer/scripts/zerogpt_preflight.py (v3.0.1). The whole article is one run: at 500 to 700 words there is no separate new-copy sample.
+Run on 2026-09-18 with .claude/skills/humanizer/scripts/zerogpt_preflight.py v3.1.0, which added four structural gates after three ZeroGPT reports came back 41.6%, 37.9% and 23.1% AI on drafts that had passed all eleven earlier gates.
 
-Length gate (tools/count-words.py, Word-style: headings, tables and captions included):   976 words  ok   blog/herofincorp/personal-loan-default/personal-loan-default.md
+Length gate (tools/count-words.py, Word-style):  1005 words   5656 chars  ok   blog/herofincorp/personal-loan-default/personal-loan-default.md
+Client floor: 5,000 characters minimum.
 
 ZeroGPT pre-flight: blog/herofincorp/personal-loan-default/personal-loan-default.md
-834 words / 44 sentences / 12 paragraphs
-mean sentence 19.43 words, stdev 10.25
+863 words / 4983 characters / 64 sentences / 12 paragraphs
+advisory: 43.5% of body lines are list items (not gated; see learning-log.md)
+mean sentence 13.81 words, stdev 9.18
 
-  [PASS] sentence length variance (CV): 0.527 (need >= 0.45)
-  [PASS] sentences clustered at mean: 31.8% (need <= 40.0%)
-  [PASS] short sentences present: 15.9% (need >= 12.0%)
-  [PASS] long sentences present: 31.8% (need >= 12.0%)
-  [PASS] paragraph size variance (CV): 0.652 (need >= 0.35)
-  [PASS] sentence opener repetition: 'what' x3 = 6.8% of sentences (max 9.0%, floor 3)
+  [PASS] sentence length variance (CV): 0.665 (need >= 0.45)
+  [PASS] sentences clustered at mean: 28.1% (need <= 40.0%)
+  [PASS] short sentences present: 35.9% (need >= 12.0%)
+  [PASS] long sentences present: 12.5% (need >= 12.0%)
+  [PASS] paragraph size variance (CV): 0.804 (need >= 0.35)
+  [PASS] sentence opener repetition: 'a' x5 = 7.8% of sentences (max 9.0%, floor 3)
   [PASS] AI marker density: 0.0/1k (max 2.2)
   [PASS] em dashes: 0
   [PASS] curly quotes: 0
-  [PASS] rule of three: 1.2/1k (max 2.0)
-  [PASS] contraction rate: 14.39/1k (need >= 4.0)
+  [PASS] rule of three: 0.0/1k (max 2.0)
+  [PASS] contraction rate: 15.06/1k (need >= 4.0)
+  [PASS] colon-header bullets: 0 (max 0)
+  [PASS] colon expansion in prose: 1.16/1k (max 3.0)
+  [PASS] semicolon-balanced clauses: 3.48/1k (max 4.0)
+  [PASS] long enumerations (4+ items): 0.0/1k (max 1.5)
 
 All gates passed.

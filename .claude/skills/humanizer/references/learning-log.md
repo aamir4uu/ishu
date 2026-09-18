@@ -36,6 +36,7 @@ two independent sightings.
 | Aphoristic one-line opener on FAQ answers and sections ("Timing is the main benefit.", "Daily is the number that matters.", "Either.") | 2026-09-17, Hero FinCorp refresh drafts | 0 detector, 5 drafts | Self-observed in the adversarial pass, not yet highlighted by a detector. Appeared in all five drafts once the gates passed, which suggests the gates push writing toward it: short sentences satisfy the short-sentence floor and land at the top of paragraphs. Watch for it in highlights. |
 | "X rather than Y" / "X, not Y" antithesis, about one sentence in eight | 2026-09-17, Hero FinCorp refresh drafts | 0 detector, 5 drafts | Self-observed. The negative-parallelism regex catches "not just X, it's Y" but not this plainer form. If a detector highlights it twice, add `\brather than\b` density to the hedging or negative_parallelism family with a per-1k cap rather than a ban. |
 | Matched-pair paragraph closer ("Do that, and A. Ignore it, and B.") | 2026-09-17, Hero FinCorp refresh drafts | 0 detector, 3 drafts | Self-observed. Symmetrical two-sentence closers on conclusions and FAQ answers. Rewritten by hand; no regex proposed yet. |
+| Uniform imperative procedure steps ("Start the application in the lender's app.", "Enter your Aadhaar, approve the OTP.") | 2026-09-18, Hero FinCorp e-KYC report | 1 detector sighting | Highlighted across a four-step numbered list while the surrounding prose stayed clean. Not gated yet. Promote if a second report highlights a numbered procedure. The working fix is to vary what each step opens on, and to let one step run long. |
 
 ## Threshold calibration history
 
@@ -44,6 +45,7 @@ two independent sightings.
 | 2026-08-21 | all | n/a | initial values | Seeded from editorial prose baselines, not from a ZeroGPT report. Treat every number as provisional until the first three reports land. |
 | 2026-08-21 | sentence opener repetition | `opener_repeat_max: 3` (raw count) | `opener_repeat_pct_max: 9.0` with `opener_repeat_floor: 3` | `reports/2026-08-21-sitejet-agency-delivery-sop.md`. A fixed raw cap cannot scale. On a 219-sentence article, "the" opened 16 sentences, which is 7.3% and entirely normal, and the gate failed a clean draft. Now proportional, with the raw floor kept so a 20-sentence piece is still checked. |
 | 2026-09-17 | measurement, not a threshold: `strip_markdown()` | list markers (`- `, `1. `) left in the prose | list markers and HTML comments stripped before sentence splitting | Found while gating the Hero FinCorp refresh drafts, before any detector run. The sentence splitter needs a capital letter after the terminal period, and a bullet line starts with `-`, so every run of bullets was being measured as one sentence. Re-measured on the fix, the two Sitejet pieces each fall one sentence short of the long-sentence floor (11.4% and 11.6% against 12%). No threshold was moved; the earlier passes were partly an artefact and the pieces stay as delivered. |
+| 2026-09-18 | four new gates added: `colon_header_bullets_max` 0, `colon_expansion_max_per_1k` 3.0, `semicolon_balance_max_per_1k` 4.0, `long_enumeration_max_per_1k` 1.5 | did not exist | as listed | The three Hero FinCorp reports of 2026-09-18. All eleven existing gates passed on drafts ZeroGPT then scored 41.6%, 37.9% and 23.1%. Under the protocol that means the gate set was too loose, so the shapes inside the highlight spans were measured and gated directly. Thresholds sit just below the best performer of the three, because even that one was above the 15% the client requires. |
 
 ## Piece history
 
@@ -58,6 +60,13 @@ two independent sightings.
 | 2026-09-17 | Hero FinCorp: msme-loan (refresh, 500 to 700 word brief) | 697 as counted / 545 prose | 0 of 11 at final pass | pending client run | Whole article gated as one run. Report in `reports/2026-09-17-herofincorp-msme-loan.md`. |
 | 2026-09-17 | Hero FinCorp: reduce-loan-emi (refresh, 500 to 700 word brief) | 698 as counted / 579 prose | 0 of 11 at final pass | pending client run | Whole article gated as one run. Report in `reports/2026-09-17-herofincorp-reduce-loan-emi.md`. |
 | 2026-09-17 | Hero FinCorp: personal-loan-default (refresh, 500 to 700 word brief) | 976 as counted / 834 prose | 0 of 11 at final pass | pending client run | Whole article gated as one run. Report in `reports/2026-09-17-herofincorp-personal-loan-default.md`. |
+| 2026-09-18 | Hero FinCorp: msme-loan (rewrite) | 1000 words / 5645 chars | 0 of 15 at final pass | 41.6% before the rewrite, pending re-score | Rewritten 2026-09-18 after ZeroGPT scored the previous draft **41.6% AI**. Report in `reports/2026-09-18-herofincorp-msme-loan.md`. |
+| 2026-09-18 | Hero FinCorp: what-is-ekyc (rewrite) | 999 words / 5682 chars | 0 of 15 at final pass | 37.9% before the rewrite, pending re-score | Rewritten 2026-09-18 after ZeroGPT scored the previous draft **37.9% AI**. Report in `reports/2026-09-18-herofincorp-what-is-ekyc.md`. |
+| 2026-09-18 | Hero FinCorp: working-capital-loan (rewrite) | 1000 words / 5919 chars | 0 of 15 at final pass | 23.1% before the rewrite, pending re-score | Rewritten 2026-09-18 after ZeroGPT scored the previous draft **23.1% AI**. Report in `reports/2026-09-18-herofincorp-working-capital-loan.md`. |
+| 2026-09-18 | Hero FinCorp: upi-transaction-limit (rewrite) | 1002 words / 5478 chars | 0 of 15 at final pass | pending client run | Not scored, but carried the same shapes as the three that were, so it was rewritten against the new gates on 2026-09-18 and grown past the client's 5,000-character floor. |
+| 2026-09-18 | Hero FinCorp: suit-filed-cibil (rewrite) | 1028 words / 5863 chars | 0 of 15 at final pass | pending client run | Not scored, but carried the same shapes as the three that were, so it was rewritten against the new gates on 2026-09-18 and grown past the client's 5,000-character floor. |
+| 2026-09-18 | Hero FinCorp: reduce-loan-emi (rewrite) | 987 words / 5511 chars | 0 of 15 at final pass | pending client run | Not scored, but carried the same shapes as the three that were, so it was rewritten against the new gates on 2026-09-18 and grown past the client's 5,000-character floor. |
+| 2026-09-18 | Hero FinCorp: personal-loan-default (rewrite) | 1005 words / 5656 chars | 0 of 15 at final pass | pending client run | Not scored, but carried the same shapes as the three that were, so it was rewritten against the new gates on 2026-09-18 and grown past the client's 5,000-character floor. |
 
 ## Standing findings
 
@@ -102,6 +111,27 @@ each item began by naming a thing. The structure was correct for the topic and
 was kept. The fix was per-item: vary the sentence count deliberately, convert
 two triples into pairs plus a trailing clause, and reword four openers. Expect
 this cluster whenever a piece is built from parallel numbered items.
+
+**Structure flags, vocabulary does not.** The first three drafts ever scored in
+this skill came back 41.6%, 37.9% and 23.1% AI with an AI marker density of
+0.0 per 1,000 words. Not one highlighted span contained a word from the
+vocabulary list in `zerogpt-signals.md`. Every one of them was a sentence
+shape: a colon-header bullet, a colon expansion, a semicolon welding two
+balanced clauses, or a comma list of four or more items. When a draft passes
+the vocabulary gates and still scores badly, stop looking at words and start
+looking at punctuation.
+
+**The colon is the most expensive character in this kind of copy.** A bullet
+written as `- Label: expansion` was highlighted every single time it appeared,
+while plain-sentence bullets in the same list came back clean. The same holds
+in prose for a short declarative followed by a colon and an appositive. Both
+gates exist now, the bullet one at zero tolerance.
+
+**Eleven green gates are not a pass.** All three scored drafts cleared every
+gate in v3.0.1. The script measures what it has been taught to measure and
+nothing else, so a clean run means "no known tell", never "will score low".
+Until a piece has been through a detector, the gates are a floor rather than
+a verdict.
 
 **A strict word cap turns every floor into a single sentence.** Seven pages
 written to a 500 to 700 word brief (headings and tables counted) came out at

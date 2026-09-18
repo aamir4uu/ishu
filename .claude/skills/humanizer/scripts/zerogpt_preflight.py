@@ -2,6 +2,9 @@
 """
 zerogpt_preflight.py - measure the signals ZeroGPT-class detectors key on.
 
+v3.1.0 (2026-09-18) added four structural gates, calibrated against three
+scored ZeroGPT reports. See references/learning-log.md for the evidence.
+
 ZeroGPT's DeepAnalyse engine scores text sentence by sentence and leans on two
 statistical properties plus a bag of surface markers:
 
@@ -45,6 +48,12 @@ GATES = {
     "curly_quote_max": 0,
     "rule_of_three_max_per_1k": 2.0,
     "contraction_min_per_1k": 4.0,
+    # Added 2026-09-18 from the three Hero FinCorp ZeroGPT reports. Every one of
+    # these four shapes appeared inside a highlight span; see learning-log.md.
+    "colon_header_bullets_max": 0,       # raw count: "- Term loans: a lump sum..."
+    "colon_expansion_max_per_1k": 3.0,   # "X is Y: the elaboration"
+    "semicolon_balance_max_per_1k": 4.0, # "A does X; B does Y"
+    "long_enumeration_max_per_1k": 1.5,  # four or more comma-separated items
 }
 
 # Markers that ZeroGPT-flagged spans repeatedly contain. Grouped so the report
@@ -115,6 +124,25 @@ RULE_OF_THREE = re.compile(
     r"\b\w+(?:\s+\w+){0,2},\s+\w+(?:\s+\w+){0,2},\s+and\s+\w+(?:\s+\w+){0,2}\b"
 )
 
+# --- structural tics, added 2026-09-18 -------------------------------------
+# A list item whose first few words are a label followed by a colon. The single
+# most reliable shape in the three reports: four of five such bullets on one
+# page were highlighted, while the plain-sentence bullets around them were not.
+COLON_HEADER_BULLET = re.compile(
+    r"^\s*(?:[-*+]|\d+[.)])\s+[^:\n]{2,60}:\s", re.M
+)
+# Prose version: a short declarative, a colon, then an appositive that restates
+# it. "Aadhaar e-KYC is machine to machine: an OTP or a fingerprint..."
+COLON_EXPANSION = re.compile(r"[a-z0-9\)](?:\s+\S+){0,12}:\s+[a-z]")
+# Two balanced independent clauses welded with a semicolon.
+SEMICOLON_BALANCE = re.compile(r"[a-z,\)]\s*;\s*[a-z]")
+# Four or more comma-separated items in one sentence. The rule-of-three regex
+# only sees exactly three, so document lists and eligibility lists slipped past.
+LONG_ENUMERATION = re.compile(
+    r"\b[\w\-%.]+(?:\s+[\w\-%.]+){0,4},\s+[\w\-%.]+(?:\s+[\w\-%.]+){0,4},"
+    r"\s+[\w\-%.]+(?:\s+[\w\-%.]+){0,4},\s+(?:and\s+|or\s+)?[\w\-%.]+"
+)
+
 
 def strip_markdown(text: str) -> str:
     """Remove structure that is not prose so counts reflect what a reader sees."""
@@ -151,6 +179,9 @@ def split_sentences(text: str):
 
 def analyse(raw: str) -> dict:
     prose = strip_markdown(raw)
+    lines = [l for l in raw.split("\n") if l.strip()]
+    list_lines = sum(1 for l in lines if re.match(r"^\s*(?:[-*+]|\d+[.)])\s", l))
+    body_lines = [l for l in lines if not re.match(r"^\s{0,3}#|^\s*\||^!\[|^\[Image|^<!--", l)]
     sentences = split_sentences(prose)
     words = re.findall(r"[A-Za-z']+", prose)
     n_words = len(words) or 1
@@ -232,6 +263,12 @@ def analyse(raw: str) -> dict:
         "em_dashes": prose.count("—"),
         "curly_quotes": sum(prose.count(c) for c in "“”‘’"),
         "marker_density_per_1k": round(marker_total * per_1k, 2),
+        "colon_header_bullets": len(COLON_HEADER_BULLET.findall(raw)),
+        "colon_expansion_per_1k": round(len(COLON_EXPANSION.findall(prose)) * per_1k, 2),
+        "semicolon_balance_per_1k": round(len(SEMICOLON_BALANCE.findall(prose)) * per_1k, 2),
+        "long_enumeration_per_1k": round(len(LONG_ENUMERATION.findall(prose)) * per_1k, 2),
+        "list_line_pct": round(100.0 * list_lines / max(1, len(body_lines)), 1),
+        "characters": len(prose.strip()),
         "marker_hits": marker_hits,
         "riskiest_sentences": flagged[:12],
     }
@@ -263,6 +300,14 @@ def gate(r: dict):
          f"{r['rule_of_three_per_1k']}/1k (max {GATES['rule_of_three_max_per_1k']})"),
         ("contraction rate", r["contractions_per_1k"] >= GATES["contraction_min_per_1k"],
          f"{r['contractions_per_1k']}/1k (need >= {GATES['contraction_min_per_1k']})"),
+        ("colon-header bullets", r["colon_header_bullets"] <= GATES["colon_header_bullets_max"],
+         f"{r['colon_header_bullets']} (max {GATES['colon_header_bullets_max']})"),
+        ("colon expansion in prose", r["colon_expansion_per_1k"] <= GATES["colon_expansion_max_per_1k"],
+         f"{r['colon_expansion_per_1k']}/1k (max {GATES['colon_expansion_max_per_1k']})"),
+        ("semicolon-balanced clauses", r["semicolon_balance_per_1k"] <= GATES["semicolon_balance_max_per_1k"],
+         f"{r['semicolon_balance_per_1k']}/1k (max {GATES['semicolon_balance_max_per_1k']})"),
+        ("long enumerations (4+ items)", r["long_enumeration_per_1k"] <= GATES["long_enumeration_max_per_1k"],
+         f"{r['long_enumeration_per_1k']}/1k (max {GATES['long_enumeration_max_per_1k']})"),
     ]
     return checks
 
@@ -284,7 +329,8 @@ def main():
         return 1 if failed else 0
 
     print(f"ZeroGPT pre-flight: {a.file}")
-    print(f"{r['words']} words / {r['sentences']} sentences / {r['paragraphs']} paragraphs")
+    print(f"{r['words']} words / {r['characters']} characters / {r['sentences']} sentences / {r['paragraphs']} paragraphs")
+    print(f"advisory: {r['list_line_pct']}% of body lines are list items (not gated; see learning-log.md)")
     print(f"mean sentence {r['mean_sentence_len']} words, stdev {r['stdev_sentence_len']}\n")
     for name, ok, detail in checks:
         print(f"  [{'PASS' if ok else 'FAIL'}] {name}: {detail}")

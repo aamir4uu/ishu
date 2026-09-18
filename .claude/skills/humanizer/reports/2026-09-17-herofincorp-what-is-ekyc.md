@@ -1,5 +1,11 @@
 # ZeroGPT Report: Hero FinCorp: E-KYC, Meaning, Full Form, Types, Process, and Eligibility (refresh)
 
+> **SUPERSEDED on 2026-09-18.** The draft described here was scored in
+> ZeroGPT and came back above the client bar. See
+> `2026-09-18-herofincorp-what-is-ekyc.md` for the score, the highlighted sentences
+> and the rewrite. The metrics below describe a draft that no longer exists.
+
+
 - Date scored: pending
 - File scored: `blog/herofincorp/what-is-ekyc/what-is-ekyc.md`
 - Word count: 698 as the client counts it (headings, body, tables and captions; `tools/count-words.py`); 644 words of prose as the pre-flight measures it

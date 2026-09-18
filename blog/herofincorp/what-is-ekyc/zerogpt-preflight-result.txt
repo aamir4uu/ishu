@@ -1,22 +1,28 @@
 Humanizer pre-flight for the Hero FinCorp refresh: what-is-ekyc
-Run on 2026-09-17 with .claude/skills/humanizer/scripts/zerogpt_preflight.py (v3.0.1). The whole article is one run: at 500 to 700 words there is no separate new-copy sample.
+Run on 2026-09-18 with .claude/skills/humanizer/scripts/zerogpt_preflight.py v3.1.0, which added four structural gates after three ZeroGPT reports came back 41.6%, 37.9% and 23.1% AI on drafts that had passed all eleven earlier gates.
 
-Length gate (tools/count-words.py, Word-style: headings, tables and captions included):   698 words  ok   blog/herofincorp/what-is-ekyc/what-is-ekyc.md
+Length gate (tools/count-words.py, Word-style):   999 words   5682 chars  ok   blog/herofincorp/what-is-ekyc/what-is-ekyc.md
+Client floor: 5,000 characters minimum.
 
 ZeroGPT pre-flight: blog/herofincorp/what-is-ekyc/what-is-ekyc.md
-640 words / 37 sentences / 15 paragraphs
-mean sentence 16.78 words, stdev 8.83
+937 words / 5269 characters / 56 sentences / 15 paragraphs
+advisory: 38.5% of body lines are list items (not gated; see learning-log.md)
+mean sentence 16.46 words, stdev 8.3
 
-  [PASS] sentence length variance (CV): 0.526 (need >= 0.45)
-  [PASS] sentences clustered at mean: 35.1% (need <= 40.0%)
-  [PASS] short sentences present: 13.5% (need >= 12.0%)
-  [PASS] long sentences present: 18.9% (need >= 12.0%)
-  [PASS] paragraph size variance (CV): 0.608 (need >= 0.35)
-  [PASS] sentence opener repetition: 'you' x3 = 8.1% of sentences (max 9.0%, floor 3)
+  [PASS] sentence length variance (CV): 0.504 (need >= 0.45)
+  [PASS] sentences clustered at mean: 33.9% (need <= 40.0%)
+  [PASS] short sentences present: 17.9% (need >= 12.0%)
+  [PASS] long sentences present: 12.5% (need >= 12.0%)
+  [PASS] paragraph size variance (CV): 0.453 (need >= 0.35)
+  [PASS] sentence opener repetition: 'a' x5 = 8.9% of sentences (max 9.0%, floor 3)
   [PASS] AI marker density: 0.0/1k (max 2.2)
   [PASS] em dashes: 0
   [PASS] curly quotes: 0
   [PASS] rule of three: 0.0/1k (max 2.0)
-  [PASS] contraction rate: 20.31/1k (need >= 4.0)
+  [PASS] contraction rate: 7.47/1k (need >= 4.0)
+  [PASS] colon-header bullets: 0 (max 0)
+  [PASS] colon expansion in prose: 0.0/1k (max 3.0)
+  [PASS] semicolon-balanced clauses: 0.0/1k (max 4.0)
+  [PASS] long enumerations (4+ items): 0.0/1k (max 1.5)
 
 All gates passed.
