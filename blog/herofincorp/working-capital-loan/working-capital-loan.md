@@ -20,11 +20,11 @@ A working capital loan is short-term finance for the cost of staying open. Salar
 - An overdraft lets you go below zero on the current account, usually against a fixed deposit.
 - Invoice financing turns an unpaid bill into cash now, with the lender either advancing against the invoice or buying it outright from you.
 - Trade credit comes from the supplier rather than a lender, so you take delivery of the goods today and settle the bill on a date you agreed in advance.
-- Short-term business loans arrive as a lump sum for under a year, usually unsecured at an NBFC.
+- [Short-term business loans](https://www.herofincorp.com/personal-loans/short-term-loan) arrive as a lump sum for under a year, usually unsecured at an NBFC and repaid on a fixed schedule.
 
 ## Advantages of Working Capital Loans
 
-Timing is the main benefit here. Money turns up when the gap opens, weeks before the receivable clears, which is exactly when it is worth something.
+Timing is the main benefit of a working capital loan. Money turns up when the gap opens, weeks before the receivable clears, which is exactly when it is worth something.
 
 - Sanction is quick. An unsecured facility gets assessed on bank statements and GST returns, and NBFC disbursal typically follows within two working days of complete paperwork.
 - You pay interest only on what you draw from a cash credit or overdraft limit, and an unused limit costs little beyond the renewal fee.
@@ -58,7 +58,7 @@ KYC for the business and its owners, then 12 months of bank statements with GST 
 
 ### What Is the Interest Rate on a Working Capital Loan?
 
-Security and profile matter more than the product's name. Secured bank limits get priced off a benchmark plus a spread, while unsecured NBFC loans start higher because nothing exists to sell if you default. Hero FinCorp's begin at 14% a year.
+Security and profile matter more than the product's name. Secured bank limits get priced off a benchmark plus a spread, while unsecured NBFC loans start higher because nothing exists to sell if you default. [Hero FinCorp's](https://www.herofincorp.com/unsecured-business-loans) begin at 14% a year.
 
 ### Is a Working Capital Loan Secured or Unsecured?
 
@@ -66,7 +66,7 @@ Both kinds exist. Cash credit and overdrafts are usually secured against stock, 
 
 ### How Is a Working Capital Loan Different From a Term Loan?
 
-A term loan buys something that lasts, a machine or a shop or a delivery van, and it is repaid over years in fixed EMIs. Working capital funds the months between paying suppliers and getting paid. It is short and usually revolving, and the lender sizes it from your cycle because no asset exists to size it against.
+A [term loan](https://www.herofincorp.com/blog/term-loan-vs-working-capital-loan) buys something that lasts, a machine or a shop or a delivery van, and is repaid over years in fixed EMIs. Working capital funds the months between paying suppliers and getting paid, so it is short and usually revolving, and the lender sizes it from your operating cycle because no asset exists to size it against.
 
 ### Can I Get a Working Capital Loan Without Collateral?
 

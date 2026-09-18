@@ -16,10 +16,10 @@ delivery, and every Word file is built from a markdown source of record with
 | The Delivery SOP That Lets a 3-Person Agency Run Like a 10-Person One | 1,072 | 11/11 at delivery; 10/11 re-measured on 2026-09-17, see note | `blog/delivery-sop/` |
 | What to Send a Client on Launch Day so They Never Email You Again | 1,233 | 11/11 at delivery; 10/11 re-measured on 2026-09-17, see note | `blog/launch-day-handover/` |
 | What Is the UPI Transaction Limit per Day & Month? Complete Guide | 1,002 | 16/16 | `blog/herofincorp/upi-transaction-limit/` |
-| Working Capital Loan: Meaning, Eligibility and 2026 Application Guide | 1,000 | 16/16 | `blog/herofincorp/working-capital-loan/` |
-| E-KYC: Meaning, Full Form, Types, Process, and Eligibility | 1,001 | 16/16 | `blog/herofincorp/what-is-ekyc/` |
+| Working Capital Loan: Meaning, Eligibility and 2026 Application Guide | 1,011 | 16/16 | `blog/herofincorp/working-capital-loan/` |
+| E-KYC: Meaning, Full Form, Types, Process, and Eligibility | 1,011 | 16/16 | `blog/herofincorp/what-is-ekyc/` |
 | What Is Suit Filed and How to Remove It in CIBIL Report? | 1,027 | 16/16 | `blog/herofincorp/suit-filed-cibil/` |
-| What Is an MSME Loan? Meaning, Types, Eligibility & How to Apply in 2026 | 1,000 | 16/16 | `blog/herofincorp/msme-loan/` |
+| What Is an MSME Loan? Meaning, Types, Eligibility & How to Apply in 2026 | 1,007 | 16/16 | `blog/herofincorp/msme-loan/` |
 | Simple Ways to Reduce Your Loan EMI | 994 | 16/16 | `blog/herofincorp/reduce-loan-emi/` |
 | Personal Loan Default Consequences in India & Legal Impact | 1,005 | 16/16 | `blog/herofincorp/personal-loan-default/` |
 
@@ -112,10 +112,10 @@ condensed to what fits around them.
 | Page | Live URL | Brief mandates | Length | Folder |
 | --- | --- | --- | --- | --- |
 | What Is the UPI Transaction Limit per Day & Month? Complete Guide | herofincorp.com/blog/upi-transaction-limit | 3 sections + 5 FAQs | 1,002 words, 5,478 chars | `upi-transaction-limit/` |
-| Working Capital Loan: Meaning, Eligibility and 2026 Application Guide | herofincorp.com/blog/guide-understanding-working-capital-loans | 2 sections + 7 FAQs | 1,000 words, 5,919 chars | `working-capital-loan/` |
-| E-KYC: Meaning, Full Form, Types, Process, and Eligibility | herofincorp.com/blog/what-is-ekyc | 4 sections + 4 FAQs | 1,001 words, 5,691 chars | `what-is-ekyc/` |
+| Working Capital Loan: Meaning, Eligibility and 2026 Application Guide | herofincorp.com/blog/guide-understanding-working-capital-loans | 2 sections + 7 FAQs | 1,011 words, 5,981 chars | `working-capital-loan/` |
+| E-KYC: Meaning, Full Form, Types, Process, and Eligibility | herofincorp.com/blog/what-is-ekyc | 4 sections + 4 FAQs | 1,011 words, 5,741 chars | `what-is-ekyc/` |
 | What Is Suit Filed and How to Remove It in CIBIL Report? | herofincorp.com/blog/how-to-remove-suit-filed-in-cibil-report | 4 sections + 6 FAQs | 1,027 words, 5,846 chars | `suit-filed-cibil/` |
-| What Is an MSME Loan? Meaning, Types, Eligibility & How to Apply in 2026 | herofincorp.com/blog/msme-loan | 1 section + 4 FAQs | 1,000 words, 5,645 chars | `msme-loan/` |
+| What Is an MSME Loan? Meaning, Types, Eligibility & How to Apply in 2026 | herofincorp.com/blog/msme-loan | 1 section + 4 FAQs | 1,007 words, 5,682 chars | `msme-loan/` |
 | Simple Ways to Reduce Your Loan EMI | herofincorp.com/blog/simple-ways-reduce-your-loan-emi | 1 section + 6 FAQs | 994 words, 5,553 chars | `reduce-loan-emi/` |
 | Personal Loan Default Consequences in India & Legal Impact | herofincorp.com/blog/what-are-the-consequences-of-defaulting-on-a-personal-loan | 5 sections + 6 FAQs | 1,005 words, 5,656 chars | `personal-loan-default/` |
 
@@ -228,6 +228,14 @@ new and what was changed.
 `<!-- NEW SECTION START -->` and `<!-- NEW SECTION END -->` markers, for the
 case where new sections are delivered into an unchanged page and need gating
 on their own.
+
+`tools/audit-page.py` audits the delivered Hero FinCorp pages against the
+project checklist and each page's own brief: heading structure and APA title
+case, the banner and its hyperlinked Image Source line, length in words and
+characters, the sixteen humanizer gates, every mandated section and FAQ, target
+keywords, the CTA, internal links and punctuation. It exits 1 on any failure.
+It caught three keywords and three internal links that four rounds of
+detector-driven rewriting had quietly cost, so run it after any rewrite.
 
 `tools/count-words.py <page.md> [--min 500 --max 700]` counts the words a
 client counts (headings, body, list items, table cells) and skips editor

@@ -3,7 +3,7 @@
 - Live URL: https://www.herofincorp.com/blog/msme-loan
 - Category: existing content (refresh)
 - H1: casing corrected to APA, **What Is an MSME Loan? Meaning, Types, Eligibility & How to Apply in 2026**.
-- Length: 1,000 words and 5,645 characters (see the 18 September update below) against the 500 to 700 brief (headings, body and tables counted; editor notes, captions and the disclaimer excluded).
+- Length: 1,007 words and 5,682 characters (see the 18 September update below) against the 500 to 700 brief (headings, body and tables counted; editor notes, captions and the disclaimer excluded).
 - Deliverable: `What Is an MSME Loan - Meaning, Types, Eligibility and How to Apply in 2026.docx`, the whole article.
 
 ## How the brief was met
@@ -88,3 +88,36 @@ Re-score the rewritten page in ZeroGPT and record the result in
 `.claude/skills/humanizer/reports/2026-09-18-herofincorp-msme-loan.md`.
 The gates are evidence-led but they are still a proxy, and only a real score
 confirms the 15% target has been met.
+
+## Compliance audit, 18 September 2026
+
+The client asked for a check that every instruction and guideline had been
+followed. `tools/audit-page.py` now runs that check mechanically, and this page
+passes all of it. Heading structure and APA title case, the banner with its
+hyperlinked Image Source line directly beneath, length in both words and
+characters, the sixteen humanizer gates, every section and FAQ the brief
+mandates, the target keywords, the client CTA, internal links, and no em dashes
+or curly quotes.
+
+### What the audit caught
+
+Four rounds of rewriting against the detector had quietly cost this page
+the "MSME loan eligibility" and "MSME loan eligibility criteria" keywords (1,900 and 590 searches a month), which had gone when the eligibility H2 was shortened to "Eligibility and Documents", plus the age band written as a searcher types it. Restored.
+
+Two audit failures turned out to be my own rule being wrong rather than the
+copy. APA 7th lowercases minor words of three letters or fewer, so "From" and
+"With" stay capitalised. The checker was lowercasing four-letter prepositions
+and has been corrected.
+
+### Checked by hand, because a script cannot
+
+Every figure in the fact-check log above was re-verified as present and
+unchanged after all the rewrites, and none of the errors corrected in the
+client's original copy has crept back. The page carries no duplicate sentences
+and no repeated phrasing beyond unavoidable factual wording.
+
+Sections run at or above the word counts the brief gives, because those counts
+were written for a 700-word article and the client's later 5,000-character
+floor required a longer page. Coverage is never below what the brief asked for.
+
+The page now measures 1,007 words and 5,682 characters.

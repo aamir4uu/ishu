@@ -3,7 +3,7 @@
 - Live URL: https://www.herofincorp.com/blog/what-is-ekyc
 - Category: existing content (refresh)
 - H1: unchanged, **E-KYC: Meaning, Full Form, Types, Process, and Eligibility**.
-- Length: 1,001 words and 5,691 characters (see the 18 September update below) against the 500 to 700 brief (headings, body and tables counted; editor notes, captions and the disclaimer excluded).
+- Length: 1,011 words and 5,741 characters (see the 18 September update below) against the 500 to 700 brief (headings, body and tables counted; editor notes, captions and the disclaimer excluded).
 - Deliverable: `E-KYC - Meaning, Full Form, Types, Process, and Eligibility.docx`, the whole article.
 
 ## How the brief was met
@@ -120,3 +120,36 @@ Four structural gates took the page from 37.9% to 22.9%, and none of the four
 shapes they target reappeared in the second report. The residual sits in
 ordinary declarative prose that is simply predictable, which no regex catches.
 Expect two detector rounds on anything with a hard percentage target.
+
+## Compliance audit, 18 September 2026
+
+The client asked for a check that every instruction and guideline had been
+followed. `tools/audit-page.py` now runs that check mechanically, and this page
+passes all of it. Heading structure and APA title case, the banner with its
+hyperlinked Image Source line directly beneath, length in both words and
+characters, the sixteen humanizer gates, every section and FAQ the brief
+mandates, the target keywords, the client CTA, internal links, and no em dashes
+or curly quotes.
+
+### What the audit caught
+
+Four rounds of rewriting against the detector had quietly cost this page
+the "e-KYC full form" keyword (3,600 searches a month), which had gone when the flagged definition sentence was rewritten. Restored.
+
+Two audit failures turned out to be my own rule being wrong rather than the
+copy. APA 7th lowercases minor words of three letters or fewer, so "From" and
+"With" stay capitalised. The checker was lowercasing four-letter prepositions
+and has been corrected.
+
+### Checked by hand, because a script cannot
+
+Every figure in the fact-check log above was re-verified as present and
+unchanged after all the rewrites, and none of the errors corrected in the
+client's original copy has crept back. The page carries no duplicate sentences
+and no repeated phrasing beyond unavoidable factual wording.
+
+Sections run at or above the word counts the brief gives, because those counts
+were written for a 700-word article and the client's later 5,000-character
+floor required a longer page. Coverage is never below what the brief asked for.
+
+The page now measures 1,011 words and 5,741 characters.

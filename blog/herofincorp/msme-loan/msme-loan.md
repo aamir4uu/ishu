@@ -46,11 +46,11 @@ Most MSME loans carry no end-use restriction, so the money goes wherever the mon
 
 CGTMSE matters most, because its guarantee lets a lender drop the collateral requirement on loans of up to Rs 10 crore. That ceiling doubled from Rs 5 crore on 1 April 2025. MUDRA works at the other end, covering up to Rs 20 lakh across four bands, and suits a firm too young to show three years of financials. PSB59 pulls your GST and ITR data directly, returning an in-principle decision on up to Rs 5 crore in under an hour. Stand-Up India funds women and SC/ST founders between Rs 10 lakh and Rs 1 crore. One warning. The general CLCSS subsidy closed in March 2020, so ignore any page still advertising it.
 
-## Eligibility and Documents
+## MSME Loan Eligibility Criteria and Documents
 
-Lenders want an applicant aged between 21 and 65 holding an active Udyam certificate. Most ask for one to three years of trading history, although MUDRA accepts less, and a personal CIBIL score of 700 or better helps anywhere, with existing EMIs under half of monthly income.
+MSME loan eligibility starts with age. The age limit runs 21 to 65, and the applicant needs an active Udyam certificate. Most ask for one to three years of trading history, although MUDRA accepts less, and a CIBIL score of 700 or better helps anywhere, with existing EMIs under half of monthly income.
 
-Paperwork is standard enough. Every owner needs a PAN and an Aadhaar. Add the Udyam certificate, then 12 months of GST returns and bank statements, then two years of ITRs. Read the Key Fact Statement before you sign. It sets out the annual percentage rate and every charge attached, and it is the only page showing what the money really costs.
+Paperwork is standard. Every owner needs a PAN and an Aadhaar. Add the Udyam certificate, then 12 months of GST returns and bank statements, then two years of ITRs. Read the Key Fact Statement before signing. It sets out the annual percentage rate and every charge attached, and it is the only page showing what the money really costs.
 
 ## Frequently Asked Questions
 

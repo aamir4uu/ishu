@@ -6,13 +6,13 @@
 
 <!-- Rewritten on 2026-09-18 after ZeroGPT scored the previous draft 37.9% AI. The flagged spans were the colon-expansion sentences ("Aadhaar e-KYC is machine to machine: an OTP..."), the semicolon-welded clauses and the uniform imperative steps. All are gone. Personal loan ceiling stays at Rs 7 lakh per herofincorp.com; confirm with the product team. -->
 
-Neha designs freelance. She found her studio on a Tuesday and the landlord wanted a deposit by Friday. Photocopies, a queue at the branch, a clerk keying her details in twice, none of that fits inside three days. She finished the loan application from her sofa in about ten minutes instead, and the money reached her the same evening. What made that possible was e-KYC.
+Neha designs freelance. She found her studio on a Tuesday and the landlord wanted a deposit by Friday. Photocopies, a branch queue, a clerk keying her details in twice, none of that fits inside three days. She finished the loan application from her sofa in about ten minutes instead, and the money reached her the same evening. What made that possible was e-KYC.
 
 To Avail Personal Loan [Apply Now](https://loans.apps.herofincorp.com/en/personal-loan)
 
 ## What Is e-KYC?
 
-Electronic Know Your Customer. Rather than have you post a photocopy, a lender or an [NBFC](https://www.herofincorp.com/blog/what-is-nbfc) pulls your identity and address straight out of [UIDAI](https://uidai.gov.in/) records against your Aadhaar. No clerk retypes a thing. Details that cannot drift somewhere between the enrolment centre and the lender's screen are the reason anyone will lend you money on the afternoon you ask.
+Ask for the e-KYC full form and you get four words back. Electronic Know Your Customer. Rather than have you post a photocopy, a lender or an [NBFC](https://www.herofincorp.com/blog/what-is-nbfc) pulls your identity and address straight out of [UIDAI](https://uidai.gov.in/) records against your Aadhaar. No clerk retypes a thing. Details that cannot drift somewhere between the enrolment centre and the lender's screen are the reason anyone will lend you money on the afternoon you ask.
 
 ## Types of e-KYC Methods in India
 
